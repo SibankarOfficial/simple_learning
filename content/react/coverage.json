@@ -1,0 +1,1339 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-09-10",
+  "method": "Manual inventory of reviewed Learn chapter indexes and reference categories. Mapped means a syllabus destination exists; it does not mean a finished lesson. A finite inventory can expose known gaps, not prove universal completeness.",
+  "items": [
+    {
+      "id": "hooks:useState",
+      "name": "useState",
+      "category": "hooks",
+      "sourceId": "hooks",
+      "topicIds": [
+        "use-state"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "sample-draft"
+    },
+    {
+      "id": "hooks:useReducer",
+      "name": "useReducer",
+      "category": "hooks",
+      "sourceId": "hooks",
+      "topicIds": [
+        "reducers-context-usereducer"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "hooks:useContext",
+      "name": "useContext",
+      "category": "hooks",
+      "sourceId": "hooks",
+      "topicIds": [
+        "reducers-context-usecontext"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "hooks:useRef",
+      "name": "useRef",
+      "category": "hooks",
+      "sourceId": "hooks",
+      "topicIds": [
+        "refs-useref"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "hooks:useImperativeHandle",
+      "name": "useImperativeHandle",
+      "category": "hooks",
+      "sourceId": "hooks",
+      "topicIds": [
+        "refs-useimperativehandle"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "hooks:useEffect",
+      "name": "useEffect",
+      "category": "hooks",
+      "sourceId": "hooks",
+      "topicIds": [
+        "effects-useeffect"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "hooks:useLayoutEffect",
+      "name": "useLayoutEffect",
+      "category": "hooks",
+      "sourceId": "hooks",
+      "topicIds": [
+        "effects-uselayouteffect"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "hooks:useInsertionEffect",
+      "name": "useInsertionEffect",
+      "category": "hooks",
+      "sourceId": "hooks",
+      "topicIds": [
+        "effects-useinsertioneffect"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "hooks:useEffectEvent",
+      "name": "useEffectEvent",
+      "category": "hooks",
+      "sourceId": "hooks",
+      "topicIds": [
+        "effects-useeffectevent"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "hooks:useMemo",
+      "name": "useMemo",
+      "category": "hooks",
+      "sourceId": "hooks",
+      "topicIds": [
+        "performance-usememo"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "hooks:useCallback",
+      "name": "useCallback",
+      "category": "hooks",
+      "sourceId": "hooks",
+      "topicIds": [
+        "performance-usecallback"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "hooks:useTransition",
+      "name": "useTransition",
+      "category": "hooks",
+      "sourceId": "hooks",
+      "topicIds": [
+        "performance-usetransition"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "hooks:useDeferredValue",
+      "name": "useDeferredValue",
+      "category": "hooks",
+      "sourceId": "hooks",
+      "topicIds": [
+        "performance-usedeferredvalue"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "hooks:useDebugValue",
+      "name": "useDebugValue",
+      "category": "hooks",
+      "sourceId": "hooks",
+      "topicIds": [
+        "custom-hooks-usedebugvalue"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "hooks:useId",
+      "name": "useId",
+      "category": "hooks",
+      "sourceId": "hooks",
+      "topicIds": [
+        "concurrent-useid-and-accessible-ids"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "hooks:useSyncExternalStore",
+      "name": "useSyncExternalStore",
+      "category": "hooks",
+      "sourceId": "hooks",
+      "topicIds": [
+        "concurrent-usesyncexternalstore"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "hooks:useActionState",
+      "name": "useActionState",
+      "category": "hooks",
+      "sourceId": "hooks",
+      "topicIds": [
+        "actions-useactionstate"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "hooks:useOptimistic",
+      "name": "useOptimistic",
+      "category": "hooks",
+      "sourceId": "optimistic",
+      "topicIds": [
+        "actions-useoptimistic"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "components:Fragment",
+      "name": "Fragment",
+      "category": "components",
+      "sourceId": "components",
+      "topicIds": [
+        "components-jsx-fragments-and-keyed-fragments"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "components:Profiler",
+      "name": "Profiler",
+      "category": "components",
+      "sourceId": "components",
+      "topicIds": [
+        "performance-profiler-and-react-devtools-profiling"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "components:Suspense",
+      "name": "Suspense",
+      "category": "components",
+      "sourceId": "components",
+      "topicIds": [
+        "performance-suspense-boundaries-and-fallbacks"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "components:StrictMode",
+      "name": "StrictMode",
+      "category": "components",
+      "sourceId": "components",
+      "topicIds": [
+        "concurrent-strictmode-development-checks"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "components:Activity",
+      "name": "Activity",
+      "category": "components",
+      "sourceId": "components",
+      "topicIds": [
+        "concurrent-activity-and-retained-ui"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "apis:createContext",
+      "name": "createContext",
+      "category": "apis",
+      "sourceId": "apis",
+      "topicIds": [
+        "reducers-context-createcontext"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "apis:lazy",
+      "name": "lazy",
+      "category": "apis",
+      "sourceId": "apis",
+      "topicIds": [
+        "performance-code-splitting-and-lazy"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "apis:memo",
+      "name": "memo",
+      "category": "apis",
+      "sourceId": "apis",
+      "topicIds": [
+        "performance-memo"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "apis:startTransition",
+      "name": "startTransition",
+      "category": "apis",
+      "sourceId": "apis",
+      "topicIds": [
+        "performance-starttransition"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "apis:act",
+      "name": "act",
+      "category": "apis",
+      "sourceId": "apis",
+      "topicIds": [
+        "testing-act"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "apis:cache",
+      "name": "cache",
+      "category": "apis",
+      "sourceId": "apis",
+      "topicIds": [
+        "server-components-cache"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "apis:cacheSignal",
+      "name": "cacheSignal",
+      "category": "apis",
+      "sourceId": "apis",
+      "topicIds": [
+        "server-components-cachesignal"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "apis:captureOwnerStack",
+      "name": "captureOwnerStack",
+      "category": "apis",
+      "sourceId": "apis",
+      "topicIds": [
+        "testing-captureownerstack"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "apis:use",
+      "name": "use",
+      "category": "apis",
+      "sourceId": "apis",
+      "topicIds": [
+        "server-components-use-with-promise-and-context"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "dom-hooks:useFormStatus",
+      "name": "useFormStatus",
+      "category": "dom-hooks",
+      "sourceId": "dom-hooks",
+      "topicIds": [
+        "actions-useformstatus"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "dom:createPortal",
+      "name": "createPortal",
+      "category": "dom",
+      "sourceId": "dom",
+      "topicIds": [
+        "refs-portals-and-createportal"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "dom:flushSync",
+      "name": "flushSync",
+      "category": "dom",
+      "sourceId": "dom",
+      "topicIds": [
+        "dom-reference-flushsync"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "dom:prefetchDNS",
+      "name": "prefetchDNS",
+      "category": "dom",
+      "sourceId": "dom",
+      "topicIds": [
+        "dom-reference-prefetchdns"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "dom:preconnect",
+      "name": "preconnect",
+      "category": "dom",
+      "sourceId": "dom",
+      "topicIds": [
+        "dom-reference-preconnect"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "dom:preload",
+      "name": "preload",
+      "category": "dom",
+      "sourceId": "dom",
+      "topicIds": [
+        "dom-reference-preload"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "dom:preloadModule",
+      "name": "preloadModule",
+      "category": "dom",
+      "sourceId": "dom",
+      "topicIds": [
+        "dom-reference-preloadmodule"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "dom:preinit",
+      "name": "preinit",
+      "category": "dom",
+      "sourceId": "dom",
+      "topicIds": [
+        "dom-reference-preinit"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "dom:preinitModule",
+      "name": "preinitModule",
+      "category": "dom",
+      "sourceId": "dom",
+      "topicIds": [
+        "dom-reference-preinitmodule"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "dom:browser",
+      "name": "browser",
+      "category": "dom",
+      "sourceId": "dom",
+      "topicIds": [
+        "version-watch-browser-api-with-use"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "client:createRoot",
+      "name": "createRoot",
+      "category": "client",
+      "sourceId": "client",
+      "topicIds": [
+        "server-rendering-createroot-root-render-and-root-unmount"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "client:hydrateRoot",
+      "name": "hydrateRoot",
+      "category": "client",
+      "sourceId": "client",
+      "topicIds": [
+        "server-rendering-hydrateroot-and-recoverable-errors"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "server:renderToPipeableStream",
+      "name": "renderToPipeableStream",
+      "category": "server",
+      "sourceId": "server",
+      "topicIds": [
+        "server-rendering-rendertopipeablestream"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "server:renderToReadableStream",
+      "name": "renderToReadableStream",
+      "category": "server",
+      "sourceId": "server",
+      "topicIds": [
+        "server-rendering-rendertoreadablestream"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "server:renderToString",
+      "name": "renderToString",
+      "category": "server",
+      "sourceId": "server",
+      "topicIds": [
+        "server-rendering-rendertostring"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "server:renderToStaticMarkup",
+      "name": "renderToStaticMarkup",
+      "category": "server",
+      "sourceId": "server",
+      "topicIds": [
+        "server-rendering-rendertostaticmarkup"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "server:resume",
+      "name": "resume",
+      "category": "server",
+      "sourceId": "server",
+      "topicIds": [
+        "server-rendering-resume"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "server:resumeToPipeableStream",
+      "name": "resumeToPipeableStream",
+      "category": "server",
+      "sourceId": "server",
+      "topicIds": [
+        "server-rendering-resumetopipeablestream"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "static:prerender",
+      "name": "prerender",
+      "category": "static",
+      "sourceId": "static",
+      "topicIds": [
+        "server-rendering-prerender"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "static:prerenderToNodeStream",
+      "name": "prerenderToNodeStream",
+      "category": "static",
+      "sourceId": "static",
+      "topicIds": [
+        "server-rendering-prerendertonodestream"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "static:resumeAndPrerender",
+      "name": "resumeAndPrerender",
+      "category": "static",
+      "sourceId": "static",
+      "topicIds": [
+        "server-rendering-resumeandprerender"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "static:resumeAndPrerenderToNodeStream",
+      "name": "resumeAndPrerenderToNodeStream",
+      "category": "static",
+      "sourceId": "static",
+      "topicIds": [
+        "server-rendering-resumeandprerendertonodestream"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "legacy:Children",
+      "name": "Children",
+      "category": "legacy",
+      "sourceId": "legacy",
+      "topicIds": [
+        "legacy-children-utilities"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "legacy:cloneElement",
+      "name": "cloneElement",
+      "category": "legacy",
+      "sourceId": "legacy",
+      "topicIds": [
+        "legacy-cloneelement"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "legacy:Component",
+      "name": "Component",
+      "category": "legacy",
+      "sourceId": "legacy",
+      "topicIds": [
+        "components-jsx-component-composition-and-children"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "legacy:createElement",
+      "name": "createElement",
+      "category": "legacy",
+      "sourceId": "legacy",
+      "topicIds": [
+        "legacy-createelement"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "legacy:createRef",
+      "name": "createRef",
+      "category": "legacy",
+      "sourceId": "legacy",
+      "topicIds": [
+        "legacy-createref"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "legacy:forwardRef",
+      "name": "forwardRef",
+      "category": "legacy",
+      "sourceId": "legacy",
+      "topicIds": [
+        "legacy-forwardref"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "legacy:isValidElement",
+      "name": "isValidElement",
+      "category": "legacy",
+      "sourceId": "legacy",
+      "topicIds": [
+        "legacy-isvalidelement"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "legacy:PureComponent",
+      "name": "PureComponent",
+      "category": "legacy",
+      "sourceId": "legacy",
+      "topicIds": [
+        "legacy-purecomponent"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "compiler:compilationMode",
+      "name": "compilationMode",
+      "category": "compiler",
+      "sourceId": "compiler",
+      "topicIds": [
+        "compiler-compilationmode"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "compiler:target",
+      "name": "target",
+      "category": "compiler",
+      "sourceId": "compiler",
+      "topicIds": [
+        "compiler-target-and-runtime-compatibility"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "compiler:panicThreshold",
+      "name": "panicThreshold",
+      "category": "compiler",
+      "sourceId": "compiler",
+      "topicIds": [
+        "compiler-panicthreshold"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "compiler:logger",
+      "name": "logger",
+      "category": "compiler",
+      "sourceId": "compiler",
+      "topicIds": [
+        "compiler-logger"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "compiler:gating",
+      "name": "gating",
+      "category": "compiler",
+      "sourceId": "compiler",
+      "topicIds": [
+        "compiler-gating"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "compiler-directives:use memo",
+      "name": "use memo",
+      "category": "compiler-directives",
+      "sourceId": "compiler-directives",
+      "topicIds": [
+        "compiler-use-memo-directive"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "compiler-directives:use no memo",
+      "name": "use no memo",
+      "category": "compiler-directives",
+      "sourceId": "compiler-directives",
+      "topicIds": [
+        "compiler-use-no-memo-directive"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "directives:use client",
+      "name": "use client",
+      "category": "directives",
+      "sourceId": "directives",
+      "topicIds": [
+        "server-components-use-client-directive"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "directives:use server",
+      "name": "use server",
+      "category": "directives",
+      "sourceId": "directives",
+      "topicIds": [
+        "server-components-server-functions-and-use-server"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "dom-components:common",
+      "name": "common",
+      "category": "dom-components",
+      "sourceId": "dom-components",
+      "topicIds": [
+        "dom-reference-common-dom-props-and-synthetic-events"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "dom-components:input",
+      "name": "input",
+      "category": "dom-components",
+      "sourceId": "dom-components",
+      "topicIds": [
+        "forms-controlled-text-inputs"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "dom-components:select",
+      "name": "select",
+      "category": "dom-components",
+      "sourceId": "dom-components",
+      "topicIds": [
+        "forms-checkboxes-radio-groups-and-select"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "dom-components:textarea",
+      "name": "textarea",
+      "category": "dom-components",
+      "sourceId": "dom-components",
+      "topicIds": [
+        "forms-textarea-and-multiple-fields"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "dom-components:form",
+      "name": "form",
+      "category": "dom-components",
+      "sourceId": "dom-components",
+      "topicIds": [
+        "actions-form-action-and-button-formaction"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "dom-components:option",
+      "name": "option",
+      "category": "dom-components",
+      "sourceId": "dom-components",
+      "topicIds": [
+        "forms-checkboxes-radio-groups-and-select"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "dom-components:progress",
+      "name": "progress",
+      "category": "dom-components",
+      "sourceId": "dom-components",
+      "topicIds": [
+        "dom-reference-html-svg-and-custom-elements"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "dom-components:link",
+      "name": "link",
+      "category": "dom-components",
+      "sourceId": "dom-components",
+      "topicIds": [
+        "dom-reference-title-meta-link-style-and-script"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "dom-components:meta",
+      "name": "meta",
+      "category": "dom-components",
+      "sourceId": "dom-components",
+      "topicIds": [
+        "dom-reference-title-meta-link-style-and-script"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "dom-components:script",
+      "name": "script",
+      "category": "dom-components",
+      "sourceId": "dom-components",
+      "topicIds": [
+        "dom-reference-title-meta-link-style-and-script"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "dom-components:style",
+      "name": "style",
+      "category": "dom-components",
+      "sourceId": "dom-components",
+      "topicIds": [
+        "dom-reference-title-meta-link-style-and-script"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "dom-components:title",
+      "name": "title",
+      "category": "dom-components",
+      "sourceId": "dom-components",
+      "topicIds": [
+        "dom-reference-title-meta-link-style-and-script"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "dom-components:HTML",
+      "name": "HTML",
+      "category": "dom-components",
+      "sourceId": "dom-components",
+      "topicIds": [
+        "dom-reference-html-svg-and-custom-elements"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "dom-components:SVG",
+      "name": "SVG",
+      "category": "dom-components",
+      "sourceId": "dom-components",
+      "topicIds": [
+        "dom-reference-html-svg-and-custom-elements"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "dom-components:custom elements",
+      "name": "custom elements",
+      "category": "dom-components",
+      "sourceId": "dom-components",
+      "topicIds": [
+        "dom-reference-html-svg-and-custom-elements"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "learn:86",
+      "name": "Your first component",
+      "category": "learn",
+      "sourceId": "ui",
+      "topicIds": [
+        "components"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "learn:87",
+      "name": "Importing and exporting components",
+      "category": "learn",
+      "sourceId": "ui",
+      "topicIds": [
+        "components-jsx-import-and-export-components"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "learn:88",
+      "name": "Writing markup with JSX",
+      "category": "learn",
+      "sourceId": "ui",
+      "topicIds": [
+        "components-jsx-jsx-rules-and-compilation"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "learn:89",
+      "name": "JavaScript in JSX with curly braces",
+      "category": "learn",
+      "sourceId": "ui",
+      "topicIds": [
+        "components-jsx-expressions-inside-jsx"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "learn:90",
+      "name": "Passing props to a component",
+      "category": "learn",
+      "sourceId": "ui",
+      "topicIds": [
+        "props"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "learn:91",
+      "name": "Conditional rendering",
+      "category": "learn",
+      "sourceId": "ui",
+      "topicIds": [
+        "rendering-conditional-rendering-and-null"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "learn:92",
+      "name": "Rendering lists",
+      "category": "learn",
+      "sourceId": "ui",
+      "topicIds": [
+        "rendering-rendering-lists-with-map-and-filter"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "learn:93",
+      "name": "Keeping components pure",
+      "category": "learn",
+      "sourceId": "ui",
+      "topicIds": [
+        "components-jsx-component-purity-and-idempotence"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "learn:94",
+      "name": "Your UI as a tree",
+      "category": "learn",
+      "sourceId": "ui",
+      "topicIds": [
+        "components-jsx-render-trees-and-module-dependency-trees"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "learn:95",
+      "name": "Responding to events",
+      "category": "learn",
+      "sourceId": "interactive",
+      "topicIds": [
+        "events"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "learn:96",
+      "name": "State: a component's memory",
+      "category": "learn",
+      "sourceId": "interactive",
+      "topicIds": [
+        "use-state"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "sample-draft"
+    },
+    {
+      "id": "learn:97",
+      "name": "Render and commit",
+      "category": "learn",
+      "sourceId": "interactive",
+      "topicIds": [
+        "hooks-foundation-render-trigger-render-and-commit"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "learn:98",
+      "name": "State as a snapshot",
+      "category": "learn",
+      "sourceId": "interactive",
+      "topicIds": [
+        "hooks-foundation-state-snapshots-and-closures"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "learn:99",
+      "name": "Queueing a series of state updates",
+      "category": "learn",
+      "sourceId": "interactive",
+      "topicIds": [
+        "hooks-foundation-functional-updates-and-update-queues"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "learn:100",
+      "name": "Updating objects in state",
+      "category": "learn",
+      "sourceId": "interactive",
+      "topicIds": [
+        "hooks-foundation-object-state-and-nested-immutable-updates"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "learn:101",
+      "name": "Updating arrays in state",
+      "category": "learn",
+      "sourceId": "interactive",
+      "topicIds": [
+        "hooks-foundation-array-state-add-edit-remove-sort"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "learn:102",
+      "name": "Reacting to input with state",
+      "category": "learn",
+      "sourceId": "managing",
+      "topicIds": [
+        "state-design-reacting-to-input-with-state"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "learn:103",
+      "name": "Choosing the state structure",
+      "category": "learn",
+      "sourceId": "managing",
+      "topicIds": [
+        "state-design-choosing-minimal-state"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "learn:104",
+      "name": "Sharing state between components",
+      "category": "learn",
+      "sourceId": "managing",
+      "topicIds": [
+        "state-design-lifting-state-up"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "learn:105",
+      "name": "Preserving and resetting state",
+      "category": "learn",
+      "sourceId": "managing",
+      "topicIds": [
+        "state-design-preserving-state-by-type-position-and-key"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "learn:106",
+      "name": "Extracting state logic into a reducer",
+      "category": "learn",
+      "sourceId": "managing",
+      "topicIds": [
+        "reducers-context-pure-reducers-actions-and-dispatch"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "learn:107",
+      "name": "Passing data deeply with context",
+      "category": "learn",
+      "sourceId": "managing",
+      "topicIds": [
+        "reducers-context-usecontext"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "learn:108",
+      "name": "Scaling up with reducer and context",
+      "category": "learn",
+      "sourceId": "managing",
+      "topicIds": [
+        "reducers-context-combining-context-and-reducer"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "learn:109",
+      "name": "Referencing values with refs",
+      "category": "learn",
+      "sourceId": "escape",
+      "topicIds": [
+        "refs-useref"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "learn:110",
+      "name": "Manipulating the DOM with refs",
+      "category": "learn",
+      "sourceId": "escape",
+      "topicIds": [
+        "refs-dom-refs-and-focus"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "learn:111",
+      "name": "Synchronizing with Effects",
+      "category": "learn",
+      "sourceId": "escape",
+      "topicIds": [
+        "effects-useeffect"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "learn:112",
+      "name": "You might not need an Effect",
+      "category": "learn",
+      "sourceId": "escape",
+      "topicIds": [
+        "effects-you-might-not-need-an-effect"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "learn:113",
+      "name": "Lifecycle of reactive Effects",
+      "category": "learn",
+      "sourceId": "escape",
+      "topicIds": [
+        "effects-effect-setup-and-cleanup"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "learn:114",
+      "name": "Separating events from Effects",
+      "category": "learn",
+      "sourceId": "escape",
+      "topicIds": [
+        "effects-separating-events-from-effects"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "learn:115",
+      "name": "Removing Effect dependencies",
+      "category": "learn",
+      "sourceId": "escape",
+      "topicIds": [
+        "effects-removing-unnecessary-dependencies"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    },
+    {
+      "id": "learn:116",
+      "name": "Reusing logic with custom Hooks",
+      "category": "learn",
+      "sourceId": "escape",
+      "topicIds": [
+        "custom-hooks-extracting-a-custom-hook"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "planned"
+    }
+  ],
+  "openAudits": [
+    {
+      "id": "ecosystem-sources",
+      "status": "pending",
+      "detail": "Review official routing, testing, TypeScript, query-library and deployment sources before authoring those lessons."
+    },
+    {
+      "id": "reference-subsections",
+      "status": "pending",
+      "detail": "For each lesson inventory parameters, caveats, examples and troubleshooting; category mapping alone is insufficient."
+    },
+    {
+      "id": "release-channels",
+      "status": "pending",
+      "detail": "Verify release channel and minimum runtime for newer APIs, ViewTransition, browser, addTransitionType and taint APIs."
+    },
+    {
+      "id": "compiler-library-guide",
+      "status": "pending",
+      "detail": "Review Compiler library shipping guide and configuration subpages."
+    },
+    {
+      "id": "interview-corpus",
+      "status": "pending",
+      "detail": "Sample questions are original interview-style. Recorded interview attribution requires public source, date and confidence."
+    },
+    {
+      "id": "prerequisite-depth",
+      "status": "pending",
+      "detail": "Expand prerequisites into dedicated subjects when needed; this is not every JavaScript or browser API."
+    },
+    {
+      "id": "intro-guides",
+      "status": "pending",
+      "detail": "Map Thinking in React, tutorial, detailed setup and TypeScript guides at page level before declaring Learn-wide page coverage."
+    }
+  ],
+  "excludedScope": [
+    "Every third-party React library",
+    "Native platform-specific APIs",
+    "Private or unrecorded interview questions",
+    "Unstable internals as public guarantees"
+  ],
+  "updatePolicy": "Compare official indexes at each content release; add or explicitly scope new items; review version requirements; validate links and content before publishing."
+}
+

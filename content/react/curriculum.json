@@ -1,0 +1,6551 @@
+{
+  "schemaVersion": 1,
+  "id": "react-foundation-v1",
+  "subject": {
+    "id": "react",
+    "title": "React",
+    "language": "en",
+    "codeLanguage": "en",
+    "scope": "React for web: prerequisites, core, React DOM, server features, tooling, selected ecosystem, legacy, and version watch.",
+    "docsLabelObserved": "19.3",
+    "reviewedAt": "2026-09-10",
+    "sampleRuntimeRange": "React 19.1 or newer; sample uses established useState APIs only.",
+    "promise": "Explicit, auditable scope; no guarantee of every ecosystem library, every historical interview, or mastery from reading alone."
+  },
+  "tracks": [
+    "prerequisite",
+    "core",
+    "tooling",
+    "ecosystem",
+    "legacy",
+    "version-watch",
+    "project"
+  ],
+  "chapters": [
+    {
+      "id": "web-basics",
+      "subjectId": "react",
+      "title": "Web foundations",
+      "order": 1,
+      "level": "foundation",
+      "track": "prerequisite",
+      "topicIds": [
+        "web-basics-how-browser-pages-work",
+        "web-basics-semantic-html-and-forms",
+        "web-basics-css-selectors-and-cascade",
+        "web-basics-box-model-and-responsive-layout",
+        "web-basics-accessibility-and-keyboard-basics",
+        "web-basics-browser-devtools-and-console"
+      ],
+      "prerequisiteChapterIds": [],
+      "miniAppIds": []
+    },
+    {
+      "id": "javascript-basics",
+      "subjectId": "react",
+      "title": "JavaScript foundations",
+      "order": 2,
+      "level": "foundation",
+      "track": "prerequisite",
+      "topicIds": [
+        "javascript-basics-values-types-and-coercion",
+        "javascript-basics-let-const-and-scope",
+        "javascript-basics-expressions-operators-and-equality",
+        "javascript-basics-conditionals-and-loops",
+        "javascript-basics-functions-declarations-and-arrows",
+        "javascript-basics-parameters-defaults-and-return-values",
+        "javascript-basics-objects-and-property-access",
+        "javascript-basics-arrays-and-iteration",
+        "javascript-basics-destructuring",
+        "javascript-basics-spread-and-rest",
+        "javascript-basics-map-filter-find-and-reduce",
+        "javascript-basics-modules-import-and-export",
+        "javascript-basics-closures-and-lexical-scope",
+        "javascript-basics-references-mutation-and-shallow-copy",
+        "javascript-basics-optional-chaining-and-nullish-coalescing",
+        "javascript-basics-promises-async-await-and-errors",
+        "javascript-basics-event-loop-and-timers",
+        "javascript-basics-fetch-json-and-http",
+        "javascript-basics-exceptions-and-debugging"
+      ],
+      "prerequisiteChapterIds": [
+        "web-basics"
+      ],
+      "miniAppIds": []
+    },
+    {
+      "id": "setup",
+      "subjectId": "react",
+      "title": "React setup and orientation",
+      "order": 3,
+      "level": "beginner",
+      "track": "core",
+      "topicIds": [
+        "setup-what-react-solves-and-its-boundaries",
+        "setup-declarative-ui-and-component-thinking",
+        "setup-editor-node-package-manager-and-terminal",
+        "setup-create-a-learning-project-with-vite",
+        "setup-framework-versus-build-tool",
+        "setup-project-files-scripts-and-dependencies",
+        "setup-development-versus-production",
+        "setup-react-devtools",
+        "setup-adding-react-to-an-existing-page"
+      ],
+      "prerequisiteChapterIds": [
+        "javascript-basics"
+      ],
+      "miniAppIds": []
+    },
+    {
+      "id": "components-jsx",
+      "subjectId": "react",
+      "title": "Components and JSX",
+      "order": 4,
+      "level": "beginner",
+      "track": "core",
+      "topicIds": [
+        "components",
+        "components-jsx-function-declaration-versus-arrow-component",
+        "components-jsx-import-and-export-components",
+        "components-jsx-jsx-rules-and-compilation",
+        "components-jsx-expressions-inside-jsx",
+        "components-jsx-fragments-and-keyed-fragments",
+        "components-jsx-css-classes-and-inline-styles",
+        "components-jsx-images-assets-and-svg",
+        "components-jsx-component-composition-and-children",
+        "components-jsx-render-trees-and-module-dependency-trees",
+        "components-jsx-component-purity-and-idempotence"
+      ],
+      "prerequisiteChapterIds": [
+        "setup"
+      ],
+      "miniAppIds": []
+    },
+    {
+      "id": "props",
+      "subjectId": "react",
+      "title": "Props and composition",
+      "order": 5,
+      "level": "beginner",
+      "track": "core",
+      "topicIds": [
+        "props",
+        "props-destructuring-and-default-values",
+        "props-numbers-objects-arrays-and-functions-as-props",
+        "props-children-and-slots",
+        "props-props-spread-and-explicit-interfaces",
+        "props-props-are-read-only",
+        "props-callback-props-and-one-way-data-flow",
+        "props-key-and-ref-are-special",
+        "props-component-api-design"
+      ],
+      "prerequisiteChapterIds": [
+        "components-jsx"
+      ],
+      "miniAppIds": []
+    },
+    {
+      "id": "rendering",
+      "subjectId": "react",
+      "title": "Conditions lists and events",
+      "order": 6,
+      "level": "beginner",
+      "track": "core",
+      "topicIds": [
+        "rendering-conditional-rendering-and-null",
+        "rendering-ternary-and-logical-and-pitfalls",
+        "rendering-rendering-lists-with-map-and-filter",
+        "rendering-stable-keys-and-identity",
+        "rendering-nested-lists-and-keyed-fragments",
+        "events",
+        "rendering-event-arguments-and-custom-handler-names",
+        "rendering-event-propagation-capture-and-stoppropagation",
+        "rendering-preventdefault-and-form-submission"
+      ],
+      "prerequisiteChapterIds": [
+        "props"
+      ],
+      "miniAppIds": [
+        "quantity-picker"
+      ]
+    },
+    {
+      "id": "hooks-foundation",
+      "subjectId": "react",
+      "title": "Hooks: foundations and useState",
+      "order": 7,
+      "level": "beginner",
+      "track": "core",
+      "topicIds": [
+        "rules-of-hooks",
+        "use-state",
+        "hooks-foundation-render-trigger-render-and-commit",
+        "hooks-foundation-state-snapshots-and-closures",
+        "hooks-foundation-functional-updates-and-update-queues",
+        "hooks-foundation-batching-and-event-boundaries",
+        "hooks-foundation-object-state-and-nested-immutable-updates",
+        "hooks-foundation-array-state-add-edit-remove-sort",
+        "hooks-foundation-lazy-initialization",
+        "hooks-foundation-state-equality-and-object-is",
+        "hooks-foundation-state-isolation-per-component",
+        "hooks-foundation-storing-a-function-in-state"
+      ],
+      "prerequisiteChapterIds": [
+        "rendering"
+      ],
+      "miniAppIds": [
+        "quantity-picker"
+      ]
+    },
+    {
+      "id": "state-design",
+      "subjectId": "react",
+      "title": "State design and ownership",
+      "order": 8,
+      "level": "intermediate",
+      "track": "core",
+      "topicIds": [
+        "state-design-reacting-to-input-with-state",
+        "state-design-state-versus-props-ref-and-local-variable",
+        "state-design-choosing-minimal-state",
+        "state-design-derived-state-and-avoiding-duplication",
+        "state-design-avoiding-contradictory-state",
+        "state-design-lifting-state-up",
+        "state-design-controlled-and-uncontrolled-components",
+        "state-design-preserving-state-by-type-position-and-key",
+        "state-design-resetting-state-intentionally",
+        "state-design-why-copying-props-into-state-can-fail",
+        "state-design-structuring-deeply-nested-data",
+        "state-design-guarded-updates-during-render"
+      ],
+      "prerequisiteChapterIds": [
+        "hooks-foundation"
+      ],
+      "miniAppIds": [
+        "quantity-picker"
+      ]
+    },
+    {
+      "id": "forms",
+      "subjectId": "react",
+      "title": "Forms and accessible interactions",
+      "order": 9,
+      "level": "intermediate",
+      "track": "core",
+      "topicIds": [
+        "forms-controlled-text-inputs",
+        "forms-checkboxes-radio-groups-and-select",
+        "forms-textarea-and-multiple-fields",
+        "forms-uncontrolled-inputs-and-defaultvalue",
+        "forms-formdata-and-file-inputs",
+        "forms-validation-touched-and-error-states",
+        "forms-dynamic-field-lists",
+        "forms-accessible-labels-descriptions-and-errors",
+        "forms-focus-management-and-keyboard-interactions",
+        "forms-multi-step-forms"
+      ],
+      "prerequisiteChapterIds": [
+        "state-design"
+      ],
+      "miniAppIds": []
+    },
+    {
+      "id": "reducers-context",
+      "subjectId": "react",
+      "title": "Hooks: reducers and context",
+      "order": 10,
+      "level": "intermediate",
+      "track": "core",
+      "topicIds": [
+        "reducers-context-usereducer",
+        "reducers-context-pure-reducers-actions-and-dispatch",
+        "reducers-context-reducer-initialization-and-testing",
+        "reducers-context-usestate-versus-usereducer",
+        "reducers-context-createcontext",
+        "reducers-context-usecontext",
+        "reducers-context-provider-syntax-and-default-fallback",
+        "reducers-context-context-identity-and-render-behavior",
+        "reducers-context-combining-context-and-reducer",
+        "reducers-context-state-colocation-versus-global-state"
+      ],
+      "prerequisiteChapterIds": [
+        "state-design"
+      ],
+      "miniAppIds": []
+    },
+    {
+      "id": "refs",
+      "subjectId": "react",
+      "title": "Hooks: refs and imperative integration",
+      "order": 11,
+      "level": "intermediate",
+      "track": "core",
+      "topicIds": [
+        "refs-useref",
+        "refs-state-versus-refs",
+        "refs-dom-refs-and-focus",
+        "refs-callback-refs-and-cleanup",
+        "refs-ref-as-a-prop",
+        "refs-useimperativehandle",
+        "refs-working-with-third-party-dom-widgets",
+        "refs-portals-and-createportal",
+        "refs-accessible-dialogs-and-focus-restoration"
+      ],
+      "prerequisiteChapterIds": [
+        "state-design"
+      ],
+      "miniAppIds": []
+    },
+    {
+      "id": "effects",
+      "subjectId": "react",
+      "title": "Hooks: effects and synchronization",
+      "order": 12,
+      "level": "intermediate",
+      "track": "core",
+      "topicIds": [
+        "effects-useeffect",
+        "effects-effect-setup-and-cleanup",
+        "effects-dependencies-and-reactive-values",
+        "effects-effect-lifecycle-and-strictmode",
+        "effects-subscriptions-timers-and-cleanup",
+        "effects-fetching-in-effects-race-conditions-and-cancellation",
+        "effects-separating-events-from-effects",
+        "effects-removing-unnecessary-dependencies",
+        "effects-you-might-not-need-an-effect",
+        "effects-useeffectevent",
+        "effects-uselayouteffect",
+        "effects-useinsertioneffect"
+      ],
+      "prerequisiteChapterIds": [
+        "refs"
+      ],
+      "miniAppIds": []
+    },
+    {
+      "id": "custom-hooks",
+      "subjectId": "react",
+      "title": "Custom Hooks and reusable logic",
+      "order": 13,
+      "level": "intermediate",
+      "track": "core",
+      "topicIds": [
+        "custom-hooks-extracting-a-custom-hook",
+        "custom-hooks-naming-parameters-return-values-and-contracts",
+        "custom-hooks-each-hook-call-has-independent-state",
+        "custom-hooks-composing-hooks",
+        "custom-hooks-avoiding-lifecycle-wrapper-hooks",
+        "custom-hooks-usedebugvalue",
+        "custom-hooks-testing-custom-hooks",
+        "custom-hooks-publishing-reusable-hook-utilities"
+      ],
+      "prerequisiteChapterIds": [
+        "effects"
+      ],
+      "miniAppIds": []
+    },
+    {
+      "id": "async-data",
+      "subjectId": "react",
+      "title": "Asynchronous UI and data",
+      "order": 14,
+      "level": "intermediate",
+      "track": "ecosystem",
+      "topicIds": [
+        "async-data-loading-error-empty-success-states",
+        "async-data-abortcontroller-and-stale-responses",
+        "async-data-pagination-and-infinite-scrolling",
+        "async-data-debouncing-throttling-and-request-timing",
+        "async-data-caching-deduplication-and-invalidation",
+        "async-data-optimistic-updates-and-rollback",
+        "async-data-server-state-versus-client-state",
+        "async-data-offline-retry-and-reconnect-strategies"
+      ],
+      "prerequisiteChapterIds": [
+        "effects"
+      ],
+      "miniAppIds": []
+    },
+    {
+      "id": "routing",
+      "subjectId": "react",
+      "title": "Routing and URL state",
+      "order": 15,
+      "level": "intermediate",
+      "track": "ecosystem",
+      "topicIds": [
+        "routing-client-navigation-and-browser-history",
+        "routing-route-trees-params-and-nested-layouts",
+        "routing-search-params-as-state",
+        "routing-not-found-redirects-and-navigation-errors",
+        "routing-route-loaders-and-mutations",
+        "routing-pending-navigation-and-prefetching",
+        "routing-code-splitting-at-route-boundaries",
+        "routing-protected-ui-and-server-authorization-boundaries"
+      ],
+      "prerequisiteChapterIds": [
+        "state-design"
+      ],
+      "miniAppIds": []
+    },
+    {
+      "id": "performance",
+      "subjectId": "react",
+      "title": "Rendering performance",
+      "order": 16,
+      "level": "advanced",
+      "track": "core",
+      "topicIds": [
+        "performance-measuring-before-optimizing",
+        "performance-memo",
+        "performance-usememo",
+        "performance-usecallback",
+        "performance-referential-equality-and-dependency-identity",
+        "performance-profiler-and-react-devtools-profiling",
+        "performance-list-virtualization",
+        "performance-code-splitting-and-lazy",
+        "performance-suspense-boundaries-and-fallbacks",
+        "performance-suspense-enabled-data-sources",
+        "performance-avoiding-waterfalls",
+        "performance-transition-versus-urgent-update",
+        "performance-usetransition",
+        "performance-starttransition",
+        "performance-usedeferredvalue"
+      ],
+      "prerequisiteChapterIds": [
+        "custom-hooks"
+      ],
+      "miniAppIds": []
+    },
+    {
+      "id": "actions",
+      "subjectId": "react",
+      "title": "Hooks: Actions and forms",
+      "order": 17,
+      "level": "advanced",
+      "track": "core",
+      "topicIds": [
+        "actions-actions-and-async-transitions",
+        "actions-form-action-and-button-formaction",
+        "actions-useactionstate",
+        "actions-useformstatus",
+        "actions-useoptimistic",
+        "actions-pending-errors-and-optimistic-rollback",
+        "actions-form-reset-behavior",
+        "actions-progressive-enhancement-and-server-validation"
+      ],
+      "prerequisiteChapterIds": [
+        "forms",
+        "performance"
+      ],
+      "miniAppIds": []
+    },
+    {
+      "id": "dom-reference",
+      "subjectId": "react",
+      "title": "React DOM reference",
+      "order": 18,
+      "level": "advanced",
+      "track": "core",
+      "topicIds": [
+        "dom-reference-common-dom-props-and-synthetic-events",
+        "dom-reference-html-svg-and-custom-elements",
+        "dom-reference-dangerouslysetinnerhtml-and-trusted-content",
+        "dom-reference-hydration-warnings-and-suppression-limits",
+        "dom-reference-title-meta-link-style-and-script",
+        "dom-reference-resource-precedence-and-loading",
+        "dom-reference-flushsync",
+        "dom-reference-prefetchdns",
+        "dom-reference-preconnect",
+        "dom-reference-preload",
+        "dom-reference-preloadmodule",
+        "dom-reference-preinit",
+        "dom-reference-preinitmodule"
+      ],
+      "prerequisiteChapterIds": [
+        "refs",
+        "forms"
+      ],
+      "miniAppIds": []
+    },
+    {
+      "id": "concurrent",
+      "subjectId": "react",
+      "title": "Advanced rendering and identity",
+      "order": 19,
+      "level": "advanced",
+      "track": "core",
+      "topicIds": [
+        "concurrent-strictmode-development-checks",
+        "concurrent-interruptible-rendering-mental-model",
+        "concurrent-suspense-reveal-and-reset-behavior",
+        "concurrent-activity-and-retained-ui",
+        "concurrent-useid-and-accessible-ids",
+        "concurrent-usesyncexternalstore",
+        "concurrent-external-store-snapshots-and-hydration",
+        "concurrent-error-boundaries-and-recovery",
+        "concurrent-render-errors-versus-event-and-async-errors"
+      ],
+      "prerequisiteChapterIds": [
+        "performance"
+      ],
+      "miniAppIds": []
+    },
+    {
+      "id": "server-rendering",
+      "subjectId": "react",
+      "title": "Server rendering and hydration",
+      "order": 20,
+      "level": "advanced",
+      "track": "core",
+      "topicIds": [
+        "server-rendering-csr-ssr-ssg-and-streaming",
+        "server-rendering-createroot-root-render-and-root-unmount",
+        "server-rendering-hydrateroot-and-recoverable-errors",
+        "server-rendering-hydration-mismatches-and-deterministic-rendering",
+        "server-rendering-rendertopipeablestream",
+        "server-rendering-rendertoreadablestream",
+        "server-rendering-rendertostring",
+        "server-rendering-rendertostaticmarkup",
+        "server-rendering-streaming-suspense-and-bootstrap-options",
+        "server-rendering-resume",
+        "server-rendering-resumetopipeablestream",
+        "server-rendering-prerender",
+        "server-rendering-prerendertonodestream",
+        "server-rendering-resumeandprerender",
+        "server-rendering-resumeandprerendertonodestream",
+        "server-rendering-environment-and-stream-compatibility"
+      ],
+      "prerequisiteChapterIds": [
+        "concurrent"
+      ],
+      "miniAppIds": []
+    },
+    {
+      "id": "server-components",
+      "subjectId": "react",
+      "title": "Server Components and server functions",
+      "order": 21,
+      "level": "advanced",
+      "track": "core",
+      "topicIds": [
+        "server-components-server-components-versus-ssr",
+        "server-components-client-and-server-module-boundaries",
+        "server-components-use-client-directive",
+        "server-components-serializable-boundary-values",
+        "server-components-composition-across-server-and-client",
+        "server-components-server-functions-and-use-server",
+        "server-components-validation-authorization-and-untrusted-arguments",
+        "server-components-use-with-promise-and-context",
+        "server-components-suspense-and-errors-around-use",
+        "server-components-cache",
+        "server-components-cachesignal",
+        "server-components-framework-and-bundler-integration-constraints"
+      ],
+      "prerequisiteChapterIds": [
+        "server-rendering",
+        "actions"
+      ],
+      "miniAppIds": []
+    },
+    {
+      "id": "compiler",
+      "subjectId": "react",
+      "title": "React Compiler",
+      "order": 22,
+      "level": "advanced",
+      "track": "tooling",
+      "topicIds": [
+        "compiler-compiler-mental-model-and-installation",
+        "compiler-incremental-adoption-and-verification",
+        "compiler-compilationmode",
+        "compiler-target-and-runtime-compatibility",
+        "compiler-panicthreshold",
+        "compiler-logger",
+        "compiler-gating",
+        "compiler-use-memo-directive",
+        "compiler-use-no-memo-directive",
+        "compiler-compiling-libraries",
+        "compiler-compiler-debugging-and-memoization-limits"
+      ],
+      "prerequisiteChapterIds": [
+        "performance"
+      ],
+      "miniAppIds": []
+    },
+    {
+      "id": "rules-lint",
+      "subjectId": "react",
+      "title": "React rules and lint reference",
+      "order": 23,
+      "level": "advanced",
+      "track": "tooling",
+      "topicIds": [
+        "rules-lint-components-and-hooks-must-be-pure",
+        "rules-lint-react-calls-components-and-hooks",
+        "rules-lint-rules-of-hooks-lint",
+        "rules-lint-exhaustive-deps-lint",
+        "rules-lint-component-hook-factories",
+        "rules-lint-config-lint",
+        "rules-lint-error-boundaries-lint",
+        "rules-lint-gating-lint",
+        "rules-lint-globals-lint",
+        "rules-lint-immutability-lint",
+        "rules-lint-incompatible-library-lint",
+        "rules-lint-preserve-manual-memoization-lint",
+        "rules-lint-purity-lint",
+        "rules-lint-refs-lint",
+        "rules-lint-set-state-in-effect-lint",
+        "rules-lint-set-state-in-render-lint",
+        "rules-lint-static-components-lint",
+        "rules-lint-unsupported-syntax-lint",
+        "rules-lint-use-memo-lint"
+      ],
+      "prerequisiteChapterIds": [
+        "custom-hooks"
+      ],
+      "miniAppIds": []
+    },
+    {
+      "id": "typescript",
+      "subjectId": "react",
+      "title": "TypeScript with React",
+      "order": 24,
+      "level": "intermediate",
+      "track": "ecosystem",
+      "topicIds": [
+        "typescript-typing-component-props-and-children",
+        "typescript-events-refs-and-dom-types",
+        "typescript-usestate-unions-and-nullable-values",
+        "typescript-reducer-discriminated-unions",
+        "typescript-context-with-safe-defaults",
+        "typescript-generic-components-and-hooks",
+        "typescript-componentprops-and-utility-types",
+        "typescript-type-narrowing-and-exhaustive-checks"
+      ],
+      "prerequisiteChapterIds": [
+        "state-design"
+      ],
+      "miniAppIds": []
+    },
+    {
+      "id": "testing",
+      "subjectId": "react",
+      "title": "Testing and debugging",
+      "order": 25,
+      "level": "intermediate",
+      "track": "ecosystem",
+      "topicIds": [
+        "testing-behavior-based-component-tests",
+        "testing-queries-by-role-label-and-text",
+        "testing-user-interactions-and-async-assertions",
+        "testing-testing-forms-and-validation",
+        "testing-mocking-network-boundaries",
+        "testing-hook-and-reducer-tests",
+        "testing-error-and-loading-state-tests",
+        "testing-accessibility-checks",
+        "testing-end-to-end-user-journeys",
+        "testing-act",
+        "testing-captureownerstack",
+        "testing-debugging-render-loops-and-stale-closures"
+      ],
+      "prerequisiteChapterIds": [
+        "effects",
+        "forms"
+      ],
+      "miniAppIds": []
+    },
+    {
+      "id": "production",
+      "subjectId": "react",
+      "title": "Production application engineering",
+      "order": 26,
+      "level": "advanced",
+      "track": "ecosystem",
+      "topicIds": [
+        "production-feature-based-architecture",
+        "production-error-reporting-and-observability",
+        "production-environment-configuration-and-secrets-boundary",
+        "production-authentication-ui-and-session-expiry",
+        "production-authorization-enforced-on-server",
+        "production-xss-and-untrusted-content",
+        "production-accessibility-audit-and-internationalization",
+        "production-performance-budgets-and-bundle-inspection",
+        "production-ci-checks-and-production-builds",
+        "production-deployment-caching-and-rollback",
+        "production-design-systems-and-reusable-components",
+        "production-state-library-and-query-library-selection"
+      ],
+      "prerequisiteChapterIds": [
+        "routing",
+        "testing"
+      ],
+      "miniAppIds": []
+    },
+    {
+      "id": "legacy",
+      "subjectId": "react",
+      "title": "Legacy React and migration",
+      "order": 27,
+      "level": "advanced",
+      "track": "legacy",
+      "topicIds": [
+        "legacy-component-and-class-lifecycle-methods",
+        "legacy-class-setstate-merge-and-callback",
+        "legacy-purecomponent",
+        "legacy-createelement",
+        "legacy-cloneelement",
+        "legacy-children-utilities",
+        "legacy-createref",
+        "legacy-forwardref",
+        "legacy-isvalidelement",
+        "legacy-render-props-and-higher-order-components",
+        "legacy-class-to-hook-migration",
+        "legacy-removed-react-dom-apis",
+        "legacy-deprecated-patterns-and-version-migration"
+      ],
+      "prerequisiteChapterIds": [
+        "custom-hooks"
+      ],
+      "miniAppIds": []
+    },
+    {
+      "id": "version-watch",
+      "subjectId": "react",
+      "title": "Version watch and specialized APIs",
+      "order": 28,
+      "level": "advanced",
+      "track": "version-watch",
+      "topicIds": [
+        "version-watch-viewtransition",
+        "version-watch-addtransitiontype",
+        "version-watch-browser-api-with-use",
+        "version-watch-experimental-taint-apis",
+        "version-watch-release-channels-and-compatibility-review",
+        "version-watch-react-native-and-custom-renderers-scope"
+      ],
+      "prerequisiteChapterIds": [
+        "server-components"
+      ],
+      "miniAppIds": []
+    },
+    {
+      "id": "mini-apps-path",
+      "subjectId": "react",
+      "title": "Mini app progression",
+      "order": 29,
+      "level": "beginner",
+      "track": "project",
+      "topicIds": [
+        "mini-apps-path-counter-and-quantity-controls",
+        "mini-apps-path-disclosure-and-accordion",
+        "mini-apps-path-profile-editor",
+        "mini-apps-path-filterable-catalog",
+        "mini-apps-path-task-board",
+        "mini-apps-path-quiz-and-flashcards",
+        "mini-apps-path-shopping-cart",
+        "mini-apps-path-multi-step-booking-form",
+        "mini-apps-path-search-with-cancellable-requests",
+        "mini-apps-path-context-based-preferences",
+        "mini-apps-path-router-based-dashboard",
+        "mini-apps-path-accessible-dialog-manager",
+        "mini-apps-path-optimistic-comment-form",
+        "mini-apps-path-ssr-and-hydration-demo"
+      ],
+      "prerequisiteChapterIds": [
+        "hooks-foundation"
+      ],
+      "miniAppIds": []
+    },
+    {
+      "id": "capstones",
+      "subjectId": "react",
+      "title": "Larger projects: later phase",
+      "order": 30,
+      "level": "advanced",
+      "track": "project",
+      "topicIds": [
+        "capstones-learning-tracker",
+        "capstones-commerce-dashboard",
+        "capstones-collaborative-workspace",
+        "capstones-production-readiness-review"
+      ],
+      "prerequisiteChapterIds": [
+        "production"
+      ],
+      "miniAppIds": []
+    }
+  ],
+  "topics": [
+    {
+      "id": "web-basics-how-browser-pages-work",
+      "subjectId": "react",
+      "chapterId": "web-basics",
+      "title": "How browser pages work",
+      "order": 1,
+      "level": "foundation",
+      "track": "prerequisite",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "js"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "web-basics-semantic-html-and-forms",
+      "subjectId": "react",
+      "chapterId": "web-basics",
+      "title": "Semantic HTML and forms",
+      "order": 2,
+      "level": "foundation",
+      "track": "prerequisite",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "js"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "web-basics-css-selectors-and-cascade",
+      "subjectId": "react",
+      "chapterId": "web-basics",
+      "title": "CSS selectors and cascade",
+      "order": 3,
+      "level": "foundation",
+      "track": "prerequisite",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "js"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "web-basics-box-model-and-responsive-layout",
+      "subjectId": "react",
+      "chapterId": "web-basics",
+      "title": "Box model and responsive layout",
+      "order": 4,
+      "level": "foundation",
+      "track": "prerequisite",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "js"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "web-basics-accessibility-and-keyboard-basics",
+      "subjectId": "react",
+      "chapterId": "web-basics",
+      "title": "Accessibility and keyboard basics",
+      "order": 5,
+      "level": "foundation",
+      "track": "prerequisite",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "js"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "web-basics-browser-devtools-and-console",
+      "subjectId": "react",
+      "chapterId": "web-basics",
+      "title": "Browser DevTools and console",
+      "order": 6,
+      "level": "foundation",
+      "track": "prerequisite",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "js"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "javascript-basics-values-types-and-coercion",
+      "subjectId": "react",
+      "chapterId": "javascript-basics",
+      "title": "Values types and coercion",
+      "order": 7,
+      "level": "foundation",
+      "track": "prerequisite",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "js"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "javascript-basics-let-const-and-scope",
+      "subjectId": "react",
+      "chapterId": "javascript-basics",
+      "title": "let const and scope",
+      "order": 8,
+      "level": "foundation",
+      "track": "prerequisite",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "js"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "javascript-basics-expressions-operators-and-equality",
+      "subjectId": "react",
+      "chapterId": "javascript-basics",
+      "title": "Expressions operators and equality",
+      "order": 9,
+      "level": "foundation",
+      "track": "prerequisite",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "js"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "javascript-basics-conditionals-and-loops",
+      "subjectId": "react",
+      "chapterId": "javascript-basics",
+      "title": "Conditionals and loops",
+      "order": 10,
+      "level": "foundation",
+      "track": "prerequisite",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "js"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "javascript-basics-functions-declarations-and-arrows",
+      "subjectId": "react",
+      "chapterId": "javascript-basics",
+      "title": "Functions declarations and arrows",
+      "order": 11,
+      "level": "foundation",
+      "track": "prerequisite",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "js"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "javascript-basics-parameters-defaults-and-return-values",
+      "subjectId": "react",
+      "chapterId": "javascript-basics",
+      "title": "Parameters defaults and return values",
+      "order": 12,
+      "level": "foundation",
+      "track": "prerequisite",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "js"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "javascript-basics-objects-and-property-access",
+      "subjectId": "react",
+      "chapterId": "javascript-basics",
+      "title": "Objects and property access",
+      "order": 13,
+      "level": "foundation",
+      "track": "prerequisite",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "js"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "javascript-basics-arrays-and-iteration",
+      "subjectId": "react",
+      "chapterId": "javascript-basics",
+      "title": "Arrays and iteration",
+      "order": 14,
+      "level": "foundation",
+      "track": "prerequisite",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "js"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "javascript-basics-destructuring",
+      "subjectId": "react",
+      "chapterId": "javascript-basics",
+      "title": "Destructuring",
+      "order": 15,
+      "level": "foundation",
+      "track": "prerequisite",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "js"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "javascript-basics-spread-and-rest",
+      "subjectId": "react",
+      "chapterId": "javascript-basics",
+      "title": "Spread and rest",
+      "order": 16,
+      "level": "foundation",
+      "track": "prerequisite",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "js"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "javascript-basics-map-filter-find-and-reduce",
+      "subjectId": "react",
+      "chapterId": "javascript-basics",
+      "title": "map filter find and reduce",
+      "order": 17,
+      "level": "foundation",
+      "track": "prerequisite",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "js"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "javascript-basics-modules-import-and-export",
+      "subjectId": "react",
+      "chapterId": "javascript-basics",
+      "title": "Modules import and export",
+      "order": 18,
+      "level": "foundation",
+      "track": "prerequisite",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "js"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "javascript-basics-closures-and-lexical-scope",
+      "subjectId": "react",
+      "chapterId": "javascript-basics",
+      "title": "Closures and lexical scope",
+      "order": 19,
+      "level": "foundation",
+      "track": "prerequisite",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "js"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "javascript-basics-references-mutation-and-shallow-copy",
+      "subjectId": "react",
+      "chapterId": "javascript-basics",
+      "title": "References mutation and shallow copy",
+      "order": 20,
+      "level": "foundation",
+      "track": "prerequisite",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "js"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "javascript-basics-optional-chaining-and-nullish-coalescing",
+      "subjectId": "react",
+      "chapterId": "javascript-basics",
+      "title": "Optional chaining and nullish coalescing",
+      "order": 21,
+      "level": "foundation",
+      "track": "prerequisite",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "js"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "javascript-basics-promises-async-await-and-errors",
+      "subjectId": "react",
+      "chapterId": "javascript-basics",
+      "title": "Promises async await and errors",
+      "order": 22,
+      "level": "foundation",
+      "track": "prerequisite",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "js"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "javascript-basics-event-loop-and-timers",
+      "subjectId": "react",
+      "chapterId": "javascript-basics",
+      "title": "Event loop and timers",
+      "order": 23,
+      "level": "foundation",
+      "track": "prerequisite",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "js"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "javascript-basics-fetch-json-and-http",
+      "subjectId": "react",
+      "chapterId": "javascript-basics",
+      "title": "Fetch JSON and HTTP",
+      "order": 24,
+      "level": "foundation",
+      "track": "prerequisite",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "js"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "javascript-basics-exceptions-and-debugging",
+      "subjectId": "react",
+      "chapterId": "javascript-basics",
+      "title": "Exceptions and debugging",
+      "order": 25,
+      "level": "foundation",
+      "track": "prerequisite",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "js"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "setup-what-react-solves-and-its-boundaries",
+      "subjectId": "react",
+      "chapterId": "setup",
+      "title": "What React solves and its boundaries",
+      "order": 26,
+      "level": "beginner",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "install"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "setup-declarative-ui-and-component-thinking",
+      "subjectId": "react",
+      "chapterId": "setup",
+      "title": "Declarative UI and component thinking",
+      "order": 27,
+      "level": "beginner",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "install"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "setup-editor-node-package-manager-and-terminal",
+      "subjectId": "react",
+      "chapterId": "setup",
+      "title": "Editor Node package manager and terminal",
+      "order": 28,
+      "level": "beginner",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "install"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "setup-create-a-learning-project-with-vite",
+      "subjectId": "react",
+      "chapterId": "setup",
+      "title": "Create a learning project with Vite",
+      "order": 29,
+      "level": "beginner",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "install"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "setup-framework-versus-build-tool",
+      "subjectId": "react",
+      "chapterId": "setup",
+      "title": "Framework versus build tool",
+      "order": 30,
+      "level": "beginner",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "install"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "setup-project-files-scripts-and-dependencies",
+      "subjectId": "react",
+      "chapterId": "setup",
+      "title": "Project files scripts and dependencies",
+      "order": 31,
+      "level": "beginner",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "install"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "setup-development-versus-production",
+      "subjectId": "react",
+      "chapterId": "setup",
+      "title": "Development versus production",
+      "order": 32,
+      "level": "beginner",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "install"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "setup-react-devtools",
+      "subjectId": "react",
+      "chapterId": "setup",
+      "title": "React DevTools",
+      "order": 33,
+      "level": "beginner",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "install"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "setup-adding-react-to-an-existing-page",
+      "subjectId": "react",
+      "chapterId": "setup",
+      "title": "Adding React to an existing page",
+      "order": 34,
+      "level": "beginner",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "install"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "components",
+      "subjectId": "react",
+      "chapterId": "components-jsx",
+      "title": "Function components and naming",
+      "order": 35,
+      "level": "beginner",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "ui"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "components-jsx-function-declaration-versus-arrow-component",
+      "subjectId": "react",
+      "chapterId": "components-jsx",
+      "title": "Function declaration versus arrow component",
+      "order": 36,
+      "level": "beginner",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "ui"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "components-jsx-import-and-export-components",
+      "subjectId": "react",
+      "chapterId": "components-jsx",
+      "title": "Import and export components",
+      "order": 37,
+      "level": "beginner",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "ui"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "components-jsx-jsx-rules-and-compilation",
+      "subjectId": "react",
+      "chapterId": "components-jsx",
+      "title": "JSX rules and compilation",
+      "order": 38,
+      "level": "beginner",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "ui"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "components-jsx-expressions-inside-jsx",
+      "subjectId": "react",
+      "chapterId": "components-jsx",
+      "title": "Expressions inside JSX",
+      "order": 39,
+      "level": "beginner",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "ui"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "components-jsx-fragments-and-keyed-fragments",
+      "subjectId": "react",
+      "chapterId": "components-jsx",
+      "title": "Fragments and keyed Fragments",
+      "order": 40,
+      "level": "beginner",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "ui"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "components-jsx-css-classes-and-inline-styles",
+      "subjectId": "react",
+      "chapterId": "components-jsx",
+      "title": "CSS classes and inline styles",
+      "order": 41,
+      "level": "beginner",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "ui"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "components-jsx-images-assets-and-svg",
+      "subjectId": "react",
+      "chapterId": "components-jsx",
+      "title": "Images assets and SVG",
+      "order": 42,
+      "level": "beginner",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "ui"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "components-jsx-component-composition-and-children",
+      "subjectId": "react",
+      "chapterId": "components-jsx",
+      "title": "Component composition and children",
+      "order": 43,
+      "level": "beginner",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "ui"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "components-jsx-render-trees-and-module-dependency-trees",
+      "subjectId": "react",
+      "chapterId": "components-jsx",
+      "title": "Render trees and module dependency trees",
+      "order": 44,
+      "level": "beginner",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "ui"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "components-jsx-component-purity-and-idempotence",
+      "subjectId": "react",
+      "chapterId": "components-jsx",
+      "title": "Component purity and idempotence",
+      "order": 45,
+      "level": "beginner",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "ui"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "props",
+      "subjectId": "react",
+      "chapterId": "props",
+      "title": "Passing and reading props",
+      "order": 46,
+      "level": "beginner",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "ui"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "props-destructuring-and-default-values",
+      "subjectId": "react",
+      "chapterId": "props",
+      "title": "Destructuring and default values",
+      "order": 47,
+      "level": "beginner",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "ui"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "props-numbers-objects-arrays-and-functions-as-props",
+      "subjectId": "react",
+      "chapterId": "props",
+      "title": "Numbers objects arrays and functions as props",
+      "order": 48,
+      "level": "beginner",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "ui"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "props-children-and-slots",
+      "subjectId": "react",
+      "chapterId": "props",
+      "title": "children and slots",
+      "order": 49,
+      "level": "beginner",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "ui"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "props-props-spread-and-explicit-interfaces",
+      "subjectId": "react",
+      "chapterId": "props",
+      "title": "Props spread and explicit interfaces",
+      "order": 50,
+      "level": "beginner",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "ui"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "props-props-are-read-only",
+      "subjectId": "react",
+      "chapterId": "props",
+      "title": "Props are read only",
+      "order": 51,
+      "level": "beginner",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "ui"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "props-callback-props-and-one-way-data-flow",
+      "subjectId": "react",
+      "chapterId": "props",
+      "title": "Callback props and one way data flow",
+      "order": 52,
+      "level": "beginner",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "ui"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "props-key-and-ref-are-special",
+      "subjectId": "react",
+      "chapterId": "props",
+      "title": "key and ref are special",
+      "order": 53,
+      "level": "beginner",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "ui"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "props-component-api-design",
+      "subjectId": "react",
+      "chapterId": "props",
+      "title": "Component API design",
+      "order": 54,
+      "level": "beginner",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "ui"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "rendering-conditional-rendering-and-null",
+      "subjectId": "react",
+      "chapterId": "rendering",
+      "title": "Conditional rendering and null",
+      "order": 55,
+      "level": "beginner",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "interactive"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [
+        "quantity-picker"
+      ],
+      "versionNote": null
+    },
+    {
+      "id": "rendering-ternary-and-logical-and-pitfalls",
+      "subjectId": "react",
+      "chapterId": "rendering",
+      "title": "Ternary and logical AND pitfalls",
+      "order": 56,
+      "level": "beginner",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "interactive"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "rendering-rendering-lists-with-map-and-filter",
+      "subjectId": "react",
+      "chapterId": "rendering",
+      "title": "Rendering lists with map and filter",
+      "order": 57,
+      "level": "beginner",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "interactive"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "rendering-stable-keys-and-identity",
+      "subjectId": "react",
+      "chapterId": "rendering",
+      "title": "Stable keys and identity",
+      "order": 58,
+      "level": "beginner",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "interactive"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "rendering-nested-lists-and-keyed-fragments",
+      "subjectId": "react",
+      "chapterId": "rendering",
+      "title": "Nested lists and keyed fragments",
+      "order": 59,
+      "level": "beginner",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "interactive"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "events",
+      "subjectId": "react",
+      "chapterId": "rendering",
+      "title": "Passing event handlers",
+      "order": 60,
+      "level": "beginner",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "interactive"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [
+        "quantity-picker"
+      ],
+      "versionNote": null
+    },
+    {
+      "id": "rendering-event-arguments-and-custom-handler-names",
+      "subjectId": "react",
+      "chapterId": "rendering",
+      "title": "Event arguments and custom handler names",
+      "order": 61,
+      "level": "beginner",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "interactive"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "rendering-event-propagation-capture-and-stoppropagation",
+      "subjectId": "react",
+      "chapterId": "rendering",
+      "title": "Event propagation capture and stopPropagation",
+      "order": 62,
+      "level": "beginner",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "interactive"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "rendering-preventdefault-and-form-submission",
+      "subjectId": "react",
+      "chapterId": "rendering",
+      "title": "preventDefault and form submission",
+      "order": 63,
+      "level": "beginner",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "interactive"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "rules-of-hooks",
+      "subjectId": "react",
+      "chapterId": "hooks-foundation",
+      "title": "Rules of Hooks and call order",
+      "order": 64,
+      "level": "beginner",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "state"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "use-state",
+      "subjectId": "react",
+      "chapterId": "hooks-foundation",
+      "title": "useState",
+      "order": 65,
+      "level": "beginner",
+      "track": "core",
+      "prerequisiteTopicIds": [
+        "components",
+        "props",
+        "events",
+        "rules-of-hooks",
+        "javascript-basics-destructuring",
+        "javascript-basics-closures-and-lexical-scope"
+      ],
+      "sourceIds": [
+        "state",
+        "memory",
+        "snapshot",
+        "queue",
+        "objects",
+        "arrays",
+        "structure",
+        "reset",
+        "input",
+        "strict",
+        "rules",
+        "render"
+      ],
+      "sourceReview": "lesson-sources-reviewed",
+      "contentStatus": "sample-draft",
+      "lessonPath": "lessons/use-state.json",
+      "miniAppIds": [
+        "quantity-picker"
+      ],
+      "versionNote": null
+    },
+    {
+      "id": "hooks-foundation-render-trigger-render-and-commit",
+      "subjectId": "react",
+      "chapterId": "hooks-foundation",
+      "title": "Render trigger render and commit",
+      "order": 66,
+      "level": "beginner",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "state"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "hooks-foundation-state-snapshots-and-closures",
+      "subjectId": "react",
+      "chapterId": "hooks-foundation",
+      "title": "State snapshots and closures",
+      "order": 67,
+      "level": "beginner",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "state"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "hooks-foundation-functional-updates-and-update-queues",
+      "subjectId": "react",
+      "chapterId": "hooks-foundation",
+      "title": "Functional updates and update queues",
+      "order": 68,
+      "level": "beginner",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "state"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "hooks-foundation-batching-and-event-boundaries",
+      "subjectId": "react",
+      "chapterId": "hooks-foundation",
+      "title": "Batching and event boundaries",
+      "order": 69,
+      "level": "beginner",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "state"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "hooks-foundation-object-state-and-nested-immutable-updates",
+      "subjectId": "react",
+      "chapterId": "hooks-foundation",
+      "title": "Object state and nested immutable updates",
+      "order": 70,
+      "level": "beginner",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "state"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "hooks-foundation-array-state-add-edit-remove-sort",
+      "subjectId": "react",
+      "chapterId": "hooks-foundation",
+      "title": "Array state add edit remove sort",
+      "order": 71,
+      "level": "beginner",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "state"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "hooks-foundation-lazy-initialization",
+      "subjectId": "react",
+      "chapterId": "hooks-foundation",
+      "title": "Lazy initialization",
+      "order": 72,
+      "level": "beginner",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "state"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "hooks-foundation-state-equality-and-object-is",
+      "subjectId": "react",
+      "chapterId": "hooks-foundation",
+      "title": "State equality and Object.is",
+      "order": 73,
+      "level": "beginner",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "state"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "hooks-foundation-state-isolation-per-component",
+      "subjectId": "react",
+      "chapterId": "hooks-foundation",
+      "title": "State isolation per component",
+      "order": 74,
+      "level": "beginner",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "state"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "hooks-foundation-storing-a-function-in-state",
+      "subjectId": "react",
+      "chapterId": "hooks-foundation",
+      "title": "Storing a function in state",
+      "order": 75,
+      "level": "beginner",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "state"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "state-design-reacting-to-input-with-state",
+      "subjectId": "react",
+      "chapterId": "state-design",
+      "title": "Reacting to input with state",
+      "order": 76,
+      "level": "intermediate",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "managing"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "state-design-state-versus-props-ref-and-local-variable",
+      "subjectId": "react",
+      "chapterId": "state-design",
+      "title": "State versus props ref and local variable",
+      "order": 77,
+      "level": "intermediate",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "managing"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "state-design-choosing-minimal-state",
+      "subjectId": "react",
+      "chapterId": "state-design",
+      "title": "Choosing minimal state",
+      "order": 78,
+      "level": "intermediate",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "managing"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [
+        "quantity-picker"
+      ],
+      "versionNote": null
+    },
+    {
+      "id": "state-design-derived-state-and-avoiding-duplication",
+      "subjectId": "react",
+      "chapterId": "state-design",
+      "title": "Derived state and avoiding duplication",
+      "order": 79,
+      "level": "intermediate",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "managing"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "state-design-avoiding-contradictory-state",
+      "subjectId": "react",
+      "chapterId": "state-design",
+      "title": "Avoiding contradictory state",
+      "order": 80,
+      "level": "intermediate",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "managing"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "state-design-lifting-state-up",
+      "subjectId": "react",
+      "chapterId": "state-design",
+      "title": "Lifting state up",
+      "order": 81,
+      "level": "intermediate",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "managing"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "state-design-controlled-and-uncontrolled-components",
+      "subjectId": "react",
+      "chapterId": "state-design",
+      "title": "Controlled and uncontrolled components",
+      "order": 82,
+      "level": "intermediate",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "managing"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "state-design-preserving-state-by-type-position-and-key",
+      "subjectId": "react",
+      "chapterId": "state-design",
+      "title": "Preserving state by type position and key",
+      "order": 83,
+      "level": "intermediate",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "managing"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "state-design-resetting-state-intentionally",
+      "subjectId": "react",
+      "chapterId": "state-design",
+      "title": "Resetting state intentionally",
+      "order": 84,
+      "level": "intermediate",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "managing"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "state-design-why-copying-props-into-state-can-fail",
+      "subjectId": "react",
+      "chapterId": "state-design",
+      "title": "Why copying props into state can fail",
+      "order": 85,
+      "level": "intermediate",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "managing"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "state-design-structuring-deeply-nested-data",
+      "subjectId": "react",
+      "chapterId": "state-design",
+      "title": "Structuring deeply nested data",
+      "order": 86,
+      "level": "intermediate",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "managing"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "state-design-guarded-updates-during-render",
+      "subjectId": "react",
+      "chapterId": "state-design",
+      "title": "Guarded updates during render",
+      "order": 87,
+      "level": "intermediate",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "managing"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "forms-controlled-text-inputs",
+      "subjectId": "react",
+      "chapterId": "forms",
+      "title": "Controlled text inputs",
+      "order": 88,
+      "level": "intermediate",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "dom-components"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "forms-checkboxes-radio-groups-and-select",
+      "subjectId": "react",
+      "chapterId": "forms",
+      "title": "Checkboxes radio groups and select",
+      "order": 89,
+      "level": "intermediate",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "dom-components"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "forms-textarea-and-multiple-fields",
+      "subjectId": "react",
+      "chapterId": "forms",
+      "title": "Textarea and multiple fields",
+      "order": 90,
+      "level": "intermediate",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "dom-components"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "forms-uncontrolled-inputs-and-defaultvalue",
+      "subjectId": "react",
+      "chapterId": "forms",
+      "title": "Uncontrolled inputs and defaultValue",
+      "order": 91,
+      "level": "intermediate",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "dom-components"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "forms-formdata-and-file-inputs",
+      "subjectId": "react",
+      "chapterId": "forms",
+      "title": "FormData and file inputs",
+      "order": 92,
+      "level": "intermediate",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "dom-components"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "forms-validation-touched-and-error-states",
+      "subjectId": "react",
+      "chapterId": "forms",
+      "title": "Validation touched and error states",
+      "order": 93,
+      "level": "intermediate",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "dom-components"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "forms-dynamic-field-lists",
+      "subjectId": "react",
+      "chapterId": "forms",
+      "title": "Dynamic field lists",
+      "order": 94,
+      "level": "intermediate",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "dom-components"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "forms-accessible-labels-descriptions-and-errors",
+      "subjectId": "react",
+      "chapterId": "forms",
+      "title": "Accessible labels descriptions and errors",
+      "order": 95,
+      "level": "intermediate",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "dom-components"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "forms-focus-management-and-keyboard-interactions",
+      "subjectId": "react",
+      "chapterId": "forms",
+      "title": "Focus management and keyboard interactions",
+      "order": 96,
+      "level": "intermediate",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "dom-components"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "forms-multi-step-forms",
+      "subjectId": "react",
+      "chapterId": "forms",
+      "title": "Multi step forms",
+      "order": 97,
+      "level": "intermediate",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "dom-components"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "reducers-context-usereducer",
+      "subjectId": "react",
+      "chapterId": "reducers-context",
+      "title": "useReducer",
+      "order": 98,
+      "level": "intermediate",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "hooks"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "reducers-context-pure-reducers-actions-and-dispatch",
+      "subjectId": "react",
+      "chapterId": "reducers-context",
+      "title": "Pure reducers actions and dispatch",
+      "order": 99,
+      "level": "intermediate",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "hooks"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "reducers-context-reducer-initialization-and-testing",
+      "subjectId": "react",
+      "chapterId": "reducers-context",
+      "title": "Reducer initialization and testing",
+      "order": 100,
+      "level": "intermediate",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "hooks"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "reducers-context-usestate-versus-usereducer",
+      "subjectId": "react",
+      "chapterId": "reducers-context",
+      "title": "useState versus useReducer",
+      "order": 101,
+      "level": "intermediate",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "hooks"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "reducers-context-createcontext",
+      "subjectId": "react",
+      "chapterId": "reducers-context",
+      "title": "createContext",
+      "order": 102,
+      "level": "intermediate",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "hooks"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "reducers-context-usecontext",
+      "subjectId": "react",
+      "chapterId": "reducers-context",
+      "title": "useContext",
+      "order": 103,
+      "level": "intermediate",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "hooks"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "reducers-context-provider-syntax-and-default-fallback",
+      "subjectId": "react",
+      "chapterId": "reducers-context",
+      "title": "Provider syntax and default fallback",
+      "order": 104,
+      "level": "intermediate",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "hooks"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "reducers-context-context-identity-and-render-behavior",
+      "subjectId": "react",
+      "chapterId": "reducers-context",
+      "title": "Context identity and render behavior",
+      "order": 105,
+      "level": "intermediate",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "hooks"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "reducers-context-combining-context-and-reducer",
+      "subjectId": "react",
+      "chapterId": "reducers-context",
+      "title": "Combining context and reducer",
+      "order": 106,
+      "level": "intermediate",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "hooks"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "reducers-context-state-colocation-versus-global-state",
+      "subjectId": "react",
+      "chapterId": "reducers-context",
+      "title": "State colocation versus global state",
+      "order": 107,
+      "level": "intermediate",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "hooks"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "refs-useref",
+      "subjectId": "react",
+      "chapterId": "refs",
+      "title": "useRef",
+      "order": 108,
+      "level": "intermediate",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "escape"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "refs-state-versus-refs",
+      "subjectId": "react",
+      "chapterId": "refs",
+      "title": "State versus refs",
+      "order": 109,
+      "level": "intermediate",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "escape"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "refs-dom-refs-and-focus",
+      "subjectId": "react",
+      "chapterId": "refs",
+      "title": "DOM refs and focus",
+      "order": 110,
+      "level": "intermediate",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "escape"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "refs-callback-refs-and-cleanup",
+      "subjectId": "react",
+      "chapterId": "refs",
+      "title": "Callback refs and cleanup",
+      "order": 111,
+      "level": "intermediate",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "escape"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "refs-ref-as-a-prop",
+      "subjectId": "react",
+      "chapterId": "refs",
+      "title": "Ref as a prop",
+      "order": 112,
+      "level": "intermediate",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "escape"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "refs-useimperativehandle",
+      "subjectId": "react",
+      "chapterId": "refs",
+      "title": "useImperativeHandle",
+      "order": 113,
+      "level": "intermediate",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "escape"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "refs-working-with-third-party-dom-widgets",
+      "subjectId": "react",
+      "chapterId": "refs",
+      "title": "Working with third party DOM widgets",
+      "order": 114,
+      "level": "intermediate",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "escape"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "refs-portals-and-createportal",
+      "subjectId": "react",
+      "chapterId": "refs",
+      "title": "Portals and createPortal",
+      "order": 115,
+      "level": "intermediate",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "escape"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "refs-accessible-dialogs-and-focus-restoration",
+      "subjectId": "react",
+      "chapterId": "refs",
+      "title": "Accessible dialogs and focus restoration",
+      "order": 116,
+      "level": "intermediate",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "escape"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "effects-useeffect",
+      "subjectId": "react",
+      "chapterId": "effects",
+      "title": "useEffect",
+      "order": 117,
+      "level": "intermediate",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "escape"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "effects-effect-setup-and-cleanup",
+      "subjectId": "react",
+      "chapterId": "effects",
+      "title": "Effect setup and cleanup",
+      "order": 118,
+      "level": "intermediate",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "escape"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "effects-dependencies-and-reactive-values",
+      "subjectId": "react",
+      "chapterId": "effects",
+      "title": "Dependencies and reactive values",
+      "order": 119,
+      "level": "intermediate",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "escape"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "effects-effect-lifecycle-and-strictmode",
+      "subjectId": "react",
+      "chapterId": "effects",
+      "title": "Effect lifecycle and StrictMode",
+      "order": 120,
+      "level": "intermediate",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "escape"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "effects-subscriptions-timers-and-cleanup",
+      "subjectId": "react",
+      "chapterId": "effects",
+      "title": "Subscriptions timers and cleanup",
+      "order": 121,
+      "level": "intermediate",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "escape"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "effects-fetching-in-effects-race-conditions-and-cancellation",
+      "subjectId": "react",
+      "chapterId": "effects",
+      "title": "Fetching in effects race conditions and cancellation",
+      "order": 122,
+      "level": "intermediate",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "escape"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "effects-separating-events-from-effects",
+      "subjectId": "react",
+      "chapterId": "effects",
+      "title": "Separating events from effects",
+      "order": 123,
+      "level": "intermediate",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "escape"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "effects-removing-unnecessary-dependencies",
+      "subjectId": "react",
+      "chapterId": "effects",
+      "title": "Removing unnecessary dependencies",
+      "order": 124,
+      "level": "intermediate",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "escape"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "effects-you-might-not-need-an-effect",
+      "subjectId": "react",
+      "chapterId": "effects",
+      "title": "You might not need an Effect",
+      "order": 125,
+      "level": "intermediate",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "escape"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "effects-useeffectevent",
+      "subjectId": "react",
+      "chapterId": "effects",
+      "title": "useEffectEvent",
+      "order": 126,
+      "level": "intermediate",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "escape"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "effects-uselayouteffect",
+      "subjectId": "react",
+      "chapterId": "effects",
+      "title": "useLayoutEffect",
+      "order": 127,
+      "level": "intermediate",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "escape"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "effects-useinsertioneffect",
+      "subjectId": "react",
+      "chapterId": "effects",
+      "title": "useInsertionEffect",
+      "order": 128,
+      "level": "intermediate",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "escape"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "custom-hooks-extracting-a-custom-hook",
+      "subjectId": "react",
+      "chapterId": "custom-hooks",
+      "title": "Extracting a custom Hook",
+      "order": 129,
+      "level": "intermediate",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "escape"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "custom-hooks-naming-parameters-return-values-and-contracts",
+      "subjectId": "react",
+      "chapterId": "custom-hooks",
+      "title": "Naming parameters return values and contracts",
+      "order": 130,
+      "level": "intermediate",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "escape"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "custom-hooks-each-hook-call-has-independent-state",
+      "subjectId": "react",
+      "chapterId": "custom-hooks",
+      "title": "Each Hook call has independent state",
+      "order": 131,
+      "level": "intermediate",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "escape"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "custom-hooks-composing-hooks",
+      "subjectId": "react",
+      "chapterId": "custom-hooks",
+      "title": "Composing Hooks",
+      "order": 132,
+      "level": "intermediate",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "escape"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "custom-hooks-avoiding-lifecycle-wrapper-hooks",
+      "subjectId": "react",
+      "chapterId": "custom-hooks",
+      "title": "Avoiding lifecycle wrapper Hooks",
+      "order": 133,
+      "level": "intermediate",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "escape"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "custom-hooks-usedebugvalue",
+      "subjectId": "react",
+      "chapterId": "custom-hooks",
+      "title": "useDebugValue",
+      "order": 134,
+      "level": "intermediate",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "escape"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "custom-hooks-testing-custom-hooks",
+      "subjectId": "react",
+      "chapterId": "custom-hooks",
+      "title": "Testing custom Hooks",
+      "order": 135,
+      "level": "intermediate",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "escape"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "custom-hooks-publishing-reusable-hook-utilities",
+      "subjectId": "react",
+      "chapterId": "custom-hooks",
+      "title": "Publishing reusable Hook utilities",
+      "order": 136,
+      "level": "intermediate",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "escape"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "async-data-loading-error-empty-success-states",
+      "subjectId": "react",
+      "chapterId": "async-data",
+      "title": "Loading error empty success states",
+      "order": 137,
+      "level": "intermediate",
+      "track": "ecosystem",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "escape"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "async-data-abortcontroller-and-stale-responses",
+      "subjectId": "react",
+      "chapterId": "async-data",
+      "title": "AbortController and stale responses",
+      "order": 138,
+      "level": "intermediate",
+      "track": "ecosystem",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "escape"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "async-data-pagination-and-infinite-scrolling",
+      "subjectId": "react",
+      "chapterId": "async-data",
+      "title": "Pagination and infinite scrolling",
+      "order": 139,
+      "level": "intermediate",
+      "track": "ecosystem",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "escape"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "async-data-debouncing-throttling-and-request-timing",
+      "subjectId": "react",
+      "chapterId": "async-data",
+      "title": "Debouncing throttling and request timing",
+      "order": 140,
+      "level": "intermediate",
+      "track": "ecosystem",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "escape"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "async-data-caching-deduplication-and-invalidation",
+      "subjectId": "react",
+      "chapterId": "async-data",
+      "title": "Caching deduplication and invalidation",
+      "order": 141,
+      "level": "intermediate",
+      "track": "ecosystem",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "escape"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "async-data-optimistic-updates-and-rollback",
+      "subjectId": "react",
+      "chapterId": "async-data",
+      "title": "Optimistic updates and rollback",
+      "order": 142,
+      "level": "intermediate",
+      "track": "ecosystem",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "escape"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "async-data-server-state-versus-client-state",
+      "subjectId": "react",
+      "chapterId": "async-data",
+      "title": "Server state versus client state",
+      "order": 143,
+      "level": "intermediate",
+      "track": "ecosystem",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "escape"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "async-data-offline-retry-and-reconnect-strategies",
+      "subjectId": "react",
+      "chapterId": "async-data",
+      "title": "Offline retry and reconnect strategies",
+      "order": 144,
+      "level": "intermediate",
+      "track": "ecosystem",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "escape"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "routing-client-navigation-and-browser-history",
+      "subjectId": "react",
+      "chapterId": "routing",
+      "title": "Client navigation and browser history",
+      "order": 145,
+      "level": "intermediate",
+      "track": "ecosystem",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [],
+      "sourceReview": "pending-specialist-source",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "routing-route-trees-params-and-nested-layouts",
+      "subjectId": "react",
+      "chapterId": "routing",
+      "title": "Route trees params and nested layouts",
+      "order": 146,
+      "level": "intermediate",
+      "track": "ecosystem",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [],
+      "sourceReview": "pending-specialist-source",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "routing-search-params-as-state",
+      "subjectId": "react",
+      "chapterId": "routing",
+      "title": "Search params as state",
+      "order": 147,
+      "level": "intermediate",
+      "track": "ecosystem",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [],
+      "sourceReview": "pending-specialist-source",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "routing-not-found-redirects-and-navigation-errors",
+      "subjectId": "react",
+      "chapterId": "routing",
+      "title": "Not found redirects and navigation errors",
+      "order": 148,
+      "level": "intermediate",
+      "track": "ecosystem",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [],
+      "sourceReview": "pending-specialist-source",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "routing-route-loaders-and-mutations",
+      "subjectId": "react",
+      "chapterId": "routing",
+      "title": "Route loaders and mutations",
+      "order": 149,
+      "level": "intermediate",
+      "track": "ecosystem",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [],
+      "sourceReview": "pending-specialist-source",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "routing-pending-navigation-and-prefetching",
+      "subjectId": "react",
+      "chapterId": "routing",
+      "title": "Pending navigation and prefetching",
+      "order": 150,
+      "level": "intermediate",
+      "track": "ecosystem",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [],
+      "sourceReview": "pending-specialist-source",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "routing-code-splitting-at-route-boundaries",
+      "subjectId": "react",
+      "chapterId": "routing",
+      "title": "Code splitting at route boundaries",
+      "order": 151,
+      "level": "intermediate",
+      "track": "ecosystem",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [],
+      "sourceReview": "pending-specialist-source",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "routing-protected-ui-and-server-authorization-boundaries",
+      "subjectId": "react",
+      "chapterId": "routing",
+      "title": "Protected UI and server authorization boundaries",
+      "order": 152,
+      "level": "intermediate",
+      "track": "ecosystem",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [],
+      "sourceReview": "pending-specialist-source",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "performance-measuring-before-optimizing",
+      "subjectId": "react",
+      "chapterId": "performance",
+      "title": "Measuring before optimizing",
+      "order": 153,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "apis"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "performance-memo",
+      "subjectId": "react",
+      "chapterId": "performance",
+      "title": "memo",
+      "order": 154,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "apis"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "performance-usememo",
+      "subjectId": "react",
+      "chapterId": "performance",
+      "title": "useMemo",
+      "order": 155,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "apis"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "performance-usecallback",
+      "subjectId": "react",
+      "chapterId": "performance",
+      "title": "useCallback",
+      "order": 156,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "apis"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "performance-referential-equality-and-dependency-identity",
+      "subjectId": "react",
+      "chapterId": "performance",
+      "title": "Referential equality and dependency identity",
+      "order": 157,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "apis"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "performance-profiler-and-react-devtools-profiling",
+      "subjectId": "react",
+      "chapterId": "performance",
+      "title": "Profiler and React DevTools profiling",
+      "order": 158,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "apis"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "performance-list-virtualization",
+      "subjectId": "react",
+      "chapterId": "performance",
+      "title": "List virtualization",
+      "order": 159,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "apis"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "performance-code-splitting-and-lazy",
+      "subjectId": "react",
+      "chapterId": "performance",
+      "title": "Code splitting and lazy",
+      "order": 160,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "apis"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "performance-suspense-boundaries-and-fallbacks",
+      "subjectId": "react",
+      "chapterId": "performance",
+      "title": "Suspense boundaries and fallbacks",
+      "order": 161,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "apis"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "performance-suspense-enabled-data-sources",
+      "subjectId": "react",
+      "chapterId": "performance",
+      "title": "Suspense enabled data sources",
+      "order": 162,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "apis"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "performance-avoiding-waterfalls",
+      "subjectId": "react",
+      "chapterId": "performance",
+      "title": "Avoiding waterfalls",
+      "order": 163,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "apis"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "performance-transition-versus-urgent-update",
+      "subjectId": "react",
+      "chapterId": "performance",
+      "title": "Transition versus urgent update",
+      "order": 164,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "apis"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "performance-usetransition",
+      "subjectId": "react",
+      "chapterId": "performance",
+      "title": "useTransition",
+      "order": 165,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "apis"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "performance-starttransition",
+      "subjectId": "react",
+      "chapterId": "performance",
+      "title": "startTransition",
+      "order": 166,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "apis"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "performance-usedeferredvalue",
+      "subjectId": "react",
+      "chapterId": "performance",
+      "title": "useDeferredValue",
+      "order": 167,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "apis"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "actions-actions-and-async-transitions",
+      "subjectId": "react",
+      "chapterId": "actions",
+      "title": "Actions and async transitions",
+      "order": 168,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "dom-hooks"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "actions-form-action-and-button-formaction",
+      "subjectId": "react",
+      "chapterId": "actions",
+      "title": "Form action and button formAction",
+      "order": 169,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "dom-hooks"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "actions-useactionstate",
+      "subjectId": "react",
+      "chapterId": "actions",
+      "title": "useActionState",
+      "order": 170,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "dom-hooks"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "actions-useformstatus",
+      "subjectId": "react",
+      "chapterId": "actions",
+      "title": "useFormStatus",
+      "order": 171,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "dom-hooks"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "actions-useoptimistic",
+      "subjectId": "react",
+      "chapterId": "actions",
+      "title": "useOptimistic",
+      "order": 172,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "dom-hooks"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "actions-pending-errors-and-optimistic-rollback",
+      "subjectId": "react",
+      "chapterId": "actions",
+      "title": "Pending errors and optimistic rollback",
+      "order": 173,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "dom-hooks"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "actions-form-reset-behavior",
+      "subjectId": "react",
+      "chapterId": "actions",
+      "title": "Form reset behavior",
+      "order": 174,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "dom-hooks"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "actions-progressive-enhancement-and-server-validation",
+      "subjectId": "react",
+      "chapterId": "actions",
+      "title": "Progressive enhancement and server validation",
+      "order": 175,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "dom-hooks"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "dom-reference-common-dom-props-and-synthetic-events",
+      "subjectId": "react",
+      "chapterId": "dom-reference",
+      "title": "Common DOM props and synthetic events",
+      "order": 176,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "dom"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "dom-reference-html-svg-and-custom-elements",
+      "subjectId": "react",
+      "chapterId": "dom-reference",
+      "title": "HTML SVG and custom elements",
+      "order": 177,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "dom"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "dom-reference-dangerouslysetinnerhtml-and-trusted-content",
+      "subjectId": "react",
+      "chapterId": "dom-reference",
+      "title": "dangerouslySetInnerHTML and trusted content",
+      "order": 178,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "dom"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "dom-reference-hydration-warnings-and-suppression-limits",
+      "subjectId": "react",
+      "chapterId": "dom-reference",
+      "title": "Hydration warnings and suppression limits",
+      "order": 179,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "dom"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "dom-reference-title-meta-link-style-and-script",
+      "subjectId": "react",
+      "chapterId": "dom-reference",
+      "title": "title meta link style and script",
+      "order": 180,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "dom"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "dom-reference-resource-precedence-and-loading",
+      "subjectId": "react",
+      "chapterId": "dom-reference",
+      "title": "Resource precedence and loading",
+      "order": 181,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "dom"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "dom-reference-flushsync",
+      "subjectId": "react",
+      "chapterId": "dom-reference",
+      "title": "flushSync",
+      "order": 182,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "dom"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "dom-reference-prefetchdns",
+      "subjectId": "react",
+      "chapterId": "dom-reference",
+      "title": "prefetchDNS",
+      "order": 183,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "dom"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "dom-reference-preconnect",
+      "subjectId": "react",
+      "chapterId": "dom-reference",
+      "title": "preconnect",
+      "order": 184,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "dom"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "dom-reference-preload",
+      "subjectId": "react",
+      "chapterId": "dom-reference",
+      "title": "preload",
+      "order": 185,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "dom"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "dom-reference-preloadmodule",
+      "subjectId": "react",
+      "chapterId": "dom-reference",
+      "title": "preloadModule",
+      "order": 186,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "dom"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "dom-reference-preinit",
+      "subjectId": "react",
+      "chapterId": "dom-reference",
+      "title": "preinit",
+      "order": 187,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "dom"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "dom-reference-preinitmodule",
+      "subjectId": "react",
+      "chapterId": "dom-reference",
+      "title": "preinitModule",
+      "order": 188,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "dom"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "concurrent-strictmode-development-checks",
+      "subjectId": "react",
+      "chapterId": "concurrent",
+      "title": "StrictMode development checks",
+      "order": 189,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "components"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "concurrent-interruptible-rendering-mental-model",
+      "subjectId": "react",
+      "chapterId": "concurrent",
+      "title": "Interruptible rendering mental model",
+      "order": 190,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "components"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "concurrent-suspense-reveal-and-reset-behavior",
+      "subjectId": "react",
+      "chapterId": "concurrent",
+      "title": "Suspense reveal and reset behavior",
+      "order": 191,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "components"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "concurrent-activity-and-retained-ui",
+      "subjectId": "react",
+      "chapterId": "concurrent",
+      "title": "Activity and retained UI",
+      "order": 192,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "components"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "concurrent-useid-and-accessible-ids",
+      "subjectId": "react",
+      "chapterId": "concurrent",
+      "title": "useId and accessible IDs",
+      "order": 193,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "components"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "concurrent-usesyncexternalstore",
+      "subjectId": "react",
+      "chapterId": "concurrent",
+      "title": "useSyncExternalStore",
+      "order": 194,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "components"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "concurrent-external-store-snapshots-and-hydration",
+      "subjectId": "react",
+      "chapterId": "concurrent",
+      "title": "External store snapshots and hydration",
+      "order": 195,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "components"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "concurrent-error-boundaries-and-recovery",
+      "subjectId": "react",
+      "chapterId": "concurrent",
+      "title": "Error boundaries and recovery",
+      "order": 196,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "components"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "concurrent-render-errors-versus-event-and-async-errors",
+      "subjectId": "react",
+      "chapterId": "concurrent",
+      "title": "Render errors versus event and async errors",
+      "order": 197,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "components"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "server-rendering-csr-ssr-ssg-and-streaming",
+      "subjectId": "react",
+      "chapterId": "server-rendering",
+      "title": "CSR SSR SSG and streaming",
+      "order": 198,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "server"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "server-rendering-createroot-root-render-and-root-unmount",
+      "subjectId": "react",
+      "chapterId": "server-rendering",
+      "title": "createRoot root.render and root.unmount",
+      "order": 199,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "server"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "server-rendering-hydrateroot-and-recoverable-errors",
+      "subjectId": "react",
+      "chapterId": "server-rendering",
+      "title": "hydrateRoot and recoverable errors",
+      "order": 200,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "server"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "server-rendering-hydration-mismatches-and-deterministic-rendering",
+      "subjectId": "react",
+      "chapterId": "server-rendering",
+      "title": "Hydration mismatches and deterministic rendering",
+      "order": 201,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "server"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "server-rendering-rendertopipeablestream",
+      "subjectId": "react",
+      "chapterId": "server-rendering",
+      "title": "renderToPipeableStream",
+      "order": 202,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "server"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "server-rendering-rendertoreadablestream",
+      "subjectId": "react",
+      "chapterId": "server-rendering",
+      "title": "renderToReadableStream",
+      "order": 203,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "server"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "server-rendering-rendertostring",
+      "subjectId": "react",
+      "chapterId": "server-rendering",
+      "title": "renderToString",
+      "order": 204,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "server"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "server-rendering-rendertostaticmarkup",
+      "subjectId": "react",
+      "chapterId": "server-rendering",
+      "title": "renderToStaticMarkup",
+      "order": 205,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "server"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "server-rendering-streaming-suspense-and-bootstrap-options",
+      "subjectId": "react",
+      "chapterId": "server-rendering",
+      "title": "Streaming Suspense and bootstrap options",
+      "order": 206,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "server"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "server-rendering-resume",
+      "subjectId": "react",
+      "chapterId": "server-rendering",
+      "title": "resume",
+      "order": 207,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "server"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "server-rendering-resumetopipeablestream",
+      "subjectId": "react",
+      "chapterId": "server-rendering",
+      "title": "resumeToPipeableStream",
+      "order": 208,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "server"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "server-rendering-prerender",
+      "subjectId": "react",
+      "chapterId": "server-rendering",
+      "title": "prerender",
+      "order": 209,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "server"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "server-rendering-prerendertonodestream",
+      "subjectId": "react",
+      "chapterId": "server-rendering",
+      "title": "prerenderToNodeStream",
+      "order": 210,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "server"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "server-rendering-resumeandprerender",
+      "subjectId": "react",
+      "chapterId": "server-rendering",
+      "title": "resumeAndPrerender",
+      "order": 211,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "server"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "server-rendering-resumeandprerendertonodestream",
+      "subjectId": "react",
+      "chapterId": "server-rendering",
+      "title": "resumeAndPrerenderToNodeStream",
+      "order": 212,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "server"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "server-rendering-environment-and-stream-compatibility",
+      "subjectId": "react",
+      "chapterId": "server-rendering",
+      "title": "Environment and stream compatibility",
+      "order": 213,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "server"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "server-components-server-components-versus-ssr",
+      "subjectId": "react",
+      "chapterId": "server-components",
+      "title": "Server Components versus SSR",
+      "order": 214,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "rsc"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "server-components-client-and-server-module-boundaries",
+      "subjectId": "react",
+      "chapterId": "server-components",
+      "title": "Client and server module boundaries",
+      "order": 215,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "rsc"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "server-components-use-client-directive",
+      "subjectId": "react",
+      "chapterId": "server-components",
+      "title": "use client directive",
+      "order": 216,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "rsc"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "server-components-serializable-boundary-values",
+      "subjectId": "react",
+      "chapterId": "server-components",
+      "title": "Serializable boundary values",
+      "order": 217,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "rsc"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "server-components-composition-across-server-and-client",
+      "subjectId": "react",
+      "chapterId": "server-components",
+      "title": "Composition across server and client",
+      "order": 218,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "rsc"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "server-components-server-functions-and-use-server",
+      "subjectId": "react",
+      "chapterId": "server-components",
+      "title": "Server Functions and use server",
+      "order": 219,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "rsc"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "server-components-validation-authorization-and-untrusted-arguments",
+      "subjectId": "react",
+      "chapterId": "server-components",
+      "title": "Validation authorization and untrusted arguments",
+      "order": 220,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "rsc"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "server-components-use-with-promise-and-context",
+      "subjectId": "react",
+      "chapterId": "server-components",
+      "title": "use with Promise and context",
+      "order": 221,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "rsc"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "server-components-suspense-and-errors-around-use",
+      "subjectId": "react",
+      "chapterId": "server-components",
+      "title": "Suspense and errors around use",
+      "order": 222,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "rsc"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "server-components-cache",
+      "subjectId": "react",
+      "chapterId": "server-components",
+      "title": "cache",
+      "order": 223,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "rsc"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "server-components-cachesignal",
+      "subjectId": "react",
+      "chapterId": "server-components",
+      "title": "cacheSignal",
+      "order": 224,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "rsc"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "server-components-framework-and-bundler-integration-constraints",
+      "subjectId": "react",
+      "chapterId": "server-components",
+      "title": "Framework and bundler integration constraints",
+      "order": 225,
+      "level": "advanced",
+      "track": "core",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "rsc"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "compiler-compiler-mental-model-and-installation",
+      "subjectId": "react",
+      "chapterId": "compiler",
+      "title": "Compiler mental model and installation",
+      "order": 226,
+      "level": "advanced",
+      "track": "tooling",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "compiler"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "compiler-incremental-adoption-and-verification",
+      "subjectId": "react",
+      "chapterId": "compiler",
+      "title": "Incremental adoption and verification",
+      "order": 227,
+      "level": "advanced",
+      "track": "tooling",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "compiler"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "compiler-compilationmode",
+      "subjectId": "react",
+      "chapterId": "compiler",
+      "title": "compilationMode",
+      "order": 228,
+      "level": "advanced",
+      "track": "tooling",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "compiler"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "compiler-target-and-runtime-compatibility",
+      "subjectId": "react",
+      "chapterId": "compiler",
+      "title": "target and runtime compatibility",
+      "order": 229,
+      "level": "advanced",
+      "track": "tooling",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "compiler"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "compiler-panicthreshold",
+      "subjectId": "react",
+      "chapterId": "compiler",
+      "title": "panicThreshold",
+      "order": 230,
+      "level": "advanced",
+      "track": "tooling",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "compiler"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "compiler-logger",
+      "subjectId": "react",
+      "chapterId": "compiler",
+      "title": "logger",
+      "order": 231,
+      "level": "advanced",
+      "track": "tooling",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "compiler"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "compiler-gating",
+      "subjectId": "react",
+      "chapterId": "compiler",
+      "title": "gating",
+      "order": 232,
+      "level": "advanced",
+      "track": "tooling",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "compiler"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "compiler-use-memo-directive",
+      "subjectId": "react",
+      "chapterId": "compiler",
+      "title": "use memo directive",
+      "order": 233,
+      "level": "advanced",
+      "track": "tooling",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "compiler"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "compiler-use-no-memo-directive",
+      "subjectId": "react",
+      "chapterId": "compiler",
+      "title": "use no memo directive",
+      "order": 234,
+      "level": "advanced",
+      "track": "tooling",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "compiler"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "compiler-compiling-libraries",
+      "subjectId": "react",
+      "chapterId": "compiler",
+      "title": "Compiling libraries",
+      "order": 235,
+      "level": "advanced",
+      "track": "tooling",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "compiler"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "compiler-compiler-debugging-and-memoization-limits",
+      "subjectId": "react",
+      "chapterId": "compiler",
+      "title": "Compiler debugging and memoization limits",
+      "order": 236,
+      "level": "advanced",
+      "track": "tooling",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "compiler"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "rules-lint-components-and-hooks-must-be-pure",
+      "subjectId": "react",
+      "chapterId": "rules-lint",
+      "title": "Components and Hooks must be pure",
+      "order": 237,
+      "level": "advanced",
+      "track": "tooling",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "lint"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "rules-lint-react-calls-components-and-hooks",
+      "subjectId": "react",
+      "chapterId": "rules-lint",
+      "title": "React calls Components and Hooks",
+      "order": 238,
+      "level": "advanced",
+      "track": "tooling",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "lint"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "rules-lint-rules-of-hooks-lint",
+      "subjectId": "react",
+      "chapterId": "rules-lint",
+      "title": "rules-of-hooks lint",
+      "order": 239,
+      "level": "advanced",
+      "track": "tooling",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "lint"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "rules-lint-exhaustive-deps-lint",
+      "subjectId": "react",
+      "chapterId": "rules-lint",
+      "title": "exhaustive-deps lint",
+      "order": 240,
+      "level": "advanced",
+      "track": "tooling",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "lint"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "rules-lint-component-hook-factories",
+      "subjectId": "react",
+      "chapterId": "rules-lint",
+      "title": "component-hook-factories",
+      "order": 241,
+      "level": "advanced",
+      "track": "tooling",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "lint"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "rules-lint-config-lint",
+      "subjectId": "react",
+      "chapterId": "rules-lint",
+      "title": "config lint",
+      "order": 242,
+      "level": "advanced",
+      "track": "tooling",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "lint"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "rules-lint-error-boundaries-lint",
+      "subjectId": "react",
+      "chapterId": "rules-lint",
+      "title": "error-boundaries lint",
+      "order": 243,
+      "level": "advanced",
+      "track": "tooling",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "lint"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "rules-lint-gating-lint",
+      "subjectId": "react",
+      "chapterId": "rules-lint",
+      "title": "gating lint",
+      "order": 244,
+      "level": "advanced",
+      "track": "tooling",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "lint"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "rules-lint-globals-lint",
+      "subjectId": "react",
+      "chapterId": "rules-lint",
+      "title": "globals lint",
+      "order": 245,
+      "level": "advanced",
+      "track": "tooling",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "lint"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "rules-lint-immutability-lint",
+      "subjectId": "react",
+      "chapterId": "rules-lint",
+      "title": "immutability lint",
+      "order": 246,
+      "level": "advanced",
+      "track": "tooling",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "lint"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "rules-lint-incompatible-library-lint",
+      "subjectId": "react",
+      "chapterId": "rules-lint",
+      "title": "incompatible-library lint",
+      "order": 247,
+      "level": "advanced",
+      "track": "tooling",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "lint"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "rules-lint-preserve-manual-memoization-lint",
+      "subjectId": "react",
+      "chapterId": "rules-lint",
+      "title": "preserve-manual-memoization lint",
+      "order": 248,
+      "level": "advanced",
+      "track": "tooling",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "lint"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "rules-lint-purity-lint",
+      "subjectId": "react",
+      "chapterId": "rules-lint",
+      "title": "purity lint",
+      "order": 249,
+      "level": "advanced",
+      "track": "tooling",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "lint"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "rules-lint-refs-lint",
+      "subjectId": "react",
+      "chapterId": "rules-lint",
+      "title": "refs lint",
+      "order": 250,
+      "level": "advanced",
+      "track": "tooling",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "lint"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "rules-lint-set-state-in-effect-lint",
+      "subjectId": "react",
+      "chapterId": "rules-lint",
+      "title": "set-state-in-effect lint",
+      "order": 251,
+      "level": "advanced",
+      "track": "tooling",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "lint"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "rules-lint-set-state-in-render-lint",
+      "subjectId": "react",
+      "chapterId": "rules-lint",
+      "title": "set-state-in-render lint",
+      "order": 252,
+      "level": "advanced",
+      "track": "tooling",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "lint"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "rules-lint-static-components-lint",
+      "subjectId": "react",
+      "chapterId": "rules-lint",
+      "title": "static-components lint",
+      "order": 253,
+      "level": "advanced",
+      "track": "tooling",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "lint"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "rules-lint-unsupported-syntax-lint",
+      "subjectId": "react",
+      "chapterId": "rules-lint",
+      "title": "unsupported-syntax lint",
+      "order": 254,
+      "level": "advanced",
+      "track": "tooling",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "lint"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "rules-lint-use-memo-lint",
+      "subjectId": "react",
+      "chapterId": "rules-lint",
+      "title": "use-memo lint",
+      "order": 255,
+      "level": "advanced",
+      "track": "tooling",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "lint"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "typescript-typing-component-props-and-children",
+      "subjectId": "react",
+      "chapterId": "typescript",
+      "title": "Typing component props and children",
+      "order": 256,
+      "level": "intermediate",
+      "track": "ecosystem",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [],
+      "sourceReview": "pending-specialist-source",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "typescript-events-refs-and-dom-types",
+      "subjectId": "react",
+      "chapterId": "typescript",
+      "title": "Events refs and DOM types",
+      "order": 257,
+      "level": "intermediate",
+      "track": "ecosystem",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [],
+      "sourceReview": "pending-specialist-source",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "typescript-usestate-unions-and-nullable-values",
+      "subjectId": "react",
+      "chapterId": "typescript",
+      "title": "useState unions and nullable values",
+      "order": 258,
+      "level": "intermediate",
+      "track": "ecosystem",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [],
+      "sourceReview": "pending-specialist-source",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "typescript-reducer-discriminated-unions",
+      "subjectId": "react",
+      "chapterId": "typescript",
+      "title": "Reducer discriminated unions",
+      "order": 259,
+      "level": "intermediate",
+      "track": "ecosystem",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [],
+      "sourceReview": "pending-specialist-source",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "typescript-context-with-safe-defaults",
+      "subjectId": "react",
+      "chapterId": "typescript",
+      "title": "Context with safe defaults",
+      "order": 260,
+      "level": "intermediate",
+      "track": "ecosystem",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [],
+      "sourceReview": "pending-specialist-source",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "typescript-generic-components-and-hooks",
+      "subjectId": "react",
+      "chapterId": "typescript",
+      "title": "Generic components and Hooks",
+      "order": 261,
+      "level": "intermediate",
+      "track": "ecosystem",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [],
+      "sourceReview": "pending-specialist-source",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "typescript-componentprops-and-utility-types",
+      "subjectId": "react",
+      "chapterId": "typescript",
+      "title": "ComponentProps and utility types",
+      "order": 262,
+      "level": "intermediate",
+      "track": "ecosystem",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [],
+      "sourceReview": "pending-specialist-source",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "typescript-type-narrowing-and-exhaustive-checks",
+      "subjectId": "react",
+      "chapterId": "typescript",
+      "title": "Type narrowing and exhaustive checks",
+      "order": 263,
+      "level": "intermediate",
+      "track": "ecosystem",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [],
+      "sourceReview": "pending-specialist-source",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "testing-behavior-based-component-tests",
+      "subjectId": "react",
+      "chapterId": "testing",
+      "title": "Behavior based component tests",
+      "order": 264,
+      "level": "intermediate",
+      "track": "ecosystem",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [],
+      "sourceReview": "pending-specialist-source",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "testing-queries-by-role-label-and-text",
+      "subjectId": "react",
+      "chapterId": "testing",
+      "title": "Queries by role label and text",
+      "order": 265,
+      "level": "intermediate",
+      "track": "ecosystem",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [],
+      "sourceReview": "pending-specialist-source",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "testing-user-interactions-and-async-assertions",
+      "subjectId": "react",
+      "chapterId": "testing",
+      "title": "User interactions and async assertions",
+      "order": 266,
+      "level": "intermediate",
+      "track": "ecosystem",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [],
+      "sourceReview": "pending-specialist-source",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "testing-testing-forms-and-validation",
+      "subjectId": "react",
+      "chapterId": "testing",
+      "title": "Testing forms and validation",
+      "order": 267,
+      "level": "intermediate",
+      "track": "ecosystem",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [],
+      "sourceReview": "pending-specialist-source",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "testing-mocking-network-boundaries",
+      "subjectId": "react",
+      "chapterId": "testing",
+      "title": "Mocking network boundaries",
+      "order": 268,
+      "level": "intermediate",
+      "track": "ecosystem",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [],
+      "sourceReview": "pending-specialist-source",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "testing-hook-and-reducer-tests",
+      "subjectId": "react",
+      "chapterId": "testing",
+      "title": "Hook and reducer tests",
+      "order": 269,
+      "level": "intermediate",
+      "track": "ecosystem",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [],
+      "sourceReview": "pending-specialist-source",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "testing-error-and-loading-state-tests",
+      "subjectId": "react",
+      "chapterId": "testing",
+      "title": "Error and loading state tests",
+      "order": 270,
+      "level": "intermediate",
+      "track": "ecosystem",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [],
+      "sourceReview": "pending-specialist-source",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "testing-accessibility-checks",
+      "subjectId": "react",
+      "chapterId": "testing",
+      "title": "Accessibility checks",
+      "order": 271,
+      "level": "intermediate",
+      "track": "ecosystem",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [],
+      "sourceReview": "pending-specialist-source",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "testing-end-to-end-user-journeys",
+      "subjectId": "react",
+      "chapterId": "testing",
+      "title": "End to end user journeys",
+      "order": 272,
+      "level": "intermediate",
+      "track": "ecosystem",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [],
+      "sourceReview": "pending-specialist-source",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "testing-act",
+      "subjectId": "react",
+      "chapterId": "testing",
+      "title": "act",
+      "order": 273,
+      "level": "intermediate",
+      "track": "ecosystem",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [],
+      "sourceReview": "pending-specialist-source",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "testing-captureownerstack",
+      "subjectId": "react",
+      "chapterId": "testing",
+      "title": "captureOwnerStack",
+      "order": 274,
+      "level": "intermediate",
+      "track": "ecosystem",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [],
+      "sourceReview": "pending-specialist-source",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "testing-debugging-render-loops-and-stale-closures",
+      "subjectId": "react",
+      "chapterId": "testing",
+      "title": "Debugging render loops and stale closures",
+      "order": 275,
+      "level": "intermediate",
+      "track": "ecosystem",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [],
+      "sourceReview": "pending-specialist-source",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "production-feature-based-architecture",
+      "subjectId": "react",
+      "chapterId": "production",
+      "title": "Feature based architecture",
+      "order": 276,
+      "level": "advanced",
+      "track": "ecosystem",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [],
+      "sourceReview": "pending-specialist-source",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "production-error-reporting-and-observability",
+      "subjectId": "react",
+      "chapterId": "production",
+      "title": "Error reporting and observability",
+      "order": 277,
+      "level": "advanced",
+      "track": "ecosystem",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [],
+      "sourceReview": "pending-specialist-source",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "production-environment-configuration-and-secrets-boundary",
+      "subjectId": "react",
+      "chapterId": "production",
+      "title": "Environment configuration and secrets boundary",
+      "order": 278,
+      "level": "advanced",
+      "track": "ecosystem",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [],
+      "sourceReview": "pending-specialist-source",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "production-authentication-ui-and-session-expiry",
+      "subjectId": "react",
+      "chapterId": "production",
+      "title": "Authentication UI and session expiry",
+      "order": 279,
+      "level": "advanced",
+      "track": "ecosystem",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [],
+      "sourceReview": "pending-specialist-source",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "production-authorization-enforced-on-server",
+      "subjectId": "react",
+      "chapterId": "production",
+      "title": "Authorization enforced on server",
+      "order": 280,
+      "level": "advanced",
+      "track": "ecosystem",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [],
+      "sourceReview": "pending-specialist-source",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "production-xss-and-untrusted-content",
+      "subjectId": "react",
+      "chapterId": "production",
+      "title": "XSS and untrusted content",
+      "order": 281,
+      "level": "advanced",
+      "track": "ecosystem",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [],
+      "sourceReview": "pending-specialist-source",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "production-accessibility-audit-and-internationalization",
+      "subjectId": "react",
+      "chapterId": "production",
+      "title": "Accessibility audit and internationalization",
+      "order": 282,
+      "level": "advanced",
+      "track": "ecosystem",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [],
+      "sourceReview": "pending-specialist-source",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "production-performance-budgets-and-bundle-inspection",
+      "subjectId": "react",
+      "chapterId": "production",
+      "title": "Performance budgets and bundle inspection",
+      "order": 283,
+      "level": "advanced",
+      "track": "ecosystem",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [],
+      "sourceReview": "pending-specialist-source",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "production-ci-checks-and-production-builds",
+      "subjectId": "react",
+      "chapterId": "production",
+      "title": "CI checks and production builds",
+      "order": 284,
+      "level": "advanced",
+      "track": "ecosystem",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [],
+      "sourceReview": "pending-specialist-source",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "production-deployment-caching-and-rollback",
+      "subjectId": "react",
+      "chapterId": "production",
+      "title": "Deployment caching and rollback",
+      "order": 285,
+      "level": "advanced",
+      "track": "ecosystem",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [],
+      "sourceReview": "pending-specialist-source",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "production-design-systems-and-reusable-components",
+      "subjectId": "react",
+      "chapterId": "production",
+      "title": "Design systems and reusable components",
+      "order": 286,
+      "level": "advanced",
+      "track": "ecosystem",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [],
+      "sourceReview": "pending-specialist-source",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "production-state-library-and-query-library-selection",
+      "subjectId": "react",
+      "chapterId": "production",
+      "title": "State library and query library selection",
+      "order": 287,
+      "level": "advanced",
+      "track": "ecosystem",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [],
+      "sourceReview": "pending-specialist-source",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "legacy-component-and-class-lifecycle-methods",
+      "subjectId": "react",
+      "chapterId": "legacy",
+      "title": "Component and class lifecycle methods",
+      "order": 288,
+      "level": "advanced",
+      "track": "legacy",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "legacy"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "legacy-class-setstate-merge-and-callback",
+      "subjectId": "react",
+      "chapterId": "legacy",
+      "title": "Class setState merge and callback",
+      "order": 289,
+      "level": "advanced",
+      "track": "legacy",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "legacy"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "legacy-purecomponent",
+      "subjectId": "react",
+      "chapterId": "legacy",
+      "title": "PureComponent",
+      "order": 290,
+      "level": "advanced",
+      "track": "legacy",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "legacy"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "legacy-createelement",
+      "subjectId": "react",
+      "chapterId": "legacy",
+      "title": "createElement",
+      "order": 291,
+      "level": "advanced",
+      "track": "legacy",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "legacy"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "legacy-cloneelement",
+      "subjectId": "react",
+      "chapterId": "legacy",
+      "title": "cloneElement",
+      "order": 292,
+      "level": "advanced",
+      "track": "legacy",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "legacy"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "legacy-children-utilities",
+      "subjectId": "react",
+      "chapterId": "legacy",
+      "title": "Children utilities",
+      "order": 293,
+      "level": "advanced",
+      "track": "legacy",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "legacy"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "legacy-createref",
+      "subjectId": "react",
+      "chapterId": "legacy",
+      "title": "createRef",
+      "order": 294,
+      "level": "advanced",
+      "track": "legacy",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "legacy"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "legacy-forwardref",
+      "subjectId": "react",
+      "chapterId": "legacy",
+      "title": "forwardRef",
+      "order": 295,
+      "level": "advanced",
+      "track": "legacy",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "legacy"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "legacy-isvalidelement",
+      "subjectId": "react",
+      "chapterId": "legacy",
+      "title": "isValidElement",
+      "order": 296,
+      "level": "advanced",
+      "track": "legacy",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "legacy"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "legacy-render-props-and-higher-order-components",
+      "subjectId": "react",
+      "chapterId": "legacy",
+      "title": "Render props and higher order components",
+      "order": 297,
+      "level": "advanced",
+      "track": "legacy",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "legacy"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "legacy-class-to-hook-migration",
+      "subjectId": "react",
+      "chapterId": "legacy",
+      "title": "Class to Hook migration",
+      "order": 298,
+      "level": "advanced",
+      "track": "legacy",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "legacy"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "legacy-removed-react-dom-apis",
+      "subjectId": "react",
+      "chapterId": "legacy",
+      "title": "Removed React DOM APIs",
+      "order": 299,
+      "level": "advanced",
+      "track": "legacy",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "legacy"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "legacy-deprecated-patterns-and-version-migration",
+      "subjectId": "react",
+      "chapterId": "legacy",
+      "title": "Deprecated patterns and version migration",
+      "order": 300,
+      "level": "advanced",
+      "track": "legacy",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "legacy"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "version-watch-viewtransition",
+      "subjectId": "react",
+      "chapterId": "version-watch",
+      "title": "ViewTransition",
+      "order": 301,
+      "level": "advanced",
+      "track": "version-watch",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "apis"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": "Verify individual API release channel and supported runtime before publishing."
+    },
+    {
+      "id": "version-watch-addtransitiontype",
+      "subjectId": "react",
+      "chapterId": "version-watch",
+      "title": "addTransitionType",
+      "order": 302,
+      "level": "advanced",
+      "track": "version-watch",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "apis"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": "Verify individual API release channel and supported runtime before publishing."
+    },
+    {
+      "id": "version-watch-browser-api-with-use",
+      "subjectId": "react",
+      "chapterId": "version-watch",
+      "title": "browser API with use",
+      "order": 303,
+      "level": "advanced",
+      "track": "version-watch",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "apis"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": "Verify individual API release channel and supported runtime before publishing."
+    },
+    {
+      "id": "version-watch-experimental-taint-apis",
+      "subjectId": "react",
+      "chapterId": "version-watch",
+      "title": "Experimental taint APIs",
+      "order": 304,
+      "level": "advanced",
+      "track": "version-watch",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "apis"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": "Verify individual API release channel and supported runtime before publishing."
+    },
+    {
+      "id": "version-watch-release-channels-and-compatibility-review",
+      "subjectId": "react",
+      "chapterId": "version-watch",
+      "title": "Release channels and compatibility review",
+      "order": 305,
+      "level": "advanced",
+      "track": "version-watch",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "apis"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": "Verify individual API release channel and supported runtime before publishing."
+    },
+    {
+      "id": "version-watch-react-native-and-custom-renderers-scope",
+      "subjectId": "react",
+      "chapterId": "version-watch",
+      "title": "React Native and custom renderers scope",
+      "order": 306,
+      "level": "advanced",
+      "track": "version-watch",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "apis"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": "Verify individual API release channel and supported runtime before publishing."
+    },
+    {
+      "id": "mini-apps-path-counter-and-quantity-controls",
+      "subjectId": "react",
+      "chapterId": "mini-apps-path",
+      "title": "Counter and quantity controls",
+      "order": 307,
+      "level": "beginner",
+      "track": "project",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "learn"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "mini-apps-path-disclosure-and-accordion",
+      "subjectId": "react",
+      "chapterId": "mini-apps-path",
+      "title": "Disclosure and accordion",
+      "order": 308,
+      "level": "beginner",
+      "track": "project",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "learn"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "mini-apps-path-profile-editor",
+      "subjectId": "react",
+      "chapterId": "mini-apps-path",
+      "title": "Profile editor",
+      "order": 309,
+      "level": "beginner",
+      "track": "project",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "learn"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "mini-apps-path-filterable-catalog",
+      "subjectId": "react",
+      "chapterId": "mini-apps-path",
+      "title": "Filterable catalog",
+      "order": 310,
+      "level": "beginner",
+      "track": "project",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "learn"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "mini-apps-path-task-board",
+      "subjectId": "react",
+      "chapterId": "mini-apps-path",
+      "title": "Task board",
+      "order": 311,
+      "level": "beginner",
+      "track": "project",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "learn"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "mini-apps-path-quiz-and-flashcards",
+      "subjectId": "react",
+      "chapterId": "mini-apps-path",
+      "title": "Quiz and flashcards",
+      "order": 312,
+      "level": "beginner",
+      "track": "project",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "learn"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "mini-apps-path-shopping-cart",
+      "subjectId": "react",
+      "chapterId": "mini-apps-path",
+      "title": "Shopping cart",
+      "order": 313,
+      "level": "beginner",
+      "track": "project",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "learn"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "mini-apps-path-multi-step-booking-form",
+      "subjectId": "react",
+      "chapterId": "mini-apps-path",
+      "title": "Multi step booking form",
+      "order": 314,
+      "level": "beginner",
+      "track": "project",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "learn"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "mini-apps-path-search-with-cancellable-requests",
+      "subjectId": "react",
+      "chapterId": "mini-apps-path",
+      "title": "Search with cancellable requests",
+      "order": 315,
+      "level": "beginner",
+      "track": "project",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "learn"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "mini-apps-path-context-based-preferences",
+      "subjectId": "react",
+      "chapterId": "mini-apps-path",
+      "title": "Context based preferences",
+      "order": 316,
+      "level": "beginner",
+      "track": "project",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "learn"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "mini-apps-path-router-based-dashboard",
+      "subjectId": "react",
+      "chapterId": "mini-apps-path",
+      "title": "Router based dashboard",
+      "order": 317,
+      "level": "beginner",
+      "track": "project",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "learn"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "mini-apps-path-accessible-dialog-manager",
+      "subjectId": "react",
+      "chapterId": "mini-apps-path",
+      "title": "Accessible dialog manager",
+      "order": 318,
+      "level": "beginner",
+      "track": "project",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "learn"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "mini-apps-path-optimistic-comment-form",
+      "subjectId": "react",
+      "chapterId": "mini-apps-path",
+      "title": "Optimistic comment form",
+      "order": 319,
+      "level": "beginner",
+      "track": "project",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "learn"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "mini-apps-path-ssr-and-hydration-demo",
+      "subjectId": "react",
+      "chapterId": "mini-apps-path",
+      "title": "SSR and hydration demo",
+      "order": 320,
+      "level": "beginner",
+      "track": "project",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [
+        "learn"
+      ],
+      "sourceReview": "index-mapped",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "capstones-learning-tracker",
+      "subjectId": "react",
+      "chapterId": "capstones",
+      "title": "Learning tracker",
+      "order": 321,
+      "level": "advanced",
+      "track": "project",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [],
+      "sourceReview": "pending-specialist-source",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "capstones-commerce-dashboard",
+      "subjectId": "react",
+      "chapterId": "capstones",
+      "title": "Commerce dashboard",
+      "order": 322,
+      "level": "advanced",
+      "track": "project",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [],
+      "sourceReview": "pending-specialist-source",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "capstones-collaborative-workspace",
+      "subjectId": "react",
+      "chapterId": "capstones",
+      "title": "Collaborative workspace",
+      "order": 323,
+      "level": "advanced",
+      "track": "project",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [],
+      "sourceReview": "pending-specialist-source",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    },
+    {
+      "id": "capstones-production-readiness-review",
+      "subjectId": "react",
+      "chapterId": "capstones",
+      "title": "Production readiness review",
+      "order": 324,
+      "level": "advanced",
+      "track": "project",
+      "prerequisiteTopicIds": [],
+      "sourceIds": [],
+      "sourceReview": "pending-specialist-source",
+      "contentStatus": "planned",
+      "lessonPath": null,
+      "miniAppIds": [],
+      "versionNote": null
+    }
+  ]
+}

@@ -1,0 +1,354 @@
+[
+  {
+    "id": "learn",
+    "title": "React Quick Start",
+    "url": "https://react.dev/learn",
+    "publisher": "React",
+    "accessedAt": "2026-09-10",
+    "review": "read",
+    "note": "Index mappings define scope; they do not certify every planned lesson or every subpage."
+  },
+  {
+    "id": "ui",
+    "title": "Describing the UI",
+    "url": "https://react.dev/learn/describing-the-ui",
+    "publisher": "React",
+    "accessedAt": "2026-09-10",
+    "review": "read",
+    "note": "Index mappings define scope; they do not certify every planned lesson or every subpage."
+  },
+  {
+    "id": "interactive",
+    "title": "Adding Interactivity",
+    "url": "https://react.dev/learn/adding-interactivity",
+    "publisher": "React",
+    "accessedAt": "2026-09-10",
+    "review": "read",
+    "note": "Index mappings define scope; they do not certify every planned lesson or every subpage."
+  },
+  {
+    "id": "managing",
+    "title": "Managing State",
+    "url": "https://react.dev/learn/managing-state",
+    "publisher": "React",
+    "accessedAt": "2026-09-10",
+    "review": "read",
+    "note": "Index mappings define scope; they do not certify every planned lesson or every subpage."
+  },
+  {
+    "id": "escape",
+    "title": "Escape Hatches",
+    "url": "https://react.dev/learn/escape-hatches",
+    "publisher": "React",
+    "accessedAt": "2026-09-10",
+    "review": "read",
+    "note": "Index mappings define scope; they do not certify every planned lesson or every subpage."
+  },
+  {
+    "id": "hooks",
+    "title": "React Hooks index",
+    "url": "https://react.dev/reference/react/hooks",
+    "publisher": "React",
+    "accessedAt": "2026-09-10",
+    "review": "read",
+    "note": "Index mappings define scope; they do not certify every planned lesson or every subpage."
+  },
+  {
+    "id": "apis",
+    "title": "React APIs index",
+    "url": "https://react.dev/reference/react/apis",
+    "publisher": "React",
+    "accessedAt": "2026-09-10",
+    "review": "read",
+    "note": "Index mappings define scope; they do not certify every planned lesson or every subpage."
+  },
+  {
+    "id": "components",
+    "title": "React Components index",
+    "url": "https://react.dev/reference/react/components",
+    "publisher": "React",
+    "accessedAt": "2026-09-10",
+    "review": "read",
+    "note": "Index mappings define scope; they do not certify every planned lesson or every subpage."
+  },
+  {
+    "id": "dom",
+    "title": "React DOM APIs",
+    "url": "https://react.dev/reference/react-dom",
+    "publisher": "React",
+    "accessedAt": "2026-09-10",
+    "review": "read",
+    "note": "Index mappings define scope; they do not certify every planned lesson or every subpage."
+  },
+  {
+    "id": "dom-components",
+    "title": "React DOM Components",
+    "url": "https://react.dev/reference/react-dom/components",
+    "publisher": "React",
+    "accessedAt": "2026-09-10",
+    "review": "read",
+    "note": "Index mappings define scope; they do not certify every planned lesson or every subpage."
+  },
+  {
+    "id": "dom-hooks",
+    "title": "React DOM Hooks",
+    "url": "https://react.dev/reference/react-dom/hooks",
+    "publisher": "React",
+    "accessedAt": "2026-09-10",
+    "review": "read",
+    "note": "Index mappings define scope; they do not certify every planned lesson or every subpage."
+  },
+  {
+    "id": "client",
+    "title": "React DOM Client",
+    "url": "https://react.dev/reference/react-dom/client",
+    "publisher": "React",
+    "accessedAt": "2026-09-10",
+    "review": "read",
+    "note": "Index mappings define scope; they do not certify every planned lesson or every subpage."
+  },
+  {
+    "id": "server",
+    "title": "React DOM Server",
+    "url": "https://react.dev/reference/react-dom/server",
+    "publisher": "React",
+    "accessedAt": "2026-09-10",
+    "review": "read",
+    "note": "Index mappings define scope; they do not certify every planned lesson or every subpage."
+  },
+  {
+    "id": "static",
+    "title": "React DOM Static",
+    "url": "https://react.dev/reference/react-dom/static",
+    "publisher": "React",
+    "accessedAt": "2026-09-10",
+    "review": "read",
+    "note": "Index mappings define scope; they do not certify every planned lesson or every subpage."
+  },
+  {
+    "id": "legacy",
+    "title": "Legacy React APIs",
+    "url": "https://react.dev/reference/react/legacy",
+    "publisher": "React",
+    "accessedAt": "2026-09-10",
+    "review": "read",
+    "note": "Index mappings define scope; they do not certify every planned lesson or every subpage."
+  },
+  {
+    "id": "compiler",
+    "title": "Compiler configuration",
+    "url": "https://react.dev/reference/react-compiler/configuration",
+    "publisher": "React",
+    "accessedAt": "2026-09-10",
+    "review": "read",
+    "note": "Index mappings define scope; they do not certify every planned lesson or every subpage."
+  },
+  {
+    "id": "compiler-directives",
+    "title": "Compiler directives",
+    "url": "https://react.dev/reference/react-compiler/directives",
+    "publisher": "React",
+    "accessedAt": "2026-09-10",
+    "review": "read",
+    "note": "Index mappings define scope; they do not certify every planned lesson or every subpage."
+  },
+  {
+    "id": "lint",
+    "title": "ESLint React Hooks",
+    "url": "https://react.dev/reference/eslint-plugin-react-hooks",
+    "publisher": "React",
+    "accessedAt": "2026-09-10",
+    "review": "read",
+    "note": "Index mappings define scope; they do not certify every planned lesson or every subpage."
+  },
+  {
+    "id": "rsc",
+    "title": "Server Components",
+    "url": "https://react.dev/reference/rsc/server-components",
+    "publisher": "React",
+    "accessedAt": "2026-09-10",
+    "review": "read",
+    "note": "Index mappings define scope; they do not certify every planned lesson or every subpage."
+  },
+  {
+    "id": "directives",
+    "title": "Server directives",
+    "url": "https://react.dev/reference/rsc/directives",
+    "publisher": "React",
+    "accessedAt": "2026-09-10",
+    "review": "read",
+    "note": "Index mappings define scope; they do not certify every planned lesson or every subpage."
+  },
+  {
+    "id": "js",
+    "title": "JavaScript Guide",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide",
+    "publisher": "MDN",
+    "accessedAt": "2026-09-10",
+    "review": "read",
+    "note": "Index mappings define scope; they do not certify every planned lesson or every subpage."
+  },
+  {
+    "id": "install",
+    "title": "React Installation",
+    "url": "https://react.dev/learn/installation",
+    "publisher": "React",
+    "accessedAt": "2026-09-10",
+    "review": "read",
+    "note": "Index mappings define scope; they do not certify every planned lesson or every subpage."
+  },
+  {
+    "id": "state",
+    "title": "useState reference",
+    "url": "https://react.dev/reference/react/useState",
+    "publisher": "React",
+    "accessedAt": "2026-09-10",
+    "review": "read",
+    "note": "Index mappings define scope; they do not certify every planned lesson or every subpage."
+  },
+  {
+    "id": "memory",
+    "title": "Component memory",
+    "url": "https://react.dev/learn/state-a-components-memory",
+    "publisher": "React",
+    "accessedAt": "2026-09-10",
+    "review": "read",
+    "note": "Index mappings define scope; they do not certify every planned lesson or every subpage."
+  },
+  {
+    "id": "snapshot",
+    "title": "State as a snapshot",
+    "url": "https://react.dev/learn/state-as-a-snapshot",
+    "publisher": "React",
+    "accessedAt": "2026-09-10",
+    "review": "read",
+    "note": "Index mappings define scope; they do not certify every planned lesson or every subpage."
+  },
+  {
+    "id": "queue",
+    "title": "State update queues",
+    "url": "https://react.dev/learn/queueing-a-series-of-state-updates",
+    "publisher": "React",
+    "accessedAt": "2026-09-10",
+    "review": "read",
+    "note": "Index mappings define scope; they do not certify every planned lesson or every subpage."
+  },
+  {
+    "id": "objects",
+    "title": "Updating objects",
+    "url": "https://react.dev/learn/updating-objects-in-state",
+    "publisher": "React",
+    "accessedAt": "2026-09-10",
+    "review": "read",
+    "note": "Index mappings define scope; they do not certify every planned lesson or every subpage."
+  },
+  {
+    "id": "arrays",
+    "title": "Updating arrays",
+    "url": "https://react.dev/learn/updating-arrays-in-state",
+    "publisher": "React",
+    "accessedAt": "2026-09-10",
+    "review": "read",
+    "note": "Index mappings define scope; they do not certify every planned lesson or every subpage."
+  },
+  {
+    "id": "structure",
+    "title": "Choosing state structure",
+    "url": "https://react.dev/learn/choosing-the-state-structure",
+    "publisher": "React",
+    "accessedAt": "2026-09-10",
+    "review": "read",
+    "note": "Index mappings define scope; they do not certify every planned lesson or every subpage."
+  },
+  {
+    "id": "reset",
+    "title": "Preserving and resetting state",
+    "url": "https://react.dev/learn/preserving-and-resetting-state",
+    "publisher": "React",
+    "accessedAt": "2026-09-10",
+    "review": "read",
+    "note": "Index mappings define scope; they do not certify every planned lesson or every subpage."
+  },
+  {
+    "id": "input",
+    "title": "Input reference",
+    "url": "https://react.dev/reference/react-dom/components/input",
+    "publisher": "React",
+    "accessedAt": "2026-09-10",
+    "review": "read",
+    "note": "Index mappings define scope; they do not certify every planned lesson or every subpage."
+  },
+  {
+    "id": "strict",
+    "title": "StrictMode",
+    "url": "https://react.dev/reference/react/StrictMode",
+    "publisher": "React",
+    "accessedAt": "2026-09-10",
+    "review": "read",
+    "note": "Index mappings define scope; they do not certify every planned lesson or every subpage."
+  },
+  {
+    "id": "rules",
+    "title": "Rules of Hooks",
+    "url": "https://react.dev/reference/rules/rules-of-hooks",
+    "publisher": "React",
+    "accessedAt": "2026-09-10",
+    "review": "read",
+    "note": "Index mappings define scope; they do not certify every planned lesson or every subpage."
+  },
+  {
+    "id": "render",
+    "title": "Render and commit",
+    "url": "https://react.dev/learn/render-and-commit",
+    "publisher": "React",
+    "accessedAt": "2026-09-10",
+    "review": "read",
+    "note": "Index mappings define scope; they do not certify every planned lesson or every subpage."
+  },
+  {
+    "id": "events",
+    "title": "Responding to events",
+    "url": "https://react.dev/learn/responding-to-events",
+    "publisher": "React",
+    "accessedAt": "2026-09-10",
+    "review": "read",
+    "note": "Index mappings define scope; they do not certify every planned lesson or every subpage."
+  },
+  {
+    "id": "no-effect",
+    "title": "You might not need an Effect",
+    "url": "https://react.dev/learn/you-might-not-need-an-effect",
+    "publisher": "React",
+    "accessedAt": "2026-09-10",
+    "review": "read",
+    "note": "Index mappings define scope; they do not certify every planned lesson or every subpage."
+  },
+  {
+    "id": "optimistic",
+    "title": "useOptimistic",
+    "url": "https://react.dev/reference/react/useOptimistic",
+    "publisher": "React",
+    "accessedAt": "2026-09-10",
+    "review": "read",
+    "note": "Index mappings define scope; they do not certify every planned lesson or every subpage."
+  },
+  {
+    "id": "view-transition",
+    "title": "ViewTransition",
+    "url": "https://react.dev/reference/react/ViewTransition",
+    "publisher": "React",
+    "accessedAt": "2026-09-10",
+    "review": "read",
+    "note": "Index mappings define scope; they do not certify every planned lesson or every subpage."
+  },
+  {
+    "id": "browser",
+    "title": "browser API",
+    "url": "https://react.dev/reference/react-dom/browser",
+    "publisher": "React",
+    "accessedAt": "2026-09-10",
+    "review": "read",
+    "note": "Index mappings define scope; they do not certify every planned lesson or every subpage."
+  }
+]
+

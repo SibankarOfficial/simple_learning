@@ -1,0 +1,997 @@
+{
+  "schemaVersion": 1,
+  "id": "use-state",
+  "subjectId": "react",
+  "chapterId": "hooks-foundation",
+  "title": "useState: Memory for your UI",
+  "language": "en",
+  "status": "sample-draft",
+  "reviewedAt": "2026-09-10",
+  "runtime": "React 19.1+; each module example replaces src/App.jsx in an existing React project.",
+  "prerequisiteTopicIds": [
+    "components",
+    "props",
+    "events",
+    "rules-of-hooks",
+    "javascript-basics-destructuring",
+    "javascript-basics-closures-and-lexical-scope"
+  ],
+  "estimatedMinutes": {
+    "firstPass": 50,
+    "practice": 100,
+    "project": 60
+  },
+  "objectives": [
+    {
+      "id": "memory",
+      "text": "Explain the difference between a local variable and state."
+    },
+    {
+      "id": "updates",
+      "text": "Predict results using state snapshots and update queues."
+    },
+    {
+      "id": "immutable",
+      "text": "Update objects and arrays without changing the previous data."
+    },
+    {
+      "id": "design",
+      "text": "Decide which values need state and which can be calculated."
+    },
+    {
+      "id": "identity",
+      "text": "Explain how state is initialized, preserved, and reset."
+    },
+    {
+      "id": "transfer",
+      "text": "Build a quantity control with limits without following a tutorial."
+    }
+  ],
+  "learningFlow": [
+    "Prerequisite check",
+    "Predict before reading",
+    "Core explanation",
+    "Run and change examples",
+    "Practice with optional hints",
+    "Explain your solution",
+    "Build mini app",
+    "Revisit after a gap"
+  ],
+  "diagnostic": [
+    {
+      "question": "What is first after const [first, second] = [10, 20]?",
+      "answer": "10. This is JavaScript array destructuring. It is not special React syntax.",
+      "ifMissed": "javascript-basics-destructuring"
+    },
+    {
+      "question": "Are onClick={handleClick} and onClick={handleClick()} the same?",
+      "answer": "No. The first passes a function. The second calls the function during rendering.",
+      "ifMissed": "events"
+    },
+    {
+      "question": "Does const copy = original create an independent copy of an object?",
+      "answer": "No. Both variables refer to the same object.",
+      "ifMissed": "javascript-basics-references-mutation-and-shallow-copy"
+    }
+  ],
+  "sections": [
+    {
+      "id": "what",
+      "title": "What is state?",
+      "depth": "core",
+      "body": "Imagine choosing two seats in a booking app. The app needs to remember that choice when the screen updates. useState gives a component this local memory. Each mounted copy of a component has its own state. Displaying two copies does not make them share state.",
+      "sourceIds": [
+        "memory"
+      ],
+      "exampleIds": []
+    },
+    {
+      "id": "why",
+      "title": "Why is a local variable not enough?",
+      "depth": "core",
+      "body": "When a component runs again, its local declarations run again too. Changing a local variable in an event handler does not ask React to update the screen. A state setter requests an update. State is not permanent storage: keeping data after a page refresh needs a separate storage feature.",
+      "sourceIds": [
+        "memory"
+      ],
+      "exampleIds": [
+        "counter-function"
+      ]
+    },
+    {
+      "id": "anatomy",
+      "title": "How to read a useState declaration",
+      "depth": "core",
+      "body": "In const [count, setCount] = useState(0), useState is the imported Hook, 0 is the initial value, count is the value for this render, and setCount requests the next update. The brackets use JavaScript destructuring. const prevents reassignment of this binding; the next render creates a new binding. The setter returns neither a Promise nor the next state value.",
+      "sourceIds": [
+        "state",
+        "memory"
+      ],
+      "exampleIds": [
+        "counter-function",
+        "counter-arrow"
+      ]
+    },
+    {
+      "id": "render-cycle",
+      "title": "From a click to a screen update",
+      "depth": "core",
+      "body": "The first render receives count as 0. Clicking the button queues setCount(c => c + 1). React renders the component with the updated state, then applies the needed DOM changes during the commit. Rendering a component does not mean rebuilding every DOM node.",
+      "sourceIds": [
+        "render"
+      ],
+      "exampleIds": [
+        "counter-function"
+      ]
+    },
+    {
+      "id": "syntax",
+      "title": "Function declarations and arrow functions",
+      "depth": "core",
+      "body": "The two App modules below are alternatives. Use one at a time. Their state behavior is the same. A function declaration can be called before its declaration in the same scope. An arrow function assigned to const cannot be used before that assignment runs. Hooks do not require arrow functions. Choose the style that is clear and consistent with your project.",
+      "sourceIds": [
+        "ui"
+      ],
+      "exampleIds": [
+        "counter-function",
+        "counter-arrow"
+      ]
+    },
+    {
+      "id": "snapshot",
+      "title": "Why does the setter leave the old value in a log?",
+      "depth": "core",
+      "body": "An event handler reads count from the render that created it. setCount(5) does not rewrite that count variable. A console.log(count) in the same handler can therefore show the previous value. A timer callback also captures values from the render that created it. These values come from a specific snapshot; they are not random.",
+      "sourceIds": [
+        "snapshot"
+      ],
+      "exampleIds": [
+        "snapshot-demo"
+      ]
+    },
+    {
+      "id": "queue",
+      "title": "Passing a value or an updater function",
+      "depth": "core",
+      "body": "setCount(count + 1) queues a replacement value calculated now. setCount(c => c + 1) calculates the next value from the pending state. Starting at 0, three replacements in one click produce 1; three updaters produce 0 → 1 → 2 → 3. React can group updates into a batch. Do not treat separate intentional clicks as one event. Keep updater functions pure.",
+      "sourceIds": [
+        "queue"
+      ],
+      "exampleIds": [
+        "queue-demo"
+      ]
+    },
+    {
+      "id": "objects",
+      "title": "Updating object state",
+      "depth": "core",
+      "body": "setProfile({ name: 'Mira' }) replaces the object; it does not automatically keep the old fields. Use spread to keep existing fields. For a nested change, copy each object along the changed path. Spread makes a shallow copy, not a copy of every nested object. Changing the old object directly can also change data held by earlier snapshots.",
+      "sourceIds": [
+        "objects"
+      ],
+      "exampleIds": [
+        "profile-editor"
+      ]
+    },
+    {
+      "id": "arrays",
+      "title": "Adding, editing, and removing array items",
+      "depth": "core",
+      "body": "Create a new array: use spread to add an item, map to edit one, and filter to remove one. Copy the edited object inside the array too. sort and reverse change the original array, so copy it first. Create stable item IDs when items are added. Do not generate a new key on every render.",
+      "sourceIds": [
+        "arrays"
+      ],
+      "exampleIds": [
+        "task-list"
+      ]
+    },
+    {
+      "id": "derived",
+      "title": "Keep only the state you need",
+      "depth": "core",
+      "body": "If total comes from quantity and unitPrice, calculate it during rendering. It does not need separate state. Store independent inputs and calculate values that follow from them. An Effect used only to keep a calculated value in sync adds work and can allow values to disagree. For complex connected updates, compare useState with useReducer later.",
+      "sourceIds": [
+        "structure",
+        "no-effect"
+      ],
+      "exampleIds": [
+        "quantity-picker"
+      ]
+    },
+    {
+      "id": "input",
+      "title": "Real use case: a controlled input",
+      "depth": "core",
+      "body": "When you pass value to an input, use onChange to store the typed value in state. Start a text input with '' so it stays controlled. For a checkbox, use checked and event.target.checked. Always provide a label. A number input's event value is still a string, so decide how to handle an empty input and number conversion.",
+      "sourceIds": [
+        "input"
+      ],
+      "exampleIds": [
+        "profile-editor"
+      ]
+    },
+    {
+      "id": "initialize",
+      "title": "Initial values and lazy initialization",
+      "depth": "deeper",
+      "body": "useState(buildOptions) passes the function as an initializer. With useState(buildOptions()), JavaScript calls buildOptions on every render before passing its result to the Hook. Keep initialization pure. Changing an initial prop does not automatically reset existing state. For inexpensive values, a direct initial value is often clearer.",
+      "sourceIds": [
+        "state"
+      ],
+      "exampleIds": [
+        "lazy-options"
+      ]
+    },
+    {
+      "id": "identity",
+      "title": "Preserving and resetting state",
+      "depth": "deeper",
+      "body": "React preserves state when a component keeps the same type, position, and key in the tree. Removing it, changing its type, or changing its key can reset its state. Defining a child component inside its parent can cause unexpected resets. A setter resets a selected state value; a changed key resets the whole component subtree.",
+      "sourceIds": [
+        "reset"
+      ],
+      "exampleIds": [
+        "key-reset"
+      ]
+    },
+    {
+      "id": "strict",
+      "title": "Repeated calls in StrictMode",
+      "depth": "deeper",
+      "body": "In development, StrictMode can repeat component rendering and calls to pure functions such as initializers and updaters to find accidental side effects. React ignores one result. This does not mean every click handler is called twice. Keep API requests, random ID creation, and changes to external data outside updater functions.",
+      "sourceIds": [
+        "strict"
+      ],
+      "exampleIds": []
+    },
+    {
+      "id": "rules",
+      "title": "Where can you call useState?",
+      "depth": "core",
+      "body": "Call useState at the top level of a component or custom Hook, before any conditional early return. Do not call it inside a loop, condition, nested callback, event handler, class, or ordinary utility function. React uses Hook call order to match state. Put conditional UI in JSX instead of calling Hooks conditionally.",
+      "sourceIds": [
+        "rules"
+      ],
+      "exampleIds": []
+    },
+    {
+      "id": "edge-cases",
+      "title": "Less common cases",
+      "depth": "reference",
+      "body": "React can skip an update when Object.is considers the next value equal to the current value. This is not a guarantee of an exact render count. Setter identity stays stable. Storing a function needs a wrapper. Calling a setter during rendering without a stopping condition can cause a render loop. Guarded updates to the currently rendering component are an advanced pattern; first consider a calculated value or a key reset.",
+      "sourceIds": [
+        "state"
+      ],
+      "exampleIds": [
+        "stored-function",
+        "guarded-prop"
+      ]
+    },
+    {
+      "id": "when-not",
+      "title": "When do you not need useState?",
+      "depth": "core",
+      "body": "A label calculated directly from props needs no extra state. Consider a ref for a changeable value that does not affect the screen. If two sibling components need the same data, move that state to a shared parent. Before copying cached server data into local state, decide which place should manage that data.",
+      "sourceIds": [
+        "structure",
+        "no-effect"
+      ],
+      "exampleIds": []
+    }
+  ],
+  "examples": [
+    {
+      "id": "counter-function",
+      "title": "Counter: function declaration",
+      "kind": "module",
+      "language": "jsx",
+      "depth": "core",
+      "code": "import { useState } from 'react';\n\nexport default function App() {\n  const [count, setCount] = useState(0);\n  return <button onClick={() => setCount(c => c + 1)}>Count: {count}</button>;\n}",
+      "explanation": "Each click adds 1 to the pending count. Change the initial value to 10 and predict the result.",
+      "tryThis": "Change one behavior without copying the example. Write the expected result first, then run your code.",
+      "sourceIds": [
+        "memory",
+        "events"
+      ]
+    },
+    {
+      "id": "counter-arrow",
+      "title": "Counter: arrow component",
+      "kind": "module",
+      "language": "jsx",
+      "depth": "core",
+      "code": "import { useState } from 'react';\n\nconst App = () => {\n  const [count, setCount] = useState(0);\n  return <button onClick={() => setCount(c => c + 1)}>Count: {count}</button>;\n};\nexport default App;",
+      "explanation": "This behaves like the function declaration version. Only the component declaration syntax changes.",
+      "tryThis": "Change one behavior without copying the example. Write the expected result first, then run your code.",
+      "sourceIds": [
+        "ui"
+      ]
+    },
+    {
+      "id": "snapshot-demo",
+      "title": "Immediate log and delayed log",
+      "kind": "module",
+      "language": "jsx",
+      "depth": "core",
+      "code": "import { useState } from 'react';\n\nexport default function App() {\n  const [count, setCount] = useState(0);\n  function handleClick() {\n    setCount(count + 1);\n    console.log('This render:', count);\n    setTimeout(() => console.log('Captured:', count), 1000);\n  }\n  return <button onClick={handleClick}>Count: {count}</button>;\n}",
+      "explanation": "After one click from 0, the screen shows 1. Both the immediate and delayed logs show 0. Each callback keeps the value captured when it was created.",
+      "tryThis": "Change one behavior without copying the example. Write the expected result first, then run your code.",
+      "sourceIds": [
+        "snapshot"
+      ]
+    },
+    {
+      "id": "queue-demo",
+      "title": "Compare two update queues",
+      "kind": "module",
+      "language": "jsx",
+      "depth": "core",
+      "code": "import { useState } from 'react';\n\nexport default function App() {\n  const [count, setCount] = useState(0);\n  function replaceThreeTimes() {\n    setCount(count + 1);\n    setCount(count + 1);\n    setCount(count + 1);\n  }\n  function updateThreeTimes() {\n    setCount(c => c + 1);\n    setCount(c => c + 1);\n    setCount(c => c + 1);\n  }\n  return <><p>{count}</p>\n    <button onClick={replaceThreeTimes}>Three replacements</button>\n    <button onClick={updateThreeTimes}>Three updaters</button>\n    <button onClick={() => setCount(0)}>Reset</button>\n  </>;\n}",
+      "explanation": "After a reset, the replacement button produces 1. Reset again and the updater button produces 3. Next, try mixing replacements and updaters.",
+      "tryThis": "Change one behavior without copying the example. Write the expected result first, then run your code.",
+      "sourceIds": [
+        "queue"
+      ]
+    },
+    {
+      "id": "profile-editor",
+      "title": "Nested profile editor",
+      "kind": "module",
+      "language": "jsx",
+      "depth": "core",
+      "code": "import { useState } from 'react';\n\nexport default function App() {\n  const [profile, setProfile] = useState({\n    name: 'Mira', address: { city: 'Kolkata', country: 'India' }\n  });\n  return <>\n    <label>Name <input value={profile.name} onChange={e => {\n      const name = e.target.value;\n      setProfile(p => ({ ...p, name }));\n    }} /></label>\n    <label>City <input value={profile.address.city} onChange={e => {\n      const city = e.target.value;\n      setProfile(p => ({ ...p, address: { ...p.address, city } }));\n    }} /></label>\n    <p>{profile.name}: {profile.address.city}, {profile.address.country}</p>\n  </>;\n}",
+      "explanation": "Editing the city keeps the name and country. The event value is read before the updater runs.",
+      "tryThis": "Change one behavior without copying the example. Write the expected result first, then run your code.",
+      "sourceIds": [
+        "objects",
+        "input"
+      ]
+    },
+    {
+      "id": "task-list",
+      "title": "Editable task list",
+      "kind": "module",
+      "language": "jsx",
+      "depth": "core",
+      "code": "import { useState } from 'react';\n\nexport default function App() {\n  const [tasks, setTasks] = useState([]);\n  const [draft, setDraft] = useState('');\n  function addTask(e) {\n    e.preventDefault();\n    const title = draft.trim();\n    if (!title) return;\n    const task = { id: crypto.randomUUID(), title, done: false };\n    setTasks(items => [...items, task]);\n    setDraft('');\n  }\n  return <>\n    <form onSubmit={addTask}>\n      <label>Task <input value={draft} onChange={e => setDraft(e.target.value)} /></label>\n      <button>Add</button>\n    </form>\n    <ul>{tasks.map(task => <li key={task.id}>\n      <label><input type=\"checkbox\" checked={task.done} onChange={() =>\n        setTasks(items => items.map(item =>\n          item.id === task.id ? { ...item, done: !item.done } : item\n        ))\n      } />{task.title}</label>\n      <button onClick={() => setTasks(items => items.filter(item => item.id !== task.id))}>\n        Delete {task.title}\n      </button>\n    </li>)}</ul>\n  </>;\n}",
+      "explanation": "Empty tasks are rejected. IDs are created in the event handler. Toggling creates a new array and a new object for the selected task. Use localhost or HTTPS for crypto.randomUUID.",
+      "tryThis": "Change one behavior without copying the example. Write the expected result first, then run your code.",
+      "sourceIds": [
+        "arrays",
+        "input"
+      ]
+    },
+    {
+      "id": "lazy-options",
+      "title": "Pure lazy initialization",
+      "kind": "module",
+      "language": "jsx",
+      "depth": "deeper",
+      "code": "import { useState } from 'react';\n\nfunction buildOptions() {\n  return Array.from({ length: 1000 }, (_, index) => 'Option ' + (index + 1));\n}\nexport default function App() {\n  const [options] = useState(buildOptions);\n  const [query, setQuery] = useState('');\n  const matches = options.filter(option => option.toLowerCase().includes(query.toLowerCase()));\n  return <>\n    <label>Search <input value={query} onChange={e => setQuery(e.target.value)} /></label>\n    <p>{matches.length} matches</p>\n  </>;\n}",
+      "explanation": "The initializer is pure, so repeating it in StrictMode is safe. A constant list could also be defined outside the component.",
+      "tryThis": "Change one behavior without copying the example. Write the expected result first, then run your code.",
+      "sourceIds": [
+        "state"
+      ]
+    },
+    {
+      "id": "key-reset",
+      "title": "Reset a whole form with a key",
+      "kind": "module",
+      "language": "jsx",
+      "depth": "deeper",
+      "code": "import { useState } from 'react';\n\nfunction Draft() {\n  const [text, setText] = useState('');\n  return <label>Draft <input value={text} onChange={e => setText(e.target.value)} /></label>;\n}\nexport default function App() {\n  const [version, setVersion] = useState(0);\n  return <><Draft key={version} />\n    <button onClick={() => setVersion(v => v + 1)}>Start fresh</button>\n  </>;\n}",
+      "explanation": "Draft is defined outside App. Changing version gives Draft a new identity, so its state resets.",
+      "tryThis": "Change one behavior without copying the example. Write the expected result first, then run your code.",
+      "sourceIds": [
+        "reset"
+      ]
+    },
+    {
+      "id": "stored-function",
+      "title": "Store a function without calling it",
+      "kind": "module",
+      "language": "jsx",
+      "depth": "reference",
+      "code": "import { useState } from 'react';\n\nconst double = value => value * 2;\nconst triple = value => value * 3;\nexport default function App() {\n  const [operation, setOperation] = useState(() => double);\n  return <><p>{operation(4)}</p>\n    <button onClick={() => setOperation(() => triple)}>Use triple</button>\n  </>;\n}",
+      "explanation": "The wrapper returns the function to store. This prevents React from calling that function as an initializer or updater.",
+      "tryThis": "Change one behavior without copying the example. Write the expected result first, then run your code.",
+      "sourceIds": [
+        "state"
+      ]
+    },
+    {
+      "id": "guarded-prop",
+      "title": "Rare pattern: compare previous props during render",
+      "kind": "module",
+      "language": "jsx",
+      "depth": "reference",
+      "code": "import { useState } from 'react';\n\nfunction Trend({ score }) {\n  const [previous, setPrevious] = useState(score);\n  const [direction, setDirection] = useState('same');\n  if (previous !== score) {\n    setPrevious(score);\n    setDirection(score > previous ? 'up' : 'down');\n  }\n  return <p>{score}: {direction}</p>;\n}\nexport default function App() {\n  const [score, setScore] = useState(0);\n  return <><Trend score={score} />\n    <button onClick={() => setScore(s => s + 1)}>Increase</button>\n  </>;\n}",
+      "explanation": "The condition stops repeated updates. Only the currently rendering component updates its own state. This is a reference example for comparing previous props, not a default approach.",
+      "tryThis": "Change one behavior without copying the example. Write the expected result first, then run your code.",
+      "sourceIds": [
+        "state"
+      ]
+    },
+    {
+      "id": "quantity-picker",
+      "title": "Real feature: bounded quantity picker",
+      "kind": "module",
+      "language": "jsx",
+      "depth": "core",
+      "code": "import { useState } from 'react';\n\nconst MAX = 5;\nconst UNIT_PRICE = 120;\nexport default function App() {\n  const [quantity, setQuantity] = useState(1);\n  const total = quantity * UNIT_PRICE;\n  return <section aria-label=\"Quantity picker\">\n    <h1>Notebook order</h1>\n    <p aria-live=\"polite\">Quantity: {quantity}. Total: ₹{total}</p>\n    <button aria-label=\"Decrease quantity\" disabled={quantity === 1}\n      onClick={() => setQuantity(q => Math.max(1, q - 1))}>−</button>\n    <button aria-label=\"Increase quantity\" disabled={quantity === MAX}\n      onClick={() => setQuantity(q => Math.min(MAX, q + 1))}>+</button>\n    <button onClick={() => setQuantity(1)}>Reset</button>\n  </section>;\n}",
+      "explanation": "The updater enforces the limits, and the buttons show when a limit is reached. The total is calculated from quantity. Stock is fixed here; changing stock is a separate extension.",
+      "tryThis": "Change one behavior without copying the example. Write the expected result first, then run your code.",
+      "sourceIds": [
+        "structure",
+        "events"
+      ]
+    }
+  ],
+  "practice": [
+    {
+      "id": "p01",
+      "type": "build",
+      "difficulty": "beginner",
+      "prompt": "Build a bookmark toggle. It starts off, turns on after one click, and turns off after another. Update the button's aria-pressed value too.",
+      "hints": [
+        "A boolean can represent the two states.",
+        "Return the opposite of the pending boolean."
+      ],
+      "acceptanceCriteria": [
+        "Initial aria-pressed false",
+        "Two clicks restore false"
+      ],
+      "objectiveIds": [
+        "memory",
+        "updates"
+      ],
+      "sourceIds": [
+        "memory"
+      ],
+      "solution": {
+        "explanation": "Using prev => !prev calculates the next value from the pending state.",
+        "code": "import { useState } from 'react';\n\nexport default function App() {\n  const [saved, setSaved] = useState(false);\n  return <button aria-pressed={saved} onClick={() => setSaved(s => !s)}>\n    {saved ? 'Bookmarked' : 'Bookmark'}\n  </button>;\n}",
+        "language": "jsx",
+        "kind": "module"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p02",
+      "type": "predict",
+      "difficulty": "beginner",
+      "prompt": "Start with count = 4. One handler calls setCount(count + 2); setCount(count + 2); console.log(count). What is logged, and what does the next render show?",
+      "hints": [
+        "Does the setter rewrite count in the current render?",
+        "What replacement value does each call queue?"
+      ],
+      "acceptanceCriteria": [
+        "Log 4",
+        "Next UI 6",
+        "Explain the result using a state snapshot"
+      ],
+      "objectiveIds": [
+        "updates"
+      ],
+      "sourceIds": [
+        "snapshot",
+        "queue"
+      ],
+      "solution": {
+        "explanation": "The log shows 4 and the next render shows 6. Both calls queue 4 + 2 = 6 from the same snapshot. They do not add 4 in total."
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p03",
+      "type": "predict",
+      "difficulty": "intermediate",
+      "prompt": "Start with n = 2. One handler calls setN(n + 5); setN(x => x * 2); setN(3); setN(x => x + 1). What is the next value of n? Trace the queue.",
+      "hints": [
+        "A replacement overwrites the pending result.",
+        "Process each queued update in order."
+      ],
+      "acceptanceCriteria": [
+        "Trace 7 → 14 → 3 → 4",
+        "Final 4"
+      ],
+      "objectiveIds": [
+        "updates"
+      ],
+      "sourceIds": [
+        "queue"
+      ],
+      "solution": {
+        "explanation": "The result is 4. The queue produces replacement 7, updater result 14, replacement 3, then updater result 4. Counting setter calls alone does not tell you the result."
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p04",
+      "type": "debug",
+      "difficulty": "intermediate",
+      "prompt": "A delayed increment uses setTimeout(() => setCount(count + 1), 1000). Starting at 0, three quick clicks do not produce the intended +3. Fix it. Timer cancellation is outside this exercise.",
+      "hints": [
+        "Which render supplied count to each callback?",
+        "Use the pending value when each timer runs."
+      ],
+      "acceptanceCriteria": [
+        "Three queued callbacks yield 3",
+        "Explain closure"
+      ],
+      "objectiveIds": [
+        "updates"
+      ],
+      "sourceIds": [
+        "snapshot"
+      ],
+      "solution": {
+        "explanation": "Use a functional updater inside the timer callback. Replacing state with a value based on the same captured 0 loses increments.",
+        "code": "import { useState } from 'react';\n\nexport default function App() {\n  const [count, setCount] = useState(0);\n  return <button onClick={() => {\n    setTimeout(() => setCount(c => c + 1), 1000);\n  }}>Schedule +1: {count}</button>;\n}",
+        "language": "jsx",
+        "kind": "module"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p05",
+      "type": "debug",
+      "difficulty": "intermediate",
+      "prompt": "The profile is { name: 'Mira', address: { city: 'Kolkata', country: 'India' } }. Editing the city removes the country. Update the city while keeping the name and country.",
+      "hints": [
+        "The state setter replaces the object.",
+        "Copy both the outer profile and its nested address."
+      ],
+      "acceptanceCriteria": [
+        "Name unchanged",
+        "Country unchanged",
+        "Old nested object not mutated"
+      ],
+      "objectiveIds": [
+        "immutable"
+      ],
+      "sourceIds": [
+        "objects"
+      ],
+      "solution": {
+        "explanation": "Spread the profile and address, then replace city. The profile-editor example contains the complete solution.",
+        "exampleId": "profile-editor"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p06",
+      "type": "build",
+      "difficulty": "intermediate",
+      "prompt": "Build a task list with add, checkbox toggle, and delete actions. Reject empty tasks. Toggling one task must not change another task.",
+      "hints": [
+        "Give each task a stable ID.",
+        "Use map to replace the selected item and filter to remove an item."
+      ],
+      "acceptanceCriteria": [
+        "Blank input adds nothing",
+        "Toggle one item only",
+        "Delete correct ID",
+        "No push/splice or direct property mutation"
+      ],
+      "objectiveIds": [
+        "immutable",
+        "design"
+      ],
+      "sourceIds": [
+        "arrays"
+      ],
+      "solution": {
+        "explanation": "Use spread, map, and filter for array updates. Copy the selected object when changing it. The task-list example contains the complete solution.",
+        "exampleId": "task-list"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p07",
+      "type": "design",
+      "difficulty": "intermediate",
+      "prompt": "A catalog has a fixed price and a chosen quantity. Does total need separate state? Build a quantity picker with only the state it needs.",
+      "hints": [
+        "Which values are inputs, and which are calculations?",
+        "How many setters should a reset need?"
+      ],
+      "acceptanceCriteria": [
+        "Only quantity is state for fixed price",
+        "Total always quantity × price"
+      ],
+      "objectiveIds": [
+        "design"
+      ],
+      "sourceIds": [
+        "structure",
+        "no-effect"
+      ],
+      "solution": {
+        "explanation": "Keep price as a constant and quantity in state. Calculate total during rendering. See the quantity-picker example.",
+        "exampleId": "quantity-picker"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p08",
+      "type": "explain-and-build",
+      "difficulty": "intermediate",
+      "prompt": "A Draft component starts with empty text. Keep its text during a normal parent re-render, but clear it when Start fresh is clicked. Build this using a key.",
+      "hints": [
+        "A re-render and a remount are different.",
+        "Changing a key can change component identity."
+      ],
+      "acceptanceCriteria": [
+        "Typing persists through normal parent rerender",
+        "Changing key clears draft"
+      ],
+      "objectiveIds": [
+        "identity"
+      ],
+      "sourceIds": [
+        "reset"
+      ],
+      "solution": {
+        "explanation": "The key-reset example changes the child's identity using version state. Define the child outside the parent component.",
+        "exampleId": "key-reset"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p09",
+      "type": "debug",
+      "difficulty": "advanced",
+      "prompt": "Using useState(double) and setOperation(triple) calls the functions instead of storing them. Write code that stores each function as a value.",
+      "hints": [
+        "A function argument has a special meaning to React.",
+        "Pass a wrapper that returns the function."
+      ],
+      "acceptanceCriteria": [
+        "Initial operation(4) is 8",
+        "After button operation(4) is 12"
+      ],
+      "objectiveIds": [
+        "identity"
+      ],
+      "sourceIds": [
+        "state"
+      ],
+      "solution": {
+        "explanation": "React stores the function returned by the initializer or updater wrapper. The stored-function example contains the complete solution.",
+        "exampleId": "stored-function"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p10",
+      "type": "transfer",
+      "difficulty": "intermediate",
+      "prompt": "Build a notebook quantity picker without a tutorial: range 1–5, unit price 120, plus/minus buttons, reset, a calculated total, disabled controls at the limits, and clear button labels.",
+      "hints": [
+        "Write the rule first: 1 <= quantity <= 5.",
+        "Enforce the limits in the update logic as well as the disabled buttons."
+      ],
+      "acceptanceCriteria": [
+        "Initial 1 and 120",
+        "Cannot exceed 5 or go below 1",
+        "Reset restores 1 and 120",
+        "Keyboard operable named buttons",
+        "No separate total state"
+      ],
+      "objectiveIds": [
+        "transfer",
+        "updates",
+        "design"
+      ],
+      "sourceIds": [
+        "structure"
+      ],
+      "solution": {
+        "explanation": "See the quantity-picker example for the solution. Then change the fixed stock from 5 to 3 and check every boundary rule again.",
+        "exampleId": "quantity-picker"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    }
+  ],
+  "interviewQuestions": [
+    {
+      "id": "iq01",
+      "question": "How does state differ from a regular variable?",
+      "answer": "React keeps state between renders, and a setter requests an update. Assigning a local variable does not do this.",
+      "followUp": "Do two copies of the same component share state?",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null
+      },
+      "sourceIds": [
+        "memory"
+      ]
+    },
+    {
+      "id": "iq02",
+      "question": "Why does a log show the old value after setCount?",
+      "answer": "The handler reads the current render's snapshot. The setter does not rewrite that variable.",
+      "followUp": "Why can a timer show the same behavior?",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null
+      },
+      "sourceIds": [
+        "snapshot"
+      ]
+    },
+    {
+      "id": "iq03",
+      "question": "When should you use a functional updater?",
+      "answer": "Use it when the next value depends on pending previous state, especially with queued or delayed updates.",
+      "followUp": "Compare three replacements with three updater functions.",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null
+      },
+      "sourceIds": [
+        "queue"
+      ]
+    },
+    {
+      "id": "iq04",
+      "question": "Does a state setter merge objects?",
+      "answer": "No. It replaces the object. Copy the fields you want to keep.",
+      "followUp": "Is one spread enough for a nested update?",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null
+      },
+      "sourceIds": [
+        "objects"
+      ]
+    },
+    {
+      "id": "iq05",
+      "question": "What can go wrong if you mutate an array in state?",
+      "answer": "You change old data while possibly keeping the same reference. React may skip an update, and earlier snapshots may contain changed data.",
+      "followUp": "Is changing an item directly inside map safe?",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null
+      },
+      "sourceIds": [
+        "arrays"
+      ]
+    },
+    {
+      "id": "iq06",
+      "question": "Does state update when its initial prop changes?",
+      "answer": "No. The initializer does not keep existing state in sync. Choose controlled props, a calculated value, or an intentional reset based on who manages the data.",
+      "followUp": "How does changing a key differ from resetting one value with a setter?",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null
+      },
+      "sourceIds": [
+        "reset"
+      ]
+    },
+    {
+      "id": "iq07",
+      "question": "Why can StrictMode call an initializer again?",
+      "answer": "It helps find accidental side effects in development. A pure initializer is safe to repeat. This is not a rule that event handlers run twice.",
+      "followUp": "Should an updater make a network request?",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null
+      },
+      "sourceIds": [
+        "strict"
+      ]
+    },
+    {
+      "id": "iq08",
+      "question": "Why can you not call useState inside a condition?",
+      "answer": "React needs a stable Hook call order. Skipping a call can break state matching.",
+      "followUp": "Is it safe to place a Hook after a conditional early return?",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null
+      },
+      "sourceIds": [
+        "rules"
+      ]
+    },
+    {
+      "id": "iq09",
+      "question": "Should total price be stored in state?",
+      "answer": "If it can be calculated from existing inputs, calculate it instead of keeping duplicate state in sync.",
+      "followUp": "What changes if the user can enter a discount?",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null
+      },
+      "sourceIds": [
+        "structure"
+      ]
+    },
+    {
+      "id": "iq10",
+      "question": "Does component state survive a page refresh?",
+      "answer": "No. Component state is not permanent storage. Keeping data after a refresh requires a separate storage strategy.",
+      "followUp": "What are the different roles of localStorage and state?",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null
+      },
+      "sourceIds": [
+        "memory"
+      ]
+    },
+    {
+      "id": "iq11",
+      "question": "Does a re-render replace the whole DOM?",
+      "answer": "No. Rendering calculates the UI. The commit applies the needed DOM changes.",
+      "followUp": "Does seeing a render in React DevTools prove that the app is slow?",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null
+      },
+      "sourceIds": [
+        "render"
+      ]
+    },
+    {
+      "id": "iq12",
+      "question": "Why might a controlled input prevent typing?",
+      "answer": "It may be missing an onChange handler, or the handler may not store the typed value.",
+      "followUp": "Why does a checkbox use checked to control its selection?",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null
+      },
+      "sourceIds": [
+        "input"
+      ]
+    }
+  ],
+  "miniAppIds": [
+    "quantity-picker"
+  ],
+  "mastery": {
+    "status": "not-assessed",
+    "policy": "Reading, hint use, or opening solutions never grants mastery. This is a proposed learning rubric, not a validated diagnostic instrument.",
+    "checks": [
+      {
+        "id": "explain",
+        "evidence": "Without notes, explain memory, snapshots, updaters, and immutable updates.",
+        "pass": "Give an example and a reason for each of the four concepts."
+      },
+      {
+        "id": "solve",
+        "evidence": "Solve at least 8 of the 10 exercises independently.",
+        "pass": "Include p03, p05, p06, and p10. An attempt made after viewing the solution does not count as independent."
+      },
+      {
+        "id": "transfer",
+        "evidence": "Build your own version of the related seat-picker idea.",
+        "pass": "Check limits, reset, the calculated total, and named keyboard controls."
+      },
+      {
+        "id": "revisit",
+        "evidence": "Solve two new problems the next day and again one week later.",
+        "pass": "Explain the results instead of repeating memorized code."
+      }
+    ],
+    "reviewSchedule": {
+      "dayOffsets": [
+        1,
+        3,
+        7,
+        14
+      ],
+      "note": "Use this as a starting schedule. Review sooner if you forget, and leave a longer gap when solving becomes easy.",
+      "prompts": [
+        "Predict a snapshot result",
+        "Fix a mutation bug",
+        "Choose state for a new use case"
+      ]
+    }
+  },
+  "sourceIds": [
+    "state",
+    "memory",
+    "snapshot",
+    "queue",
+    "objects",
+    "arrays",
+    "structure",
+    "reset",
+    "input",
+    "strict",
+    "rules",
+    "render",
+    "events",
+    "no-effect"
+  ],
+  "commonMistakes": [
+    {
+      "symptom": "A render loop starts before any click",
+      "cause": "onClick={setCount(count + 1)} calls the setter during rendering.",
+      "fix": "Pass a function: onClick={() => setCount(c => c + 1)}."
+    },
+    {
+      "symptom": "A nested field disappears",
+      "cause": "The setter replaces the object.",
+      "fix": "Copy each object along the changed path."
+    },
+    {
+      "symptom": "Three updates only add 1",
+      "cause": "All three calls replace state using the same snapshot.",
+      "fix": "Use updater functions that read the pending state."
+    },
+    {
+      "symptom": "The input resets while typing",
+      "cause": "Its key changes, or its component is defined inside another component.",
+      "fix": "Keep its identity stable and define the child outside the parent."
+    },
+    {
+      "symptom": "A function runs when you try to store it",
+      "cause": "React treats a function argument as an initializer or updater.",
+      "fix": "Pass a wrapper that returns the function to store."
+    }
+  ],
+  "publicationChecklist": {
+    "authored": true,
+    "sourcesReviewed": true,
+    "codeSyntaxChecked": true,
+    "browserBehaviorChecked": false,
+    "independentContentReview": false,
+    "learnerTrial": false,
+    "note": "Sample complete for editorial review; publishing requires remaining checks. No solution-modal UI has been implemented in this content milestone.",
+    "serverInitialRenderChecked": true
+  }
+}

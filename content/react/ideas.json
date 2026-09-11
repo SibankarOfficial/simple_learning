@@ -1,0 +1,40 @@
+[
+  {
+    "id": "seat-picker",
+    "subjectId": "react",
+    "title": "Cinema seat quantity",
+    "conceptTopicIds": [
+      "use-state",
+      "events"
+    ],
+    "brief": "Build a seat picker with a range of 1–8 seats, a price of 250 per seat, reset, and a calculated total. Write the full code yourself.",
+    "acceptanceCriteria": [
+      "Bounds 1–8",
+      "Total always seats × 250",
+      "Clear button labels"
+    ],
+    "relatedMiniAppIds": [
+      "quantity-picker"
+    ],
+    "solutionProvided": false
+  },
+  {
+    "id": "reading-target",
+    "subjectId": "react",
+    "title": "Daily reading target",
+    "conceptTopicIds": [
+      "use-state",
+      "events"
+    ],
+    "brief": "Build a daily reading target from 5–60 pages, with steps of 5 and a reset to 10. Write down what must change before coding.",
+    "acceptanceCriteria": [
+      "Step size 5",
+      "Boundaries respected",
+      "Reset restores 10"
+    ],
+    "relatedMiniAppIds": [
+      "quantity-picker"
+    ],
+    "solutionProvided": false
+  }
+]

@@ -1,0 +1,141 @@
+{
+  "schemaVersion": 1,
+  "id": "quantity-picker",
+  "subjectId": "react",
+  "title": "Notebook quantity picker",
+  "language": "en",
+  "status": "sample-draft",
+  "conceptTopicIds": [
+    "use-state",
+    "events",
+    "state-design-choosing-minimal-state",
+    "rendering-conditional-rendering-and-null"
+  ],
+  "prerequisiteTopicIds": [
+    "components",
+    "props",
+    "events",
+    "rules-of-hooks",
+    "javascript-basics-destructuring",
+    "javascript-basics-closures-and-lexical-scope"
+  ],
+  "goal": "Choose 1–5 notebooks, show the total, and reset the quantity. Explain your state choices instead of copying the tutorial code.",
+  "sourceIds": [
+    "memory",
+    "structure",
+    "events"
+  ],
+  "requirements": [
+    "Initially quantity 1",
+    "Unit price 120",
+    "Quantity must stay between 1 and 5",
+    "Total derives from quantity",
+    "Plus/minus reflect boundaries",
+    "Reset restores initial quantity",
+    "Controls have meaningful accessible names"
+  ],
+  "steps": [
+    {
+      "order": 1,
+      "title": "Plan the UI and rules",
+      "task": "Sketch the quantity, total, plus, minus, and reset controls. Write the allowed range.",
+      "code": "const MIN = 1;\nconst MAX = 5;\nconst UNIT_PRICE = 120;",
+      "kind": "fragment",
+      "check": "Quantities 0 and 6 are not allowed. The price is fixed.",
+      "reason": "Clear acceptance criteria help you decide what to build."
+    },
+    {
+      "order": 2,
+      "title": "Choose the minimum state",
+      "task": "Add one quantity state variable at the top level of App.",
+      "code": "const [quantity, setQuantity] = useState(1);\nconst total = quantity * UNIT_PRICE;",
+      "kind": "fragment",
+      "check": "The total does not need a setter.",
+      "reason": "Calculating the total avoids keeping duplicate values in sync."
+    },
+    {
+      "order": 3,
+      "title": "Add increase and decrease actions",
+      "task": "Use functional updaters to enforce the limits.",
+      "code": "const increase = () => setQuantity(q => Math.min(MAX, q + 1));\nconst decrease = () => setQuantity(q => Math.max(MIN, q - 1));",
+      "kind": "fragment",
+      "check": "Repeated increases stop at 5. Repeated decreases stop at 1.",
+      "reason": "The update logic must enforce the rules too."
+    },
+    {
+      "order": 4,
+      "title": "Connect the controls",
+      "task": "Add named buttons, disable them at the limits, and show the total.",
+      "code": "<button aria-label=\"Increase quantity\" disabled={quantity === MAX} onClick={increase}>+</button>",
+      "kind": "fragment",
+      "check": "The buttons work with a keyboard. The plus button is disabled at the maximum.",
+      "reason": "A visual symbol also needs a clear accessible name."
+    },
+    {
+      "order": 5,
+      "title": "Add reset",
+      "task": "Set quantity back to its initial value when Reset is clicked.",
+      "code": "<button onClick={() => setQuantity(1)}>Reset</button>",
+      "kind": "fragment",
+      "check": "Resetting from 5 gives quantity 1 and total 120.",
+      "reason": "The total updates from quantity, so it needs no extra setter."
+    },
+    {
+      "order": 6,
+      "title": "Build it again without the example",
+      "task": "Close the final code and rebuild the feature in a blank App.jsx file.",
+      "code": null,
+      "kind": "task",
+      "check": "Pass every acceptance scenario below and explain each state choice.",
+      "reason": "Move from following instructions to building independently."
+    }
+  ],
+  "finalCode": "import { useState } from 'react';\n\nconst MAX = 5;\nconst UNIT_PRICE = 120;\nexport default function App() {\n  const [quantity, setQuantity] = useState(1);\n  const total = quantity * UNIT_PRICE;\n  return <section aria-label=\"Quantity picker\">\n    <h1>Notebook order</h1>\n    <p aria-live=\"polite\">Quantity: {quantity}. Total: ₹{total}</p>\n    <button aria-label=\"Decrease quantity\" disabled={quantity === 1}\n      onClick={() => setQuantity(q => Math.max(1, q - 1))}>−</button>\n    <button aria-label=\"Increase quantity\" disabled={quantity === MAX}\n      onClick={() => setQuantity(q => Math.min(MAX, q + 1))}>+</button>\n    <button onClick={() => setQuantity(1)}>Reset</button>\n  </section>;\n}",
+  "languageCode": "jsx",
+  "acceptanceScenarios": [
+    {
+      "given": "First render",
+      "when": "No interaction",
+      "then": "Quantity 1, total 120; minus disabled"
+    },
+    {
+      "given": "Quantity 1",
+      "when": "Increase four times",
+      "then": "Quantity 5, total 600; plus disabled"
+    },
+    {
+      "given": "Quantity 5",
+      "when": "Try increasing again",
+      "then": "Quantity stays 5"
+    },
+    {
+      "given": "Quantity 5",
+      "when": "Decrease four times",
+      "then": "Quantity 1, total 120; minus disabled"
+    },
+    {
+      "given": "Quantity 4",
+      "when": "Reset",
+      "then": "Quantity 1 and total 120"
+    },
+    {
+      "given": "Keyboard navigation",
+      "when": "Tab then activate enabled control",
+      "then": "Meaningful name and expected update"
+    }
+  ],
+  "relatedIdeaIds": [
+    "seat-picker",
+    "reading-target"
+  ],
+  "extensions": [
+    "Make price a prop and explain why total still is derived.",
+    "Support changing stock: define what happens when stock becomes zero before changing code.",
+    "Share quantity with a sibling order summary by lifting state."
+  ],
+  "verification": {
+    "syntaxChecked": true,
+    "browserBehaviorChecked": false,
+    "serverInitialRenderChecked": true
+  }
+}
