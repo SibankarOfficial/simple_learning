@@ -8,6 +8,7 @@ import { createRequire } from 'node:module';
 import vm from 'node:vm';
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
+import Ajv2020 from 'ajv/dist/2020.js';
 
 const root = fileURLToPath(new URL('../content/react/', import.meta.url));
 const read = name => JSON.parse(fs.readFileSync(path.join(root, name), 'utf8'));
@@ -15,6 +16,20 @@ const catalog = read('curriculum.json');
 const coverage = read('coverage.json');
 const sources = read('sources.json');
 const lesson = read('lessons/use-state.json');
+const lessonSchema = JSON.parse(fs.readFileSync(fileURLToPath(new URL('../schema/topic-lesson.schema.json', import.meta.url)), 'utf8'));
+const ajv = new Ajv2020({ allErrors: true, strict: false, formats: { date: /^\d{4}-\d{2}-\d{2}$/, uri: /^https?:\/\// } });
+const validateLesson = ajv.compile(lessonSchema);
+const lessonFiles = fs.readdirSync(path.join(root, 'lessons')).filter(name => name.endsWith('.json'));
+for (const name of lessonFiles) {
+  const candidate = read(`lessons/${name}`);
+  assert(validateLesson(candidate), `${name} does not match the topic lesson schema:\n${ajv.errorsText(validateLesson.errors, { separator: '\n' })}`);
+  if (candidate.status === 'published') {
+    const pending = Object.entries(candidate.publicationChecklist)
+      .filter(([key, value]) => key !== 'note' && value !== true)
+      .map(([key]) => key);
+    assert.equal(pending.length, 0, `${name} is published with pending checks: ${pending.join(', ')}`);
+  }
+}
 const app = read('mini-apps/quantity-picker.json');
 const ideas = read('ideas.json');
 const unique = (items, label) => {
@@ -69,7 +84,11 @@ for (const topic of topics.values()) {
     const resolved = path.resolve(root, topic.lessonPath);
     assert(resolved.startsWith(root), 'Lesson path leaves content directory');
     assert(fs.existsSync(resolved), `Missing lesson: ${topic.lessonPath}`);
-    assert.equal(read(topic.lessonPath).id, topic.id);
+    const topicLesson = read(topic.lessonPath);
+    assert.equal(topicLesson.id, topic.id);
+    assert.equal(topicLesson.subjectId, topic.subjectId);
+    assert.equal(topicLesson.chapterId, topic.chapterId);
+    assert.equal(topicLesson.status, topic.contentStatus);
   } else assert.equal(topic.contentStatus, 'planned');
 }
 for (const item of coverage.items) {
@@ -126,6 +145,12 @@ for (const question of lesson.interviewQuestions) {
   if (question.provenance.kind === 'original') {
     assert.equal(question.provenance.recordedInterview, false);
     assert.equal(question.provenance.company, null);
+    assert.equal(question.provenance.interviewSourceUrl, null);
+  } else {
+    assert.equal(question.type, 'recorded-interview');
+    assert.equal(question.provenance.recordedInterview, true);
+    assert(question.provenance.interviewSourceUrl, 'A recorded interview question needs a public source URL');
+    assert(/^\d{4}-\d{2}-\d{2}$/.test(question.provenance.interviewSourceDate || ''), 'A recorded interview question needs its public source date');
   }
 }
 for (const id of app.conceptTopicIds) {
@@ -136,8 +161,9 @@ for (const id of app.conceptTopicIds) {
 app.relatedIdeaIds.forEach(id => assert(ideas.some(idea => idea.id === id)));
 for (const idea of ideas) idea.conceptTopicIds.forEach(id => exists(topics, id, 'Unknown idea topic'));
 assert.equal(app.finalCode, examples.get('quantity-picker').code);
-assert.equal(lesson.publicationChecklist.browserBehaviorChecked, false);
+assert.equal(typeof lesson.publicationChecklist.browserBehaviorChecked, 'boolean');
 console.log(`PASS: ${chapters.size} chapters, ${topics.size} topics, ${coverage.items.length} coverage mappings.`);
 console.log(`PASS: ${lesson.practice.length} exercises, ${lesson.interviewQuestions.length} interview questions, ${snippetCount} JSX/JS snippets parsed.`);
+console.log(`PASS: ${lessonFiles.length} authored lesson JSON file(s) match the shared topic schema.`);
 console.log(`PASS: ${renderedModules} complete modules rendered with React on the server; initial quantity and boundary controls checked.`);
 console.log('Browser behavior, independent editorial review, and learner trial remain pending.');

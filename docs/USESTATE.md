@@ -543,7 +543,7 @@ Reference: [Choosing state structure](https://react.dev/learn/choosing-the-state
 
 ## Practice — attempt before solution
 
-Hints are optional. Write your prediction or plan first. After reading a solution, solve the problem again in a blank file. Expand a solution below to review it. In the future app, solutions will open in a modal.
+Hints are optional. Write your prediction or plan first. After reading a solution, solve the problem again in a blank file. Expand a solution below to review it. In the learning app, save your attempt before opening the solution modal. Viewing help is recorded and does not award mastery.
 
 ### p01: build · beginner
 
@@ -982,6 +982,46 @@ Pass evidence: Explain the results instead of repeating memorized code.
 
 Suggested revisit days: 1, 3, 7, 14. Use this as a starting schedule. Review sooner if you forget, and leave a longer gap when solving becomes easy.
 
+### Day 1 review
+
+Start with count = 3. One click calls setCount(count + 2) twice, then logs count. Predict the log and the next screen value. Explain why.
+
+Explained feedback: The log is 3. The next screen shows 5. Both setters use the same render's snapshot and queue the same replacement, 3 + 2.
+
+Start with n = 3. One click calls setN(n + 2); setN(x => x * 2); setN(x => x - 1). Trace the pending values and explain the final result.
+
+Explained feedback: The queue produces 5, then 10, then 9. The replacement is followed by two updaters that each receive the pending value.
+
+### Day 3 review
+
+Start with count = 5. One click calls setCount(count + 4) twice, then logs count. Predict the log and the next screen value. Explain why.
+
+Explained feedback: The log is 5. The next screen shows 9. Both setters use the same render's snapshot and queue the same replacement, 5 + 4.
+
+Start with n = 5. One click calls setN(n + 4); setN(x => x * 2); setN(x => x - 1). Trace the pending values and explain the final result.
+
+Explained feedback: The queue produces 9, then 18, then 17. The replacement is followed by two updaters that each receive the pending value.
+
+### Day 7 review
+
+Start with count = 9. One click calls setCount(count + 8) twice, then logs count. Predict the log and the next screen value. Explain why.
+
+Explained feedback: The log is 9. The next screen shows 17. Both setters use the same render's snapshot and queue the same replacement, 9 + 8.
+
+Start with n = 9. One click calls setN(n + 8); setN(x => x * 2); setN(x => x - 1). Trace the pending values and explain the final result.
+
+Explained feedback: The queue produces 17, then 34, then 33. The replacement is followed by two updaters that each receive the pending value.
+
+### Day 14 review
+
+Start with count = 16. One click calls setCount(count + 15) twice, then logs count. Predict the log and the next screen value. Explain why.
+
+Explained feedback: The log is 16. The next screen shows 31. Both setters use the same render's snapshot and queue the same replacement, 16 + 15.
+
+Start with n = 16. One click calls setN(n + 15); setN(x => x * 2); setN(x => x - 1). Trace the pending values and explain the final result.
+
+Explained feedback: The queue produces 31, then 62, then 61. The replacement is followed by two updaters that each receive the pending value.
+
 ## Interview preparation
 
 These are original interview-style questions. They are not presented as recorded questions from any particular company.
@@ -1092,4 +1132,4 @@ Reference: [Input reference](https://react.dev/reference/react-dom/components/in
 - learnerTrial: pending
 - serverInitialRenderChecked: done
 
-Sample complete for editorial review; publishing requires remaining checks. No solution-modal UI has been implemented in this content milestone.
+Sample available in the learning UI with a solution modal and local practice records. Publishing still requires the remaining content and browser checks.

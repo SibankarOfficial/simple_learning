@@ -1,0 +1,9 @@
+[
+  {
+    "id": "react",
+    "title": "React",
+    "description": "Build user interfaces, understand state, and practice with small apps.",
+    "catalogPath": "curriculum.json",
+    "miniAppPaths": ["mini-apps/quantity-picker.json"]
+  }
+]

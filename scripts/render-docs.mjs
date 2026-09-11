@@ -62,7 +62,7 @@ for (const section of lesson.sections) {
   }
 }
 lessonDoc.push('## Common mistakes', '| Symptom | Cause | Fix |\n| --- | --- | --- |\n' + lesson.commonMistakes.map(x => `| ${x.symptom} | ${x.cause} | ${x.fix} |`).join('\n'));
-lessonDoc.push('## Practice — attempt before solution', 'Hints are optional. Write your prediction or plan first. After reading a solution, solve the problem again in a blank file. Expand a solution below to review it. In the future app, solutions will open in a modal.');
+lessonDoc.push('## Practice — attempt before solution', 'Hints are optional. Write your prediction or plan first. After reading a solution, solve the problem again in a blank file. Expand a solution below to review it. In the learning app, save your attempt before opening the solution modal. Viewing help is recorded and does not award mastery.');
 for (const exercise of lesson.practice) {
   lessonDoc.push(`### ${exercise.id}: ${exercise.type} · ${exercise.difficulty}`, exercise.prompt,
     '**Acceptance criteria**\n\n' + bullets(exercise.acceptanceCriteria),
@@ -76,7 +76,10 @@ for (const exercise of lesson.practice) {
 lessonDoc.push('## Mini app', '[Build the notebook quantity picker step by step](MINI-APP.md). Then build the related seat picker or reading target on your own.');
 lessonDoc.push('## Mastery check', lesson.mastery.policy);
 for (const check of lesson.mastery.checks) lessonDoc.push(`**${check.evidence}**\n\nPass evidence: ${check.pass}`);
-lessonDoc.push('Suggested revisit days: ' + lesson.mastery.reviewSchedule.dayOffsets.join(', ') + '. ' + lesson.mastery.reviewSchedule.note);
+lessonDoc.push('Suggested revisit days: ' + lesson.mastery.reviewSchedule.sessions.map(session => session.dayOffset).join(', ') + '. ' + lesson.mastery.reviewSchedule.note);
+for (const session of lesson.mastery.reviewSchedule.sessions) {
+  lessonDoc.push(`### Day ${session.dayOffset} review`, ...session.problems.flatMap(problem => [problem.prompt, `Explained feedback: ${problem.solution}`]));
+}
 lessonDoc.push('## Interview preparation', 'These are original interview-style questions. They are not presented as recorded questions from any particular company.');
 for (const question of lesson.interviewQuestions) lessonDoc.push(`### ${question.id}: ${question.question}`, question.answer, `Follow-up: ${question.followUp}\n\nReference: ${cite(question.sourceIds)}.`);
 lessonDoc.push('## Publication checks', bullets(Object.entries(lesson.publicationChecklist).filter(([key]) => key !== 'note').map(([key, value]) => `${key}: ${value ? 'done' : 'pending'}`)), lesson.publicationChecklist.note);

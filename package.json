@@ -1,0 +1,30 @@
+{
+  "name": "simple-learning",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "^22.18.0 || >=24.11.0"
+  },
+  "scripts": {
+    "preview:runtime": "vite build --config vite.preview.config.js",
+    "dev": "npm run preview:runtime && vite --host 127.0.0.1 --port 5173 --strictPort",
+    "build": "npm run validate:content && npm run preview:runtime && vite build",
+    "preview": "vite preview --host 127.0.0.1 --port 4173 --strictPort",
+    "validate:content": "node scripts/validate-content.mjs",
+    "docs:generate": "node scripts/render-docs.mjs",
+    "test": "node --test tests/*.test.mjs"
+  },
+  "dependencies": {
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  },
+  "devDependencies": {
+    "@babel/parser": "8.0.5",
+    "@babel/standalone": "8.0.5",
+    "@vitejs/plugin-react": "6.1.1",
+    "ajv": "8.20.0",
+    "esbuild": "0.28.2",
+    "vite": "8.3.0"
+  }
+}
