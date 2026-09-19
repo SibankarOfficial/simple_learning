@@ -4,6 +4,10 @@
     "title": "React",
     "description": "Build user interfaces, understand state, and practice with small apps.",
     "catalogPath": "curriculum.json",
-    "miniAppPaths": ["mini-apps/quantity-picker.json"]
+    "interviewQuestionsPath": "interview-questions.json",
+    "miniAppPaths": [
+      "mini-apps/quantity-picker.json",
+      "mini-apps/accessible-course-signup.json"
+    ]
   }
 ]

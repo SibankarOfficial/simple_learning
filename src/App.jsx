@@ -12,6 +12,8 @@ import Lesson from "./Lesson.jsx";
 import Review from "./Review.jsx";
 import Coverage from "./Coverage.jsx";
 import { MiniApp, MiniAppList } from "./MiniApps.jsx";
+import InterviewQuestions from "./InterviewQuestions.jsx";
+import DsaPractice from "./DsaPractice.jsx";
 import { ProgressProvider } from "./ProgressContext.jsx";
 function TopicRows({ topics, subject }) {
   return (
@@ -289,6 +291,8 @@ function Subject({ subject, route }) {
           />
         ) : view === "review" ? (
           <Review catalog={catalog} />
+        ) : view === "interview-questions" ? (
+          <InterviewQuestions subject={subject} />
         ) : view === "coverage" ? (
           <Coverage catalog={catalog} sources={sources.data} />
         ) : (
@@ -325,7 +329,11 @@ export default function App() {
       !Array.isArray(value) ||
       !value.every(
         (s) =>
-          s.id && s.title && s.catalogPath && Array.isArray(s.miniAppPaths),
+          s.id &&
+          s.title &&
+          s.catalogPath &&
+          s.interviewQuestionsPath &&
+          Array.isArray(s.miniAppPaths),
       )
     )
       throw new Error("The subject list is incomplete.");
@@ -357,13 +365,17 @@ export default function App() {
           <a className="brand" href="#/">
             <span className="brand-mark">sl</span>Simple Learning
           </a>
-          <a href="#/subjects">Subjects</a>
+          <nav aria-label="Main"><a href="#/subjects">Learning</a><a href="#/interview">Interview questions</a><a href="#/dsa">DSA practice</a></nav>
         </header>
         {!subjects.data ? (
           <LoadState resource={subjects} />
+        ) : route[0] === "interview" ? (
+          <main id="main" tabIndex="-1" className="main-content subjects"><InterviewQuestions subject={subjects.data.find(item => item.id === "react")} /></main>
+        ) : route[0] === "dsa" ? (
+          <DsaPractice route={route} />
         ) : route[0] === "subjects" ? (
           <main id="main" className="main-content subjects">
-            <h1>Choose a subject</h1>
+            <h1>Choose a learning path</h1>
             {subjects.data.map((s) => (
               <section className="featured" key={s.id}>
                 <div>

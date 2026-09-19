@@ -1,0 +1,431 @@
+{
+  "schemaVersion": 1,
+  "id": "web-basics-accessibility-and-keyboard-basics",
+  "subjectId": "react",
+  "chapterId": "web-basics",
+  "title": "Accessibility and keyboard basics",
+  "language": "en",
+  "status": "sample-draft",
+  "reviewedAt": "2026-09-19",
+  "runtime": "Modern evergreen browser. HTML, CSS, and JavaScript fragments can be tried in a small local page or the browser DevTools described in the lesson.",
+  "prerequisiteTopicIds": [
+    "web-basics-semantic-html-and-forms"
+  ],
+  "estimatedMinutes": {
+    "firstPass": 40,
+    "practice": 55,
+    "project": 30
+  },
+  "objectives": [
+    {
+      "id": "native",
+      "text": "Use native elements to get reliable semantics and keyboard behavior."
+    },
+    {
+      "id": "keyboard",
+      "text": "Complete a basic keyboard and focus test."
+    },
+    {
+      "id": "content",
+      "text": "Write labels, link text, image alternatives, and status text that carry meaning."
+    }
+  ],
+  "learningFlow": [
+    "Prerequisite check",
+    "Predict before reading",
+    "Core explanation",
+    "Try and change examples",
+    "Practice without the solution",
+    "Explain the result",
+    "Apply it to a fresh page",
+    "Review after a gap"
+  ],
+  "diagnostic": [
+    {
+      "question": "Can every mouse action be assumed to work from a keyboard?",
+      "answer": "No. Every interactive feature needs an operable keyboard path and visible focus.",
+      "ifMissed": "web-basics-semantic-html-and-forms"
+    }
+  ],
+  "sections": [
+    {
+      "id": "what",
+      "title": "Accessibility removes barriers",
+      "depth": "core",
+      "body": "Accessibility means people with different vision, hearing, movement, speech, and thinking needs can perceive, understand, navigate, and operate the product. It also helps people using a keyboard, zoom, captions, voice control, or a small screen. Build it into the feature instead of adding it at the end.",
+      "sourceIds": [
+        "mdn-html-accessibility",
+        "mdn-keyboard"
+      ],
+      "exampleIds": [
+        "native-disclosure"
+      ]
+    },
+    {
+      "id": "native",
+      "title": "Native HTML is the first tool",
+      "depth": "core",
+      "body": "A button can receive focus and activate with keyboard conventions. A label names an input. A heading gives structure. Use these before adding ARIA. ARIA can describe a custom widget, but it does not create all behavior automatically.",
+      "sourceIds": [
+        "mdn-html-accessibility",
+        "mdn-keyboard"
+      ],
+      "exampleIds": [
+        "focus-style"
+      ]
+    },
+    {
+      "id": "keyboard",
+      "title": "Test the complete keyboard path",
+      "depth": "core",
+      "body": "Use Tab and Shift+Tab to move, Enter to follow links or activate suitable controls, and Space to activate buttons or checkboxes. Focus order should follow a sensible document order. A visible focus indicator must show where the next key action will happen.",
+      "sourceIds": [
+        "mdn-html-accessibility",
+        "mdn-keyboard"
+      ],
+      "exampleIds": []
+    },
+    {
+      "id": "focus",
+      "title": "Manage focus only when the interface changes context",
+      "depth": "deeper",
+      "body": "Do not add positive tabindex values to rearrange a confusing DOM. tabindex=\"0\" adds an appropriate custom element to natural order, but custom widgets still need semantics and key handling. tabindex=\"-1\" allows programmatic focus without adding a normal Tab stop. Dialogs need deliberate entry, containment, Escape behavior, and focus return.",
+      "sourceIds": [
+        "mdn-html-accessibility",
+        "mdn-keyboard"
+      ],
+      "exampleIds": []
+    },
+    {
+      "id": "content",
+      "title": "Names and alternatives carry the task",
+      "depth": "core",
+      "body": "Use specific link text, visible labels, and useful button names. Write alt text for the image’s purpose in context; use empty alt for a purely decorative image. Do not use color alone to communicate error or success. Text should survive zoom and reflow.",
+      "sourceIds": [
+        "mdn-html-accessibility",
+        "mdn-keyboard"
+      ],
+      "exampleIds": []
+    },
+    {
+      "id": "test",
+      "title": "Automated checks are a starting point",
+      "depth": "deeper",
+      "body": "A checker can find missing labels, contrast problems, and some invalid roles. It cannot confirm that instructions make sense, focus moves well, or a workflow is usable. Combine automated checks with keyboard use, zoom, and assistive-technology testing.",
+      "sourceIds": [
+        "mdn-html-accessibility",
+        "mdn-keyboard"
+      ],
+      "exampleIds": []
+    }
+  ],
+  "examples": [
+    {
+      "id": "native-disclosure",
+      "title": "A native disclosure",
+      "kind": "fragment",
+      "language": "html",
+      "depth": "core",
+      "code": "<details>\n  <summary>Show delivery details</summary>\n  <p>Delivery usually takes two working days.</p>\n</details>",
+      "explanation": "The native elements provide disclosure semantics and keyboard behavior without custom JavaScript.",
+      "tryThis": "Try reaching and opening it with only the keyboard.",
+      "sourceIds": [
+        "mdn-html-accessibility",
+        "mdn-keyboard"
+      ]
+    },
+    {
+      "id": "focus-style",
+      "title": "A visible focus indicator",
+      "kind": "fragment",
+      "language": "css",
+      "depth": "deeper",
+      "code": ":focus-visible {\n  outline: 3px solid #0b63ce;\n  outline-offset: 3px;\n}\n.error {\n  color: #9b1c1c;\n  border-inline-start: 4px solid currentColor;\n}",
+      "explanation": "Keyboard focus is visible, and the error has text or structure in addition to color.",
+      "tryThis": "Test the focus style on light and dark backgrounds.",
+      "sourceIds": [
+        "mdn-html-accessibility",
+        "mdn-keyboard"
+      ]
+    }
+  ],
+  "practice": [
+    {
+      "id": "practice-1",
+      "type": "predict",
+      "difficulty": "beginner",
+      "prompt": "Which is keyboard-ready by default for an action: <div onclick=\"save()\"> or <button type=\"button\">?",
+      "hints": [
+        "Choose the native interactive element."
+      ],
+      "acceptanceCriteria": [
+        "Give a direct answer.",
+        "Explain the evidence or rule behind the answer.",
+        "Complete the attempt before opening the solution."
+      ],
+      "objectiveIds": [
+        "native"
+      ],
+      "sourceIds": [
+        "mdn-html-accessibility",
+        "mdn-keyboard"
+      ],
+      "solution": {
+        "explanation": "The button. It is focusable, has button semantics, and follows keyboard activation conventions. The div would require rebuilding all of that behavior."
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "practice-2",
+      "type": "build",
+      "difficulty": "beginner",
+      "prompt": "Write an icon-only Close button with an accessible name.",
+      "hints": [
+        "The visible icon can be hidden from assistive technology."
+      ],
+      "acceptanceCriteria": [
+        "Give a direct answer.",
+        "Explain the evidence or rule behind the answer.",
+        "Complete the attempt before opening the solution."
+      ],
+      "objectiveIds": [
+        "keyboard"
+      ],
+      "sourceIds": [
+        "mdn-html-accessibility",
+        "mdn-keyboard"
+      ],
+      "solution": {
+        "explanation": "One valid solution is shown. Other solutions are acceptable when they meet the criteria and preserve the same behavior.",
+        "code": "<button type=\"button\" aria-label=\"Close\"><span aria-hidden=\"true\">×</span></button>",
+        "language": "html",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "practice-3",
+      "type": "debug",
+      "difficulty": "intermediate",
+      "prompt": "A site removes every outline because the designer dislikes it. Explain the failure and propose a fix.",
+      "hints": [
+        "Keyboard users need to know the focused element."
+      ],
+      "acceptanceCriteria": [
+        "Give a direct answer.",
+        "Explain the evidence or rule behind the answer.",
+        "Complete the attempt before opening the solution."
+      ],
+      "objectiveIds": [
+        "content"
+      ],
+      "sourceIds": [
+        "mdn-html-accessibility",
+        "mdn-keyboard"
+      ],
+      "solution": {
+        "explanation": "Restore the browser outline or create a strong :focus-visible style with sufficient contrast and spacing. Test every interactive element by keyboard."
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "practice-4",
+      "type": "design",
+      "difficulty": "intermediate",
+      "prompt": "Write a five-step keyboard test for a signup form.",
+      "hints": [
+        "Include order, labels, validation, submit, and recovery."
+      ],
+      "acceptanceCriteria": [
+        "Give a direct answer.",
+        "Explain the evidence or rule behind the answer.",
+        "Complete the attempt before opening the solution."
+      ],
+      "objectiveIds": [
+        "native"
+      ],
+      "sourceIds": [
+        "mdn-html-accessibility",
+        "mdn-keyboard"
+      ],
+      "solution": {
+        "explanation": "Tab through in logical order; confirm every field has an announced label; trigger validation without a mouse; confirm the error is identified and focus remains useful; correct values and submit; then Shift+Tab back through controls."
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "practice-5",
+      "type": "transfer",
+      "difficulty": "advanced",
+      "prompt": "A custom card is clickable and contains another link. Redesign it for clear semantics and keyboard use.",
+      "hints": [
+        "Avoid nested interactive controls."
+      ],
+      "acceptanceCriteria": [
+        "Give a direct answer.",
+        "Explain the evidence or rule behind the answer.",
+        "Complete the attempt before opening the solution."
+      ],
+      "objectiveIds": [
+        "keyboard"
+      ],
+      "sourceIds": [
+        "mdn-html-accessibility",
+        "mdn-keyboard"
+      ],
+      "solution": {
+        "explanation": "Keep the card as a non-interactive article. Put a descriptive anchor on the title or primary destination and separate buttons for actions. If the whole visual area should activate the link, expand that anchor with CSS without nesting other controls inside it."
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    }
+  ],
+  "interviewQuestions": [
+    {
+      "id": "native-first",
+      "question": "Why prefer native HTML before ARIA?",
+      "answer": "Native controls include semantics, focus behavior, keyboard interaction, form behavior, and platform support. ARIA mainly adds or changes accessibility information; developers must still implement behavior correctly.",
+      "followUp": "When is ARIA necessary?",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "mdn-html-accessibility",
+        "mdn-keyboard"
+      ]
+    },
+    {
+      "id": "tabindex",
+      "question": "What is the difference between tabindex=\"0\" and tabindex=\"-1\"?",
+      "answer": "Zero joins the natural tab order. Minus one allows scripted or direct focus but removes the element from normal Tab navigation.",
+      "followUp": "Why should positive tabindex usually be avoided?",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "mdn-html-accessibility",
+        "mdn-keyboard"
+      ]
+    },
+    {
+      "id": "testing",
+      "question": "Can automated accessibility tools prove a feature is accessible?",
+      "answer": "No. They catch a useful subset of detectable problems. Manual keyboard, zoom, screen-reader, and task testing are still needed.",
+      "followUp": "Name one issue an automated tool may miss.",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "mdn-html-accessibility",
+        "mdn-keyboard"
+      ]
+    }
+  ],
+  "miniAppIds": [],
+  "mastery": {
+    "status": "not-assessed",
+    "policy": "Reading the lesson or revealing help is not mastery. Save an attempt first, then prove the idea again without the solution and use it in a fresh situation.",
+    "checks": [
+      {
+        "id": "explain",
+        "evidence": "Explain accessibility and keyboard basics without copying the lesson.",
+        "pass": "The explanation uses correct terms and gives one practical reason."
+      },
+      {
+        "id": "solve",
+        "evidence": "Complete at least four practice tasks before revealing their solutions.",
+        "pass": "The saved work meets each acceptance criterion and explains the reasoning."
+      },
+      {
+        "id": "transfer",
+        "evidence": "Use the lesson in a new small page or debugging case.",
+        "pass": "The new example works and the learner can explain one decision and one tradeoff."
+      }
+    ],
+    "reviewSchedule": {
+      "note": "Complete these without reopening the lesson. Compare only after saving an answer.",
+      "sessions": [
+        {
+          "dayOffset": 2,
+          "problems": [
+            {
+              "id": "recall",
+              "prompt": "Write the three most useful rules from Accessibility and keyboard basics.",
+              "solution": "A good answer states three accurate rules, explains why each matters, and uses at least one concrete example."
+            },
+            {
+              "id": "repair",
+              "prompt": "Describe one common accessibility and keyboard basics mistake and repair it.",
+              "solution": "Choose one mistake from the lesson, identify its cause, and apply the smallest fix that preserves correct web behavior."
+            }
+          ]
+        },
+        {
+          "dayOffset": 7,
+          "problems": [
+            {
+              "id": "teach",
+              "prompt": "Teach accessibility and keyboard basics to a beginner in five sentences.",
+              "solution": "The explanation should define the idea, show how it works, give a real use, warn about a mistake, and name a way to test it."
+            },
+            {
+              "id": "new-case",
+              "prompt": "Create a different example from the lesson and explain how you verified it.",
+              "solution": "The example must use the same core concept in a new context and name observable evidence from the browser or code."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "sourceIds": [
+    "mdn-html-accessibility",
+    "mdn-keyboard"
+  ],
+  "commonMistakes": [
+    {
+      "symptom": "A mouse-only menu cannot be opened with Tab and Enter",
+      "cause": "The trigger is a non-interactive element or lacks keyboard behavior.",
+      "fix": "Use a button and implement the complete menu keyboard pattern if it is truly a menu."
+    },
+    {
+      "symptom": "Focus is invisible",
+      "cause": "A global outline: none rule removed the browser indicator.",
+      "fix": "Keep the default or replace it with a clear :focus-visible style."
+    },
+    {
+      "symptom": "An icon-only button is announced only as “button”",
+      "cause": "It has no accessible name.",
+      "fix": "Add visible text or a concise aria-label when visible text is not possible."
+    }
+  ],
+  "publicationChecklist": {
+    "authored": true,
+    "sourcesReviewed": true,
+    "codeSyntaxChecked": true,
+    "serverInitialRenderChecked": false,
+    "browserBehaviorChecked": false,
+    "independentContentReview": false,
+    "learnerTrial": false,
+    "note": "Complete draft. Keep sample-draft until snippets, rendering, browser behavior, independent content review, and a learner trial are complete."
+  }
+}

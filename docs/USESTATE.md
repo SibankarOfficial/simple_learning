@@ -1,6 +1,6 @@
 # useState: Memory for your UI
 
-Generated from the JSON content. Edit JSON, then regenerate. Content review date: 2026-09-10.
+Generated from the JSON content. Edit JSON, then regenerate. Coverage review date: 2026-09-19.
 
 React → Hooks: foundations and useState → useState
 

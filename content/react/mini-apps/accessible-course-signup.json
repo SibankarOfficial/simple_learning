@@ -1,0 +1,162 @@
+{
+  "schemaVersion": 1,
+  "id": "accessible-course-signup",
+  "subjectId": "react",
+  "title": "Accessible course signup page",
+  "language": "en",
+  "status": "sample-draft",
+  "conceptTopicIds": [
+    "web-basics-how-browser-pages-work",
+    "web-basics-semantic-html-and-forms",
+    "web-basics-css-selectors-and-cascade",
+    "web-basics-box-model-and-responsive-layout",
+    "web-basics-accessibility-and-keyboard-basics",
+    "web-basics-browser-devtools-and-console"
+  ],
+  "prerequisiteTopicIds": [],
+  "goal": "Build a responsive course card and signup form with meaningful HTML, native validation, visible keyboard focus, and an evidence-based browser check.",
+  "sourceIds": [
+    "mdn-web-works",
+    "mdn-browser-load",
+    "mdn-html-accessibility",
+    "mdn-html-forms",
+    "mdn-form-validation",
+    "mdn-css-selectors",
+    "mdn-css-conflicts",
+    "mdn-box-model",
+    "mdn-responsive",
+    "mdn-keyboard",
+    "mdn-devtools"
+  ],
+  "requirements": [
+    "One clear page heading and one main content area",
+    "A course article with a descriptive heading and list",
+    "A signup form with connected labels and named controls",
+    "Native email and required-field validation",
+    "A visible keyboard focus indicator",
+    "A fluid card that does not cause horizontal scrolling",
+    "A browser check using Elements, Console, and Network"
+  ],
+  "steps": [
+    {
+      "order": 1,
+      "title": "Plan the page and request",
+      "task": "Create index.html and write what the browser must load.",
+      "code": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <title>Course signup</title>\n  </head>\n  <body></body>\n</html>",
+      "kind": "html",
+      "check": "Network shows one successful document request when the file is served.",
+      "reason": "The document shell gives the browser language, character, viewport, and title information."
+    },
+    {
+      "order": 2,
+      "title": "Add meaningful structure",
+      "task": "Add header, main, article, headings, and a useful list.",
+      "code": "<header><a href=\"#main\">Skip to content</a></header>\n<main id=\"main\">\n  <article class=\"course-card\">\n    <h1>React foundations workshop</h1>\n    <p>Practice web basics before React.</p>\n    <h2>You will practise</h2>\n    <ul><li>Semantic HTML</li><li>Responsive CSS</li><li>Keyboard checks</li></ul>\n  </article>\n</main>",
+      "kind": "html",
+      "check": "The page has one clear h1, and the skip link moves focus to main content.",
+      "reason": "Landmarks and headings describe the page before visual styling is added."
+    },
+    {
+      "order": 3,
+      "title": "Build the form with native controls",
+      "task": "Add labeled name and email fields plus a submit button.",
+      "code": "<form action=\"#thanks\" method=\"get\">\n  <h2>Reserve a place</h2>\n  <label for=\"name\">Name</label>\n  <input id=\"name\" name=\"name\" autocomplete=\"name\" required>\n  <label for=\"email\">Email</label>\n  <input id=\"email\" name=\"email\" type=\"email\" autocomplete=\"email\" required>\n  <button type=\"submit\">Reserve my place</button>\n</form>\n<p id=\"thanks\">Check the address bar after a valid submission.</p>",
+      "kind": "html",
+      "check": "Clicking either label focuses its field; an empty or invalid email blocks submission.",
+      "reason": "Native form controls provide names, keyboard behavior, and useful validation before JavaScript."
+    },
+    {
+      "order": 4,
+      "title": "Set predictable boxes",
+      "task": "Apply border-box and basic readable styles.",
+      "code": "*, *::before, *::after { box-sizing: border-box; }\nbody { margin: 0; font-family: system-ui, sans-serif; line-height: 1.5; }\n.course-card { width: min(100% - 2rem, 44rem); margin: 2rem auto; padding: clamp(1rem, 4vw, 2rem); border: 1px solid #b8c0cc; border-radius: 1rem; }",
+      "kind": "css",
+      "check": "The card keeps side space and never exceeds 44rem.",
+      "reason": "Border-box and flexible constraints make the card easier to reason about at different widths."
+    },
+    {
+      "order": 5,
+      "title": "Style controls and focus",
+      "task": "Use simple class and state selectors without removing focus.",
+      "code": "label { display: block; margin-block-start: 1rem; font-weight: 700; }\ninput, button { width: 100%; padding: 0.75rem; font: inherit; }\nbutton { margin-block-start: 1rem; cursor: pointer; }\n:focus-visible { outline: 3px solid #0b63ce; outline-offset: 3px; }\ninput:invalid:not(:focus) { border-color: #a61b1b; }",
+      "kind": "css",
+      "check": "Tab reaches every control in order and focus is always visible.",
+      "reason": "Simple selectors stay maintainable, while focus and validation states remain perceivable."
+    },
+    {
+      "order": 6,
+      "title": "Test at different widths",
+      "task": "Resize, zoom, and enter long text before adding a breakpoint.",
+      "code": "@media (min-width: 42rem) {\n  form { display: grid; grid-template-columns: 1fr 1fr; gap: 0 1rem; }\n  form h2, form button { grid-column: 1 / -1; }\n}",
+      "kind": "css",
+      "check": "The narrow layout remains one column; the wider layout changes only when fields have enough room.",
+      "reason": "A content-driven breakpoint enhances a working fluid base."
+    },
+    {
+      "order": 7,
+      "title": "Collect browser evidence",
+      "task": "Use DevTools instead of guessing whether the page works.",
+      "code": null,
+      "kind": "task",
+      "check": "Elements shows associated labels and winning styles; Console has no errors; Network shows the document response; keyboard and native validation pass.",
+      "reason": "A repeatable check turns an apparent result into evidence."
+    },
+    {
+      "order": 8,
+      "title": "Rebuild it independently",
+      "task": "Close the final code and build the same behavior with different content and colors.",
+      "code": null,
+      "kind": "task",
+      "check": "Meet every acceptance scenario and explain each semantic and layout choice.",
+      "reason": "Independent transfer is stronger evidence than copying the guided page."
+    }
+  ],
+  "finalCode": "<!doctype html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Course signup</title>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    body { margin: 0; font-family: system-ui, sans-serif; line-height: 1.5; color: #172033; background: #f4f7fb; }\n    .skip { position: absolute; inset-inline-start: 1rem; transform: translateY(-150%); }\n    .skip:focus { transform: translateY(0); }\n    .course-card { width: min(100% - 2rem, 44rem); margin: 2rem auto; padding: clamp(1rem, 4vw, 2rem); background: white; border: 1px solid #b8c0cc; border-radius: 1rem; }\n    label { display: block; margin-block-start: 1rem; font-weight: 700; }\n    input, button { width: 100%; padding: 0.75rem; font: inherit; }\n    button { margin-block-start: 1rem; cursor: pointer; }\n    :focus-visible { outline: 3px solid #0b63ce; outline-offset: 3px; }\n    input:invalid:not(:focus) { border-color: #a61b1b; }\n    @media (min-width: 42rem) {\n      form { display: grid; grid-template-columns: 1fr 1fr; gap: 0 1rem; }\n      form h2, form button { grid-column: 1 / -1; }\n    }\n  </style>\n</head>\n<body>\n  <header><a class=\"skip\" href=\"#main\">Skip to content</a></header>\n  <main id=\"main\" class=\"course-card\" tabindex=\"-1\">\n    <article>\n      <h1>React foundations workshop</h1>\n      <p>Practice web basics before React.</p>\n      <h2>You will practise</h2>\n      <ul><li>Semantic HTML</li><li>Responsive CSS</li><li>Keyboard checks</li></ul>\n    </article>\n    <form action=\"#thanks\" method=\"get\">\n      <h2>Reserve a place</h2>\n      <div><label for=\"name\">Name</label><input id=\"name\" name=\"name\" autocomplete=\"name\" required></div>\n      <div><label for=\"email\">Email</label><input id=\"email\" name=\"email\" type=\"email\" autocomplete=\"email\" required></div>\n      <button type=\"submit\">Reserve my place</button>\n    </form>\n    <p id=\"thanks\">Check the address bar after a valid submission.</p>\n  </main>\n</body>\n</html>",
+  "languageCode": "html",
+  "acceptanceScenarios": [
+    {
+      "given": "Page loaded",
+      "when": "Inspect headings and landmarks",
+      "then": "One h1 and one main area describe the page"
+    },
+    {
+      "given": "Keyboard only",
+      "when": "Tab through the page",
+      "then": "Skip link and every control are reachable with visible focus"
+    },
+    {
+      "given": "Empty form",
+      "when": "Submit",
+      "then": "The browser focuses a required field and blocks normal submission"
+    },
+    {
+      "given": "Invalid email",
+      "when": "Submit",
+      "then": "Native email validation reports the problem"
+    },
+    {
+      "given": "Narrow viewport or 200% zoom",
+      "when": "Read and use the form",
+      "then": "Content reflows without horizontal page scrolling"
+    },
+    {
+      "given": "DevTools open",
+      "when": "Reload",
+      "then": "Document succeeds, Console stays clear, and winning styles are visible"
+    }
+  ],
+  "relatedIdeaIds": [
+    "event-registration-page",
+    "support-request-form"
+  ],
+  "extensions": [
+    "Move the CSS into styles.css and confirm the extra request in Network.",
+    "Add a course format choice with fieldset, legend, and radio buttons.",
+    "Write a manual test note for keyboard, zoom, invalid input, and long names."
+  ],
+  "verification": {
+    "syntaxChecked": true,
+    "browserBehaviorChecked": false,
+    "serverInitialRenderChecked": false
+  }
+}

@@ -1,0 +1,429 @@
+{
+  "schemaVersion": 1,
+  "id": "web-basics-browser-devtools-and-console",
+  "subjectId": "react",
+  "chapterId": "web-basics",
+  "title": "Browser DevTools and console",
+  "language": "en",
+  "status": "sample-draft",
+  "reviewedAt": "2026-09-19",
+  "runtime": "Modern evergreen browser. HTML, CSS, and JavaScript fragments can be tried in a small local page or the browser DevTools described in the lesson.",
+  "prerequisiteTopicIds": [
+    "web-basics-how-browser-pages-work",
+    "web-basics-css-selectors-and-cascade"
+  ],
+  "estimatedMinutes": {
+    "firstPass": 35,
+    "practice": 55,
+    "project": 30
+  },
+  "objectives": [
+    {
+      "id": "inspect",
+      "text": "Inspect live DOM, computed styles, and the box model."
+    },
+    {
+      "id": "console",
+      "text": "Read errors and use focused console output without treating logs as proof."
+    },
+    {
+      "id": "network",
+      "text": "Use Network evidence to debug loading and API failures."
+    }
+  ],
+  "learningFlow": [
+    "Prerequisite check",
+    "Predict before reading",
+    "Core explanation",
+    "Try and change examples",
+    "Practice without the solution",
+    "Explain the result",
+    "Apply it to a fresh page",
+    "Review after a gap"
+  ],
+  "diagnostic": [
+    {
+      "question": "Does editing HTML in the Elements panel change the source file?",
+      "answer": "No. It changes the current loaded page until reload; edit the project file for a permanent change.",
+      "ifMissed": "web-basics-how-browser-pages-work"
+    }
+  ],
+  "sections": [
+    {
+      "id": "tool",
+      "title": "DevTools shows the running page",
+      "depth": "core",
+      "body": "Browser developer tools inspect the page after loading and after JavaScript changes it. Open them with F12 or Ctrl+Shift+I on common Windows browsers. Panels and names differ slightly, but the core evidence is similar.",
+      "sourceIds": [
+        "mdn-devtools",
+        "mdn-browser-load"
+      ],
+      "exampleIds": [
+        "console-tools"
+      ]
+    },
+    {
+      "id": "elements",
+      "title": "Inspect DOM and CSS",
+      "depth": "core",
+      "body": "Elements or Inspector shows the live DOM. Select an element to see matching rules, crossed-out declarations, computed values, event information, and its box model. Temporary edits are experiments; reload removes them unless you change the source file.",
+      "sourceIds": [
+        "mdn-devtools",
+        "mdn-browser-load"
+      ],
+      "exampleIds": [
+        "debug-example"
+      ]
+    },
+    {
+      "id": "console",
+      "title": "Use the Console as an evidence stream",
+      "depth": "core",
+      "body": "The Console shows syntax errors, runtime errors, warnings, and values you log. Read the first relevant error, its message, file, and line. console.log helps answer a focused question, but repeated logs can hide the real signal and object views can reflect later mutation.",
+      "sourceIds": [
+        "mdn-devtools",
+        "mdn-browser-load"
+      ],
+      "exampleIds": []
+    },
+    {
+      "id": "network",
+      "title": "Read requests and responses",
+      "depth": "core",
+      "body": "Reload with Network open. Check method, URL, status, type, initiator, timing, request payload, and response. Filter failed requests, but remember a 200 response can still contain the wrong data. Preserve log only when navigation would otherwise clear evidence.",
+      "sourceIds": [
+        "mdn-devtools",
+        "mdn-browser-load"
+      ],
+      "exampleIds": []
+    },
+    {
+      "id": "debugger",
+      "title": "Pause instead of adding many logs",
+      "depth": "deeper",
+      "body": "A breakpoint pauses before a line runs. Step over executes the next line, step into enters a called function, and step out finishes the current function. Inspect local variables and the call stack to see how execution reached the bug. Remove debug statements after learning the cause.",
+      "sourceIds": [
+        "mdn-devtools",
+        "mdn-browser-load"
+      ],
+      "exampleIds": []
+    },
+    {
+      "id": "process",
+      "title": "Use a repeatable debugging loop",
+      "depth": "core",
+      "body": "Reproduce the smallest failure. Read the first useful error. Decide whether the problem is resource loading, DOM or CSS, or JavaScript behavior. Form one hypothesis, run one test, observe the result, and keep the fix only when the evidence supports it.",
+      "sourceIds": [
+        "mdn-devtools",
+        "mdn-browser-load"
+      ],
+      "exampleIds": []
+    }
+  ],
+  "examples": [
+    {
+      "id": "console-tools",
+      "title": "Focused console methods",
+      "kind": "fragment",
+      "language": "js",
+      "depth": "core",
+      "code": "const items = [{ id: 1, done: false }, { id: 2, done: true }];\nconsole.table(items);\nconsole.assert(items.every(item => \"id\" in item), \"Every item needs an id\");\nconsole.time(\"filter\");\nitems.filter(item => item.done);\nconsole.timeEnd(\"filter\");",
+      "explanation": "table compares records, assert reports a failed expectation, and time measures a labeled operation. None replaces a real automated test.",
+      "tryThis": "Make the assertion fail and read the resulting message.",
+      "sourceIds": [
+        "mdn-devtools",
+        "mdn-browser-load"
+      ]
+    },
+    {
+      "id": "debug-example",
+      "title": "A bug to pause on",
+      "kind": "fragment",
+      "language": "js",
+      "depth": "deeper",
+      "code": "function total(prices) {\n  let sum = 0;\n  for (const price of prices) {\n    sum = price; // Bug: this replaces instead of adds.\n  }\n  return sum;\n}\n\nconsole.log(total([5, 10, 15]));",
+      "explanation": "A breakpoint inside the loop shows sum being replaced on every iteration. The fix is sum += price.",
+      "tryThis": "Predict the output before running, then fix and rerun it.",
+      "sourceIds": [
+        "mdn-devtools",
+        "mdn-browser-load"
+      ]
+    }
+  ],
+  "practice": [
+    {
+      "id": "practice-1",
+      "type": "predict",
+      "difficulty": "beginner",
+      "prompt": "What happens to a color changed only in the Elements panel after a normal reload?",
+      "hints": [
+        "DevTools edits the loaded page."
+      ],
+      "acceptanceCriteria": [
+        "Give a direct answer.",
+        "Explain the evidence or rule behind the answer.",
+        "Complete the attempt before opening the solution."
+      ],
+      "objectiveIds": [
+        "inspect"
+      ],
+      "sourceIds": [
+        "mdn-devtools",
+        "mdn-browser-load"
+      ],
+      "solution": {
+        "explanation": "The change disappears because the browser loads the source again. Apply the tested value in the project CSS for permanence."
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "practice-2",
+      "type": "build",
+      "difficulty": "beginner",
+      "prompt": "Create a short debugging checklist that uses Console, Elements, and Network for a blank page.",
+      "hints": [
+        "Order checks from loading to execution to DOM."
+      ],
+      "acceptanceCriteria": [
+        "Give a direct answer.",
+        "Explain the evidence or rule behind the answer.",
+        "Complete the attempt before opening the solution."
+      ],
+      "objectiveIds": [
+        "console"
+      ],
+      "sourceIds": [
+        "mdn-devtools",
+        "mdn-browser-load"
+      ],
+      "solution": {
+        "explanation": "Check the document and scripts in Network; read the first Console error; inspect whether the expected root and child DOM exist; inspect hidden or overridden CSS only after content exists."
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "practice-3",
+      "type": "debug",
+      "difficulty": "intermediate",
+      "prompt": "An API request is red in Network. List five fields to inspect before changing code.",
+      "hints": [
+        "Look at request identity, result, input, output, and timing."
+      ],
+      "acceptanceCriteria": [
+        "Give a direct answer.",
+        "Explain the evidence or rule behind the answer.",
+        "Complete the attempt before opening the solution."
+      ],
+      "objectiveIds": [
+        "network"
+      ],
+      "sourceIds": [
+        "mdn-devtools",
+        "mdn-browser-load"
+      ],
+      "solution": {
+        "explanation": "Inspect method and full URL, status, request headers or payload, response headers and body, initiator, and timing. Five of these provide a useful minimum."
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "practice-4",
+      "type": "debug",
+      "difficulty": "intermediate",
+      "prompt": "The total([5, 10, 15]) example returns 15. Explain how a breakpoint proves the cause and provide the fix.",
+      "hints": [
+        "Watch sum on each loop iteration."
+      ],
+      "acceptanceCriteria": [
+        "Give a direct answer.",
+        "Explain the evidence or rule behind the answer.",
+        "Complete the attempt before opening the solution."
+      ],
+      "objectiveIds": [
+        "inspect"
+      ],
+      "sourceIds": [
+        "mdn-devtools",
+        "mdn-browser-load"
+      ],
+      "solution": {
+        "explanation": "Pause on sum = price and observe 5, then 10, then 15 replacing the previous value. Change it to sum += price so the result becomes 30."
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "practice-5",
+      "type": "transfer",
+      "difficulty": "advanced",
+      "prompt": "A button appears enabled but clicks do nothing. Give an evidence-first debugging sequence.",
+      "hints": [
+        "Check whether the expected DOM and listener exist before rewriting code."
+      ],
+      "acceptanceCriteria": [
+        "Give a direct answer.",
+        "Explain the evidence or rule behind the answer.",
+        "Complete the attempt before opening the solution."
+      ],
+      "objectiveIds": [
+        "console"
+      ],
+      "sourceIds": [
+        "mdn-devtools",
+        "mdn-browser-load"
+      ],
+      "solution": {
+        "explanation": "Inspect the actual button and overlays in Elements; test keyboard activation; read Console errors; use an event-listener breakpoint or framework tools; pause in the handler; inspect state and network effects. Each step should narrow the cause."
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    }
+  ],
+  "interviewQuestions": [
+    {
+      "id": "panels",
+      "question": "Which DevTools panels would you use for a missing style, failed request, and runtime exception?",
+      "answer": "Use Elements or Styles for CSS, Network for the request, and Console plus Sources or Debugger for the exception.",
+      "followUp": "What would you inspect first on a blank page?",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "mdn-devtools",
+        "mdn-browser-load"
+      ]
+    },
+    {
+      "id": "live-dom",
+      "question": "What is the difference between page source and the live DOM?",
+      "answer": "Page source is the received document text. The live DOM includes parser corrections and changes made by JavaScript. DevTools Elements usually shows the live DOM.",
+      "followUp": "Why can this difference matter in React?",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "mdn-devtools",
+        "mdn-browser-load"
+      ]
+    },
+    {
+      "id": "breakpoints",
+      "question": "Why use a breakpoint instead of many console.log calls?",
+      "answer": "A breakpoint pauses at the relevant moment and lets you inspect scope, call stack, and changes step by step without adding noisy code.",
+      "followUp": "When is a log still useful?",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "mdn-devtools",
+        "mdn-browser-load"
+      ]
+    }
+  ],
+  "miniAppIds": [],
+  "mastery": {
+    "status": "not-assessed",
+    "policy": "Reading the lesson or revealing help is not mastery. Save an attempt first, then prove the idea again without the solution and use it in a fresh situation.",
+    "checks": [
+      {
+        "id": "explain",
+        "evidence": "Explain browser devtools and console without copying the lesson.",
+        "pass": "The explanation uses correct terms and gives one practical reason."
+      },
+      {
+        "id": "solve",
+        "evidence": "Complete at least four practice tasks before revealing their solutions.",
+        "pass": "The saved work meets each acceptance criterion and explains the reasoning."
+      },
+      {
+        "id": "transfer",
+        "evidence": "Use the lesson in a new small page or debugging case.",
+        "pass": "The new example works and the learner can explain one decision and one tradeoff."
+      }
+    ],
+    "reviewSchedule": {
+      "note": "Complete these without reopening the lesson. Compare only after saving an answer.",
+      "sessions": [
+        {
+          "dayOffset": 2,
+          "problems": [
+            {
+              "id": "recall",
+              "prompt": "Write the three most useful rules from Browser DevTools and console.",
+              "solution": "A good answer states three accurate rules, explains why each matters, and uses at least one concrete example."
+            },
+            {
+              "id": "repair",
+              "prompt": "Describe one common browser devtools and console mistake and repair it.",
+              "solution": "Choose one mistake from the lesson, identify its cause, and apply the smallest fix that preserves correct web behavior."
+            }
+          ]
+        },
+        {
+          "dayOffset": 7,
+          "problems": [
+            {
+              "id": "teach",
+              "prompt": "Teach browser devtools and console to a beginner in five sentences.",
+              "solution": "The explanation should define the idea, show how it works, give a real use, warn about a mistake, and name a way to test it."
+            },
+            {
+              "id": "new-case",
+              "prompt": "Create a different example from the lesson and explain how you verified it.",
+              "solution": "The example must use the same core concept in a new context and name observable evidence from the browser or code."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "sourceIds": [
+    "mdn-devtools",
+    "mdn-browser-load"
+  ],
+  "commonMistakes": [
+    {
+      "symptom": "A DevTools edit disappears after reload",
+      "cause": "The live page changed, not the project source.",
+      "fix": "Repeat the confirmed change in the correct source file."
+    },
+    {
+      "symptom": "A developer fixes the last Console error first",
+      "cause": "Later errors can be consequences of the first failure.",
+      "fix": "Start with the earliest relevant error and reproduce after each fix."
+    },
+    {
+      "symptom": "Network shows 200, so the response is assumed correct",
+      "cause": "Status says the request succeeded at HTTP level, not that the body matches the app contract.",
+      "fix": "Inspect response data, headers, and the code that reads it."
+    }
+  ],
+  "publicationChecklist": {
+    "authored": true,
+    "sourcesReviewed": true,
+    "codeSyntaxChecked": true,
+    "serverInitialRenderChecked": false,
+    "browserBehaviorChecked": false,
+    "independentContentReview": false,
+    "learnerTrial": false,
+    "note": "Complete draft. Keep sample-draft until snippets, rendering, browser behavior, independent content review, and a learner trial are complete."
+  }
+}

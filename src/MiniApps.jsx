@@ -26,6 +26,7 @@ function MiniReader({ app, catalog, ideas, sources }) {
   const { change } = useProgress();
   const [showCode, setShowCode] = useState(false);
   const related = ideas.filter(idea => app.relatedIdeaIds.includes(idea.id));
+  const completeFile = app.languageCode === 'html' ? 'index.html' : 'App.jsx';
   const reveal = () => {
     // The final module also solves these useState exercises. Record the same
     // assistance even when learners find the solution through the mini app.
@@ -37,8 +38,8 @@ function MiniReader({ app, catalog, ideas, sources }) {
     <section><h2>Concepts used</h2><TopicLinks ids={app.conceptTopicIds} catalog={catalog} /><details className="content-details"><summary>Prerequisites</summary><TopicLinks ids={app.prerequisiteTopicIds} catalog={catalog} /></details></section>
     <section><h2>What it needs to do</h2><ul>{app.requirements.map(r => <li key={r}>{r}</li>)}</ul></section>
     <div className="notice"><strong>Want an independent attempt?</strong><p>Try the requirements in a blank project before opening the steps. Following these steps is guided practice.</p></div>
-    {app.steps.map(step => <details key={step.order} className="build-step"><summary><span className="step-number">{step.order}</span>{step.title}</summary><p>{step.task}</p>{step.code && <><Code>{step.code}</Code><p className="muted">This is a fragment to add inside your React module.</p></>}<p><strong>Why:</strong> {step.reason}</p><div className="hint"><strong>Check:</strong> {step.check}</div></details>)}
-    <section className="final-code"><h2>Compare the complete app</h2><p>Try the steps first. Opening this code also records help for matching lesson exercises.</p><button onClick={reveal} disabled={showCode}>Show complete App.jsx</button>{showCode && <Code>{app.finalCode}</Code>}</section>
+    {app.steps.map(step => <details key={step.order} className="build-step"><summary><span className="step-number">{step.order}</span>{step.title}</summary><p>{step.task}</p>{step.code && <><Code>{step.code}</Code><p className="muted">This is a {step.kind} fragment for the file described in this step.</p></>}<p><strong>Why:</strong> {step.reason}</p><div className="hint"><strong>Check:</strong> {step.check}</div></details>)}
+    <section className="final-code"><h2>Compare the complete app</h2><p>Try the steps first. Opening the finished code is guided help; rebuild it later without looking.</p><button onClick={reveal} disabled={showCode}>Show complete {completeFile}</button>{showCode && <Code>{app.finalCode}</Code>}</section>
     <section><h2>Check behavior</h2><div className="table-scroll"><table><thead><tr><th>Starting point</th><th>Action</th><th>Expected result</th></tr></thead><tbody>{app.acceptanceScenarios.map((scenario, i) => <tr key={i}><td>{scenario.given}</td><td>{scenario.when}</td><td>{scenario.then}</td></tr>)}</tbody></table></div></section>
     <section><h2>Build a related idea on your own</h2><p>Use the concepts you learned. These ideas intentionally have no supplied solution.</p>{related.map(idea => <article className="independent-idea" key={idea.id} id={`idea-${idea.id}`}><h3>{idea.title}</h3><p>{idea.brief}</p><ul>{idea.acceptanceCriteria.map(c => <li key={c}>{c}</li>)}</ul><TopicLinks ids={idea.conceptTopicIds} catalog={catalog} /></article>)}</section>
     <section><h2>Extend it when the base works</h2><ul>{app.extensions.map(e => <li key={e}>{e}</li>)}</ul></section><Sources ids={app.sourceIds} sources={sources} />

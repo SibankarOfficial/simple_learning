@@ -36,5 +36,53 @@
       "quantity-picker"
     ],
     "solutionProvided": false
+  },
+  {
+    "id": "event-registration-page",
+    "subjectId": "react",
+    "title": "Community event registration",
+    "conceptTopicIds": [
+      "web-basics-how-browser-pages-work",
+      "web-basics-semantic-html-and-forms",
+      "web-basics-css-selectors-and-cascade",
+      "web-basics-box-model-and-responsive-layout",
+      "web-basics-accessibility-and-keyboard-basics",
+      "web-basics-browser-devtools-and-console"
+    ],
+    "brief": "Create a responsive event page with schedule content and an accessible registration form. Use different structure and styles from the guided app.",
+    "acceptanceCriteria": [
+      "Meaningful landmarks and heading order",
+      "Labeled named controls with native validation",
+      "Complete keyboard path and visible focus",
+      "No horizontal scrolling at narrow widths"
+    ],
+    "relatedMiniAppIds": [
+      "accessible-course-signup"
+    ],
+    "solutionProvided": false
+  },
+  {
+    "id": "support-request-form",
+    "subjectId": "react",
+    "title": "Support request form",
+    "conceptTopicIds": [
+      "web-basics-how-browser-pages-work",
+      "web-basics-semantic-html-and-forms",
+      "web-basics-css-selectors-and-cascade",
+      "web-basics-box-model-and-responsive-layout",
+      "web-basics-accessibility-and-keyboard-basics",
+      "web-basics-browser-devtools-and-console"
+    ],
+    "brief": "Build a support form with issue type, description, urgency, and contact details. Decide which values are required before coding.",
+    "acceptanceCriteria": [
+      "Fieldset and legend for related choices",
+      "Specific labels and error instructions",
+      "Responsive layout based on content",
+      "Documented Elements, Console, and Network checks"
+    ],
+    "relatedMiniAppIds": [
+      "accessible-course-signup"
+    ],
+    "solutionProvided": false
   }
 ]

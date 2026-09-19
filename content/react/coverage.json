@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "reviewedAt": "2026-09-10",
+  "reviewedAt": "2026-09-19",
   "method": "Manual inventory of reviewed Learn chapter indexes and reference categories. Mapped means a syllabus destination exists; it does not mean a finished lesson. A finite inventory can expose known gaps, not prove universal completeness.",
   "items": [
     {
@@ -1289,6 +1289,149 @@
       ],
       "coverage": "mapped",
       "contentStatus": "planned"
+    },
+    {
+      "id": "web-foundations:web-basics-how-browser-pages-work:mdn-web-works",
+      "name": "How browser pages work — How the web works",
+      "category": "web-foundations",
+      "sourceId": "mdn-web-works",
+      "topicIds": [
+        "web-basics-how-browser-pages-work"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "sample-draft"
+    },
+    {
+      "id": "web-foundations:web-basics-how-browser-pages-work:mdn-browser-load",
+      "name": "How browser pages work — How browsers load websites",
+      "category": "web-foundations",
+      "sourceId": "mdn-browser-load",
+      "topicIds": [
+        "web-basics-how-browser-pages-work"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "sample-draft"
+    },
+    {
+      "id": "web-foundations:web-basics-semantic-html-and-forms:mdn-html-accessibility",
+      "name": "Semantic HTML and forms — HTML: A good basis for accessibility",
+      "category": "web-foundations",
+      "sourceId": "mdn-html-accessibility",
+      "topicIds": [
+        "web-basics-semantic-html-and-forms"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "sample-draft"
+    },
+    {
+      "id": "web-foundations:web-basics-semantic-html-and-forms:mdn-html-forms",
+      "name": "Semantic HTML and forms — Forms and buttons in HTML",
+      "category": "web-foundations",
+      "sourceId": "mdn-html-forms",
+      "topicIds": [
+        "web-basics-semantic-html-and-forms"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "sample-draft"
+    },
+    {
+      "id": "web-foundations:web-basics-semantic-html-and-forms:mdn-form-validation",
+      "name": "Semantic HTML and forms — Client-side form validation",
+      "category": "web-foundations",
+      "sourceId": "mdn-form-validation",
+      "topicIds": [
+        "web-basics-semantic-html-and-forms"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "sample-draft"
+    },
+    {
+      "id": "web-foundations:web-basics-css-selectors-and-cascade:mdn-css-selectors",
+      "name": "CSS selectors and cascade — Basic CSS selectors",
+      "category": "web-foundations",
+      "sourceId": "mdn-css-selectors",
+      "topicIds": [
+        "web-basics-css-selectors-and-cascade"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "sample-draft"
+    },
+    {
+      "id": "web-foundations:web-basics-css-selectors-and-cascade:mdn-css-conflicts",
+      "name": "CSS selectors and cascade — Handling CSS conflicts",
+      "category": "web-foundations",
+      "sourceId": "mdn-css-conflicts",
+      "topicIds": [
+        "web-basics-css-selectors-and-cascade"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "sample-draft"
+    },
+    {
+      "id": "web-foundations:web-basics-box-model-and-responsive-layout:mdn-box-model",
+      "name": "Box model and responsive layout — The box model",
+      "category": "web-foundations",
+      "sourceId": "mdn-box-model",
+      "topicIds": [
+        "web-basics-box-model-and-responsive-layout"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "sample-draft"
+    },
+    {
+      "id": "web-foundations:web-basics-box-model-and-responsive-layout:mdn-responsive",
+      "name": "Box model and responsive layout — Responsive web design",
+      "category": "web-foundations",
+      "sourceId": "mdn-responsive",
+      "topicIds": [
+        "web-basics-box-model-and-responsive-layout"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "sample-draft"
+    },
+    {
+      "id": "web-foundations:web-basics-accessibility-and-keyboard-basics:mdn-html-accessibility",
+      "name": "Accessibility and keyboard basics — HTML: A good basis for accessibility",
+      "category": "web-foundations",
+      "sourceId": "mdn-html-accessibility",
+      "topicIds": [
+        "web-basics-accessibility-and-keyboard-basics"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "sample-draft"
+    },
+    {
+      "id": "web-foundations:web-basics-accessibility-and-keyboard-basics:mdn-keyboard",
+      "name": "Accessibility and keyboard basics — Keyboard accessible",
+      "category": "web-foundations",
+      "sourceId": "mdn-keyboard",
+      "topicIds": [
+        "web-basics-accessibility-and-keyboard-basics"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "sample-draft"
+    },
+    {
+      "id": "web-foundations:web-basics-browser-devtools-and-console:mdn-devtools",
+      "name": "Browser DevTools and console — What are browser developer tools?",
+      "category": "web-foundations",
+      "sourceId": "mdn-devtools",
+      "topicIds": [
+        "web-basics-browser-devtools-and-console"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "sample-draft"
+    },
+    {
+      "id": "web-foundations:web-basics-browser-devtools-and-console:mdn-browser-load",
+      "name": "Browser DevTools and console — How browsers load websites",
+      "category": "web-foundations",
+      "sourceId": "mdn-browser-load",
+      "topicIds": [
+        "web-basics-browser-devtools-and-console"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "sample-draft"
     }
   ],
   "openAudits": [
@@ -1336,4 +1479,3 @@
   ],
   "updatePolicy": "Compare official indexes at each content release; add or explicitly scope new items; review version requirements; validate links and content before publishing."
 }
-

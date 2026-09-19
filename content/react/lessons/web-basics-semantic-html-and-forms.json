@@ -1,0 +1,448 @@
+{
+  "schemaVersion": 1,
+  "id": "web-basics-semantic-html-and-forms",
+  "subjectId": "react",
+  "chapterId": "web-basics",
+  "title": "Semantic HTML and forms",
+  "language": "en",
+  "status": "sample-draft",
+  "reviewedAt": "2026-09-19",
+  "runtime": "Modern evergreen browser. HTML, CSS, and JavaScript fragments can be tried in a small local page or the browser DevTools described in the lesson.",
+  "prerequisiteTopicIds": [
+    "web-basics-how-browser-pages-work"
+  ],
+  "estimatedMinutes": {
+    "firstPass": 40,
+    "practice": 60,
+    "project": 35
+  },
+  "objectives": [
+    {
+      "id": "meaning",
+      "text": "Choose HTML elements for meaning before appearance."
+    },
+    {
+      "id": "forms",
+      "text": "Build a small form with labels, names, types, and native validation."
+    },
+    {
+      "id": "behavior",
+      "text": "Explain button, link, and form submission behavior."
+    }
+  ],
+  "learningFlow": [
+    "Prerequisite check",
+    "Predict before reading",
+    "Core explanation",
+    "Try and change examples",
+    "Practice without the solution",
+    "Explain the result",
+    "Apply it to a fresh page",
+    "Review after a gap"
+  ],
+  "diagnostic": [
+    {
+      "question": "What does HTML describe: appearance, document meaning, or both?",
+      "answer": "HTML mainly describes content and structure. CSS controls most appearance.",
+      "ifMissed": "web-basics-how-browser-pages-work"
+    }
+  ],
+  "sections": [
+    {
+      "id": "what",
+      "title": "Semantic HTML gives content meaning",
+      "depth": "core",
+      "body": "Semantic elements describe the role of content. A nav contains major navigation, main contains the page’s primary content, and button performs an action. A div and span are neutral containers. Meaning helps browsers, assistive technology, search tools, developers, and tests understand the page.",
+      "sourceIds": [
+        "mdn-html-accessibility",
+        "mdn-html-forms",
+        "mdn-form-validation"
+      ],
+      "exampleIds": [
+        "semantic-card"
+      ]
+    },
+    {
+      "id": "structure",
+      "title": "Build a clear document outline",
+      "depth": "core",
+      "body": "Use one main area for the unique page content. Use headings in a logical order that reflects sections, not for visual size. Header and footer describe their nearest section or the page. Article is useful for independently reusable content; section is useful when a titled grouping needs meaning.",
+      "sourceIds": [
+        "mdn-html-accessibility",
+        "mdn-html-forms",
+        "mdn-form-validation"
+      ],
+      "exampleIds": [
+        "signup-form"
+      ]
+    },
+    {
+      "id": "controls",
+      "title": "Links navigate; buttons act",
+      "depth": "core",
+      "body": "Use an anchor with href to move to a resource or page location. Use a button for actions such as Save, Open menu, or Add item. Native controls include keyboard behavior and platform semantics that a clickable div does not provide.",
+      "sourceIds": [
+        "mdn-html-accessibility",
+        "mdn-html-forms",
+        "mdn-form-validation"
+      ],
+      "exampleIds": []
+    },
+    {
+      "id": "forms",
+      "title": "A form sends named values",
+      "depth": "core",
+      "body": "A label tells the learner what an input expects. Match label for with input id. The name becomes the submitted field key. The type gives the browser useful behavior. A button inside a form submits by default, so write type=\"button\" for a button that must not submit.",
+      "sourceIds": [
+        "mdn-html-accessibility",
+        "mdn-html-forms",
+        "mdn-form-validation"
+      ],
+      "exampleIds": []
+    },
+    {
+      "id": "validation",
+      "title": "Start with native constraints",
+      "depth": "deeper",
+      "body": "Attributes such as required, minlength, min, max, pattern, and a specific input type let the browser reject some invalid values. Client-side validation improves feedback but cannot protect a server; the server must validate untrusted input again.",
+      "sourceIds": [
+        "mdn-html-accessibility",
+        "mdn-html-forms",
+        "mdn-form-validation"
+      ],
+      "exampleIds": []
+    },
+    {
+      "id": "react-link",
+      "title": "HTML meaning survives JSX",
+      "depth": "deeper",
+      "body": "React changes how you create elements, not what those elements mean. A React form still needs real labels, useful buttons, headings, and validation. Learn the native behavior before overriding it with event handlers.",
+      "sourceIds": [
+        "mdn-html-accessibility",
+        "mdn-html-forms",
+        "mdn-form-validation"
+      ],
+      "exampleIds": []
+    }
+  ],
+  "examples": [
+    {
+      "id": "semantic-card",
+      "title": "A meaningful article",
+      "kind": "fragment",
+      "language": "html",
+      "depth": "core",
+      "code": "<article>\n  <h2>React practice plan</h2>\n  <p>Complete one lesson and one exercise.</p>\n  <a href=\"/plans/react\">Open the plan</a>\n</article>",
+      "explanation": "The article can stand on its own. Its heading names it, and the anchor navigates.",
+      "tryThis": "Replace the anchor with a button. Explain why that would change the meaning.",
+      "sourceIds": [
+        "mdn-html-accessibility",
+        "mdn-html-forms",
+        "mdn-form-validation"
+      ]
+    },
+    {
+      "id": "signup-form",
+      "title": "A small native form",
+      "kind": "fragment",
+      "language": "html",
+      "depth": "deeper",
+      "code": "<form action=\"/subscribe\" method=\"post\">\n  <label for=\"email\">Email</label>\n  <input id=\"email\" name=\"email\" type=\"email\" required>\n  <button type=\"submit\">Subscribe</button>\n</form>",
+      "explanation": "The label is associated with the input, the field has a submitted name, and the browser checks the email shape before normal submission.",
+      "tryThis": "Add a non-submit Preview button safely.",
+      "sourceIds": [
+        "mdn-html-accessibility",
+        "mdn-html-forms",
+        "mdn-form-validation"
+      ]
+    }
+  ],
+  "practice": [
+    {
+      "id": "practice-1",
+      "type": "predict",
+      "difficulty": "beginner",
+      "prompt": "Inside a form, what does <button>Preview</button> do by default?",
+      "hints": [
+        "A button has a default type in a form."
+      ],
+      "acceptanceCriteria": [
+        "Give a direct answer.",
+        "Explain the evidence or rule behind the answer.",
+        "Complete the attempt before opening the solution."
+      ],
+      "objectiveIds": [
+        "meaning"
+      ],
+      "sourceIds": [
+        "mdn-html-accessibility",
+        "mdn-html-forms",
+        "mdn-form-validation"
+      ],
+      "solution": {
+        "explanation": "It acts as type=\"submit\". Use type=\"button\" when Preview must not submit."
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "practice-2",
+      "type": "build",
+      "difficulty": "beginner",
+      "prompt": "Write a search form with a label, a named search input, and a submit button.",
+      "hints": [
+        "Use type=\"search\" and connect for to id."
+      ],
+      "acceptanceCriteria": [
+        "Give a direct answer.",
+        "Explain the evidence or rule behind the answer.",
+        "Complete the attempt before opening the solution."
+      ],
+      "objectiveIds": [
+        "forms"
+      ],
+      "sourceIds": [
+        "mdn-html-accessibility",
+        "mdn-html-forms",
+        "mdn-form-validation"
+      ],
+      "solution": {
+        "explanation": "One valid solution is shown. Other solutions are acceptable when they meet the criteria and preserve the same behavior.",
+        "code": "<form action=\"/search\"><label for=\"query\">Search</label><input id=\"query\" name=\"q\" type=\"search\" required><button type=\"submit\">Search</button></form>",
+        "language": "html",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "practice-3",
+      "type": "debug",
+      "difficulty": "intermediate",
+      "prompt": "An input has id=\"email\" but its label has for=\"user-email\". Explain the bug and fix it.",
+      "hints": [
+        "The two values must match exactly."
+      ],
+      "acceptanceCriteria": [
+        "Give a direct answer.",
+        "Explain the evidence or rule behind the answer.",
+        "Complete the attempt before opening the solution."
+      ],
+      "objectiveIds": [
+        "behavior"
+      ],
+      "sourceIds": [
+        "mdn-html-accessibility",
+        "mdn-html-forms",
+        "mdn-form-validation"
+      ],
+      "solution": {
+        "explanation": "Change the label to for=\"email\" or change the input id to user-email. The association then supports focus and assistive technology."
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "practice-4",
+      "type": "design",
+      "difficulty": "intermediate",
+      "prompt": "Choose elements for a site title, primary navigation, page content, save action, and privacy-page navigation.",
+      "hints": [
+        "Choose by purpose, not appearance."
+      ],
+      "acceptanceCriteria": [
+        "Give a direct answer.",
+        "Explain the evidence or rule behind the answer.",
+        "Complete the attempt before opening the solution."
+      ],
+      "objectiveIds": [
+        "meaning"
+      ],
+      "sourceIds": [
+        "mdn-html-accessibility",
+        "mdn-html-forms",
+        "mdn-form-validation"
+      ],
+      "solution": {
+        "explanation": "Use a heading in header, nav for major links, main for unique content, button for Save, and an anchor with href for the Privacy page."
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "practice-5",
+      "type": "transfer",
+      "difficulty": "advanced",
+      "prompt": "Design a delivery form with address, delivery speed, and optional instructions. State which fields need labels, names, grouping, and validation.",
+      "hints": [
+        "Related radio buttons share a name and benefit from fieldset and legend."
+      ],
+      "acceptanceCriteria": [
+        "Give a direct answer.",
+        "Explain the evidence or rule behind the answer.",
+        "Complete the attempt before opening the solution."
+      ],
+      "objectiveIds": [
+        "forms"
+      ],
+      "sourceIds": [
+        "mdn-html-accessibility",
+        "mdn-html-forms",
+        "mdn-form-validation"
+      ],
+      "solution": {
+        "explanation": "Give every control a label and name. Group delivery-speed radios in fieldset with legend and one shared name. Mark only required business fields required. Use textarea for instructions and validate again on the server."
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    }
+  ],
+  "interviewQuestions": [
+    {
+      "id": "semantic",
+      "question": "Why does semantic HTML matter in a React application?",
+      "answer": "React still produces HTML. Correct elements provide meaning, keyboard behavior, accessibility hooks, clearer code, and more reliable tests.",
+      "followUp": "When is a div appropriate?",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "mdn-html-accessibility",
+        "mdn-html-forms",
+        "mdn-form-validation"
+      ]
+    },
+    {
+      "id": "button-link",
+      "question": "When should you use a link instead of a button?",
+      "answer": "Use a link for navigation to a URL or document location. Use a button for an action in the current interface.",
+      "followUp": "How should a link that looks like a button be implemented?",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "mdn-html-accessibility",
+        "mdn-html-forms",
+        "mdn-form-validation"
+      ]
+    },
+    {
+      "id": "validation",
+      "question": "Is client-side form validation enough?",
+      "answer": "No. It improves user feedback, but requests can bypass the browser. The server must validate all untrusted values.",
+      "followUp": "Which native constraints would you try before JavaScript?",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "mdn-html-accessibility",
+        "mdn-html-forms",
+        "mdn-form-validation"
+      ]
+    }
+  ],
+  "miniAppIds": [],
+  "mastery": {
+    "status": "not-assessed",
+    "policy": "Reading the lesson or revealing help is not mastery. Save an attempt first, then prove the idea again without the solution and use it in a fresh situation.",
+    "checks": [
+      {
+        "id": "explain",
+        "evidence": "Explain semantic html and forms without copying the lesson.",
+        "pass": "The explanation uses correct terms and gives one practical reason."
+      },
+      {
+        "id": "solve",
+        "evidence": "Complete at least four practice tasks before revealing their solutions.",
+        "pass": "The saved work meets each acceptance criterion and explains the reasoning."
+      },
+      {
+        "id": "transfer",
+        "evidence": "Use the lesson in a new small page or debugging case.",
+        "pass": "The new example works and the learner can explain one decision and one tradeoff."
+      }
+    ],
+    "reviewSchedule": {
+      "note": "Complete these without reopening the lesson. Compare only after saving an answer.",
+      "sessions": [
+        {
+          "dayOffset": 2,
+          "problems": [
+            {
+              "id": "recall",
+              "prompt": "Write the three most useful rules from Semantic HTML and forms.",
+              "solution": "A good answer states three accurate rules, explains why each matters, and uses at least one concrete example."
+            },
+            {
+              "id": "repair",
+              "prompt": "Describe one common semantic html and forms mistake and repair it.",
+              "solution": "Choose one mistake from the lesson, identify its cause, and apply the smallest fix that preserves correct web behavior."
+            }
+          ]
+        },
+        {
+          "dayOffset": 7,
+          "problems": [
+            {
+              "id": "teach",
+              "prompt": "Teach semantic html and forms to a beginner in five sentences.",
+              "solution": "The explanation should define the idea, show how it works, give a real use, warn about a mistake, and name a way to test it."
+            },
+            {
+              "id": "new-case",
+              "prompt": "Create a different example from the lesson and explain how you verified it.",
+              "solution": "The example must use the same core concept in a new context and name observable evidence from the browser or code."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "sourceIds": [
+    "mdn-html-accessibility",
+    "mdn-html-forms",
+    "mdn-form-validation"
+  ],
+  "commonMistakes": [
+    {
+      "symptom": "A clickable div cannot be reached or activated by keyboard",
+      "cause": "The div has no native button behavior.",
+      "fix": "Use button for an action. Style the button instead of rebuilding its semantics."
+    },
+    {
+      "symptom": "Clicking a form button reloads or submits unexpectedly",
+      "cause": "A button inside a form defaults to submit.",
+      "fix": "Choose type=\"submit\" intentionally or set type=\"button\" for other actions."
+    },
+    {
+      "symptom": "A visible word sits near an input but is not announced as its label",
+      "cause": "Visual proximity does not create a programmatic relationship.",
+      "fix": "Use label for matching the input id, or a valid implicit label."
+    }
+  ],
+  "publicationChecklist": {
+    "authored": true,
+    "sourcesReviewed": true,
+    "codeSyntaxChecked": true,
+    "serverInitialRenderChecked": false,
+    "browserBehaviorChecked": false,
+    "independentContentReview": false,
+    "learnerTrial": false,
+    "note": "Complete draft. Keep sample-draft until snippets, rendering, browser behavior, independent content review, and a learner trial are complete."
+  }
+}

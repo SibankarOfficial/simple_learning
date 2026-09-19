@@ -14,9 +14,9 @@ export function Sources({ ids = [], sources = [] }) {
     return source ? <span key={id}>{i > 0 ? ' · ' : ''}<a href={source.url} target="_blank" rel="noreferrer">{source.title}</a></span> : null;
   })}</p>;
 }
-export function Code({ children }) {
+export function Code({ children, language = 'JavaScript / JSX' }) {
   const [copied, setCopied] = useState('');
-  return <div className="code-block"><div className="code-label"><span>JavaScript / JSX</span><button onClick={async () => {
+  return <div className="code-block"><div className="code-label"><span>{language}</span><button onClick={async () => {
     try { await navigator.clipboard.writeText(children); setCopied('Copied'); }
     catch { setCopied('Select the code to copy it'); }
   }}>Copy code</button><span role="status">{copied}</span></div><pre tabIndex="0"><code>{children}</code></pre></div>;

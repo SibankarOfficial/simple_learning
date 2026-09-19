@@ -1,10 +1,10 @@
 # React coverage audit
 
-Generated from the JSON content. Edit JSON, then regenerate. Content review date: 2026-09-10.
+Generated from the JSON content. Edit JSON, then regenerate. Coverage review date: 2026-09-19.
 
 Manual inventory of reviewed Learn chapter indexes and reference categories. Mapped means a syllabus destination exists; it does not mean a finished lesson. A finite inventory can expose known gaps, not prove universal completeness.
 
-117 source inventory items have syllabus destinations. 1 topic has an authored sample; remaining lesson content is planned.
+130 source inventory items have syllabus destinations. 7 topics have authored samples; remaining lesson content is planned.
 
 ## Open audits
 
@@ -143,6 +143,19 @@ Manual inventory of reviewed Learn chapter indexes and reference categories. Map
 | learn | [Separating events from Effects](https://react.dev/learn/escape-hatches) | Separating events from effects | planned |
 | learn | [Removing Effect dependencies](https://react.dev/learn/escape-hatches) | Removing unnecessary dependencies | planned |
 | learn | [Reusing logic with custom Hooks](https://react.dev/learn/escape-hatches) | Extracting a custom Hook | planned |
+| web-foundations | [How browser pages work — How the web works](https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Web_standards/How_the_web_works) | How browser pages work | sample-draft |
+| web-foundations | [How browser pages work — How browsers load websites](https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Web_standards/How_browsers_load_websites) | How browser pages work | sample-draft |
+| web-foundations | [Semantic HTML and forms — HTML: A good basis for accessibility](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Accessibility/HTML) | Semantic HTML and forms | sample-draft |
+| web-foundations | [Semantic HTML and forms — Forms and buttons in HTML](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content/HTML_forms) | Semantic HTML and forms | sample-draft |
+| web-foundations | [Semantic HTML and forms — Client-side form validation](https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms/Form_validation) | Semantic HTML and forms | sample-draft |
+| web-foundations | [CSS selectors and cascade — Basic CSS selectors](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Basic_selectors) | CSS selectors and cascade | sample-draft |
+| web-foundations | [CSS selectors and cascade — Handling CSS conflicts](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Handling_conflicts) | CSS selectors and cascade | sample-draft |
+| web-foundations | [Box model and responsive layout — The box model](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Box_model) | Box model and responsive layout | sample-draft |
+| web-foundations | [Box model and responsive layout — Responsive web design](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Responsive_Design) | Box model and responsive layout | sample-draft |
+| web-foundations | [Accessibility and keyboard basics — HTML: A good basis for accessibility](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Accessibility/HTML) | Accessibility and keyboard basics | sample-draft |
+| web-foundations | [Accessibility and keyboard basics — Keyboard accessible](https://developer.mozilla.org/en-US/docs/Web/Accessibility/Guides/Understanding_WCAG/Keyboard) | Accessibility and keyboard basics | sample-draft |
+| web-foundations | [Browser DevTools and console — What are browser developer tools?](https://developer.mozilla.org/en-US/docs/Learn_web_development/Howto/Tools_and_setup/What_are_browser_developer_tools) | Browser DevTools and console | sample-draft |
+| web-foundations | [Browser DevTools and console — How browsers load websites](https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Web_standards/How_browsers_load_websites) | Browser DevTools and console | sample-draft |
 
 ## Explicit scope exclusions
 
@@ -196,3 +209,14 @@ Compare official indexes at each content release; add or explicitly scope new it
 - [useOptimistic](https://react.dev/reference/react/useOptimistic) — reviewed 2026-09-10
 - [ViewTransition](https://react.dev/reference/react/ViewTransition) — reviewed 2026-09-10
 - [browser API](https://react.dev/reference/react-dom/browser) — reviewed 2026-09-10
+- [How the web works](https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Web_standards/How_the_web_works) — reviewed 2026-09-19
+- [How browsers load websites](https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Web_standards/How_browsers_load_websites) — reviewed 2026-09-19
+- [HTML: A good basis for accessibility](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Accessibility/HTML) — reviewed 2026-09-19
+- [Forms and buttons in HTML](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content/HTML_forms) — reviewed 2026-09-19
+- [Client-side form validation](https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms/Form_validation) — reviewed 2026-09-19
+- [Basic CSS selectors](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Basic_selectors) — reviewed 2026-09-19
+- [Handling CSS conflicts](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Handling_conflicts) — reviewed 2026-09-19
+- [The box model](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Box_model) — reviewed 2026-09-19
+- [Responsive web design](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Responsive_Design) — reviewed 2026-09-19
+- [Keyboard accessible](https://developer.mozilla.org/en-US/docs/Web/Accessibility/Guides/Understanding_WCAG/Keyboard) — reviewed 2026-09-19
+- [What are browser developer tools?](https://developer.mozilla.org/en-US/docs/Learn_web_development/Howto/Tools_and_setup/What_are_browser_developer_tools) — reviewed 2026-09-19

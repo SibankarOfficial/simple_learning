@@ -8,6 +8,13 @@ const catalog = read('curriculum.json');
 const coverage = read('coverage.json');
 const lesson = read('lessons/use-state.json');
 const app = read('mini-apps/quantity-picker.json');
+const subjectRegistry = JSON.parse(fs.readFileSync(path.join(root, 'content/subjects.json'), 'utf8'));
+const reactSubject = subjectRegistry.find(subject => subject.id === 'react');
+const lessonFiles = fs.readdirSync(path.join(root, 'content/react/lessons')).filter(name => name.endsWith('.json'));
+const authoredLessons = lessonFiles.map(name => read(`lessons/${name}`));
+const lessonById = new Map(authoredLessons.map(item => [item.id, item]));
+const miniApps = reactSubject.miniAppPaths.map(appPath => read(appPath));
+const miniAppById = new Map(miniApps.map(item => [item.id, item]));
 const ideas = read('ideas.json');
 const sources = new Map(read('sources.json').map(source => [source.id, source]));
 const topics = new Map(catalog.topics.map(topic => [topic.id, topic]));
@@ -18,14 +25,14 @@ const cite = ids => [...new Set(ids)].map(id => {
 }).join(', ');
 const bullets = items => items.map(item => `- ${item}`).join('\n');
 const code = value => `\n\`\`\`jsx\n${value}\n\`\`\`\n`;
-const note = 'Generated from the JSON content. Edit JSON, then regenerate. Content review date: 2026-09-10.';
+const note = `Generated from the JSON content. Edit JSON, then regenerate. Coverage review date: ${coverage.reviewedAt}.`;
 fs.mkdirSync(path.join(root, 'docs'), { recursive: true });
 const save = (name, parts) => fs.writeFileSync(path.join(root, 'docs', name), parts.join('\n\n') + '\n');
 
 const syllabus = [
   '# React syllabus — ordered coverage draft', note,
-  `${catalog.chapters.length} chapters · ${catalog.topics.length} topics · 1 authored sample lesson. Listed topics are not completed lessons.`,
-  'Your learning path: prerequisites → components/props/events → state → forms/reducers/refs/effects → reusable logic/data/routing → performance/actions → server/tooling → production/legacy. Start a mini app once you understand its required concepts. You can build the first mini app after useState; you do not need to wait until chapter 29.',
+  `${catalog.chapters.length} chapters · ${catalog.topics.length} topics · ${authoredLessons.length} authored sample lessons. Planned topics are syllabus destinations, not completed lessons.`,
+  'Your learning path: prerequisites → components/props/events → state → forms/reducers/refs/effects → reusable logic/data/routing → performance/actions → server/tooling → production/legacy. Start a linked mini app once you understand its required concepts. Web foundations now has its own project, and the first React-state project follows useState; you do not need to wait until chapter 29.',
   'Core topics are broad coverage; ecosystem topics are a selected practical track. Reference and version-watch topics are later-depth material. A prerequisite means conceptually needed, not that its lesson is already written.',
   '## Chapter overview',
   '| Order | Chapter | Track | Topics |\n| --- | --- | --- | --- |\n' + catalog.chapters.map(ch => `| ${ch.order} | ${ch.title} | ${ch.track} | ${ch.topicIds.length} |`).join('\n')
@@ -35,11 +42,12 @@ for (const chapter of catalog.chapters) {
   syllabus.push(`Level: ${chapter.level}. Track: ${chapter.track}. Prerequisites: ${chapter.prerequisiteChapterIds.join(', ') || 'none'}.`);
   syllabus.push(chapter.topicIds.map(id => {
     const topic = topics.get(id);
-    return `${topic.order}. ${topic.title}${id === 'use-state' ? ' — [sample lesson](USESTATE.md)' : ''} (${topic.contentStatus})`;
+    const lessonLink = id === 'use-state' ? ' — [sample lesson](USESTATE.md)' : lessonById.has(id) ? ' — lesson JSON available in the app' : '';
+    return `${topic.order}. ${topic.title}${lessonLink} (${topic.contentStatus})`;
   }).join('\n'));
   const sourceIds = [...new Set(chapter.topicIds.flatMap(id => topics.get(id).sourceIds))];
   syllabus.push(sourceIds.length ? `Scope sources: ${cite(sourceIds)}.` : 'Specialist official sources: pending review before lesson authoring.');
-  if (chapter.miniAppIds.length) syllabus.push('Linked mini app: [Notebook quantity picker](MINI-APP.md).');
+  if (chapter.miniAppIds.length) syllabus.push(`Linked mini app: ${chapter.miniAppIds.map(id => `[${miniAppById.get(id)?.title || id}](MINI-APPS.md#${id})`).join(', ')}.`);
 }
 syllabus.push('## Coverage policy', 'See [coverage mappings and open audits](COVERAGE.md). The reference inventory is a dated scope baseline, not a guarantee of all possible applications of React.');
 save('SYLLABUS.md', syllabus);
@@ -92,8 +100,17 @@ for (const idea of ideas) appDoc.push(`### ${idea.title}`, idea.brief, bullets(i
 appDoc.push('## Extend after the base works', bullets(app.extensions), `References: ${cite(app.sourceIds)}.`, '[Return to useState](USESTATE.md). Browser acceptance scenarios are authored; they have not been executed yet.');
 save('MINI-APP.md', appDoc);
 
+const miniAppsDoc = ['# Mini apps', note, `${miniApps.length} guided mini apps are registered. Opening complete code is guided help, not mastery.`];
+for (const miniApp of miniApps) {
+  const fence = miniApp.languageCode || 'text';
+  miniAppsDoc.push(`<a id="${miniApp.id}"></a>\n## ${miniApp.title}`, `Status: ${miniApp.status}. ${miniApp.goal}`, '### Concepts used', bullets(miniApp.conceptTopicIds.map(id => topics.get(id).title)), '### Requirements', bullets(miniApp.requirements));
+  for (const step of miniApp.steps) miniAppsDoc.push(`### Step ${step.order}: ${step.title}`, step.task, ...(step.code ? [`\n\`\`\`${step.kind === 'fragment' ? fence : step.kind}\n${step.code}\n\`\`\`\n`] : []), `Why: ${step.reason}\n\nCheck: ${step.check}`);
+  miniAppsDoc.push(`### Complete ${miniApp.languageCode === 'html' ? 'index.html' : 'App.jsx'}`, `\n\`\`\`${fence}\n${miniApp.finalCode}\n\`\`\`\n`, '### Acceptance scenarios', '| Given | When | Then |\n| --- | --- | --- |\n' + miniApp.acceptanceScenarios.map(x => `| ${x.given} | ${x.when} | ${x.then} |`).join('\n'), '### Independent ideas', ...ideas.filter(idea => miniApp.relatedIdeaIds.includes(idea.id)).map(idea => `- **${idea.title}:** ${idea.brief}`), `References: ${cite(miniApp.sourceIds)}.`);
+}
+save('MINI-APPS.md', miniAppsDoc);
+
 const coverageDoc = ['# React coverage audit', note, coverage.method,
-  `${coverage.items.length} source inventory items have syllabus destinations. ${catalog.topics.filter(t => t.contentStatus === 'sample-draft').length} topic has an authored sample; remaining lesson content is planned.`,
+  `${coverage.items.length} source inventory items have syllabus destinations. ${catalog.topics.filter(t => t.contentStatus === 'sample-draft').length} topics have authored samples; remaining lesson content is planned.`,
   '## Open audits', ...coverage.openAudits.map(x => `- **${x.id} (${x.status}):** ${x.detail}`),
   '## Source → topic mappings',
   '| Category | Source item | Topic destination | Content |\n| --- | --- | --- | --- |\n' + coverage.items.map(item => `| ${item.category} | [${item.name}](${sources.get(item.sourceId).url}) | ${item.topicIds.map(id => topics.get(id).title).join(', ')} | ${item.contentStatus} |`).join('\n'),
@@ -102,4 +119,4 @@ const coverageDoc = ['# React coverage audit', note, coverage.method,
   '## Source registry', bullets([...sources.values()].map(source => `[${source.title}](${source.url}) — reviewed ${source.accessedAt}`))
 ];
 save('COVERAGE.md', coverageDoc);
-console.log('Generated SYLLABUS.md, USESTATE.md, MINI-APP.md, and COVERAGE.md.');
+console.log('Generated SYLLABUS.md, USESTATE.md, MINI-APP.md, MINI-APPS.md, and COVERAGE.md.');

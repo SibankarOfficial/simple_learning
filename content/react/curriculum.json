@@ -38,7 +38,9 @@
         "web-basics-browser-devtools-and-console"
       ],
       "prerequisiteChapterIds": [],
-      "miniAppIds": []
+      "miniAppIds": [
+        "accessible-course-signup"
+      ]
     },
     {
       "id": "javascript-basics",
@@ -787,12 +789,15 @@
       "track": "prerequisite",
       "prerequisiteTopicIds": [],
       "sourceIds": [
-        "js"
+        "mdn-web-works",
+        "mdn-browser-load"
       ],
-      "sourceReview": "index-mapped",
-      "contentStatus": "planned",
-      "lessonPath": null,
-      "miniAppIds": [],
+      "sourceReview": "lesson-reviewed",
+      "contentStatus": "sample-draft",
+      "lessonPath": "lessons/web-basics-how-browser-pages-work.json",
+      "miniAppIds": [
+        "accessible-course-signup"
+      ],
       "versionNote": null
     },
     {
@@ -803,14 +808,20 @@
       "order": 2,
       "level": "foundation",
       "track": "prerequisite",
-      "prerequisiteTopicIds": [],
-      "sourceIds": [
-        "js"
+      "prerequisiteTopicIds": [
+        "web-basics-how-browser-pages-work"
       ],
-      "sourceReview": "index-mapped",
-      "contentStatus": "planned",
-      "lessonPath": null,
-      "miniAppIds": [],
+      "sourceIds": [
+        "mdn-html-accessibility",
+        "mdn-html-forms",
+        "mdn-form-validation"
+      ],
+      "sourceReview": "lesson-reviewed",
+      "contentStatus": "sample-draft",
+      "lessonPath": "lessons/web-basics-semantic-html-and-forms.json",
+      "miniAppIds": [
+        "accessible-course-signup"
+      ],
       "versionNote": null
     },
     {
@@ -821,14 +832,19 @@
       "order": 3,
       "level": "foundation",
       "track": "prerequisite",
-      "prerequisiteTopicIds": [],
-      "sourceIds": [
-        "js"
+      "prerequisiteTopicIds": [
+        "web-basics-semantic-html-and-forms"
       ],
-      "sourceReview": "index-mapped",
-      "contentStatus": "planned",
-      "lessonPath": null,
-      "miniAppIds": [],
+      "sourceIds": [
+        "mdn-css-selectors",
+        "mdn-css-conflicts"
+      ],
+      "sourceReview": "lesson-reviewed",
+      "contentStatus": "sample-draft",
+      "lessonPath": "lessons/web-basics-css-selectors-and-cascade.json",
+      "miniAppIds": [
+        "accessible-course-signup"
+      ],
       "versionNote": null
     },
     {
@@ -839,14 +855,19 @@
       "order": 4,
       "level": "foundation",
       "track": "prerequisite",
-      "prerequisiteTopicIds": [],
-      "sourceIds": [
-        "js"
+      "prerequisiteTopicIds": [
+        "web-basics-css-selectors-and-cascade"
       ],
-      "sourceReview": "index-mapped",
-      "contentStatus": "planned",
-      "lessonPath": null,
-      "miniAppIds": [],
+      "sourceIds": [
+        "mdn-box-model",
+        "mdn-responsive"
+      ],
+      "sourceReview": "lesson-reviewed",
+      "contentStatus": "sample-draft",
+      "lessonPath": "lessons/web-basics-box-model-and-responsive-layout.json",
+      "miniAppIds": [
+        "accessible-course-signup"
+      ],
       "versionNote": null
     },
     {
@@ -857,14 +878,19 @@
       "order": 5,
       "level": "foundation",
       "track": "prerequisite",
-      "prerequisiteTopicIds": [],
-      "sourceIds": [
-        "js"
+      "prerequisiteTopicIds": [
+        "web-basics-semantic-html-and-forms"
       ],
-      "sourceReview": "index-mapped",
-      "contentStatus": "planned",
-      "lessonPath": null,
-      "miniAppIds": [],
+      "sourceIds": [
+        "mdn-html-accessibility",
+        "mdn-keyboard"
+      ],
+      "sourceReview": "lesson-reviewed",
+      "contentStatus": "sample-draft",
+      "lessonPath": "lessons/web-basics-accessibility-and-keyboard-basics.json",
+      "miniAppIds": [
+        "accessible-course-signup"
+      ],
       "versionNote": null
     },
     {
@@ -875,14 +901,20 @@
       "order": 6,
       "level": "foundation",
       "track": "prerequisite",
-      "prerequisiteTopicIds": [],
-      "sourceIds": [
-        "js"
+      "prerequisiteTopicIds": [
+        "web-basics-how-browser-pages-work",
+        "web-basics-css-selectors-and-cascade"
       ],
-      "sourceReview": "index-mapped",
-      "contentStatus": "planned",
-      "lessonPath": null,
-      "miniAppIds": [],
+      "sourceIds": [
+        "mdn-devtools",
+        "mdn-browser-load"
+      ],
+      "sourceReview": "lesson-reviewed",
+      "contentStatus": "sample-draft",
+      "lessonPath": "lessons/web-basics-browser-devtools-and-console.json",
+      "miniAppIds": [
+        "accessible-course-signup"
+      ],
       "versionNote": null
     },
     {

@@ -1,10 +1,10 @@
 # React syllabus — ordered coverage draft
 
-Generated from the JSON content. Edit JSON, then regenerate. Content review date: 2026-09-10.
+Generated from the JSON content. Edit JSON, then regenerate. Coverage review date: 2026-09-19.
 
-30 chapters · 324 topics · 1 authored sample lesson. Listed topics are not completed lessons.
+30 chapters · 324 topics · 7 authored sample lessons. Planned topics are syllabus destinations, not completed lessons.
 
-Your learning path: prerequisites → components/props/events → state → forms/reducers/refs/effects → reusable logic/data/routing → performance/actions → server/tooling → production/legacy. Start a mini app once you understand its required concepts. You can build the first mini app after useState; you do not need to wait until chapter 29.
+Your learning path: prerequisites → components/props/events → state → forms/reducers/refs/effects → reusable logic/data/routing → performance/actions → server/tooling → production/legacy. Start a linked mini app once you understand its required concepts. Web foundations now has its own project, and the first React-state project follows useState; you do not need to wait until chapter 29.
 
 Core topics are broad coverage; ecosystem topics are a selected practical track. Reference and version-watch topics are later-depth material. A prerequisite means conceptually needed, not that its lesson is already written.
 
@@ -47,14 +47,16 @@ Core topics are broad coverage; ecosystem topics are a selected practical track.
 
 Level: foundation. Track: prerequisite. Prerequisites: none.
 
-1. How browser pages work (planned)
-2. Semantic HTML and forms (planned)
-3. CSS selectors and cascade (planned)
-4. Box model and responsive layout (planned)
-5. Accessibility and keyboard basics (planned)
-6. Browser DevTools and console (planned)
+1. How browser pages work — lesson JSON available in the app (sample-draft)
+2. Semantic HTML and forms — lesson JSON available in the app (sample-draft)
+3. CSS selectors and cascade — lesson JSON available in the app (sample-draft)
+4. Box model and responsive layout — lesson JSON available in the app (sample-draft)
+5. Accessibility and keyboard basics — lesson JSON available in the app (sample-draft)
+6. Browser DevTools and console — lesson JSON available in the app (sample-draft)
 
-Scope sources: [JavaScript Guide](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide).
+Scope sources: [How the web works](https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Web_standards/How_the_web_works), [How browsers load websites](https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Web_standards/How_browsers_load_websites), [HTML: A good basis for accessibility](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Accessibility/HTML), [Forms and buttons in HTML](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content/HTML_forms), [Client-side form validation](https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms/Form_validation), [Basic CSS selectors](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Basic_selectors), [Handling CSS conflicts](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Handling_conflicts), [The box model](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Box_model), [Responsive web design](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Responsive_Design), [Keyboard accessible](https://developer.mozilla.org/en-US/docs/Web/Accessibility/Guides/Understanding_WCAG/Keyboard), [What are browser developer tools?](https://developer.mozilla.org/en-US/docs/Learn_web_development/Howto/Tools_and_setup/What_are_browser_developer_tools).
+
+Linked mini app: [Accessible course signup page](MINI-APPS.md#accessible-course-signup).
 
 ## 2. JavaScript foundations
 
@@ -148,7 +150,7 @@ Level: beginner. Track: core. Prerequisites: props.
 
 Scope sources: [Adding Interactivity](https://react.dev/learn/adding-interactivity).
 
-Linked mini app: [Notebook quantity picker](MINI-APP.md).
+Linked mini app: [Notebook quantity picker](MINI-APPS.md#quantity-picker).
 
 ## 7. Hooks: foundations and useState
 
@@ -169,7 +171,7 @@ Level: beginner. Track: core. Prerequisites: rendering.
 
 Scope sources: [useState reference](https://react.dev/reference/react/useState), [Component memory](https://react.dev/learn/state-a-components-memory), [State as a snapshot](https://react.dev/learn/state-as-a-snapshot), [State update queues](https://react.dev/learn/queueing-a-series-of-state-updates), [Updating objects](https://react.dev/learn/updating-objects-in-state), [Updating arrays](https://react.dev/learn/updating-arrays-in-state), [Choosing state structure](https://react.dev/learn/choosing-the-state-structure), [Preserving and resetting state](https://react.dev/learn/preserving-and-resetting-state), [Input reference](https://react.dev/reference/react-dom/components/input), [StrictMode](https://react.dev/reference/react/StrictMode), [Rules of Hooks](https://react.dev/reference/rules/rules-of-hooks), [Render and commit](https://react.dev/learn/render-and-commit).
 
-Linked mini app: [Notebook quantity picker](MINI-APP.md).
+Linked mini app: [Notebook quantity picker](MINI-APPS.md#quantity-picker).
 
 ## 8. State design and ownership
 
@@ -190,7 +192,7 @@ Level: intermediate. Track: core. Prerequisites: hooks-foundation.
 
 Scope sources: [Managing State](https://react.dev/learn/managing-state).
 
-Linked mini app: [Notebook quantity picker](MINI-APP.md).
+Linked mini app: [Notebook quantity picker](MINI-APPS.md#quantity-picker).
 
 ## 9. Forms and accessible interactions
 

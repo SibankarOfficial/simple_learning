@@ -349,6 +349,104 @@
     "accessedAt": "2026-09-10",
     "review": "read",
     "note": "Index mappings define scope; they do not certify every planned lesson or every subpage."
+  },
+  {
+    "id": "mdn-web-works",
+    "title": "How the web works",
+    "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Web_standards/How_the_web_works",
+    "publisher": "MDN",
+    "accessedAt": "2026-09-19",
+    "review": "read",
+    "note": "Reviewed for the Web foundations lesson draft. Source coverage does not replace browser testing or learner review."
+  },
+  {
+    "id": "mdn-browser-load",
+    "title": "How browsers load websites",
+    "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Web_standards/How_browsers_load_websites",
+    "publisher": "MDN",
+    "accessedAt": "2026-09-19",
+    "review": "read",
+    "note": "Reviewed for the Web foundations lesson draft. Source coverage does not replace browser testing or learner review."
+  },
+  {
+    "id": "mdn-html-accessibility",
+    "title": "HTML: A good basis for accessibility",
+    "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Accessibility/HTML",
+    "publisher": "MDN",
+    "accessedAt": "2026-09-19",
+    "review": "read",
+    "note": "Reviewed for the Web foundations lesson draft. Source coverage does not replace browser testing or learner review."
+  },
+  {
+    "id": "mdn-html-forms",
+    "title": "Forms and buttons in HTML",
+    "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content/HTML_forms",
+    "publisher": "MDN",
+    "accessedAt": "2026-09-19",
+    "review": "read",
+    "note": "Reviewed for the Web foundations lesson draft. Source coverage does not replace browser testing or learner review."
+  },
+  {
+    "id": "mdn-form-validation",
+    "title": "Client-side form validation",
+    "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms/Form_validation",
+    "publisher": "MDN",
+    "accessedAt": "2026-09-19",
+    "review": "read",
+    "note": "Reviewed for the Web foundations lesson draft. Source coverage does not replace browser testing or learner review."
+  },
+  {
+    "id": "mdn-css-selectors",
+    "title": "Basic CSS selectors",
+    "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Basic_selectors",
+    "publisher": "MDN",
+    "accessedAt": "2026-09-19",
+    "review": "read",
+    "note": "Reviewed for the Web foundations lesson draft. Source coverage does not replace browser testing or learner review."
+  },
+  {
+    "id": "mdn-css-conflicts",
+    "title": "Handling CSS conflicts",
+    "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Handling_conflicts",
+    "publisher": "MDN",
+    "accessedAt": "2026-09-19",
+    "review": "read",
+    "note": "Reviewed for the Web foundations lesson draft. Source coverage does not replace browser testing or learner review."
+  },
+  {
+    "id": "mdn-box-model",
+    "title": "The box model",
+    "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Box_model",
+    "publisher": "MDN",
+    "accessedAt": "2026-09-19",
+    "review": "read",
+    "note": "Reviewed for the Web foundations lesson draft. Source coverage does not replace browser testing or learner review."
+  },
+  {
+    "id": "mdn-responsive",
+    "title": "Responsive web design",
+    "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Responsive_Design",
+    "publisher": "MDN",
+    "accessedAt": "2026-09-19",
+    "review": "read",
+    "note": "Reviewed for the Web foundations lesson draft. Source coverage does not replace browser testing or learner review."
+  },
+  {
+    "id": "mdn-keyboard",
+    "title": "Keyboard accessible",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/Accessibility/Guides/Understanding_WCAG/Keyboard",
+    "publisher": "MDN",
+    "accessedAt": "2026-09-19",
+    "review": "read",
+    "note": "Reviewed for the Web foundations lesson draft. Source coverage does not replace browser testing or learner review."
+  },
+  {
+    "id": "mdn-devtools",
+    "title": "What are browser developer tools?",
+    "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Howto/Tools_and_setup/What_are_browser_developer_tools",
+    "publisher": "MDN",
+    "accessedAt": "2026-09-19",
+    "review": "read",
+    "note": "Reviewed for the Web foundations lesson draft. Source coverage does not replace browser testing or learner review."
   }
 ]
-

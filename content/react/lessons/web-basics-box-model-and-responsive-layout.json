@@ -1,0 +1,437 @@
+{
+  "schemaVersion": 1,
+  "id": "web-basics-box-model-and-responsive-layout",
+  "subjectId": "react",
+  "chapterId": "web-basics",
+  "title": "Box model and responsive layout",
+  "language": "en",
+  "status": "sample-draft",
+  "reviewedAt": "2026-09-19",
+  "runtime": "Modern evergreen browser. HTML, CSS, and JavaScript fragments can be tried in a small local page or the browser DevTools described in the lesson.",
+  "prerequisiteTopicIds": [
+    "web-basics-css-selectors-and-cascade"
+  ],
+  "estimatedMinutes": {
+    "firstPass": 45,
+    "practice": 65,
+    "project": 40
+  },
+  "objectives": [
+    {
+      "id": "box",
+      "text": "Explain content, padding, border, margin, and box-sizing."
+    },
+    {
+      "id": "layout",
+      "text": "Build a flexible layout with normal flow, Flexbox, or Grid."
+    },
+    {
+      "id": "responsive",
+      "text": "Make content adapt without targeting named devices."
+    }
+  ],
+  "learningFlow": [
+    "Prerequisite check",
+    "Predict before reading",
+    "Core explanation",
+    "Try and change examples",
+    "Practice without the solution",
+    "Explain the result",
+    "Apply it to a fresh page",
+    "Review after a gap"
+  ],
+  "diagnostic": [
+    {
+      "question": "With content-box, does width include padding and border?",
+      "answer": "No. width sets the content box; padding and border add to the rendered size.",
+      "ifMissed": "web-basics-css-selectors-and-cascade"
+    }
+  ],
+  "sections": [
+    {
+      "id": "box",
+      "title": "Every rendered element has boxes",
+      "depth": "core",
+      "body": "The content box holds content. Padding adds space inside the border. The border surrounds padding and content. Margin creates space outside the border. Background usually paints through the padding but not the margin. DevTools can show every layer.",
+      "sourceIds": [
+        "mdn-box-model",
+        "mdn-responsive"
+      ],
+      "exampleIds": [
+        "box-sizing"
+      ]
+    },
+    {
+      "id": "sizing",
+      "title": "Use predictable sizing",
+      "depth": "core",
+      "body": "With content-box, declared width and height describe the content box. With border-box, they include content, padding, and border. Many projects apply box-sizing: border-box to all elements and pseudo-elements because component sizes become easier to reason about.",
+      "sourceIds": [
+        "mdn-box-model",
+        "mdn-responsive"
+      ],
+      "exampleIds": [
+        "responsive-grid"
+      ]
+    },
+    {
+      "id": "flow",
+      "title": "Normal flow is the starting layout",
+      "depth": "core",
+      "body": "Block elements normally stack; inline content flows inside lines. Use Flexbox for one main row or column and Grid for two-dimensional tracks. Avoid absolute positioning for ordinary page structure because removed elements no longer reserve normal-flow space.",
+      "sourceIds": [
+        "mdn-box-model",
+        "mdn-responsive"
+      ],
+      "exampleIds": []
+    },
+    {
+      "id": "fluid",
+      "title": "Prefer flexible constraints",
+      "depth": "core",
+      "body": "Use available space with percentages, flex sizing, grid minmax, and max-width. A readable container can be width: min(100% - 2rem, 70rem). Images commonly need max-width: 100% and height: auto so they shrink inside their container.",
+      "sourceIds": [
+        "mdn-box-model",
+        "mdn-responsive"
+      ],
+      "exampleIds": []
+    },
+    {
+      "id": "queries",
+      "title": "Add a breakpoint when content needs it",
+      "depth": "deeper",
+      "body": "Start with a simple narrow layout. Add a min-width media query when the content has enough room for another arrangement. Choose the breakpoint by resizing until the design needs to change, not by memorizing a phone model. Respect zoom, long text, and user font settings.",
+      "sourceIds": [
+        "mdn-box-model",
+        "mdn-responsive"
+      ],
+      "exampleIds": []
+    },
+    {
+      "id": "react-link",
+      "title": "Components need container awareness",
+      "depth": "deeper",
+      "body": "A React component can appear in many widths. Avoid assuming the whole viewport describes its space. Flexible internal layout and, later, container queries can make a component adapt where it is placed.",
+      "sourceIds": [
+        "mdn-box-model",
+        "mdn-responsive"
+      ],
+      "exampleIds": []
+    }
+  ],
+  "examples": [
+    {
+      "id": "box-sizing",
+      "title": "Predictable cards",
+      "kind": "fragment",
+      "language": "css",
+      "depth": "core",
+      "code": "*, *::before, *::after { box-sizing: border-box; }\n.card {\n  width: 20rem;\n  max-width: 100%;\n  padding: 1rem;\n  border: 2px solid #555;\n}",
+      "explanation": "The card never exceeds its container, and its declared width includes padding and border.",
+      "tryThis": "Remove border-box and calculate the extra horizontal size.",
+      "sourceIds": [
+        "mdn-box-model",
+        "mdn-responsive"
+      ]
+    },
+    {
+      "id": "responsive-grid",
+      "title": "A grid that adapts",
+      "kind": "fragment",
+      "language": "css",
+      "depth": "deeper",
+      "code": ".cards {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(min(16rem, 100%), 1fr));\n  gap: 1rem;\n}\nimg { max-width: 100%; height: auto; }",
+      "explanation": "The grid creates as many useful columns as fit and falls back to one column without a device-specific breakpoint.",
+      "tryThis": "Increase the minimum card size and observe when columns wrap.",
+      "sourceIds": [
+        "mdn-box-model",
+        "mdn-responsive"
+      ]
+    }
+  ],
+  "practice": [
+    {
+      "id": "practice-1",
+      "type": "predict",
+      "difficulty": "beginner",
+      "prompt": "A content-box element has width 200px, 20px padding on each side, and 2px border on each side. What is its outer border-box width?",
+      "hints": [
+        "Add content, both padding sides, and both border sides."
+      ],
+      "acceptanceCriteria": [
+        "Give a direct answer.",
+        "Explain the evidence or rule behind the answer.",
+        "Complete the attempt before opening the solution."
+      ],
+      "objectiveIds": [
+        "box"
+      ],
+      "sourceIds": [
+        "mdn-box-model",
+        "mdn-responsive"
+      ],
+      "solution": {
+        "explanation": "244px: 200 + 40 + 4. Margin is outside this calculation."
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "practice-2",
+      "type": "build",
+      "difficulty": "beginner",
+      "prompt": "Write a centered content container with 1rem side space and a maximum width of 70rem.",
+      "hints": [
+        "Combine width, max-width, or min(), then use auto margins."
+      ],
+      "acceptanceCriteria": [
+        "Give a direct answer.",
+        "Explain the evidence or rule behind the answer.",
+        "Complete the attempt before opening the solution."
+      ],
+      "objectiveIds": [
+        "layout"
+      ],
+      "sourceIds": [
+        "mdn-box-model",
+        "mdn-responsive"
+      ],
+      "solution": {
+        "explanation": "One valid solution is shown. Other solutions are acceptable when they meet the criteria and preserve the same behavior.",
+        "code": ".container { width: min(100% - 2rem, 70rem); margin-inline: auto; }",
+        "language": "css",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "practice-3",
+      "type": "debug",
+      "difficulty": "intermediate",
+      "prompt": "An image causes horizontal scrolling on a narrow screen. Give a CSS fix and explain it.",
+      "hints": [
+        "Let the image shrink without changing its aspect ratio."
+      ],
+      "acceptanceCriteria": [
+        "Give a direct answer.",
+        "Explain the evidence or rule behind the answer.",
+        "Complete the attempt before opening the solution."
+      ],
+      "objectiveIds": [
+        "responsive"
+      ],
+      "sourceIds": [
+        "mdn-box-model",
+        "mdn-responsive"
+      ],
+      "solution": {
+        "explanation": "One valid solution is shown. Other solutions are acceptable when they meet the criteria and preserve the same behavior.",
+        "code": "img { max-width: 100%; height: auto; } prevents the image from exceeding its container while preserving its ratio. Also inspect fixed widths on its ancestors.",
+        "language": "css",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "practice-4",
+      "type": "design",
+      "difficulty": "intermediate",
+      "prompt": "Choose Flexbox or Grid for a toolbar and for a gallery. Explain each choice.",
+      "hints": [
+        "Think in one dimension versus rows and columns."
+      ],
+      "acceptanceCriteria": [
+        "Give a direct answer.",
+        "Explain the evidence or rule behind the answer.",
+        "Complete the attempt before opening the solution."
+      ],
+      "objectiveIds": [
+        "box"
+      ],
+      "sourceIds": [
+        "mdn-box-model",
+        "mdn-responsive"
+      ],
+      "solution": {
+        "explanation": "Use Flexbox for a toolbar arranged mainly along one row with aligned controls. Use Grid for a gallery where both columns and rows matter. Either can work, but the chosen model should match the layout problem."
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "practice-5",
+      "type": "transfer",
+      "difficulty": "advanced",
+      "prompt": "Create a mobile-first two-column layout that becomes two columns only when each column can remain readable.",
+      "hints": [
+        "Start with one column and add a content-driven min-width query."
+      ],
+      "acceptanceCriteria": [
+        "Give a direct answer.",
+        "Explain the evidence or rule behind the answer.",
+        "Complete the attempt before opening the solution."
+      ],
+      "objectiveIds": [
+        "layout"
+      ],
+      "sourceIds": [
+        "mdn-box-model",
+        "mdn-responsive"
+      ],
+      "solution": {
+        "explanation": "One valid solution is shown. Other solutions are acceptable when they meet the criteria and preserve the same behavior.",
+        "code": ".layout { display: grid; gap: 1.5rem; }\n@media (min-width: 48rem) { .layout { grid-template-columns: 2fr 1fr; } }\nTest zoom and long content; adjust 48rem based on the actual design.",
+        "language": "css",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    }
+  ],
+  "interviewQuestions": [
+    {
+      "id": "box-model",
+      "question": "Explain the CSS box model and box-sizing.",
+      "answer": "An element has content, padding, border, and margin areas. content-box excludes padding and border from declared size; border-box includes them.",
+      "followUp": "Does margin become part of width?",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "mdn-box-model",
+        "mdn-responsive"
+      ]
+    },
+    {
+      "id": "flex-grid",
+      "question": "When would you choose Flexbox over Grid?",
+      "answer": "Flexbox is useful for arranging items mainly in one dimension. Grid is useful when rows and columns form the layout. Content and behavior matter more than a rigid rule.",
+      "followUp": "Can both be used together?",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "mdn-box-model",
+        "mdn-responsive"
+      ]
+    },
+    {
+      "id": "responsive",
+      "question": "What does mobile-first responsive design mean?",
+      "answer": "Write the simple narrow layout first, then add enhancements when more space is available. Breakpoints should follow the content, not named devices.",
+      "followUp": "How do you test beyond changing window width?",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "mdn-box-model",
+        "mdn-responsive"
+      ]
+    }
+  ],
+  "miniAppIds": [],
+  "mastery": {
+    "status": "not-assessed",
+    "policy": "Reading the lesson or revealing help is not mastery. Save an attempt first, then prove the idea again without the solution and use it in a fresh situation.",
+    "checks": [
+      {
+        "id": "explain",
+        "evidence": "Explain box model and responsive layout without copying the lesson.",
+        "pass": "The explanation uses correct terms and gives one practical reason."
+      },
+      {
+        "id": "solve",
+        "evidence": "Complete at least four practice tasks before revealing their solutions.",
+        "pass": "The saved work meets each acceptance criterion and explains the reasoning."
+      },
+      {
+        "id": "transfer",
+        "evidence": "Use the lesson in a new small page or debugging case.",
+        "pass": "The new example works and the learner can explain one decision and one tradeoff."
+      }
+    ],
+    "reviewSchedule": {
+      "note": "Complete these without reopening the lesson. Compare only after saving an answer.",
+      "sessions": [
+        {
+          "dayOffset": 2,
+          "problems": [
+            {
+              "id": "recall",
+              "prompt": "Write the three most useful rules from Box model and responsive layout.",
+              "solution": "A good answer states three accurate rules, explains why each matters, and uses at least one concrete example."
+            },
+            {
+              "id": "repair",
+              "prompt": "Describe one common box model and responsive layout mistake and repair it.",
+              "solution": "Choose one mistake from the lesson, identify its cause, and apply the smallest fix that preserves correct web behavior."
+            }
+          ]
+        },
+        {
+          "dayOffset": 7,
+          "problems": [
+            {
+              "id": "teach",
+              "prompt": "Teach box model and responsive layout to a beginner in five sentences.",
+              "solution": "The explanation should define the idea, show how it works, give a real use, warn about a mistake, and name a way to test it."
+            },
+            {
+              "id": "new-case",
+              "prompt": "Create a different example from the lesson and explain how you verified it.",
+              "solution": "The example must use the same core concept in a new context and name observable evidence from the browser or code."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "sourceIds": [
+    "mdn-box-model",
+    "mdn-responsive"
+  ],
+  "commonMistakes": [
+    {
+      "symptom": "A 300px box is wider than expected",
+      "cause": "content-box adds padding and border outside the declared width.",
+      "fix": "Use border-box or include the extra size in your calculation."
+    },
+    {
+      "symptom": "A mobile page scrolls sideways",
+      "cause": "A fixed-width child, long content, or media exceeds its container.",
+      "fix": "Use DevTools to find the overflowing box; add flexible sizing or wrapping at the cause."
+    },
+    {
+      "symptom": "A layout uses absolute positioning for every card",
+      "cause": "The cards are removed from normal flow and overlap as content changes.",
+      "fix": "Use Grid or Flexbox for layout; reserve absolute positioning for intentional overlays."
+    }
+  ],
+  "publicationChecklist": {
+    "authored": true,
+    "sourcesReviewed": true,
+    "codeSyntaxChecked": true,
+    "serverInitialRenderChecked": false,
+    "browserBehaviorChecked": false,
+    "independentContentReview": false,
+    "learnerTrial": false,
+    "note": "Complete draft. Keep sample-draft until snippets, rendering, browser behavior, independent content review, and a learner trial are complete."
+  }
+}

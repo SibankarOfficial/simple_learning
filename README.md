@@ -24,13 +24,16 @@ React, React DOM, Vite, and the validator's dependencies are declared in this pr
 
 ## Available now
 
-- Subject → chapter → topic pages, with 30 chapters and 324 catalog topics. **323 topics are planned; one useState lesson is a sample draft. No lesson is marked published.**
+- Subject → chapter → topic pages, with 30 chapters and 324 catalog topics. **317 topics are planned; seven lessons are available as sample drafts. No lesson is marked published.**
+- Chapter 1, **Web foundations**, has complete lesson drafts for all six topics. Together they contain 30 exercises, 18 original interview-style questions, examples, mistakes, mastery checks, delayed reviews, and links to exact MDN sources.
 - The useState reader includes prerequisite checks, core/deeper/reference explanations, 11 examples, mistakes, 10 exercises with optional hints and solution modals, and 12 original interview-style questions.
+- A top-level interview library contains 253 entries. It preserves 223 questions from the two supplied PDF guides and adds 30 reviewed advanced/tricky questions covering React behavior, JavaScript output and internals, browser events, accessibility, security, and performance. Questions progress from foundation to advanced and tricky; reviewed entries link to authoritative technical references. Imported wording remains clearly marked as unverified.
+- A separate **DSA Practice** module provides a 10-minute practical intro and 20 common easy/medium interview problems in a 120-minute path. Every problem starts with the prompt and thinking steps, links its exact concepts to one shared 18-concept reference, keeps solutions collapsed, compares a basic and better method, shows time and space complexity, includes a dry run and mistakes, and links to its LeetCode problem. The method follows Chai Visual's useful brute-force-to-better comparison without copying its lesson content.
 - Every complete React module can open in an editable live preview. Each run creates a fresh sandbox with network and app-storage access blocked. Learners write a prediction, change App.jsx, run it, compare the result, and reset to the authored example.
 - Saved drafts, attempts, assistance records, self-review, and written mastery evidence. There is no automatic mastery award or code grading.
-- Spaced review at 1, 3, 7, and 14 days after the first submitted attempt. Each session opens after its time gap and offers two fresh useState prediction problems with explained feedback.
-- A six-step quantity-picker mini app, a built-in interactive demonstration, concept links, acceptance criteria, and two independent build ideas.
-- Coverage pages for 117 official-source mappings, review dates, scope exclusions, and seven pending audits.
+- Topic-owned spaced review sessions open after their configured time gaps and provide fresh problems with explained feedback. The useState sample uses 1, 3, 7, and 14 days; Web foundations lessons use 2 and 7 days.
+- Two mini apps: the six-step React quantity picker and the eight-step accessible course signup page for Web foundations. Each has concept links, acceptance scenarios, and two independent build ideas.
+- Coverage pages for 130 official-source mappings, review dates, scope exclusions, and pending audits.
 
 The application has loading, missing-content, invalid-data, and retry states. Browser storage failures show a warning; unreadable existing progress is preserved rather than overwritten.
 
@@ -44,7 +47,8 @@ Use English only for lessons, questions, hints, solutions, project instructions,
 - [Project handoff and recovered decisions](docs/PROJECT-HANDOFF.md)
 - [Ordered syllabus](docs/SYLLABUS.md)
 - [Complete useState sample](docs/USESTATE.md)
-- [Step-by-step mini app](docs/MINI-APP.md)
+- [All step-by-step mini apps](docs/MINI-APPS.md)
+- [Quantity-picker detail](docs/MINI-APP.md)
 - [Coverage and remaining audits](docs/COVERAGE.md)
 
 ## Product agreement
@@ -57,7 +61,7 @@ The minimal learning UI and a focused React example runner are implemented. The 
 
 ## Content model
 
-`content/react/curriculum.json` is the ordered subject/chapter/topic catalog. `coverage.json` maps known official reference items to topic IDs. `sources.json` records URLs and review dates. Topic lessons, mini apps, and independent ideas use stable IDs. These JSON files are the source of truth; the Markdown documents are generated review copies.
+`content/react/curriculum.json` is the ordered subject/chapter/topic catalog. `coverage.json` maps known official reference items to topic IDs. `sources.json` records URLs and review dates. `interview-questions.json` stores imported and reviewed interview entries, source records, page or web references, difficulty, and review status. `content/dsa/practice.json` stores the DSA intro, sprint plan, 18 shared concept explanations, 20 prompts, concept links, approaches, complexity notes, code, dry runs, mistakes, and references. Topic lessons, mini apps, and independent ideas use stable IDs. These JSON files are the source of truth; the Markdown documents are generated review copies.
 
 Paths inside curriculum are relative to `content/react/`. The frontend fetches the subject manifest, catalog, source list, and selected content from `content/`. Vite serves the authored JSON directly in development; the build includes identical JSON paths and files in `dist/content/`. No manually maintained second content copy is needed.
 
@@ -76,6 +80,7 @@ New attempts after help has been viewed remain assisted. The quantity picker's c
 - `published`: use only after content review, behavior verification, source/version review, and accessibility review of its UI.
 - `index-mapped` is a scope check. It does not mean every API subpage or caveat has been reviewed.
 - `original-interview-style` questions are authored exercises. A recorded interview question requires a public source, date, and honest attribution; never invent company names.
+- An imported PDF entry proves only that the wording appears in that supplied document. Until reviewed against official sources, it must remain `imported-unverified` and must not be presented as current guidance or proof of company interview provenance. New `curated-reviewed` questions include public interview-pattern provenance and direct authoritative references, but still do not claim that a named company asked each question.
 - Mastery requires explanation, independent solving, transfer to a fresh problem, and delayed recall. The proposed threshold is a product rubric, not a scientific guarantee.
 
 The scope is React for the web, prerequisites, official API families, selected ecosystem skills, legacy migration, and version-sensitive extensions. React has no finite official list of every possible use case. New source items must receive a destination or a documented scope decision. Lesson-level caveat audits remain necessary.
@@ -91,9 +96,9 @@ npm run docs:generate
 npm run preview:runtime
 ```
 
-Validation checks references, order, prerequisites, mapping consistency, the shared lesson schema, exercise/solution links, interview provenance, review sessions, and JSX syntax. It also renders complete examples using React on the server and checks the mini app's initial quantity, total, and boundary controls. Browser interactions are checked separately.
+Validation checks every authored lesson and mini app for references, order, prerequisites, mapping consistency, the shared lesson schema, exercise/solution links, interview provenance, review sessions, and HTML/CSS/JS/JSX syntax or structure. It also renders complete React examples on the server and checks the quantity app's initial total and boundary controls. Browser interactions are checked separately.
 
-The focused tests cover subject registration, planned-content status, route parsing, immutable attempt records, independence/assistance rules, storage recovery, draft recovery, and JSON-driven review scheduling. The build also runs content validation. Browser checks cover lesson rendering, the first live example's run/edit/error/reset flow, and the built-in quantity picker's limits, reset, and keyboard activation. They do not certify every lesson example or the full app. See the handoff for remaining checks.
+The focused tests cover subject registration, planned-content status, route parsing, the complete DSA sprint contract, immutable attempt records, independence/assistance rules, storage recovery, draft recovery, and JSON-driven review scheduling. The build also runs content validation. Browser checks cover lesson rendering, DSA overview/intro/problem navigation and solution disclosure, the first live example's run/edit/error/reset flow, and the built-in quantity picker's limits, reset, and keyboard activation. They do not certify every lesson example or the full app. See the handoff for remaining checks.
 
 `npm run preview:runtime` builds the self-contained browser compiler and React runtime used by sandboxed examples. `npm run dev` and `npm run build` run it automatically. The generated `public/preview-runtime.js` is ignored because it is reproducible from the locked dependencies.
 

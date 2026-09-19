@@ -1,6 +1,6 @@
 # Mini app: Notebook quantity picker
 
-Generated from the JSON content. Edit JSON, then regenerate. Content review date: 2026-09-10.
+Generated from the JSON content. Edit JSON, then regenerate. Coverage review date: 2026-09-19.
 
 Choose 1–5 notebooks, show the total, and reset the quantity. Explain your state choices instead of copying the tutorial code.
 
@@ -165,6 +165,24 @@ Build a daily reading target from 5–60 pages, with steps of 5 and a reset to 1
 - Step size 5
 - Boundaries respected
 - Reset restores 10
+
+### Community event registration
+
+Create a responsive event page with schedule content and an accessible registration form. Use different structure and styles from the guided app.
+
+- Meaningful landmarks and heading order
+- Labeled named controls with native validation
+- Complete keyboard path and visible focus
+- No horizontal scrolling at narrow widths
+
+### Support request form
+
+Build a support form with issue type, description, urgency, and contact details. Decide which values are required before coding.
+
+- Fieldset and legend for related choices
+- Specific labels and error instructions
+- Responsive layout based on content
+- Documented Elements, Console, and Network checks
 
 ## Extend after the base works
 

@@ -15,13 +15,18 @@ const read = name => JSON.parse(fs.readFileSync(path.join(root, name), 'utf8'));
 const catalog = read('curriculum.json');
 const coverage = read('coverage.json');
 const sources = read('sources.json');
+const subjectRegistry = JSON.parse(fs.readFileSync(fileURLToPath(new URL('../content/subjects.json', import.meta.url)), 'utf8'));
+const reactSubject = subjectRegistry.find(subject => subject.id === 'react');
+const miniApps = reactSubject.miniAppPaths.map(miniPath => read(miniPath));
 const lesson = read('lessons/use-state.json');
 const lessonSchema = JSON.parse(fs.readFileSync(fileURLToPath(new URL('../schema/topic-lesson.schema.json', import.meta.url)), 'utf8'));
 const ajv = new Ajv2020({ allErrors: true, strict: false, formats: { date: /^\d{4}-\d{2}-\d{2}$/, uri: /^https?:\/\// } });
 const validateLesson = ajv.compile(lessonSchema);
 const lessonFiles = fs.readdirSync(path.join(root, 'lessons')).filter(name => name.endsWith('.json'));
+const authoredLessons = [];
 for (const name of lessonFiles) {
   const candidate = read(`lessons/${name}`);
+  authoredLessons.push(candidate);
   assert(validateLesson(candidate), `${name} does not match the topic lesson schema:\n${ajv.errorsText(validateLesson.errors, { separator: '\n' })}`);
   if (candidate.status === 'published') {
     const pending = Object.entries(candidate.publicationChecklist)
@@ -32,6 +37,8 @@ for (const name of lessonFiles) {
 }
 const app = read('mini-apps/quantity-picker.json');
 const ideas = read('ideas.json');
+const interviewLibrary = read('interview-questions.json');
+const dsaPractice = JSON.parse(fs.readFileSync(fileURLToPath(new URL('../content/dsa/practice.json', import.meta.url)), 'utf8'));
 const unique = (items, label) => {
   assert.equal(new Set(items.map(x => x.id)).size, items.length, `Duplicate ${label} IDs`);
   return new Map(items.map(x => [x.id, x]));
@@ -44,6 +51,8 @@ unique(coverage.items, 'coverage');
 unique(lesson.practice, 'practice');
 unique(lesson.interviewQuestions, 'interview');
 unique(ideas, 'idea');
+unique(miniApps, 'mini app');
+unique(interviewLibrary.questions, 'imported interview question');
 const exists = (map, id, label) => assert(map.has(id), `${label}: ${id}`);
 function ordered(items, label) {
   items.forEach((item, i) => assert.equal(item.order, i + 1, `${label} order`));
@@ -109,20 +118,49 @@ function renderModule(code) {
   renderedModules++;
   return html;
 }
-function walk(value) {
+function walk(value, lessonExamples = examples) {
   if (!value || typeof value !== 'object') return;
   if (value.sourceIds) value.sourceIds.forEach(id => exists(sourceMap, id, 'Unknown source'));
   if (value.prerequisiteTopicIds) value.prerequisiteTopicIds.forEach(id => exists(topics, id, 'Unknown prerequisite'));
-  if (value.exampleIds) value.exampleIds.forEach(id => exists(examples, id, 'Unknown example'));
-  if (value.exampleId) exists(examples, value.exampleId, 'Missing solution example');
+  if (value.exampleIds) value.exampleIds.forEach(id => exists(lessonExamples, id, 'Unknown example'));
+  if (value.exampleId) exists(lessonExamples, value.exampleId, 'Missing solution example');
   if (typeof value.code === 'string') {
-    parse(value.code, { sourceType: 'module', plugins: ['jsx'] });
+    const codeLanguage = value.language || value.kind;
+    if (codeLanguage === 'css') transformSync(value.code, { loader: 'css' });
+    else if (codeLanguage === 'html') assert(value.code.includes('<') && value.code.includes('>'), 'HTML example must contain markup');
+    else parse(value.code, { sourceType: 'module', plugins: ['jsx'] });
     snippetCount++;
     if (value.kind === 'module') renderModule(value.code);
   }
-  for (const child of Object.values(value)) walk(child);
+  for (const child of Object.values(value)) walk(child, lessonExamples);
 }
-walk(catalog); walk(lesson); walk(app);
+walk(catalog);
+for (const candidate of authoredLessons) {
+  const candidateExamples = unique(candidate.examples, `${candidate.id} example`);
+  const candidateObjectives = unique(candidate.objectives, `${candidate.id} objective`);
+  unique(candidate.practice, `${candidate.id} practice`);
+  unique(candidate.interviewQuestions, `${candidate.id} interview`);
+  for (const exercise of candidate.practice) {
+    assert(exercise.prompt && exercise.hints.length && exercise.acceptanceCriteria.length);
+    assert(exercise.solution.explanation);
+    exercise.objectiveIds.forEach(id => exists(candidateObjectives, id, 'Unknown objective'));
+  }
+  for (const question of candidate.interviewQuestions) {
+    assert(question.question && question.answer && question.followUp);
+    if (question.provenance.kind === 'original') {
+      assert.equal(question.provenance.recordedInterview, false);
+      assert.equal(question.provenance.company, null);
+      assert.equal(question.provenance.interviewSourceUrl, null);
+    } else {
+      assert.equal(question.type, 'recorded-interview');
+      assert.equal(question.provenance.recordedInterview, true);
+      assert(question.provenance.interviewSourceUrl, 'A recorded interview question needs a public source URL');
+      assert(/^\d{4}-\d{2}-\d{2}$/.test(question.provenance.interviewSourceDate || ''), 'A recorded interview question needs its public source date');
+    }
+  }
+  walk(candidate, candidateExamples);
+}
+for (const miniApp of miniApps) walk(miniApp);
 parse(app.finalCode, { sourceType: 'module', plugins: ['jsx'] });
 snippetCount++;
 const appHtml = renderModule(app.finalCode);
@@ -153,17 +191,83 @@ for (const question of lesson.interviewQuestions) {
     assert(/^\d{4}-\d{2}-\d{2}$/.test(question.provenance.interviewSourceDate || ''), 'A recorded interview question needs its public source date');
   }
 }
-for (const id of app.conceptTopicIds) {
-  exists(topics, id, 'Unknown app concept');
-  assert(topics.get(id).miniAppIds.includes(app.id), `Missing topic backlink: ${id}`);
-  assert(chapters.get(topics.get(id).chapterId).miniAppIds.includes(app.id));
+for (const miniApp of miniApps) {
+  miniApp.sourceIds.forEach(id => exists(sourceMap, id, 'Unknown mini-app source'));
+  miniApp.conceptTopicIds.forEach(id => {
+    exists(topics, id, 'Unknown app concept');
+    assert(topics.get(id).miniAppIds.includes(miniApp.id), `Missing topic backlink: ${id}`);
+    assert(chapters.get(topics.get(id).chapterId).miniAppIds.includes(miniApp.id));
+  });
+  miniApp.prerequisiteTopicIds.forEach(id => exists(topics, id, 'Unknown mini-app prerequisite'));
+  miniApp.relatedIdeaIds.forEach(id => assert(ideas.some(idea => idea.id === id), `Missing related idea: ${id}`));
+  ordered(miniApp.steps, `${miniApp.id} step`);
+  if (miniApp.languageCode === 'jsx') parse(miniApp.finalCode, { sourceType: 'module', plugins: ['jsx'] });
+  else {
+    assert.equal(miniApp.languageCode, 'html', `Unsupported mini-app language: ${miniApp.id}`);
+    assert(/<!doctype html>/i.test(miniApp.finalCode) && /<main[\s>]/i.test(miniApp.finalCode) && /<form[\s>]/i.test(miniApp.finalCode), `Incomplete HTML mini app: ${miniApp.id}`);
+  }
+  snippetCount++;
 }
-app.relatedIdeaIds.forEach(id => assert(ideas.some(idea => idea.id === id)));
 for (const idea of ideas) idea.conceptTopicIds.forEach(id => exists(topics, id, 'Unknown idea topic'));
+assert.equal(interviewLibrary.status, 'source-import');
+assert.equal(interviewLibrary.questions.length, 253, 'Expected 223 imported and 30 reviewed advanced interview entries');
+const importedSources = unique(interviewLibrary.sources, 'interview PDF source');
+const categoryIds = new Set(interviewLibrary.categories.map(category => category.id));
+for (const question of interviewLibrary.questions) {
+  exists(importedSources, question.sourceId, 'Unknown interview PDF source');
+  assert(categoryIds.has(question.category), `Unknown interview category: ${question.category}`);
+  assert(question.question && question.answer, `Imported interview entry is incomplete: ${question.id}`);
+  const questionSource = importedSources.get(question.sourceId);
+  if (questionSource.kind === 'pdf-import') {
+    assert.equal(question.reviewStatus, 'imported-unverified');
+    assert(question.sourcePages.length > 0 && question.sourcePages.every(page => Number.isInteger(page) && page > 0));
+  } else {
+    assert.equal(question.reviewStatus, 'curated-reviewed');
+    assert(['Advanced', 'Tricky'].includes(question.difficulty));
+    assert(question.references.length > 0 && question.references.every(url => /^https:\/\//.test(url)));
+  }
+}
+assert.deepEqual(interviewLibrary.questions.filter(question => question.sourceId === 'frontend-pdf').map(question => question.sourceQuestionNumber), Array.from({ length: 200 }, (_, index) => index + 1));
+assert.deepEqual(interviewLibrary.questions.filter(question => question.sourceId === 'react-pdf').map(question => question.sourceQuestionNumber), Array.from({ length: 23 }, (_, index) => index + 1));
+for (const source of interviewLibrary.sources) {
+  const count = interviewLibrary.questions.filter(question => question.sourceId === source.id).length;
+  if (source.kind === 'pdf-import') {
+    assert.equal(count, source.importedEntryCount);
+    assert(/^[a-f0-9]{64}$/.test(source.sha256), `Invalid PDF hash: ${source.id}`);
+  } else {
+    assert.equal(count, source.entryCount);
+    assert(/^https:\/\//.test(source.url));
+  }
+}
+assert.equal(dsaPractice.problems.length, 20, 'Expected 20 DSA sprint problems');
+assert.equal(dsaPractice.intro.estimatedMinutes + dsaPractice.problems.reduce((total, problem) => total + problem.estimatedMinutes, 0), 120, 'DSA sprint must total 120 minutes');
+unique(dsaPractice.problems, 'DSA problem');
+ordered(dsaPractice.problems, 'DSA problem');
+assert(dsaPractice.intro.terms.length >= 10 && dsaPractice.intro.patternSignals.length >= 8, 'DSA intro is incomplete');
+const dsaConcepts = unique(dsaPractice.concepts, 'DSA concept');
+assert(dsaConcepts.size >= 15, 'DSA concept reference is incomplete');
+for (const problem of dsaPractice.problems) {
+  assert(['Easy', 'Medium'].includes(problem.difficulty), `Unsupported DSA difficulty: ${problem.id}`);
+  assert(problem.prompt && problem.examples.length && problem.beforeCoding.length >= 3, `Incomplete DSA prompt: ${problem.id}`);
+  assert(/^https:\/\/leetcode\.com\/problems\/[a-z0-9-]+\/description\/$/.test(problem.reference.url), `Invalid LeetCode URL: ${problem.id}`);
+  for (const approach of [problem.basic, problem.advanced]) {
+    assert(approach.idea && approach.steps.length >= 3 && approach.time && approach.space, `Incomplete DSA approach: ${problem.id}`);
+    parse(approach.code, { sourceType: 'module' });
+    snippetCount++;
+  }
+  assert(problem.dryRun.length >= 2 && problem.mistakes.length >= 2 && problem.finishCheck.length >= 3, `Incomplete DSA practice support: ${problem.id}`);
+  assert(problem.conceptIds.length >= 2, `Missing DSA concept links: ${problem.id}`);
+  problem.conceptIds.forEach(id => exists(dsaConcepts, id, 'Unknown DSA concept'));
+}
 assert.equal(app.finalCode, examples.get('quantity-picker').code);
 assert.equal(typeof lesson.publicationChecklist.browserBehaviorChecked, 'boolean');
 console.log(`PASS: ${chapters.size} chapters, ${topics.size} topics, ${coverage.items.length} coverage mappings.`);
-console.log(`PASS: ${lesson.practice.length} exercises, ${lesson.interviewQuestions.length} interview questions, ${snippetCount} JSX/JS snippets parsed.`);
+const exerciseCount = authoredLessons.reduce((total, candidate) => total + candidate.practice.length, 0);
+const lessonInterviewCount = authoredLessons.reduce((total, candidate) => total + candidate.interviewQuestions.length, 0);
+console.log(`PASS: ${exerciseCount} lesson exercises, ${lessonInterviewCount} lesson interview questions, ${snippetCount} code snippets parsed.`);
 console.log(`PASS: ${lessonFiles.length} authored lesson JSON file(s) match the shared topic schema.`);
+console.log(`PASS: ${miniApps.length} mini app(s) have valid sources, concept backlinks, steps, ideas, and complete code.`);
+console.log(`PASS: ${interviewLibrary.questions.length} interview entries: 223 PDF imports and 30 reviewed advanced questions.`);
+console.log(`PASS: ${dsaPractice.problems.length} DSA problems plus ${dsaConcepts.size} linked concept references form a ${dsaPractice.sprintMinutes}-minute sprint.`);
 console.log(`PASS: ${renderedModules} complete modules rendered with React on the server; initial quantity and boundary controls checked.`);
 console.log('Browser behavior, independent editorial review, and learner trial remain pending.');

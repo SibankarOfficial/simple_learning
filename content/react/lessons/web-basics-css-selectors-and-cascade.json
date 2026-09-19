@@ -1,0 +1,434 @@
+{
+  "schemaVersion": 1,
+  "id": "web-basics-css-selectors-and-cascade",
+  "subjectId": "react",
+  "chapterId": "web-basics",
+  "title": "CSS selectors and cascade",
+  "language": "en",
+  "status": "sample-draft",
+  "reviewedAt": "2026-09-19",
+  "runtime": "Modern evergreen browser. HTML, CSS, and JavaScript fragments can be tried in a small local page or the browser DevTools described in the lesson.",
+  "prerequisiteTopicIds": [
+    "web-basics-semantic-html-and-forms"
+  ],
+  "estimatedMinutes": {
+    "firstPass": 40,
+    "practice": 60,
+    "project": 30
+  },
+  "objectives": [
+    {
+      "id": "select",
+      "text": "Choose simple selectors that match the intended elements."
+    },
+    {
+      "id": "cascade",
+      "text": "Predict a winning declaration using origin, importance, specificity, and source order."
+    },
+    {
+      "id": "maintain",
+      "text": "Prefer reusable classes and avoid specificity fights."
+    }
+  ],
+  "learningFlow": [
+    "Prerequisite check",
+    "Predict before reading",
+    "Core explanation",
+    "Try and change examples",
+    "Practice without the solution",
+    "Explain the result",
+    "Apply it to a fresh page",
+    "Review after a gap"
+  ],
+  "diagnostic": [
+    {
+      "question": "What does .card select?",
+      "answer": "Every element whose class list contains card.",
+      "ifMissed": "web-basics-semantic-html-and-forms"
+    }
+  ],
+  "sections": [
+    {
+      "id": "syntax",
+      "title": "Read a CSS rule",
+      "depth": "core",
+      "body": "In .card { color: navy; }, .card is the selector, color is the property, and navy is the value. The declaration sits inside the rule block. A selector matches elements; it does not change the HTML structure.",
+      "sourceIds": [
+        "mdn-css-selectors",
+        "mdn-css-conflicts"
+      ],
+      "exampleIds": [
+        "selector-set"
+      ]
+    },
+    {
+      "id": "selectors",
+      "title": "Start with simple selectors",
+      "depth": "core",
+      "body": "A type selector such as button matches a tag. .primary matches a class, #checkout matches one document ID, [disabled] matches an attribute, and :focus-visible matches a state. Combine selectors only when the relationship matters. Classes are usually the easiest reusable styling hook.",
+      "sourceIds": [
+        "mdn-css-selectors",
+        "mdn-css-conflicts"
+      ],
+      "exampleIds": [
+        "cascade-predict"
+      ]
+    },
+    {
+      "id": "relationships",
+      "title": "Use combinators for real relationships",
+      "depth": "core",
+      "body": "A space selects descendants, > selects direct children, + selects the next sibling, and ~ selects later siblings. A long selector tied to many DOM levels breaks easily when markup changes. Prefer a direct class when the style belongs to a component.",
+      "sourceIds": [
+        "mdn-css-selectors",
+        "mdn-css-conflicts"
+      ],
+      "exampleIds": []
+    },
+    {
+      "id": "cascade",
+      "title": "How a conflict is decided",
+      "depth": "core",
+      "body": "The browser first considers relevant declarations and cascade origin and importance. Within the winning origin and layer, specificity decides stronger matches. If specificity is equal, the later declaration wins. Inheritance supplies some values such as color to descendants when no declaration overrides them.",
+      "sourceIds": [
+        "mdn-css-selectors",
+        "mdn-css-conflicts"
+      ],
+      "exampleIds": []
+    },
+    {
+      "id": "specificity",
+      "title": "Specificity is a comparison, not a target score",
+      "depth": "deeper",
+      "body": "Inline styles, IDs, classes or attributes or pseudo-classes, and types or pseudo-elements contribute at different levels. Do not keep adding selectors or !important to win. Inspect the competing rule and simplify the design. :where() is useful when a selector should add no specificity.",
+      "sourceIds": [
+        "mdn-css-selectors",
+        "mdn-css-conflicts"
+      ],
+      "exampleIds": []
+    },
+    {
+      "id": "react-link",
+      "title": "Class names remain normal CSS",
+      "depth": "deeper",
+      "body": "In JSX you write className, but the browser receives a class attribute and applies normal CSS rules. React does not isolate selectors automatically. CSS Modules, naming systems, or layers can reduce collisions later.",
+      "sourceIds": [
+        "mdn-css-selectors",
+        "mdn-css-conflicts"
+      ],
+      "exampleIds": []
+    }
+  ],
+  "examples": [
+    {
+      "id": "selector-set",
+      "title": "Target a reusable card",
+      "kind": "fragment",
+      "language": "css",
+      "depth": "core",
+      "code": ".card { border: 1px solid #bbb; }\n.card > h2 { margin-block-start: 0; }\n.card[data-featured=\"true\"] { border-color: royalblue; }\n.card a:hover { text-decoration-thickness: 0.2em; }",
+      "explanation": "The rules use a class, direct-child relationship, attribute, and interactive state.",
+      "tryThis": "Which rule still works if another wrapper is added around the heading?",
+      "sourceIds": [
+        "mdn-css-selectors",
+        "mdn-css-conflicts"
+      ]
+    },
+    {
+      "id": "cascade-predict",
+      "title": "Predict the winning color",
+      "kind": "fragment",
+      "language": "css",
+      "depth": "deeper",
+      "code": "p { color: green; }\n.note { color: navy; }\np.note { color: purple; }\np.note { color: orange; }",
+      "explanation": "For <p class=\"note\">, the last p.note rule wins because the two strongest selectors have equal specificity and orange appears later.",
+      "tryThis": "Remove the last rule and predict again.",
+      "sourceIds": [
+        "mdn-css-selectors",
+        "mdn-css-conflicts"
+      ]
+    }
+  ],
+  "practice": [
+    {
+      "id": "practice-1",
+      "type": "predict",
+      "difficulty": "beginner",
+      "prompt": "For <button class=\"save primary\">, which selectors match: button, .save, #save, [class], and a?",
+      "hints": [
+        "Check tag, class list, ID, and attributes separately."
+      ],
+      "acceptanceCriteria": [
+        "Give a direct answer.",
+        "Explain the evidence or rule behind the answer.",
+        "Complete the attempt before opening the solution."
+      ],
+      "objectiveIds": [
+        "select"
+      ],
+      "sourceIds": [
+        "mdn-css-selectors",
+        "mdn-css-conflicts"
+      ],
+      "solution": {
+        "explanation": "button, .save, and [class] match. #save does not because there is no id, and a targets another element type."
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "practice-2",
+      "type": "build",
+      "difficulty": "beginner",
+      "prompt": "Write CSS that styles every .notice and gives only .notice elements with data-kind=\"error\" a red border.",
+      "hints": [
+        "Use a class selector and a combined attribute selector."
+      ],
+      "acceptanceCriteria": [
+        "Give a direct answer.",
+        "Explain the evidence or rule behind the answer.",
+        "Complete the attempt before opening the solution."
+      ],
+      "objectiveIds": [
+        "cascade"
+      ],
+      "sourceIds": [
+        "mdn-css-selectors",
+        "mdn-css-conflicts"
+      ],
+      "solution": {
+        "explanation": "One valid solution is shown. Other solutions are acceptable when they meet the criteria and preserve the same behavior.",
+        "code": ".notice { padding: 1rem; }\n.notice[data-kind=\"error\"] { border: 2px solid red; }",
+        "language": "css",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "practice-3",
+      "type": "predict",
+      "difficulty": "intermediate",
+      "prompt": "Predict the color for <p class=\"message\"> when p {color: green}, .message {color: blue}, and a later p {color: red}.",
+      "hints": [
+        "Compare specificity before source order."
+      ],
+      "acceptanceCriteria": [
+        "Give a direct answer.",
+        "Explain the evidence or rule behind the answer.",
+        "Complete the attempt before opening the solution."
+      ],
+      "objectiveIds": [
+        "maintain"
+      ],
+      "sourceIds": [
+        "mdn-css-selectors",
+        "mdn-css-conflicts"
+      ],
+      "solution": {
+        "explanation": "Blue wins. The class selector is more specific than either type selector, even though the red type rule is later."
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "practice-4",
+      "type": "debug",
+      "difficulty": "intermediate",
+      "prompt": "A component style only works after adding !important. Describe a better debugging process.",
+      "hints": [
+        "Find the winning declaration first."
+      ],
+      "acceptanceCriteria": [
+        "Give a direct answer.",
+        "Explain the evidence or rule behind the answer.",
+        "Complete the attempt before opening the solution."
+      ],
+      "objectiveIds": [
+        "select"
+      ],
+      "sourceIds": [
+        "mdn-css-selectors",
+        "mdn-css-conflicts"
+      ],
+      "solution": {
+        "explanation": "Inspect the element, locate all declarations for the property, identify why one wins, then reduce or reorganize specificity. Use !important only for a deliberate cascade policy, not as a reflex."
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "practice-5",
+      "type": "transfer",
+      "difficulty": "advanced",
+      "prompt": "Design selectors for a reusable navigation where the current link and keyboard focus need distinct styles.",
+      "hints": [
+        "Use classes or an ARIA attribute for current state and :focus-visible for keyboard focus."
+      ],
+      "acceptanceCriteria": [
+        "Give a direct answer.",
+        "Explain the evidence or rule behind the answer.",
+        "Complete the attempt before opening the solution."
+      ],
+      "objectiveIds": [
+        "cascade"
+      ],
+      "sourceIds": [
+        "mdn-css-selectors",
+        "mdn-css-conflicts"
+      ],
+      "solution": {
+        "explanation": "One valid solution is shown. Other solutions are acceptable when they meet the criteria and preserve the same behavior.",
+        "code": ".nav a { color: inherit; }\n.nav a[aria-current=\"page\"] { font-weight: 700; }\n.nav a:focus-visible { outline: 3px solid currentColor; outline-offset: 3px; }",
+        "language": "css",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    }
+  ],
+  "interviewQuestions": [
+    {
+      "id": "cascade",
+      "question": "How does the browser decide which CSS declaration wins?",
+      "answer": "It filters relevant rules, considers cascade origin and importance, then layers, specificity, scoping proximity where relevant, and source order for remaining ties.",
+      "followUp": "Why is “the most specific selector always wins” incomplete?",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "mdn-css-selectors",
+        "mdn-css-conflicts"
+      ]
+    },
+    {
+      "id": "specificity",
+      "question": "Why can !important make a codebase harder to maintain?",
+      "answer": "It jumps to the important cascade and often starts another priority fight. Later overrides may need even more deliberate importance and origin handling.",
+      "followUp": "What would you inspect first?",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "mdn-css-selectors",
+        "mdn-css-conflicts"
+      ]
+    },
+    {
+      "id": "inheritance",
+      "question": "What is CSS inheritance?",
+      "answer": "Some computed property values, such as color, flow from a parent to descendants when they have no winning value of their own. Many layout properties do not inherit.",
+      "followUp": "How is inheritance different from a descendant selector?",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "mdn-css-selectors",
+        "mdn-css-conflicts"
+      ]
+    }
+  ],
+  "miniAppIds": [],
+  "mastery": {
+    "status": "not-assessed",
+    "policy": "Reading the lesson or revealing help is not mastery. Save an attempt first, then prove the idea again without the solution and use it in a fresh situation.",
+    "checks": [
+      {
+        "id": "explain",
+        "evidence": "Explain css selectors and cascade without copying the lesson.",
+        "pass": "The explanation uses correct terms and gives one practical reason."
+      },
+      {
+        "id": "solve",
+        "evidence": "Complete at least four practice tasks before revealing their solutions.",
+        "pass": "The saved work meets each acceptance criterion and explains the reasoning."
+      },
+      {
+        "id": "transfer",
+        "evidence": "Use the lesson in a new small page or debugging case.",
+        "pass": "The new example works and the learner can explain one decision and one tradeoff."
+      }
+    ],
+    "reviewSchedule": {
+      "note": "Complete these without reopening the lesson. Compare only after saving an answer.",
+      "sessions": [
+        {
+          "dayOffset": 2,
+          "problems": [
+            {
+              "id": "recall",
+              "prompt": "Write the three most useful rules from CSS selectors and cascade.",
+              "solution": "A good answer states three accurate rules, explains why each matters, and uses at least one concrete example."
+            },
+            {
+              "id": "repair",
+              "prompt": "Describe one common css selectors and cascade mistake and repair it.",
+              "solution": "Choose one mistake from the lesson, identify its cause, and apply the smallest fix that preserves correct web behavior."
+            }
+          ]
+        },
+        {
+          "dayOffset": 7,
+          "problems": [
+            {
+              "id": "teach",
+              "prompt": "Teach css selectors and cascade to a beginner in five sentences.",
+              "solution": "The explanation should define the idea, show how it works, give a real use, warn about a mistake, and name a way to test it."
+            },
+            {
+              "id": "new-case",
+              "prompt": "Create a different example from the lesson and explain how you verified it.",
+              "solution": "The example must use the same core concept in a new context and name observable evidence from the browser or code."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "sourceIds": [
+    "mdn-css-selectors",
+    "mdn-css-conflicts"
+  ],
+  "commonMistakes": [
+    {
+      "symptom": "A style is crossed out in DevTools",
+      "cause": "Another matching declaration wins the cascade.",
+      "fix": "Inspect origin, importance, layer, specificity, and source order instead of adding !important immediately."
+    },
+    {
+      "symptom": "A selector stops working after harmless markup changes",
+      "cause": "It depends on a long descendant path.",
+      "fix": "Add a component class to the actual styling target."
+    },
+    {
+      "symptom": "Many unrelated elements share an ID selector",
+      "cause": "IDs must be unique and create strong specificity.",
+      "fix": "Use a reusable class for repeated visual styles."
+    }
+  ],
+  "publicationChecklist": {
+    "authored": true,
+    "sourcesReviewed": true,
+    "codeSyntaxChecked": true,
+    "serverInitialRenderChecked": false,
+    "browserBehaviorChecked": false,
+    "independentContentReview": false,
+    "learnerTrial": false,
+    "note": "Complete draft. Keep sample-draft until snippets, rendering, browser behavior, independent content review, and a learner trial are complete."
+  }
+}

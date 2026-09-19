@@ -1,0 +1,415 @@
+{
+  "schemaVersion": 1,
+  "id": "web-basics-how-browser-pages-work",
+  "subjectId": "react",
+  "chapterId": "web-basics",
+  "title": "How browser pages work",
+  "language": "en",
+  "status": "sample-draft",
+  "reviewedAt": "2026-09-19",
+  "runtime": "Modern evergreen browser. HTML, CSS, and JavaScript fragments can be tried in a small local page or the browser DevTools described in the lesson.",
+  "prerequisiteTopicIds": [],
+  "estimatedMinutes": {
+    "firstPass": 30,
+    "practice": 45,
+    "project": 25
+  },
+  "objectives": [
+    {
+      "id": "request",
+      "text": "Explain the browser, server, URL, request, and response in simple words."
+    },
+    {
+      "id": "render",
+      "text": "Describe how HTML, CSS, and JavaScript become an interactive page."
+    },
+    {
+      "id": "debug",
+      "text": "Use status codes and the Network panel to locate a failed resource."
+    }
+  ],
+  "learningFlow": [
+    "Prerequisite check",
+    "Predict before reading",
+    "Core explanation",
+    "Try and change examples",
+    "Practice without the solution",
+    "Explain the result",
+    "Apply it to a fresh page",
+    "Review after a gap"
+  ],
+  "diagnostic": [
+    {
+      "question": "What is the difference between a browser and a web server?",
+      "answer": "A browser requests and displays resources. A server receives requests and sends responses.",
+      "ifMissed": "web-basics-how-browser-pages-work"
+    }
+  ],
+  "sections": [
+    {
+      "id": "what",
+      "title": "The main parts",
+      "depth": "core",
+      "body": "Your browser is a client. It asks a server for a resource by using a URL. The server returns an HTTP response. A response can contain HTML, CSS, JavaScript, JSON, an image, or another file. The internet carries the data; the web is one system that uses that connection.",
+      "sourceIds": [
+        "mdn-web-works",
+        "mdn-browser-load"
+      ],
+      "exampleIds": [
+        "url-anatomy"
+      ]
+    },
+    {
+      "id": "url",
+      "title": "How a URL points to a resource",
+      "depth": "core",
+      "body": "In https://example.com/products?sort=price#details, https is the scheme, example.com is the host, /products is the path, sort=price is the query, and details is the fragment. The fragment stays in the browser and usually points to a place in the returned document.",
+      "sourceIds": [
+        "mdn-web-works",
+        "mdn-browser-load"
+      ],
+      "exampleIds": [
+        "resource-chain"
+      ]
+    },
+    {
+      "id": "journey",
+      "title": "From Enter to pixels",
+      "depth": "core",
+      "body": "The browser resolves the host, opens a connection, sends an HTTP request, and receives a response. It parses HTML into the DOM, fetches linked files, applies CSS, runs JavaScript, calculates layout, and paints pixels. Some steps overlap, so slow or blocking resources can delay what the learner sees.",
+      "sourceIds": [
+        "mdn-web-works",
+        "mdn-browser-load"
+      ],
+      "exampleIds": []
+    },
+    {
+      "id": "status",
+      "title": "Read the response before guessing",
+      "depth": "deeper",
+      "body": "A 2xx status usually means success, 3xx means redirection, 4xx means the request has a client-side problem or missing resource, and 5xx means the server failed. Status alone is not the whole story: also check the requested URL, response headers, body, and timing.",
+      "sourceIds": [
+        "mdn-web-works",
+        "mdn-browser-load"
+      ],
+      "exampleIds": []
+    },
+    {
+      "id": "react-link",
+      "title": "Why this matters for React",
+      "depth": "deeper",
+      "body": "A React app still begins as browser resources. The first HTML file loads scripts and styles. JavaScript then creates or updates DOM nodes. A blank React screen can therefore come from a failed HTML request, a missing script, a JavaScript error, or code that rendered nothing.",
+      "sourceIds": [
+        "mdn-web-works",
+        "mdn-browser-load"
+      ],
+      "exampleIds": []
+    }
+  ],
+  "examples": [
+    {
+      "id": "url-anatomy",
+      "title": "Read a URL",
+      "kind": "fragment",
+      "language": "html",
+      "depth": "core",
+      "code": "<a href=\"https://shop.example/products?sort=price#reviews\">Read reviews</a>",
+      "explanation": "The browser requests /products with a sort query, then moves to the reviews fragment after the page loads.",
+      "tryThis": "Change the path, query, and fragment. Explain which parts can affect the server request.",
+      "sourceIds": [
+        "mdn-web-works",
+        "mdn-browser-load"
+      ]
+    },
+    {
+      "id": "resource-chain",
+      "title": "See linked resources",
+      "kind": "fragment",
+      "language": "html",
+      "depth": "deeper",
+      "code": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <link rel=\"stylesheet\" href=\"styles.css\">\n    <script src=\"app.js\" defer></script>\n  </head>\n  <body>\n    <img src=\"logo.png\" alt=\"Store logo\">\n  </body>\n</html>",
+      "explanation": "After the HTML arrives, the browser discovers and requests the CSS, JavaScript, and image.",
+      "tryThis": "Predict which missing file would remove styling, behavior, or the image.",
+      "sourceIds": [
+        "mdn-web-works",
+        "mdn-browser-load"
+      ]
+    }
+  ],
+  "practice": [
+    {
+      "id": "practice-1",
+      "type": "predict",
+      "difficulty": "beginner",
+      "prompt": "Split this URL into scheme, host, path, query, and fragment: https://learn.example/react/hooks?level=basic#practice.",
+      "hints": [
+        "Read from left to right and use ://, ?, and # as boundaries."
+      ],
+      "acceptanceCriteria": [
+        "Give a direct answer.",
+        "Explain the evidence or rule behind the answer.",
+        "Complete the attempt before opening the solution."
+      ],
+      "objectiveIds": [
+        "request"
+      ],
+      "sourceIds": [
+        "mdn-web-works",
+        "mdn-browser-load"
+      ],
+      "solution": {
+        "explanation": "scheme https; host learn.example; path /react/hooks; query level=basic; fragment practice."
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "practice-2",
+      "type": "explain-and-build",
+      "difficulty": "beginner",
+      "prompt": "Draw or write a six-step journey from entering a URL to seeing a page.",
+      "hints": [
+        "Include one request, one response, parsing, and painting."
+      ],
+      "acceptanceCriteria": [
+        "Give a direct answer.",
+        "Explain the evidence or rule behind the answer.",
+        "Complete the attempt before opening the solution."
+      ],
+      "objectiveIds": [
+        "render"
+      ],
+      "sourceIds": [
+        "mdn-web-works",
+        "mdn-browser-load"
+      ],
+      "solution": {
+        "explanation": "One valid flow is DNS lookup → connection → HTTP request → HTTP response → parse HTML and linked resources → layout and paint. Real browsers can overlap work."
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "practice-3",
+      "type": "debug",
+      "difficulty": "intermediate",
+      "prompt": "The HTML loads, but styles.css returns 404. Predict the visible result and name the first panel you would inspect.",
+      "hints": [
+        "HTML has browser defaults even without author CSS."
+      ],
+      "acceptanceCriteria": [
+        "Give a direct answer.",
+        "Explain the evidence or rule behind the answer.",
+        "Complete the attempt before opening the solution."
+      ],
+      "objectiveIds": [
+        "debug"
+      ],
+      "sourceIds": [
+        "mdn-web-works",
+        "mdn-browser-load"
+      ],
+      "solution": {
+        "explanation": "The content can still appear with default browser styles. Inspect Network, open the failed CSS request, and correct its URL or server path."
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "practice-4",
+      "type": "design",
+      "difficulty": "intermediate",
+      "prompt": "A page waits for a large script before showing useful content. Give two investigation steps without guessing a fix.",
+      "hints": [
+        "Look for timing and main-thread errors."
+      ],
+      "acceptanceCriteria": [
+        "Give a direct answer.",
+        "Explain the evidence or rule behind the answer.",
+        "Complete the attempt before opening the solution."
+      ],
+      "objectiveIds": [
+        "request"
+      ],
+      "sourceIds": [
+        "mdn-web-works",
+        "mdn-browser-load"
+      ],
+      "solution": {
+        "explanation": "Use Network timing to identify the slow or blocking resource, then Performance or Console to see whether downloading, parsing, or executing the script delays rendering."
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "practice-5",
+      "type": "transfer",
+      "difficulty": "advanced",
+      "prompt": "A deployed React app returns 200 for index.html, but its JavaScript bundle is 404. Explain why the page may stay blank and what evidence confirms it.",
+      "hints": [
+        "The HTML shell and application code are separate resources."
+      ],
+      "acceptanceCriteria": [
+        "Give a direct answer.",
+        "Explain the evidence or rule behind the answer.",
+        "Complete the attempt before opening the solution."
+      ],
+      "objectiveIds": [
+        "render"
+      ],
+      "sourceIds": [
+        "mdn-web-works",
+        "mdn-browser-load"
+      ],
+      "solution": {
+        "explanation": "The root HTML can load without the code that mounts React. Network shows the bundle 404, Console usually reports a failed module load, and the root element remains empty."
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    }
+  ],
+  "interviewQuestions": [
+    {
+      "id": "url-page",
+      "question": "What happens after a user enters a URL?",
+      "answer": "Explain DNS and connection at a high level, the HTTP request and response, linked-resource requests, DOM and CSS processing, JavaScript, layout, and paint.",
+      "followUp": "Where would you investigate a slow first render?",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "mdn-web-works",
+        "mdn-browser-load"
+      ]
+    },
+    {
+      "id": "dom-source",
+      "question": "Is the DOM always identical to the downloaded HTML?",
+      "answer": "No. Parsing can correct invalid markup, and JavaScript can add, remove, or change nodes after download.",
+      "followUp": "How would you compare the response source with the live DOM?",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "mdn-web-works",
+        "mdn-browser-load"
+      ]
+    },
+    {
+      "id": "status-debug",
+      "question": "What is the practical difference between 404 and 500?",
+      "answer": "404 means the requested resource was not found or exposed at that URL. 500 means the server failed while handling the request.",
+      "followUp": "What other response details would you inspect?",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "mdn-web-works",
+        "mdn-browser-load"
+      ]
+    }
+  ],
+  "miniAppIds": [],
+  "mastery": {
+    "status": "not-assessed",
+    "policy": "Reading the lesson or revealing help is not mastery. Save an attempt first, then prove the idea again without the solution and use it in a fresh situation.",
+    "checks": [
+      {
+        "id": "explain",
+        "evidence": "Explain how browser pages work without copying the lesson.",
+        "pass": "The explanation uses correct terms and gives one practical reason."
+      },
+      {
+        "id": "solve",
+        "evidence": "Complete at least four practice tasks before revealing their solutions.",
+        "pass": "The saved work meets each acceptance criterion and explains the reasoning."
+      },
+      {
+        "id": "transfer",
+        "evidence": "Use the lesson in a new small page or debugging case.",
+        "pass": "The new example works and the learner can explain one decision and one tradeoff."
+      }
+    ],
+    "reviewSchedule": {
+      "note": "Complete these without reopening the lesson. Compare only after saving an answer.",
+      "sessions": [
+        {
+          "dayOffset": 2,
+          "problems": [
+            {
+              "id": "recall",
+              "prompt": "Write the three most useful rules from How browser pages work.",
+              "solution": "A good answer states three accurate rules, explains why each matters, and uses at least one concrete example."
+            },
+            {
+              "id": "repair",
+              "prompt": "Describe one common how browser pages work mistake and repair it.",
+              "solution": "Choose one mistake from the lesson, identify its cause, and apply the smallest fix that preserves correct web behavior."
+            }
+          ]
+        },
+        {
+          "dayOffset": 7,
+          "problems": [
+            {
+              "id": "teach",
+              "prompt": "Teach how browser pages work to a beginner in five sentences.",
+              "solution": "The explanation should define the idea, show how it works, give a real use, warn about a mistake, and name a way to test it."
+            },
+            {
+              "id": "new-case",
+              "prompt": "Create a different example from the lesson and explain how you verified it.",
+              "solution": "The example must use the same core concept in a new context and name observable evidence from the browser or code."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "sourceIds": [
+    "mdn-web-works",
+    "mdn-browser-load"
+  ],
+  "commonMistakes": [
+    {
+      "symptom": "Calling the internet and the web the same thing",
+      "cause": "The web uses internet networking, but they are not identical.",
+      "fix": "Say which layer you mean: connection, DNS, HTTP, browser, or server."
+    },
+    {
+      "symptom": "Assuming a 200 response means the page works",
+      "cause": "The response can succeed while JavaScript later throws an error.",
+      "fix": "Check Network first, then Console and rendered DOM."
+    },
+    {
+      "symptom": "Blaming React for every blank screen",
+      "cause": "The entry script or another resource may not have loaded.",
+      "fix": "Check the document, script requests, Console errors, and root element in order."
+    }
+  ],
+  "publicationChecklist": {
+    "authored": true,
+    "sourcesReviewed": true,
+    "codeSyntaxChecked": true,
+    "serverInitialRenderChecked": false,
+    "browserBehaviorChecked": false,
+    "independentContentReview": false,
+    "learnerTrial": false,
+    "note": "Complete draft. Keep sample-draft until snippets, rendering, browser behavior, independent content review, and a learner trial are complete."
+  }
+}
