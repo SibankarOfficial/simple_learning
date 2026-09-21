@@ -23,13 +23,17 @@ test('the subject manifest reaches every registered catalog and mini app', () =>
 });
 test('authored and planned lessons remain distinct', () => {
   const catalog = read('content/react/curriculum.json');
-  assert.equal(catalog.topics.filter(t => t.lessonPath).length, 7);
-  assert.equal(catalog.topics.filter(t => t.contentStatus === 'sample-draft').length, 7);
-  assert.equal(catalog.topics.filter(t => t.contentStatus === 'planned').length, 317);
+  assert.equal(catalog.topics.filter(t => t.lessonPath).length, 35);
+  assert.equal(catalog.topics.filter(t => t.contentStatus === 'sample-draft').length, 35);
+  assert.equal(catalog.topics.filter(t => t.contentStatus === 'planned').length, 289);
   assert.equal(catalog.topics.filter(t => t.contentStatus === 'published').length, 0);
   assert.ok(catalog.topics.filter(t => !t.lessonPath).every(t => t.contentStatus === 'planned'));
   const webChapter = catalog.chapters.find(chapter => chapter.id === 'web-basics');
   assert.ok(webChapter.topicIds.every(id => catalog.topics.find(topic => topic.id === id)?.lessonPath));
+  const javascriptChapter = catalog.chapters.find(chapter => chapter.id === 'javascript-basics');
+  assert.ok(javascriptChapter.topicIds.every(id => catalog.topics.find(topic => topic.id === id)?.lessonPath));
+  const setupChapter = catalog.chapters.find(chapter => chapter.id === 'setup');
+  assert.ok(setupChapter.topicIds.every(id => catalog.topics.find(topic => topic.id === id)?.lessonPath));
 });
 test('nested lesson links survive a refresh and malformed route escapes are handled', () => {
   const parts = ['react', 'topic', 'use-state', 'examples', 'queue-demo'];

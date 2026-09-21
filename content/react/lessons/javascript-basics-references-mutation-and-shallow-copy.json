@@ -1,0 +1,473 @@
+{
+  "schemaVersion": 1,
+  "id": "javascript-basics-references-mutation-and-shallow-copy",
+  "subjectId": "react",
+  "chapterId": "javascript-basics",
+  "title": "References, mutation, and shallow copy",
+  "language": "en",
+  "status": "sample-draft",
+  "reviewedAt": "2026-09-20",
+  "runtime": "Modern evergreen browser or Node.js with ES modules. Run fragments in browser DevTools or a small .js file unless the example says otherwise.",
+  "prerequisiteTopicIds": [
+    "javascript-basics-closures-and-lexical-scope"
+  ],
+  "estimatedMinutes": {
+    "firstPass": 45,
+    "practice": 55,
+    "project": 25
+  },
+  "objectives": [
+    {
+      "id": "identity",
+      "text": "Compare primitive values and object identities."
+    },
+    {
+      "id": "mutation",
+      "text": "Recognize mutation through aliases."
+    },
+    {
+      "id": "shallow",
+      "text": "Know what a shallow copy does."
+    },
+    {
+      "id": "react",
+      "text": "Connect identity to React updates."
+    }
+  ],
+  "learningFlow": [
+    "Recall the prerequisite",
+    "Predict before running code",
+    "Read each concept explanation",
+    "Change a small example",
+    "Attempt practice before hints",
+    "Explain the result in your own words",
+    "Apply the idea in a different problem",
+    "Review after two and seven days"
+  ],
+  "diagnostic": [
+    {
+      "question": "Can you explain the main purpose of references, mutation, and shallow copy before reading?",
+      "answer": "A complete answer should name the problem it solves, the values or control flow involved, and one mistake to avoid.",
+      "ifMissed": "javascript-basics-closures-and-lexical-scope"
+    }
+  ],
+  "sections": [
+    {
+      "id": "identity",
+      "title": "Objects are reference values",
+      "depth": "core",
+      "body": "Two separate objects with the same properties are not strictly equal because they have different identities. Assigning an object to another variable copies the reference, so both bindings reach the same object. Primitive assignment copies the primitive value.",
+      "sourceIds": [
+        "mdn-js-data",
+        "mdn-spread"
+      ],
+      "exampleIds": [
+        "example-1"
+      ],
+      "objectiveIds": [
+        "identity"
+      ]
+    },
+    {
+      "id": "mutation",
+      "title": "Mutation is visible through every alias",
+      "depth": "core",
+      "body": "Changing sharedObject.name mutates the object, and every variable that references it observes the change. This can make data flow surprising when a function silently edits an argument. Prefer functions that return new values unless mutation is local, intentional, and documented.",
+      "sourceIds": [
+        "mdn-js-data",
+        "mdn-spread"
+      ],
+      "exampleIds": [
+        "example-2"
+      ],
+      "objectiveIds": [
+        "mutation"
+      ]
+    },
+    {
+      "id": "shallow",
+      "title": "Spread copies one level",
+      "depth": "core",
+      "body": "{...original} and [...original] create a new outer container. Primitive fields are copied as values, but nested objects and arrays remain shared references. To update one nested path immutably, copy every container along that path.",
+      "sourceIds": [
+        "mdn-js-data",
+        "mdn-spread"
+      ],
+      "exampleIds": [
+        "example-3"
+      ],
+      "objectiveIds": [
+        "shallow"
+      ]
+    },
+    {
+      "id": "react",
+      "title": "React relies on replacement",
+      "depth": "core",
+      "body": "React state should be treated as read-only. Mutating an existing object and passing the same reference can prevent a useful change signal and also changes old snapshots. Create the changed object or array and preserve untouched references where appropriate.",
+      "sourceIds": [
+        "mdn-js-data",
+        "mdn-spread"
+      ],
+      "exampleIds": [],
+      "objectiveIds": [
+        "react"
+      ]
+    },
+    {
+      "id": "react-connection",
+      "title": "Why this matters in React",
+      "depth": "deeper",
+      "body": "References, mutation, and shallow copy is part of the JavaScript model React code already uses. Components, event handlers, state updates, list rendering, and data requests become easier to reason about when this concept is understood without framework shortcuts. Practise the JavaScript behavior first, then identify the same rule in JSX or a component.",
+      "sourceIds": [
+        "mdn-js-data",
+        "mdn-spread"
+      ],
+      "exampleIds": [],
+      "objectiveIds": [
+        "identity",
+        "mutation",
+        "shallow",
+        "react"
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "id": "example-1",
+      "title": "Apply: Objects are reference values",
+      "kind": "fragment",
+      "language": "js",
+      "depth": "core",
+      "code": "const first = { name: \"A\" };\nconst alias = first;\nalias.name = \"B\";\nconsole.log(first.name);",
+      "explanation": "This small example gives you a safe place to inspect values while practising this objective: Compare primitive values and object identities.",
+      "tryThis": "Replace the sample with a real references, mutation, and shallow copy case from the explanation. Predict every logged value before running it.",
+      "sourceIds": [
+        "mdn-js-data",
+        "mdn-spread"
+      ]
+    },
+    {
+      "id": "example-2",
+      "title": "Apply: Mutation is visible through every alias",
+      "kind": "fragment",
+      "language": "js",
+      "depth": "deeper",
+      "code": "const original = { profile: { city: \"Kolkata\" } };\nconst copy = { ...original };\nconsole.log(copy.profile === original.profile);",
+      "explanation": "This small example gives you a safe place to inspect values while practising this objective: Recognize mutation through aliases.",
+      "tryThis": "Replace the sample with a real references, mutation, and shallow copy case from the explanation. Predict every logged value before running it.",
+      "sourceIds": [
+        "mdn-js-data",
+        "mdn-spread"
+      ]
+    },
+    {
+      "id": "example-3",
+      "title": "Apply: Spread copies one level",
+      "kind": "fragment",
+      "language": "js",
+      "depth": "deeper",
+      "code": "const next = { ...original, profile: { ...original.profile, city: \"Pune\" } };",
+      "explanation": "This small example gives you a safe place to inspect values while practising this objective: Know what a shallow copy does.",
+      "tryThis": "Replace the sample with a real references, mutation, and shallow copy case from the explanation. Predict every logged value before running it.",
+      "sourceIds": [
+        "mdn-js-data",
+        "mdn-spread"
+      ]
+    }
+  ],
+  "practice": [
+    {
+      "id": "p01",
+      "type": "predict",
+      "difficulty": "beginner",
+      "prompt": "Write one short code example for “Objects are reference values”. Predict each result before running it.",
+      "hints": [
+        "Return to the “Objects are reference values” explanation and identify the exact rule before writing code."
+      ],
+      "acceptanceCriteria": [
+        "The attempt uses valid JavaScript.",
+        "The written prediction or explanation matches the observed behavior.",
+        "The answer names the rule that makes the result happen."
+      ],
+      "objectiveIds": [
+        "identity"
+      ],
+      "sourceIds": [
+        "mdn-js-data",
+        "mdn-spread"
+      ],
+      "solution": {
+        "explanation": "A valid answer must demonstrate this rule: Compare primitive values and object identities. The exact names and sample values may differ. Compare behavior and reasoning, not surface syntax.",
+        "code": "// One possible checking structure\nconst prediction = \"Write the expected result first\";\nconsole.log(prediction);",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p02",
+      "type": "build",
+      "difficulty": "beginner",
+      "prompt": "Build a small function or data example that proves this objective: Recognize mutation through aliases.",
+      "hints": [
+        "Return to the “Mutation is visible through every alias” explanation and identify the exact rule before writing code."
+      ],
+      "acceptanceCriteria": [
+        "The attempt uses valid JavaScript.",
+        "The written prediction or explanation matches the observed behavior.",
+        "The answer names the rule that makes the result happen."
+      ],
+      "objectiveIds": [
+        "mutation"
+      ],
+      "sourceIds": [
+        "mdn-js-data",
+        "mdn-spread"
+      ],
+      "solution": {
+        "explanation": "A valid answer must demonstrate this rule: Recognize mutation through aliases. The exact names and sample values may differ. Compare behavior and reasoning, not surface syntax.",
+        "code": "// One possible checking structure\nconst prediction = \"Write the expected result first\";\nconsole.log(prediction);",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p03",
+      "type": "debug",
+      "difficulty": "intermediate",
+      "prompt": "Create a deliberate references, mutation, and shallow copy mistake, record the symptom, and repair the cause.",
+      "hints": [
+        "Return to the “Spread copies one level” explanation and identify the exact rule before writing code."
+      ],
+      "acceptanceCriteria": [
+        "The attempt uses valid JavaScript.",
+        "The written prediction or explanation matches the observed behavior.",
+        "The answer names the rule that makes the result happen."
+      ],
+      "objectiveIds": [
+        "shallow"
+      ],
+      "sourceIds": [
+        "mdn-js-data",
+        "mdn-spread"
+      ],
+      "solution": {
+        "explanation": "A valid answer must demonstrate this rule: Know what a shallow copy does. The exact names and sample values may differ. Compare behavior and reasoning, not surface syntax.",
+        "code": "// One possible checking structure\nconst prediction = \"Write the expected result first\";\nconsole.log(prediction);",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p04",
+      "type": "transfer",
+      "difficulty": "intermediate",
+      "prompt": "Use react relies on replacement in a different example from this lesson and explain why your choice is correct.",
+      "hints": [
+        "Return to the “React relies on replacement” explanation and identify the exact rule before writing code."
+      ],
+      "acceptanceCriteria": [
+        "The attempt uses valid JavaScript.",
+        "The written prediction or explanation matches the observed behavior.",
+        "The answer names the rule that makes the result happen."
+      ],
+      "objectiveIds": [
+        "react"
+      ],
+      "sourceIds": [
+        "mdn-js-data",
+        "mdn-spread"
+      ],
+      "solution": {
+        "explanation": "A valid answer must demonstrate this rule: Connect identity to React updates. The exact names and sample values may differ. Compare behavior and reasoning, not surface syntax.",
+        "code": "// One possible checking structure\nconst prediction = \"Write the expected result first\";\nconsole.log(prediction);",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p05",
+      "type": "explain-and-build",
+      "difficulty": "advanced",
+      "prompt": "Build one small example that combines two ideas from references, mutation, and shallow copy, then explain every important value or control-flow step.",
+      "hints": [
+        "Choose two objectives from What you will learn and write the expected result before running the code."
+      ],
+      "acceptanceCriteria": [
+        "The example combines two lesson objectives.",
+        "The learner predicts the result before running it.",
+        "The explanation names both JavaScript rules and one edge case."
+      ],
+      "objectiveIds": [
+        "identity",
+        "mutation"
+      ],
+      "sourceIds": [
+        "mdn-js-data",
+        "mdn-spread"
+      ],
+      "solution": {
+        "explanation": "A valid solution combines any two stated objectives in one coherent example, predicts its behavior, and explains both rules. Reusing the lesson sample without changing the problem does not meet the transfer goal.",
+        "code": "// Design your own example first.\n// Then record prediction, actual result, and explanation.",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    }
+  ],
+  "interviewQuestions": [
+    {
+      "id": "concept",
+      "question": "Explain references, mutation, and shallow copy to a junior developer.",
+      "answer": "Compare primitive values and object identities. Recognize mutation through aliases. Know what a shallow copy does. Connect identity to React updates.",
+      "followUp": "Show a small example and one common mistake.",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "mdn-js-data",
+        "mdn-spread"
+      ]
+    },
+    {
+      "id": "reasoning",
+      "question": "How would you prove that code using references, mutation, and shallow copy behaves correctly?",
+      "answer": "State the expected value or control flow first, test normal and boundary cases, and inspect the actual runtime result. Explain the JavaScript rule behind the evidence.",
+      "followUp": "Which edge case would you test first?",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "mdn-js-data",
+        "mdn-spread"
+      ]
+    },
+    {
+      "id": "react-link",
+      "question": "Where can references, mutation, and shallow copy affect React code?",
+      "answer": "It can affect values, callbacks, rendering decisions, updates, or data flow. The exact connection depends on the concept; the important step is to reason from JavaScript behavior before blaming React.",
+      "followUp": "Give one component-level example.",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "mdn-js-data",
+        "mdn-spread"
+      ]
+    }
+  ],
+  "miniAppIds": [
+    "study-session-report"
+  ],
+  "mastery": {
+    "status": "not-assessed",
+    "policy": "Reading or opening a solution is guided exposure, not mastery. Save an attempt, solve again without help, explain the rule, and transfer it to a new problem.",
+    "checks": [
+      {
+        "id": "explain",
+        "evidence": "Explain all four references, mutation, and shallow copy objectives without the lesson.",
+        "pass": "Every objective is accurate and includes a small example."
+      },
+      {
+        "id": "solve",
+        "evidence": "Complete four exercises before opening solutions.",
+        "pass": "The code works and the explanation matches the observed result."
+      },
+      {
+        "id": "transfer",
+        "evidence": "Use the concept in a fresh React-related or plain JavaScript problem.",
+        "pass": "The learner can defend the chosen syntax and handle one edge case."
+      }
+    ],
+    "reviewSchedule": {
+      "note": "Answer before reopening the lesson.",
+      "sessions": [
+        {
+          "dayOffset": 2,
+          "problems": [
+            {
+              "id": "recall",
+              "prompt": "Write the four main rules of References, mutation, and shallow copy.",
+              "solution": "Compare primitive values and object identities. Recognize mutation through aliases. Know what a shallow copy does. Connect identity to React updates."
+            },
+            {
+              "id": "repair",
+              "prompt": "Recreate and repair one common mistake from memory.",
+              "solution": "Name the symptom, the JavaScript rule that caused it, and the smallest correct repair."
+            }
+          ]
+        },
+        {
+          "dayOffset": 7,
+          "problems": [
+            {
+              "id": "teach",
+              "prompt": "Teach references, mutation, and shallow copy with one new example.",
+              "solution": "Define it, demonstrate it, predict the result, and explain one boundary case."
+            },
+            {
+              "id": "apply",
+              "prompt": "Use the concept in a different data or UI problem.",
+              "solution": "The new solution should rely on the same rule and be explained without copying the lesson."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "sourceIds": [
+    "mdn-js-data",
+    "mdn-spread"
+  ],
+  "commonMistakes": [
+    {
+      "symptom": "Code using references, mutation, and shallow copy produces a surprising value.",
+      "cause": "The result was run before the value, type, scope, identity, or control flow was predicted.",
+      "fix": "Reduce the case, write the expected result, and apply the exact rule from the matching section."
+    },
+    {
+      "symptom": "A learner copies syntax but cannot adapt it.",
+      "cause": "The example was memorized without explaining why it works.",
+      "fix": "Change the data and names, predict again, and explain which behavior must stay the same."
+    },
+    {
+      "symptom": "A React problem is blamed on React immediately.",
+      "cause": "The underlying JavaScript behavior was not isolated first.",
+      "fix": "Reproduce the value or function behavior in a small JavaScript example, then reconnect it to the component."
+    }
+  ],
+  "publicationChecklist": {
+    "authored": true,
+    "sourcesReviewed": true,
+    "codeSyntaxChecked": true,
+    "serverInitialRenderChecked": false,
+    "browserBehaviorChecked": false,
+    "independentContentReview": false,
+    "learnerTrial": false,
+    "note": "Concept-complete draft. Keep sample-draft until examples receive full browser checks, independent content review, and a learner trial."
+  }
+}

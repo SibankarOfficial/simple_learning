@@ -1,0 +1,167 @@
+{
+  "schemaVersion": 1,
+  "id": "first-react-workspace",
+  "subjectId": "react",
+  "title": "First React learning workspace",
+  "language": "en",
+  "status": "sample-draft",
+  "conceptTopicIds": [
+    "setup-what-react-solves-and-its-boundaries",
+    "setup-declarative-ui-and-component-thinking",
+    "setup-editor-node-package-manager-and-terminal",
+    "setup-create-a-learning-project-with-vite",
+    "setup-framework-versus-build-tool",
+    "setup-project-files-scripts-and-dependencies",
+    "setup-development-versus-production",
+    "setup-react-devtools",
+    "setup-adding-react-to-an-existing-page"
+  ],
+  "prerequisiteTopicIds": [
+    "javascript-basics-modules-import-and-export"
+  ],
+  "goal": "Create, understand, verify, build, and inspect a small Vite React learning project without treating the starter as a complete production architecture.",
+  "sourceIds": [
+    "react-installation",
+    "react-build-scratch",
+    "react-thinking",
+    "react-declarative-ui",
+    "react-first-component",
+    "npm-node-install",
+    "npm-package-json",
+    "vite-getting-started",
+    "vite-features",
+    "npm-dependencies",
+    "react-create-root",
+    "vite-production-build",
+    "react-devtools",
+    "react-existing-project"
+  ],
+  "requirements": [
+    "Confirm Node and npm versions",
+    "Create a Vite React project in the intended folder",
+    "Trace index.html to main.jsx to App.jsx",
+    "Replace starter content with a component hierarchy",
+    "Verify development updates and browser evidence",
+    "Inspect components with React DevTools when available",
+    "Create and preview a production build",
+    "Explain which production concerns remain outside this starter"
+  ],
+  "steps": [
+    {
+      "order": 1,
+      "title": "Check the environment",
+      "task": "In the intended parent folder, check the active Node and npm versions.",
+      "code": "node -v\nnpm -v",
+      "kind": "shell",
+      "check": "The versions print in the same terminal, and Node satisfies the current Vite requirement.",
+      "reason": "The scaffold and build run in Node, so an unsupported or missing runtime must be fixed first."
+    },
+    {
+      "order": 2,
+      "title": "Create the React project",
+      "task": "Scaffold a named React template, enter it, and install its declared packages.",
+      "code": "npm create vite@latest react-learning-lab -- --template react\ncd react-learning-lab\nnpm install",
+      "kind": "shell",
+      "check": "package.json, package-lock.json, index.html, and src exist in react-learning-lab.",
+      "reason": "The template creates a known starting structure and the install resolves its dependency graph."
+    },
+    {
+      "order": 3,
+      "title": "Trace the startup path",
+      "task": "Open index.html, src/main.jsx, and src/App.jsx. Write one sentence for the role of each.",
+      "code": "<div id=\"root\"></div>\n<!-- main.jsx finds this node and renders App into it. -->",
+      "kind": "html",
+      "check": "You can explain the path index.html → main.jsx → App.jsx without calling every file React.",
+      "reason": "Tracing the entry path makes blank-screen debugging much easier."
+    },
+    {
+      "order": 4,
+      "title": "Create a component hierarchy",
+      "task": "Replace the starter App with a page, header, and setup checklist.",
+      "code": "function Header() { return <header><h1>React learning lab</h1><p>Setup before features.</p></header>; }\nfunction SetupList() { return <ul><li>Dev server</li><li>Component tree</li><li>Production build</li></ul>; }\nexport default function App() { return <main><Header /><SetupList /></main>; }",
+      "kind": "jsx",
+      "check": "The page has one h1 and Components shows App with its two child components.",
+      "reason": "The small hierarchy connects component thinking to a real project without unrelated state logic."
+    },
+    {
+      "order": 5,
+      "title": "Verify development mode",
+      "task": "Start the dev server, open its printed URL, edit one list item, and inspect Console and Network.",
+      "code": "npm run dev",
+      "kind": "shell",
+      "check": "The edit appears, the document and source modules load, and Console has no unexplained error.",
+      "reason": "A visible update proves the editor, source, Vite server, plugin, browser, and React root are connected."
+    },
+    {
+      "order": 6,
+      "title": "Inspect React ownership",
+      "task": "Use React DevTools Components when available and compare it with browser Elements.",
+      "code": null,
+      "kind": "task",
+      "check": "Components shows App, Header, and SetupList; Elements shows their final DOM output.",
+      "reason": "The two panels answer different questions: React hierarchy versus browser DOM."
+    },
+    {
+      "order": 7,
+      "title": "Build and preview",
+      "task": "Stop the dev server, create dist, and serve the built output locally.",
+      "code": "npm run build\nnpm run preview",
+      "kind": "shell",
+      "check": "The build exits successfully and the preview URL displays the same useful content.",
+      "reason": "Development success does not prove that optimized assets and their paths work."
+    },
+    {
+      "order": 8,
+      "title": "Write the boundary note",
+      "task": "List what this project now provides and what a production product still needs.",
+      "code": null,
+      "kind": "task",
+      "check": "The note separates React UI, Vite tooling, and unresolved routing, data, backend, security, testing, and deployment decisions.",
+      "reason": "A working starter is the beginning of architecture, not the whole application."
+    }
+  ],
+  "finalCode": "function Header() {\n  return (\n    <header>\n      <p>Setup verified</p>\n      <h1>React learning lab</h1>\n      <p>Understand each layer before adding features.</p>\n    </header>\n  );\n}\n\nfunction SetupList() {\n  const checks = [\"Development server\", \"Component tree\", \"React DevTools\", \"Production build\"];\n  return (\n    <section>\n      <h2>Workspace checks</h2>\n      <ul>{checks.map(check => <li key={check}>{check}</li>)}</ul>\n    </section>\n  );\n}\n\nexport default function App() {\n  return <main><Header /><SetupList /></main>;\n}",
+  "languageCode": "jsx",
+  "finalFile": "App.jsx",
+  "acceptanceScenarios": [
+    {
+      "given": "Supported Node and npm",
+      "when": "The scaffold and install commands run in the intended folder",
+      "then": "The project and lockfile are created without changing another repository"
+    },
+    {
+      "given": "Development server running",
+      "when": "App.jsx text changes",
+      "then": "The browser shows the update and no unexplained Console error"
+    },
+    {
+      "given": "React DevTools available",
+      "when": "Components is inspected",
+      "then": "App, Header, and SetupList appear as a hierarchy"
+    },
+    {
+      "given": "Source is ready",
+      "when": "npm run build completes",
+      "then": "dist contains a production build"
+    },
+    {
+      "given": "Fresh production build",
+      "when": "npm run preview is opened",
+      "then": "The learning page renders from built assets"
+    }
+  ],
+  "relatedIdeaIds": [
+    "existing-page-learning-widget",
+    "tool-responsibility-map"
+  ],
+  "extensions": [
+    "Move Header and SetupList into separate modules and preserve the same output.",
+    "Add one imported image and trace its development and build URL.",
+    "Write a decision record comparing this Vite SPA with one React framework for a specific product."
+  ],
+  "verification": {
+    "syntaxChecked": true,
+    "browserBehaviorChecked": false,
+    "serverInitialRenderChecked": false
+  }
+}

@@ -1,0 +1,507 @@
+{
+  "schemaVersion": 1,
+  "id": "setup-project-files-scripts-and-dependencies",
+  "subjectId": "react",
+  "chapterId": "setup",
+  "title": "Project files, scripts, and dependencies",
+  "language": "en",
+  "status": "sample-draft",
+  "reviewedAt": "2026-09-20",
+  "runtime": "React 19.3 learning project with a current Vite setup. Version-specific commands must be checked against the linked React, Vite, and npm pages before use.",
+  "prerequisiteTopicIds": [
+    "setup-framework-versus-build-tool"
+  ],
+  "estimatedMinutes": {
+    "firstPass": 40,
+    "practice": 50,
+    "project": 30
+  },
+  "objectives": [
+    {
+      "id": "files",
+      "text": "Trace the default project from HTML to App."
+    },
+    {
+      "id": "package",
+      "text": "Read package.json as project metadata."
+    },
+    {
+      "id": "scripts",
+      "text": "Understand npm scripts."
+    },
+    {
+      "id": "dependencies",
+      "text": "Separate dependencies, devDependencies, and the lockfile."
+    }
+  ],
+  "learningFlow": [
+    "Recall the prerequisite",
+    "Predict the setup result",
+    "Read every concept explanation",
+    "Trace or change a practical example",
+    "Attempt five tasks before solutions",
+    "Explain the tool boundary",
+    "Apply it in a fresh project decision",
+    "Review after two and seven days"
+  ],
+  "diagnostic": [
+    {
+      "question": "What problem does project files, scripts, and dependencies help you solve?",
+      "answer": "Name the relevant layer, its input and output, and one problem it does not solve.",
+      "ifMissed": "setup-framework-versus-build-tool"
+    }
+  ],
+  "sections": [
+    {
+      "id": "files",
+      "title": "Follow the entry path",
+      "depth": "core",
+      "body": "index.html is Vite’s default HTML entry and contains the root DOM node plus a module script. src/main.jsx is the JavaScript entry: it imports React DOM, styles, and App. src/App.jsx exports the root component. Assets may live under src when imported into modules or under public when they must be copied and addressed as public files.",
+      "sourceIds": [
+        "vite-getting-started",
+        "npm-package-json",
+        "npm-dependencies",
+        "react-create-root"
+      ],
+      "exampleIds": [
+        "entry-chain"
+      ],
+      "objectiveIds": [
+        "files"
+      ]
+    },
+    {
+      "id": "package",
+      "title": "package.json describes the package",
+      "depth": "core",
+      "body": "package.json names the project, can declare module behavior and supported engines, lists scripts, and records dependency ranges. It does not contain the downloaded package code. Valid JSON allows no comments or trailing commas, so a small punctuation error can stop every npm command.",
+      "sourceIds": [
+        "vite-getting-started",
+        "npm-package-json",
+        "npm-dependencies",
+        "react-create-root"
+      ],
+      "exampleIds": [
+        "package-shape"
+      ],
+      "objectiveIds": [
+        "package"
+      ]
+    },
+    {
+      "id": "scripts",
+      "title": "Scripts are named project commands",
+      "depth": "core",
+      "body": "The scripts object maps names to commands. npm run dev runs Vite’s development server, npm run build creates production output, and npm run preview serves that output locally for inspection. A script uses project-local binaries from node_modules, so collaborators do not need a global Vite installation.",
+      "sourceIds": [
+        "vite-getting-started",
+        "npm-package-json",
+        "npm-dependencies",
+        "react-create-root"
+      ],
+      "exampleIds": [
+        "imports"
+      ],
+      "objectiveIds": [
+        "scripts"
+      ]
+    },
+    {
+      "id": "dependencies",
+      "title": "Dependencies have installation roles",
+      "depth": "core",
+      "body": "dependencies are packages the application needs as part of its runtime or production behavior, such as react and react-dom. devDependencies support development and building, such as Vite and its React plugin. package-lock.json records the resolved graph; node_modules contains installed files and is normally excluded from Git. The final browser bundle is produced by the build and is not the whole node_modules folder.",
+      "sourceIds": [
+        "vite-getting-started",
+        "npm-package-json",
+        "npm-dependencies",
+        "react-create-root"
+      ],
+      "exampleIds": [],
+      "objectiveIds": [
+        "dependencies"
+      ]
+    },
+    {
+      "id": "working-check",
+      "title": "Use evidence instead of setup guesses",
+      "depth": "deeper",
+      "body": "When setup fails, identify the layer before changing code. Read the terminal command and first error, confirm the current directory and versions, check the browser Network and Console, and trace the entry file to the root component. Make one small correction, rerun the same check, and record what proved the fix.",
+      "sourceIds": [
+        "vite-getting-started",
+        "npm-package-json",
+        "npm-dependencies",
+        "react-create-root"
+      ],
+      "exampleIds": [],
+      "objectiveIds": [
+        "files",
+        "package",
+        "scripts",
+        "dependencies"
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "id": "entry-chain",
+      "title": "Trace files into the root",
+      "kind": "fragment",
+      "language": "jsx",
+      "depth": "core",
+      "code": "// main.jsx\nimport { createRoot } from \"react-dom/client\";\nimport App from \"./App.jsx\";\nimport \"./index.css\";\n\ncreateRoot(document.getElementById(\"root\")).render(<App />);",
+      "explanation": "Imports connect the entry module to the root component and stylesheet.",
+      "tryThis": "Change one value or name in this project files, scripts, and dependencies example. Predict what evidence should change before running or tracing it.",
+      "sourceIds": [
+        "vite-getting-started",
+        "npm-package-json",
+        "npm-dependencies",
+        "react-create-root"
+      ]
+    },
+    {
+      "id": "package-shape",
+      "title": "Read package metadata",
+      "kind": "fragment",
+      "language": "js",
+      "depth": "deeper",
+      "code": "const packageJson = {\n  scripts: { dev: \"vite\", build: \"vite build\", preview: \"vite preview\" },\n  dependencies: { react: \"current\", \"react-dom\": \"current\" },\n  devDependencies: { vite: \"current\" },\n};",
+      "explanation": "The object mirrors important package.json fields without pretending version labels are installable ranges.",
+      "tryThis": "Change one value or name in this project files, scripts, and dependencies example. Predict what evidence should change before running or tracing it.",
+      "sourceIds": [
+        "vite-getting-started",
+        "npm-package-json",
+        "npm-dependencies",
+        "react-create-root"
+      ]
+    },
+    {
+      "id": "imports",
+      "title": "Resolve a local module",
+      "kind": "fragment",
+      "language": "js",
+      "depth": "deeper",
+      "code": "import { formatTitle } from \"./formatTitle.js\";\nconsole.log(formatTitle(\"react setup\"));",
+      "explanation": "A relative import points to a project file, while a bare import such as react is resolved from installed packages.",
+      "tryThis": "Change one value or name in this project files, scripts, and dependencies example. Predict what evidence should change before running or tracing it.",
+      "sourceIds": [
+        "vite-getting-started",
+        "npm-package-json",
+        "npm-dependencies",
+        "react-create-root"
+      ]
+    }
+  ],
+  "practice": [
+    {
+      "id": "p01",
+      "type": "predict",
+      "difficulty": "beginner",
+      "prompt": "Predict the visible or terminal result of the first project files, scripts, and dependencies example. Explain which tool or layer produces it.",
+      "hints": [
+        "Name the exact tool, file, command, DOM node, or product requirement involved before proposing a fix."
+      ],
+      "acceptanceCriteria": [
+        "The answer identifies the correct responsibility or layer.",
+        "It includes observable evidence or a concrete example.",
+        "It names one boundary, edge case, or reason for the decision."
+      ],
+      "objectiveIds": [
+        "files"
+      ],
+      "sourceIds": [
+        "vite-getting-started",
+        "npm-package-json",
+        "npm-dependencies",
+        "react-create-root"
+      ],
+      "solution": {
+        "explanation": "A strong answer applies this rule: Trace the default project from HTML to App. It identifies the responsible layer, gives observable evidence, and avoids claiming that React or Vite solves unrelated application concerns.",
+        "code": "// Write expected evidence before changing the setup.\nconst check = { expected: \"specific result\", actual: \"observed result\", nextStep: \"one focused test\" };",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p02",
+      "type": "explain-and-build",
+      "difficulty": "beginner",
+      "prompt": "Create a small diagram or ordered list that explains package.json describes the package. Add one concrete file, command, or UI example.",
+      "hints": [
+        "Name the exact tool, file, command, DOM node, or product requirement involved before proposing a fix."
+      ],
+      "acceptanceCriteria": [
+        "The answer identifies the correct responsibility or layer.",
+        "It includes observable evidence or a concrete example.",
+        "It names one boundary, edge case, or reason for the decision."
+      ],
+      "objectiveIds": [
+        "package"
+      ],
+      "sourceIds": [
+        "vite-getting-started",
+        "npm-package-json",
+        "npm-dependencies",
+        "react-create-root"
+      ],
+      "solution": {
+        "explanation": "A strong answer applies this rule: Read package.json as project metadata. It identifies the responsible layer, gives observable evidence, and avoids claiming that React or Vite solves unrelated application concerns.",
+        "code": "// Write expected evidence before changing the setup.\nconst check = { expected: \"specific result\", actual: \"observed result\", nextStep: \"one focused test\" };",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p03",
+      "type": "debug",
+      "difficulty": "intermediate",
+      "prompt": "A learner reports “the React setup does not work.” Write the first five evidence checks for this topic and explain the order.",
+      "hints": [
+        "Name the exact tool, file, command, DOM node, or product requirement involved before proposing a fix."
+      ],
+      "acceptanceCriteria": [
+        "The answer identifies the correct responsibility or layer.",
+        "It includes observable evidence or a concrete example.",
+        "It names one boundary, edge case, or reason for the decision."
+      ],
+      "objectiveIds": [
+        "scripts"
+      ],
+      "sourceIds": [
+        "vite-getting-started",
+        "npm-package-json",
+        "npm-dependencies",
+        "react-create-root"
+      ],
+      "solution": {
+        "explanation": "A strong answer applies this rule: Understand npm scripts. It identifies the responsible layer, gives observable evidence, and avoids claiming that React or Vite solves unrelated application concerns.",
+        "code": "// Write expected evidence before changing the setup.\nconst check = { expected: \"specific result\", actual: \"observed result\", nextStep: \"one focused test\" };",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p04",
+      "type": "design",
+      "difficulty": "intermediate",
+      "prompt": "Choose a setup for a small learning exercise and a production application. State the requirements and defend each choice using this lesson.",
+      "hints": [
+        "Name the exact tool, file, command, DOM node, or product requirement involved before proposing a fix."
+      ],
+      "acceptanceCriteria": [
+        "The answer identifies the correct responsibility or layer.",
+        "It includes observable evidence or a concrete example.",
+        "It names one boundary, edge case, or reason for the decision."
+      ],
+      "objectiveIds": [
+        "dependencies"
+      ],
+      "sourceIds": [
+        "vite-getting-started",
+        "npm-package-json",
+        "npm-dependencies",
+        "react-create-root"
+      ],
+      "solution": {
+        "explanation": "A strong answer applies this rule: Separate dependencies, devDependencies, and the lockfile. It identifies the responsible layer, gives observable evidence, and avoids claiming that React or Vite solves unrelated application concerns.",
+        "code": "// Write expected evidence before changing the setup.\nconst check = { expected: \"specific result\", actual: \"observed result\", nextStep: \"one focused test\" };",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p05",
+      "type": "transfer",
+      "difficulty": "advanced",
+      "prompt": "Apply two objectives from this lesson to a different existing project. Name what you would keep, change, verify, and deliberately leave outside React.",
+      "hints": [
+        "Name the exact tool, file, command, DOM node, or product requirement involved before proposing a fix."
+      ],
+      "acceptanceCriteria": [
+        "The answer identifies the correct responsibility or layer.",
+        "It includes observable evidence or a concrete example.",
+        "It names one boundary, edge case, or reason for the decision."
+      ],
+      "objectiveIds": [
+        "files",
+        "package"
+      ],
+      "sourceIds": [
+        "vite-getting-started",
+        "npm-package-json",
+        "npm-dependencies",
+        "react-create-root"
+      ],
+      "solution": {
+        "explanation": "A strong answer applies this rule: Trace the default project from HTML to App. It identifies the responsible layer, gives observable evidence, and avoids claiming that React or Vite solves unrelated application concerns.",
+        "code": "// Write expected evidence before changing the setup.\nconst check = { expected: \"specific result\", actual: \"observed result\", nextStep: \"one focused test\" };",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    }
+  ],
+  "interviewQuestions": [
+    {
+      "id": "responsibility",
+      "question": "What responsibility does project files, scripts, and dependencies have in a React project?",
+      "answer": "Trace the default project from HTML to App. Read package.json as project metadata. Understand npm scripts. Separate dependencies, devDependencies, and the lockfile.",
+      "followUp": "What important responsibility belongs to another layer?",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "vite-getting-started",
+        "npm-package-json",
+        "npm-dependencies",
+        "react-create-root"
+      ]
+    },
+    {
+      "id": "debug",
+      "question": "How would you debug a failure related to project files, scripts, and dependencies?",
+      "answer": "Reproduce the smallest failure, confirm the current directory and versions when relevant, read the first terminal or browser error, trace the entry and root, and test one hypothesis at a time.",
+      "followUp": "Which evidence would make you change layers?",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "vite-getting-started",
+        "npm-package-json",
+        "npm-dependencies",
+        "react-create-root"
+      ]
+    },
+    {
+      "id": "decision",
+      "question": "Which tradeoff in project files, scripts, and dependencies should a team decide explicitly?",
+      "answer": "The team should match tools and boundaries to product needs, record version and deployment assumptions, and avoid treating a starter template as a complete production architecture.",
+      "followUp": "How could the answer change for an existing server-rendered site?",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "vite-getting-started",
+        "npm-package-json",
+        "npm-dependencies",
+        "react-create-root"
+      ]
+    }
+  ],
+  "miniAppIds": [
+    "first-react-workspace"
+  ],
+  "mastery": {
+    "status": "not-assessed",
+    "policy": "Reading commands or following the guided project is not mastery. Recreate the setup without copying, explain every tool boundary, diagnose one failure, and verify a production build.",
+    "checks": [
+      {
+        "id": "explain",
+        "evidence": "Explain all objectives in project files, scripts, and dependencies without notes.",
+        "pass": "Each explanation names the responsible layer, one example, and one boundary."
+      },
+      {
+        "id": "solve",
+        "evidence": "Complete four exercises before opening solutions.",
+        "pass": "The saved work uses observable evidence and correct terminology."
+      },
+      {
+        "id": "transfer",
+        "evidence": "Apply the lesson to a fresh folder, existing page, or architecture decision.",
+        "pass": "The result works and the learner can explain what React, the build tool, and the host environment each own."
+      }
+    ],
+    "reviewSchedule": {
+      "note": "Answer before reopening the lesson or commands.",
+      "sessions": [
+        {
+          "dayOffset": 2,
+          "problems": [
+            {
+              "id": "recall",
+              "prompt": "List four rules from Project files, scripts, and dependencies.",
+              "solution": "Trace the default project from HTML to App. Read package.json as project metadata. Understand npm scripts. Separate dependencies, devDependencies, and the lockfile."
+            },
+            {
+              "id": "failure",
+              "prompt": "Invent one setup failure and diagnose it by evidence.",
+              "solution": "State expected and actual behavior, identify the layer, inspect one relevant source of evidence, and make one focused correction."
+            }
+          ]
+        },
+        {
+          "dayOffset": 7,
+          "problems": [
+            {
+              "id": "teach",
+              "prompt": "Teach project files, scripts, and dependencies to a learner without using unexplained tool names.",
+              "solution": "Define each tool or concept, show the flow, and name a boundary."
+            },
+            {
+              "id": "fresh",
+              "prompt": "Make the same decision for a different project requirement.",
+              "solution": "The choice should follow stated requirements and include a verification plan."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "sourceIds": [
+    "vite-getting-started",
+    "npm-package-json",
+    "npm-dependencies",
+    "react-create-root"
+  ],
+  "commonMistakes": [
+    {
+      "symptom": "Every setup problem is described as a React error.",
+      "cause": "Browser, Node, npm, Vite, project files, and React responsibilities were mixed together.",
+      "fix": "Identify the failing layer from the command, URL, stack, file, or tool panel before editing."
+    },
+    {
+      "symptom": "Commands work in one terminal but fail in another folder.",
+      "cause": "The current directory or active Node installation differs.",
+      "fix": "Check the path, package.json, lockfile, node -v, and npm -v in the same terminal."
+    },
+    {
+      "symptom": "The starter template is treated as a complete production plan.",
+      "cause": "Scaffolding and build features were confused with routing, data, server, security, and deployment architecture.",
+      "fix": "Write product requirements and assign each responsibility to React, a build tool, a framework, the platform, or backend code."
+    }
+  ],
+  "publicationChecklist": {
+    "authored": true,
+    "sourcesReviewed": true,
+    "codeSyntaxChecked": true,
+    "serverInitialRenderChecked": false,
+    "browserBehaviorChecked": false,
+    "independentContentReview": false,
+    "learnerTrial": false,
+    "note": "Concept-complete setup draft. Recheck version-specific commands, run broader browser behavior checks, obtain independent review, and complete a learner trial before publication."
+  }
+}

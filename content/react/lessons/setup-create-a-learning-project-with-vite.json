@@ -1,0 +1,490 @@
+{
+  "schemaVersion": 1,
+  "id": "setup-create-a-learning-project-with-vite",
+  "subjectId": "react",
+  "chapterId": "setup",
+  "title": "Create a learning project with Vite",
+  "language": "en",
+  "status": "sample-draft",
+  "reviewedAt": "2026-09-20",
+  "runtime": "React 19.3 learning project with a current Vite setup. Version-specific commands must be checked against the linked React, Vite, and npm pages before use.",
+  "prerequisiteTopicIds": [
+    "setup-editor-node-package-manager-and-terminal"
+  ],
+  "estimatedMinutes": {
+    "firstPass": 40,
+    "practice": 50,
+    "project": 30
+  },
+  "objectives": [
+    {
+      "id": "scaffold",
+      "text": "Explain what create-vite generates."
+    },
+    {
+      "id": "commands",
+      "text": "Create, install, and start the project in order."
+    },
+    {
+      "id": "server",
+      "text": "Explain what the Vite development server does."
+    },
+    {
+      "id": "verify",
+      "text": "Verify the setup before adding features."
+    }
+  ],
+  "learningFlow": [
+    "Recall the prerequisite",
+    "Predict the setup result",
+    "Read every concept explanation",
+    "Trace or change a practical example",
+    "Attempt five tasks before solutions",
+    "Explain the tool boundary",
+    "Apply it in a fresh project decision",
+    "Review after two and seven days"
+  ],
+  "diagnostic": [
+    {
+      "question": "What problem does create a learning project with vite help you solve?",
+      "answer": "Name the relevant layer, its input and output, and one problem it does not solve.",
+      "ifMissed": "setup-editor-node-package-manager-and-terminal"
+    }
+  ],
+  "sections": [
+    {
+      "id": "scaffold",
+      "title": "Scaffolding creates a starter structure",
+      "depth": "core",
+      "body": "npm create vite@latest asks the create-vite package to generate starter files. Choosing the React template adds React, React DOM, the Vite React plugin, scripts, and sample source files. It is a starting structure, not a finished architecture. Read the generated files before deleting or extending them.",
+      "sourceIds": [
+        "react-build-scratch",
+        "vite-getting-started",
+        "vite-features"
+      ],
+      "exampleIds": [
+        "commands"
+      ],
+      "objectiveIds": [
+        "scaffold"
+      ]
+    },
+    {
+      "id": "commands",
+      "title": "Use the commands in the correct folders",
+      "depth": "core",
+      "body": "A clear flow is: scaffold the named folder, enter it, install declared dependencies, then start the development script. With npm, a direct React template command is npm create vite@latest my-react-lab -- --template react. The extra double dash passes the template option through npm. Follow the tool output because version-specific prompts can change.",
+      "sourceIds": [
+        "react-build-scratch",
+        "vite-getting-started",
+        "vite-features"
+      ],
+      "exampleIds": [
+        "entry"
+      ],
+      "objectiveIds": [
+        "commands"
+      ]
+    },
+    {
+      "id": "server",
+      "title": "The development server serves modules",
+      "depth": "core",
+      "body": "npm run dev runs the local Vite server declared in package.json. Vite serves source modules to a modern browser, transforms JSX through the React plugin, resolves imported packages, and supports fast updates during editing. The localhost URL is a development address on your computer; it is not a public deployment.",
+      "sourceIds": [
+        "react-build-scratch",
+        "vite-getting-started",
+        "vite-features"
+      ],
+      "exampleIds": [
+        "first-app"
+      ],
+      "objectiveIds": [
+        "server"
+      ]
+    },
+    {
+      "id": "verify",
+      "title": "Prove the smallest project works",
+      "depth": "core",
+      "body": "Open the exact URL printed by Vite, confirm the starter page renders, edit one visible sentence, and observe the update. Read the terminal and browser Console for errors. Then stop the server deliberately with Ctrl+C and restart it. This proves the editor, files, terminal, Node, npm, Vite, browser, and port all connect correctly.",
+      "sourceIds": [
+        "react-build-scratch",
+        "vite-getting-started",
+        "vite-features"
+      ],
+      "exampleIds": [],
+      "objectiveIds": [
+        "verify"
+      ]
+    },
+    {
+      "id": "working-check",
+      "title": "Use evidence instead of setup guesses",
+      "depth": "deeper",
+      "body": "When setup fails, identify the layer before changing code. Read the terminal command and first error, confirm the current directory and versions, check the browser Network and Console, and trace the entry file to the root component. Make one small correction, rerun the same check, and record what proved the fix.",
+      "sourceIds": [
+        "react-build-scratch",
+        "vite-getting-started",
+        "vite-features"
+      ],
+      "exampleIds": [],
+      "objectiveIds": [
+        "scaffold",
+        "commands",
+        "server",
+        "verify"
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "id": "commands",
+      "title": "Scaffold with npm",
+      "kind": "fragment",
+      "language": "js",
+      "depth": "core",
+      "code": "const commands = [\n  \"npm create vite@latest my-react-lab -- --template react\",\n  \"cd my-react-lab\",\n  \"npm install\",\n  \"npm run dev\",\n];",
+      "explanation": "Run these as terminal commands one at a time. The JavaScript array keeps the lesson snippet syntactically checkable.",
+      "tryThis": "Change one value or name in this create a learning project with vite example. Predict what evidence should change before running or tracing it.",
+      "sourceIds": [
+        "react-build-scratch",
+        "vite-getting-started",
+        "vite-features"
+      ]
+    },
+    {
+      "id": "entry",
+      "title": "Understand the entry connection",
+      "kind": "fragment",
+      "language": "jsx",
+      "depth": "deeper",
+      "code": "import { createRoot } from \"react-dom/client\";\nimport App from \"./App.jsx\";\n\ncreateRoot(document.getElementById(\"root\")).render(<App />);",
+      "explanation": "The HTML provides the root node, the entry module imports App, and React DOM renders it.",
+      "tryThis": "Change one value or name in this create a learning project with vite example. Predict what evidence should change before running or tracing it.",
+      "sourceIds": [
+        "react-build-scratch",
+        "vite-getting-started",
+        "vite-features"
+      ]
+    },
+    {
+      "id": "first-app",
+      "title": "Replace the starter content",
+      "kind": "fragment",
+      "language": "jsx",
+      "depth": "deeper",
+      "code": "export default function App() {\n  return <main><h1>My React learning lab</h1><p>Setup verified.</p></main>;\n}",
+      "explanation": "A small visible edit proves the source and development server are connected.",
+      "tryThis": "Change one value or name in this create a learning project with vite example. Predict what evidence should change before running or tracing it.",
+      "sourceIds": [
+        "react-build-scratch",
+        "vite-getting-started",
+        "vite-features"
+      ]
+    }
+  ],
+  "practice": [
+    {
+      "id": "p01",
+      "type": "predict",
+      "difficulty": "beginner",
+      "prompt": "Predict the visible or terminal result of the first create a learning project with vite example. Explain which tool or layer produces it.",
+      "hints": [
+        "Name the exact tool, file, command, DOM node, or product requirement involved before proposing a fix."
+      ],
+      "acceptanceCriteria": [
+        "The answer identifies the correct responsibility or layer.",
+        "It includes observable evidence or a concrete example.",
+        "It names one boundary, edge case, or reason for the decision."
+      ],
+      "objectiveIds": [
+        "scaffold"
+      ],
+      "sourceIds": [
+        "react-build-scratch",
+        "vite-getting-started",
+        "vite-features"
+      ],
+      "solution": {
+        "explanation": "A strong answer applies this rule: Explain what create-vite generates. It identifies the responsible layer, gives observable evidence, and avoids claiming that React or Vite solves unrelated application concerns.",
+        "code": "// Write expected evidence before changing the setup.\nconst check = { expected: \"specific result\", actual: \"observed result\", nextStep: \"one focused test\" };",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p02",
+      "type": "explain-and-build",
+      "difficulty": "beginner",
+      "prompt": "Create a small diagram or ordered list that explains use the commands in the correct folders. Add one concrete file, command, or UI example.",
+      "hints": [
+        "Name the exact tool, file, command, DOM node, or product requirement involved before proposing a fix."
+      ],
+      "acceptanceCriteria": [
+        "The answer identifies the correct responsibility or layer.",
+        "It includes observable evidence or a concrete example.",
+        "It names one boundary, edge case, or reason for the decision."
+      ],
+      "objectiveIds": [
+        "commands"
+      ],
+      "sourceIds": [
+        "react-build-scratch",
+        "vite-getting-started",
+        "vite-features"
+      ],
+      "solution": {
+        "explanation": "A strong answer applies this rule: Create, install, and start the project in order. It identifies the responsible layer, gives observable evidence, and avoids claiming that React or Vite solves unrelated application concerns.",
+        "code": "// Write expected evidence before changing the setup.\nconst check = { expected: \"specific result\", actual: \"observed result\", nextStep: \"one focused test\" };",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p03",
+      "type": "debug",
+      "difficulty": "intermediate",
+      "prompt": "A learner reports “the React setup does not work.” Write the first five evidence checks for this topic and explain the order.",
+      "hints": [
+        "Name the exact tool, file, command, DOM node, or product requirement involved before proposing a fix."
+      ],
+      "acceptanceCriteria": [
+        "The answer identifies the correct responsibility or layer.",
+        "It includes observable evidence or a concrete example.",
+        "It names one boundary, edge case, or reason for the decision."
+      ],
+      "objectiveIds": [
+        "server"
+      ],
+      "sourceIds": [
+        "react-build-scratch",
+        "vite-getting-started",
+        "vite-features"
+      ],
+      "solution": {
+        "explanation": "A strong answer applies this rule: Explain what the Vite development server does. It identifies the responsible layer, gives observable evidence, and avoids claiming that React or Vite solves unrelated application concerns.",
+        "code": "// Write expected evidence before changing the setup.\nconst check = { expected: \"specific result\", actual: \"observed result\", nextStep: \"one focused test\" };",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p04",
+      "type": "design",
+      "difficulty": "intermediate",
+      "prompt": "Choose a setup for a small learning exercise and a production application. State the requirements and defend each choice using this lesson.",
+      "hints": [
+        "Name the exact tool, file, command, DOM node, or product requirement involved before proposing a fix."
+      ],
+      "acceptanceCriteria": [
+        "The answer identifies the correct responsibility or layer.",
+        "It includes observable evidence or a concrete example.",
+        "It names one boundary, edge case, or reason for the decision."
+      ],
+      "objectiveIds": [
+        "verify"
+      ],
+      "sourceIds": [
+        "react-build-scratch",
+        "vite-getting-started",
+        "vite-features"
+      ],
+      "solution": {
+        "explanation": "A strong answer applies this rule: Verify the setup before adding features. It identifies the responsible layer, gives observable evidence, and avoids claiming that React or Vite solves unrelated application concerns.",
+        "code": "// Write expected evidence before changing the setup.\nconst check = { expected: \"specific result\", actual: \"observed result\", nextStep: \"one focused test\" };",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p05",
+      "type": "transfer",
+      "difficulty": "advanced",
+      "prompt": "Apply two objectives from this lesson to a different existing project. Name what you would keep, change, verify, and deliberately leave outside React.",
+      "hints": [
+        "Name the exact tool, file, command, DOM node, or product requirement involved before proposing a fix."
+      ],
+      "acceptanceCriteria": [
+        "The answer identifies the correct responsibility or layer.",
+        "It includes observable evidence or a concrete example.",
+        "It names one boundary, edge case, or reason for the decision."
+      ],
+      "objectiveIds": [
+        "scaffold",
+        "commands"
+      ],
+      "sourceIds": [
+        "react-build-scratch",
+        "vite-getting-started",
+        "vite-features"
+      ],
+      "solution": {
+        "explanation": "A strong answer applies this rule: Explain what create-vite generates. It identifies the responsible layer, gives observable evidence, and avoids claiming that React or Vite solves unrelated application concerns.",
+        "code": "// Write expected evidence before changing the setup.\nconst check = { expected: \"specific result\", actual: \"observed result\", nextStep: \"one focused test\" };",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    }
+  ],
+  "interviewQuestions": [
+    {
+      "id": "responsibility",
+      "question": "What responsibility does create a learning project with vite have in a React project?",
+      "answer": "Explain what create-vite generates. Create, install, and start the project in order. Explain what the Vite development server does. Verify the setup before adding features.",
+      "followUp": "What important responsibility belongs to another layer?",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "react-build-scratch",
+        "vite-getting-started",
+        "vite-features"
+      ]
+    },
+    {
+      "id": "debug",
+      "question": "How would you debug a failure related to create a learning project with vite?",
+      "answer": "Reproduce the smallest failure, confirm the current directory and versions when relevant, read the first terminal or browser error, trace the entry and root, and test one hypothesis at a time.",
+      "followUp": "Which evidence would make you change layers?",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "react-build-scratch",
+        "vite-getting-started",
+        "vite-features"
+      ]
+    },
+    {
+      "id": "decision",
+      "question": "Which tradeoff in create a learning project with vite should a team decide explicitly?",
+      "answer": "The team should match tools and boundaries to product needs, record version and deployment assumptions, and avoid treating a starter template as a complete production architecture.",
+      "followUp": "How could the answer change for an existing server-rendered site?",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "react-build-scratch",
+        "vite-getting-started",
+        "vite-features"
+      ]
+    }
+  ],
+  "miniAppIds": [
+    "first-react-workspace"
+  ],
+  "mastery": {
+    "status": "not-assessed",
+    "policy": "Reading commands or following the guided project is not mastery. Recreate the setup without copying, explain every tool boundary, diagnose one failure, and verify a production build.",
+    "checks": [
+      {
+        "id": "explain",
+        "evidence": "Explain all objectives in create a learning project with vite without notes.",
+        "pass": "Each explanation names the responsible layer, one example, and one boundary."
+      },
+      {
+        "id": "solve",
+        "evidence": "Complete four exercises before opening solutions.",
+        "pass": "The saved work uses observable evidence and correct terminology."
+      },
+      {
+        "id": "transfer",
+        "evidence": "Apply the lesson to a fresh folder, existing page, or architecture decision.",
+        "pass": "The result works and the learner can explain what React, the build tool, and the host environment each own."
+      }
+    ],
+    "reviewSchedule": {
+      "note": "Answer before reopening the lesson or commands.",
+      "sessions": [
+        {
+          "dayOffset": 2,
+          "problems": [
+            {
+              "id": "recall",
+              "prompt": "List four rules from Create a learning project with Vite.",
+              "solution": "Explain what create-vite generates. Create, install, and start the project in order. Explain what the Vite development server does. Verify the setup before adding features."
+            },
+            {
+              "id": "failure",
+              "prompt": "Invent one setup failure and diagnose it by evidence.",
+              "solution": "State expected and actual behavior, identify the layer, inspect one relevant source of evidence, and make one focused correction."
+            }
+          ]
+        },
+        {
+          "dayOffset": 7,
+          "problems": [
+            {
+              "id": "teach",
+              "prompt": "Teach create a learning project with vite to a learner without using unexplained tool names.",
+              "solution": "Define each tool or concept, show the flow, and name a boundary."
+            },
+            {
+              "id": "fresh",
+              "prompt": "Make the same decision for a different project requirement.",
+              "solution": "The choice should follow stated requirements and include a verification plan."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "sourceIds": [
+    "react-build-scratch",
+    "vite-getting-started",
+    "vite-features"
+  ],
+  "commonMistakes": [
+    {
+      "symptom": "Every setup problem is described as a React error.",
+      "cause": "Browser, Node, npm, Vite, project files, and React responsibilities were mixed together.",
+      "fix": "Identify the failing layer from the command, URL, stack, file, or tool panel before editing."
+    },
+    {
+      "symptom": "Commands work in one terminal but fail in another folder.",
+      "cause": "The current directory or active Node installation differs.",
+      "fix": "Check the path, package.json, lockfile, node -v, and npm -v in the same terminal."
+    },
+    {
+      "symptom": "The starter template is treated as a complete production plan.",
+      "cause": "Scaffolding and build features were confused with routing, data, server, security, and deployment architecture.",
+      "fix": "Write product requirements and assign each responsibility to React, a build tool, a framework, the platform, or backend code."
+    }
+  ],
+  "publicationChecklist": {
+    "authored": true,
+    "sourcesReviewed": true,
+    "codeSyntaxChecked": true,
+    "serverInitialRenderChecked": false,
+    "browserBehaviorChecked": false,
+    "independentContentReview": false,
+    "learnerTrial": false,
+    "note": "Concept-complete setup draft. Recheck version-specific commands, run broader browser behavior checks, obtain independent review, and complete a learner trial before publication."
+  }
+}

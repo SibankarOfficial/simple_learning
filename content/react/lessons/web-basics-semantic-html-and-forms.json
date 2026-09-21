@@ -60,6 +60,9 @@
       ],
       "exampleIds": [
         "semantic-card"
+      ],
+      "objectiveIds": [
+        "meaning"
       ]
     },
     {
@@ -74,6 +77,9 @@
       ],
       "exampleIds": [
         "signup-form"
+      ],
+      "objectiveIds": [
+        "forms"
       ]
     },
     {
@@ -86,7 +92,10 @@
         "mdn-html-forms",
         "mdn-form-validation"
       ],
-      "exampleIds": []
+      "exampleIds": [],
+      "objectiveIds": [
+        "behavior"
+      ]
     },
     {
       "id": "forms",
@@ -98,7 +107,10 @@
         "mdn-html-forms",
         "mdn-form-validation"
       ],
-      "exampleIds": []
+      "exampleIds": [],
+      "objectiveIds": [
+        "meaning"
+      ]
     },
     {
       "id": "validation",
@@ -110,7 +122,10 @@
         "mdn-html-forms",
         "mdn-form-validation"
       ],
-      "exampleIds": []
+      "exampleIds": [],
+      "objectiveIds": [
+        "forms"
+      ]
     },
     {
       "id": "react-link",
@@ -122,7 +137,10 @@
         "mdn-html-forms",
         "mdn-form-validation"
       ],
-      "exampleIds": []
+      "exampleIds": [],
+      "objectiveIds": [
+        "behavior"
+      ]
     }
   ],
   "examples": [
@@ -159,7 +177,7 @@
   ],
   "practice": [
     {
-      "id": "practice-1",
+      "id": "p01",
       "type": "predict",
       "difficulty": "beginner",
       "prompt": "Inside a form, what does <button>Preview</button> do by default?",
@@ -186,7 +204,7 @@
       "attemptBeforeReveal": true
     },
     {
-      "id": "practice-2",
+      "id": "p02",
       "type": "build",
       "difficulty": "beginner",
       "prompt": "Write a search form with a label, a named search input, and a submit button.",
@@ -216,7 +234,7 @@
       "attemptBeforeReveal": true
     },
     {
-      "id": "practice-3",
+      "id": "p03",
       "type": "debug",
       "difficulty": "intermediate",
       "prompt": "An input has id=\"email\" but its label has for=\"user-email\". Explain the bug and fix it.",
@@ -243,7 +261,7 @@
       "attemptBeforeReveal": true
     },
     {
-      "id": "practice-4",
+      "id": "p04",
       "type": "design",
       "difficulty": "intermediate",
       "prompt": "Choose elements for a site title, primary navigation, page content, save action, and privacy-page navigation.",
@@ -270,7 +288,7 @@
       "attemptBeforeReveal": true
     },
     {
-      "id": "practice-5",
+      "id": "p05",
       "type": "transfer",
       "difficulty": "advanced",
       "prompt": "Design a delivery form with address, delivery speed, and optional instructions. State which fields need labels, names, grouping, and validation.",

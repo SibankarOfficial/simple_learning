@@ -634,3 +634,78 @@ The mini-app reader now uses the content language: HTML projects show `index.htm
 - Chrome shows six available Chapter 1 cards, the first complete lesson with source links and five learning views, the chapter mini-app link, all eight project steps, six concept backlinks, behavior checks, and two independent ideas.
 - Publication checks for independent content review, complete browser behavior, and learner trials remain pending.
 - Start next with Chapter 2 **JavaScript foundations**, which has 19 planned topics.
+
+## 2026-09-20 — Chapter 2 JavaScript foundations complete draft
+
+All 19 JavaScript foundations topics now open concept-first sample lessons. The chapter covers values and coercion; scope; operators; control flow; functions; objects and arrays; destructuring and spread; array transformations; modules; closures; references and shallow copies; optional values; promises; the event loop; Fetch, JSON, and HTTP; and exceptions and debugging. All content uses simple English and remains a sample draft until full browser checks, independent review, and a learner trial are complete.
+
+### Lesson focus and page flow
+
+- The lesson page now says **Prerequisites** and **What you will learn**. The interactive **Check your prerequisites** block is temporarily hidden while its diagnostic data remains available in JSON for a later return.
+- Every lesson objective must be linked to at least one explanation section. The schema requires section `objectiveIds`, and validation rejects an objective that appears in the learning list but is not explained below it.
+- Each JavaScript lesson has four focused objectives, five concept sections including its React connection, three topic-specific code examples, three mistakes, five exercises with optional help and modal solutions, three original interview-style questions, mastery evidence, and reviews after two and seven days.
+- The first Web foundations lesson was expanded to explain the internet, packet-level data movement at a learner level, clients, servers, DNS, URLs, HTTP requests and responses, common HTTP status codes, the browser render pipeline, client-side rendering, server-side rendering, hydration, static generation, and an evidence-first debugging order.
+
+### Mini app and content architecture
+
+The new **Study session report** mini app is a plain JavaScript module built in eight steps. It validates session records, filters and summarizes arrays without mutating inputs, formats missing values, exports module functions, fetches JSON, checks HTTP status, and connects promises with timers and error handling. Expense summary and habit streak report are independent transfer ideas without supplied solutions.
+
+The project now has 26 authored sample lessons, 298 planned topics, 135 lesson exercises, 87 lesson interview questions, 249 parsed code snippets, 3 mini apps, 6 independent ideas, and 160 source-to-topic mappings. Nineteen focused MDN JavaScript and platform records were added. No new package was needed.
+
+### Main files
+
+| File | Change |
+| --- | --- |
+| `content/react/lessons/javascript-basics-*.json` | Added 19 concept-first lesson drafts. |
+| `content/react/lessons/web-basics-how-browser-pages-work.json` | Expanded internet, HTTP, rendering, CSR, SSR, hydration, and status-code explanations. |
+| `content/react/mini-apps/study-session-report.json` | Added the Chapter 2 step-by-step JavaScript project. |
+| `content/react/curriculum.json`, `sources.json`, and `coverage.json` | Made Chapter 2 available and linked prerequisites, official sources, coverage, and the mini app. |
+| `schema/topic-lesson.schema.json` | Requires every explanation section to name its learning objectives. |
+| `src/Lesson.jsx` | Renamed the learner-facing headings and hid the prerequisite diagnostic block. |
+| `src/MiniApps.jsx` | Supports a JavaScript final filename as well as HTML and React project files. |
+| `scripts/validate-content.mjs` and `tests/content.test.mjs` | Enforce objective coverage, validate JavaScript mini-app code, and verify both completed chapters. |
+
+### Verification and next start
+
+- Content validation passes with 30 chapters, 324 topics, 160 mappings, 26 lesson files, 135 exercises, 87 lesson interview questions, 249 snippets, 3 mini apps, 253 global interview entries, and the 20-problem DSA sprint.
+- All 14 automated tests pass, generated review documents were refreshed, and the production build passes. Chrome confirms all 19 Chapter 2 cards are available sample drafts, the concept-first lesson headings and explanations render correctly, the expanded browser lesson includes internet/HTTP/CSR/SSR content, and the Study session report opens with 19 concept links, eight steps, the correct JavaScript filename, behavior checks, and two independent ideas. No console warning or error was present during the final check.
+- Keep all 26 lessons at `sample-draft`; authored quantity does not prove publication quality or mastery.
+- Start next with Chapter 3 **React setup and project structure**, while preserving the stronger concept-first explanation rule.
+
+## 2026-09-20 — Chapter 3 React setup and orientation complete draft
+
+All nine React setup topics now open concept-first sample lessons. The chapter explains what React solves, React’s boundaries, declarative UI and component thinking, the separate roles of the editor/browser/Node/npm/terminal, Vite project creation, framework versus build tool, project files and dependencies, development versus production, React DevTools, and gradual adoption in an existing page.
+
+### Content decisions
+
+- The setup path follows current first-party guidance. React recommends a suitable framework for many new production applications, while a from-scratch build tool remains useful for learning, client-only applications, or requirements that do not fit a framework.
+- Vite is taught as a development server and production build tool. Lessons explicitly state that a basic Vite React template does not automatically provide routing, coordinated data loading, SSR, SSG, React Server Components, authentication, backend APIs, or deployment architecture.
+- Every learning objective has a visible core explanation section. Each lesson also has three topic-specific examples, three common mistakes, five exercises, three original interview-style questions, mastery evidence, and two delayed review sessions.
+- Version-sensitive commands are tied to source review date 2026-09-20. The lessons tell learners to compare their active Node version with current Vite and project requirements instead of memorizing one permanent version number.
+
+### Guided project
+
+The new **First React learning workspace** mini app guides a learner through eight steps: environment checks, Vite scaffolding, tracing `index.html` to `main.jsx` to `App.jsx`, building a component hierarchy, verifying the development server, inspecting React ownership, building and previewing production assets, and writing down the starter’s architecture boundaries. The final `App.jsx` is intentionally small so the project tests setup understanding rather than introducing later state concepts early.
+
+Two independent ideas were added: place one React learning widget inside an existing HTML page, and build a tool-responsibility map that teaches the roles and boundaries of React, React DOM, Node, npm, Vite, frameworks, and hosting.
+
+### Architecture and files
+
+| File | Change |
+| --- | --- |
+| `content/react/lessons/setup-*.json` | Added nine complete setup lesson drafts. |
+| `content/react/mini-apps/first-react-workspace.json` | Added the eight-step Chapter 3 guided project. |
+| `content/react/curriculum.json` | Made all Chapter 3 topics available and connected ordered prerequisites and project backlinks. |
+| `content/react/sources.json` and `coverage.json` | Added or refreshed React, Vite, and npm sources with 25 setup mappings. |
+| `content/react/ideas.json` and `content/subjects.json` | Registered two independent ideas and the fourth mini app. |
+| `scripts/validate-content.mjs` | Added syntax-aware handling for shell command fragments in guided projects. |
+| `tests/content.test.mjs` | Verifies 35 sample lessons, 289 planned topics, and complete Chapter 1–3 topic links. |
+
+No package was added. The implementation uses the existing JSON content system, React UI, schema, validator, documentation generator, and browser storage model.
+
+### Verification and next start
+
+- Content validation passes with 30 chapters, 324 topics, 185 mappings, 35 lesson files, 180 exercises, 114 lesson interview questions, 328 checked code or command snippets, 4 mini apps, 253 global interview entries, and the 20-problem DSA sprint.
+- All 14 automated tests pass, generated documents were refreshed, and the production build passes. Chrome confirms all nine Chapter 3 cards are available sample drafts; the concept explanations, five-practice count, Vite setup, React DevTools, gradual-adoption content, guided project, eight steps, final `App.jsx`, behavior checks, and two independent ideas render without Console warnings or errors.
+- All 35 authored topics remain `sample-draft`. Full browser behavior, independent content review, version rechecks after tool updates, and learner trials are still required before publication.
+- Start next with Chapter 4 **Components and JSX**.

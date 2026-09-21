@@ -1,8 +1,8 @@
 # React syllabus — ordered coverage draft
 
-Generated from the JSON content. Edit JSON, then regenerate. Coverage review date: 2026-09-19.
+Generated from the JSON content. Edit JSON, then regenerate. Coverage review date: 2026-09-20.
 
-30 chapters · 324 topics · 7 authored sample lessons. Planned topics are syllabus destinations, not completed lessons.
+30 chapters · 324 topics · 35 authored sample lessons. Planned topics are syllabus destinations, not completed lessons.
 
 Your learning path: prerequisites → components/props/events → state → forms/reducers/refs/effects → reusable logic/data/routing → performance/actions → server/tooling → production/legacy. Start a linked mini app once you understand its required concepts. Web foundations now has its own project, and the first React-state project follows useState; you do not need to wait until chapter 29.
 
@@ -62,43 +62,47 @@ Linked mini app: [Accessible course signup page](MINI-APPS.md#accessible-course-
 
 Level: foundation. Track: prerequisite. Prerequisites: web-basics.
 
-7. Values types and coercion (planned)
-8. let const and scope (planned)
-9. Expressions operators and equality (planned)
-10. Conditionals and loops (planned)
-11. Functions declarations and arrows (planned)
-12. Parameters defaults and return values (planned)
-13. Objects and property access (planned)
-14. Arrays and iteration (planned)
-15. Destructuring (planned)
-16. Spread and rest (planned)
-17. map filter find and reduce (planned)
-18. Modules import and export (planned)
-19. Closures and lexical scope (planned)
-20. References mutation and shallow copy (planned)
-21. Optional chaining and nullish coalescing (planned)
-22. Promises async await and errors (planned)
-23. Event loop and timers (planned)
-24. Fetch JSON and HTTP (planned)
-25. Exceptions and debugging (planned)
+7. Values types and coercion — lesson JSON available in the app (sample-draft)
+8. let const and scope — lesson JSON available in the app (sample-draft)
+9. Expressions operators and equality — lesson JSON available in the app (sample-draft)
+10. Conditionals and loops — lesson JSON available in the app (sample-draft)
+11. Functions declarations and arrows — lesson JSON available in the app (sample-draft)
+12. Parameters defaults and return values — lesson JSON available in the app (sample-draft)
+13. Objects and property access — lesson JSON available in the app (sample-draft)
+14. Arrays and iteration — lesson JSON available in the app (sample-draft)
+15. Destructuring — lesson JSON available in the app (sample-draft)
+16. Spread and rest — lesson JSON available in the app (sample-draft)
+17. map filter find and reduce — lesson JSON available in the app (sample-draft)
+18. Modules import and export — lesson JSON available in the app (sample-draft)
+19. Closures and lexical scope — lesson JSON available in the app (sample-draft)
+20. References mutation and shallow copy — lesson JSON available in the app (sample-draft)
+21. Optional chaining and nullish coalescing — lesson JSON available in the app (sample-draft)
+22. Promises async await and errors — lesson JSON available in the app (sample-draft)
+23. Event loop and timers — lesson JSON available in the app (sample-draft)
+24. Fetch JSON and HTTP — lesson JSON available in the app (sample-draft)
+25. Exceptions and debugging — lesson JSON available in the app (sample-draft)
 
-Scope sources: [JavaScript Guide](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide).
+Scope sources: [Grammar and types](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types), [JavaScript data types and data structures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Data_structures), [Expressions and operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_operators), [Control flow and error handling](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling), [Loops and iteration](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration), [Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions), [Working with objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_objects), [Indexed collections](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Indexed_collections), [Destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring), [Spread syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax), [JavaScript modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules), [Closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Closures), [Optional chaining](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining), [Nullish coalescing operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing), [Using promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises), [JavaScript execution model](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Execution_model), [Using the Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch), [HTTP response status codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status).
+
+Linked mini app: [Study session report](MINI-APPS.md#study-session-report).
 
 ## 3. React setup and orientation
 
 Level: beginner. Track: core. Prerequisites: javascript-basics.
 
-26. What React solves and its boundaries (planned)
-27. Declarative UI and component thinking (planned)
-28. Editor Node package manager and terminal (planned)
-29. Create a learning project with Vite (planned)
-30. Framework versus build tool (planned)
-31. Project files scripts and dependencies (planned)
-32. Development versus production (planned)
-33. React DevTools (planned)
-34. Adding React to an existing page (planned)
+26. What React solves and its boundaries — lesson JSON available in the app (sample-draft)
+27. Declarative UI and component thinking — lesson JSON available in the app (sample-draft)
+28. Editor Node package manager and terminal — lesson JSON available in the app (sample-draft)
+29. Create a learning project with Vite — lesson JSON available in the app (sample-draft)
+30. Framework versus build tool — lesson JSON available in the app (sample-draft)
+31. Project files scripts and dependencies — lesson JSON available in the app (sample-draft)
+32. Development versus production — lesson JSON available in the app (sample-draft)
+33. React DevTools — lesson JSON available in the app (sample-draft)
+34. Adding React to an existing page — lesson JSON available in the app (sample-draft)
 
-Scope sources: [React Installation](https://react.dev/learn/installation).
+Scope sources: [Installation](https://react.dev/learn/installation), [Build a React app from scratch](https://react.dev/learn/build-a-react-app-from-scratch), [Thinking in React](https://react.dev/learn/thinking-in-react), [Reacting to input with state](https://react.dev/learn/reacting-to-input-with-state), [Your first component](https://react.dev/learn/your-first-component), [Downloading and installing Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm/), [package.json](https://docs.npmjs.com/files/package.json/), [Getting Started](https://vite.dev/guide/), [Features](https://vite.dev/guide/features), [Specifying dependencies and devDependencies](https://docs.npmjs.com/specifying-dependencies-and-devdependencies-in-a-package-json-file/), [createRoot](https://react.dev/reference/react-dom/client/createRoot), [Building for Production](https://vite.dev/guide/build), [React Developer Tools](https://react.dev/learn/react-developer-tools), [Add React to an existing project](https://react.dev/learn/add-react-to-an-existing-project).
+
+Linked mini app: [First React learning workspace](MINI-APPS.md#first-react-workspace).
 
 ## 4. Components and JSX
 

@@ -1,0 +1,174 @@
+{
+  "schemaVersion": 1,
+  "id": "study-session-report",
+  "subjectId": "react",
+  "title": "Study session report",
+  "language": "en",
+  "status": "sample-draft",
+  "conceptTopicIds": [
+    "javascript-basics-values-types-and-coercion",
+    "javascript-basics-let-const-and-scope",
+    "javascript-basics-expressions-operators-and-equality",
+    "javascript-basics-conditionals-and-loops",
+    "javascript-basics-functions-declarations-and-arrows",
+    "javascript-basics-parameters-defaults-and-return-values",
+    "javascript-basics-objects-and-property-access",
+    "javascript-basics-arrays-and-iteration",
+    "javascript-basics-destructuring",
+    "javascript-basics-spread-and-rest",
+    "javascript-basics-map-filter-find-and-reduce",
+    "javascript-basics-modules-import-and-export",
+    "javascript-basics-closures-and-lexical-scope",
+    "javascript-basics-references-mutation-and-shallow-copy",
+    "javascript-basics-optional-chaining-and-nullish-coalescing",
+    "javascript-basics-promises-async-await-and-errors",
+    "javascript-basics-event-loop-and-timers",
+    "javascript-basics-fetch-json-and-http",
+    "javascript-basics-exceptions-and-debugging"
+  ],
+  "prerequisiteTopicIds": [
+    "web-basics-browser-devtools-and-console"
+  ],
+  "goal": "Build a plain JavaScript module that validates study-session data, summarizes progress, formats a report, and loads optional remote sessions.",
+  "sourceIds": [
+    "mdn-js-grammar",
+    "mdn-js-data",
+    "mdn-js-expressions",
+    "mdn-js-control",
+    "mdn-js-loops",
+    "mdn-js-functions",
+    "mdn-js-objects",
+    "mdn-js-arrays",
+    "mdn-destructuring",
+    "mdn-spread",
+    "mdn-js-modules",
+    "mdn-js-closures",
+    "mdn-optional-chaining",
+    "mdn-nullish",
+    "mdn-js-promises",
+    "mdn-js-execution",
+    "mdn-fetch",
+    "mdn-http-status"
+  ],
+  "requirements": [
+    "Keep sessions as an array of objects",
+    "Validate required values",
+    "Use pure functions for filtering and totals",
+    "Avoid mutating input data",
+    "Return useful empty and error states",
+    "Export the report functions as a module"
+  ],
+  "steps": [
+    {
+      "order": 1,
+      "title": "Model one session",
+      "task": "Create an object with topic, minutes, score, and completed.",
+      "code": "const session = { topic: \"Arrays\", minutes: 25, score: 80, completed: true };",
+      "kind": "js",
+      "check": "Every property has the intended type.",
+      "reason": "Clear values and object shape make later logic predictable."
+    },
+    {
+      "order": 2,
+      "title": "Validate the boundary",
+      "task": "Reject missing topic and invalid minutes.",
+      "code": "function isValidSession({ topic, minutes }) { return typeof topic === \"string\" && topic.trim() && Number.isFinite(minutes) && minutes >= 0; }",
+      "kind": "js",
+      "check": "Invalid or negative minutes return false.",
+      "reason": "Boundary validation prevents bad data from spreading."
+    },
+    {
+      "order": 3,
+      "title": "Select completed work",
+      "task": "Use filter without changing the input array.",
+      "code": "const completed = sessions => sessions.filter(session => session.completed);",
+      "kind": "js",
+      "check": "The result contains only completed sessions and the input is unchanged.",
+      "reason": "filter expresses selection and returns a new array."
+    },
+    {
+      "order": 4,
+      "title": "Calculate totals",
+      "task": "Reduce sessions into total minutes.",
+      "code": "const totalMinutes = sessions => sessions.reduce((total, session) => total + session.minutes, 0);",
+      "kind": "js",
+      "check": "An empty array returns 0.",
+      "reason": "The explicit initial value makes the empty case safe."
+    },
+    {
+      "order": 5,
+      "title": "Build an immutable summary",
+      "task": "Return a new summary object.",
+      "code": "const summarize = sessions => ({ count: sessions.length, minutes: totalMinutes(sessions), topics: sessions.map(({ topic }) => topic) });",
+      "kind": "js",
+      "check": "The function does not write to sessions.",
+      "reason": "A new result keeps data flow visible."
+    },
+    {
+      "order": 6,
+      "title": "Format missing values",
+      "task": "Use optional chaining and a nullish fallback.",
+      "code": "const learnerName = profile => profile?.name ?? \"Learner\";",
+      "kind": "js",
+      "check": "An empty string remains an empty string; null becomes Learner.",
+      "reason": "Nullish fallback preserves valid falsy values."
+    },
+    {
+      "order": 7,
+      "title": "Load remote data safely",
+      "task": "Fetch JSON and reject non-success status.",
+      "code": "async function loadSessions(url) { const response = await fetch(url); if (!response.ok) throw new Error(`HTTP ${response.status}`); return response.json(); }",
+      "kind": "js",
+      "check": "404 becomes a handled error rather than false success.",
+      "reason": "fetch needs an explicit HTTP status check."
+    },
+    {
+      "order": 8,
+      "title": "Test timing and errors",
+      "task": "Call the report from a timer and catch failures.",
+      "code": "setTimeout(() => loadSessions(\"/sessions.json\").then(summarize).then(console.log).catch(console.error), 0);",
+      "kind": "js",
+      "check": "Explain why the callback runs after current synchronous code.",
+      "reason": "The final step connects promises, timers, and error flow."
+    }
+  ],
+  "finalCode": "export function isValidSession({ topic, minutes }) {\n  return typeof topic === \"string\" && Boolean(topic.trim()) && Number.isFinite(minutes) && minutes >= 0;\n}\n\nexport const totalMinutes = sessions =>\n  sessions.reduce((total, session) => total + session.minutes, 0);\n\nexport function summarize(sessions = []) {\n  const valid = sessions.filter(isValidSession);\n  const completed = valid.filter(session => session.completed);\n  return {\n    count: valid.length,\n    completed: completed.length,\n    minutes: totalMinutes(valid),\n    topics: [...new Set(valid.map(({ topic }) => topic))],\n  };\n}\n\nexport async function loadSessions(url) {\n  const response = await fetch(url);\n  if (!response.ok) throw new Error(`Could not load sessions: HTTP ${response.status}`);\n  const data = await response.json();\n  if (!Array.isArray(data)) throw new TypeError(\"Expected an array of sessions\");\n  return data;\n}",
+  "languageCode": "js",
+  "finalFile": "study-session-report.js",
+  "acceptanceScenarios": [
+    {
+      "given": "No sessions",
+      "when": "summarize runs",
+      "then": "All numeric totals are zero and topics is empty"
+    },
+    {
+      "given": "Mixed valid and invalid sessions",
+      "when": "summarize runs",
+      "then": "Only valid sessions contribute to the report"
+    },
+    {
+      "given": "Repeated topics",
+      "when": "summarize runs",
+      "then": "topics contains each topic once"
+    },
+    {
+      "given": "A 404 response",
+      "when": "loadSessions runs",
+      "then": "The returned promise rejects with the HTTP status"
+    }
+  ],
+  "relatedIdeaIds": [
+    "expense-summary",
+    "habit-streak-report"
+  ],
+  "extensions": [
+    "Group minutes by topic with reduce.",
+    "Add an AbortSignal to loadSessions.",
+    "Render the summary in a small React component after rebuilding it independently."
+  ],
+  "verification": {
+    "syntaxChecked": true,
+    "browserBehaviorChecked": false,
+    "serverInitialRenderChecked": false
+  }
+}

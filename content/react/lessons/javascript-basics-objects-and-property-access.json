@@ -1,0 +1,456 @@
+{
+  "schemaVersion": 1,
+  "id": "javascript-basics-objects-and-property-access",
+  "subjectId": "react",
+  "chapterId": "javascript-basics",
+  "title": "Objects and property access",
+  "language": "en",
+  "status": "sample-draft",
+  "reviewedAt": "2026-09-20",
+  "runtime": "Modern evergreen browser or Node.js with ES modules. Run fragments in browser DevTools or a small .js file unless the example says otherwise.",
+  "prerequisiteTopicIds": [
+    "javascript-basics-parameters-defaults-and-return-values"
+  ],
+  "estimatedMinutes": {
+    "firstPass": 45,
+    "practice": 55,
+    "project": 25
+  },
+  "objectives": [
+    {
+      "id": "model",
+      "text": "Use objects to group named values."
+    },
+    {
+      "id": "access",
+      "text": "Choose dot or bracket property access."
+    },
+    {
+      "id": "methods",
+      "text": "Understand methods and this at call time."
+    },
+    {
+      "id": "inspect",
+      "text": "Iterate own object data safely."
+    }
+  ],
+  "learningFlow": [
+    "Recall the prerequisite",
+    "Predict before running code",
+    "Read each concept explanation",
+    "Change a small example",
+    "Attempt practice before hints",
+    "Explain the result in your own words",
+    "Apply the idea in a different problem",
+    "Review after two and seven days"
+  ],
+  "diagnostic": [
+    {
+      "question": "Can you explain the main purpose of objects and property access before reading?",
+      "answer": "A complete answer should name the problem it solves, the values or control flow involved, and one mistake to avoid.",
+      "ifMissed": "javascript-basics-parameters-defaults-and-return-values"
+    }
+  ],
+  "sections": [
+    {
+      "id": "model",
+      "title": "Objects model named data",
+      "depth": "core",
+      "body": "An object groups properties under keys. Object literals are useful for records such as a user, product, or configuration. A property can hold any value, including another object or a function. Choose names that describe the domain rather than the current screen position.",
+      "sourceIds": [
+        "mdn-js-objects"
+      ],
+      "exampleIds": [
+        "example-1"
+      ],
+      "objectiveIds": [
+        "model"
+      ]
+    },
+    {
+      "id": "access",
+      "title": "Read and write properties",
+      "depth": "core",
+      "body": "Dot access is clear for a known valid identifier: user.name. Bracket access evaluates an expression and is required for dynamic keys or keys with spaces: user[field]. Reading a missing property returns undefined; following another property from that undefined value throws unless you check it.",
+      "sourceIds": [
+        "mdn-js-objects"
+      ],
+      "exampleIds": [
+        "example-2"
+      ],
+      "objectiveIds": [
+        "access"
+      ]
+    },
+    {
+      "id": "methods",
+      "title": "Methods are function properties",
+      "depth": "core",
+      "body": "A method is a function stored in a property. In account.deposit(), normal method syntax can read this as account because of the call form. If the method is detached and called alone, that connection is lost. Prefer explicit parameters when shared behavior does not need receiver state.",
+      "sourceIds": [
+        "mdn-js-objects"
+      ],
+      "exampleIds": [
+        "example-3"
+      ],
+      "objectiveIds": [
+        "methods"
+      ]
+    },
+    {
+      "id": "inspect",
+      "title": "Keys, values, and entries",
+      "depth": "core",
+      "body": "Object.keys returns own enumerable string keys, Object.values returns values, and Object.entries returns key-value pairs. These produce arrays and can be mapped or filtered. Do not use for...in blindly when inherited enumerable properties would be a problem.",
+      "sourceIds": [
+        "mdn-js-objects"
+      ],
+      "exampleIds": [],
+      "objectiveIds": [
+        "inspect"
+      ]
+    },
+    {
+      "id": "react-connection",
+      "title": "Why this matters in React",
+      "depth": "deeper",
+      "body": "Objects and property access is part of the JavaScript model React code already uses. Components, event handlers, state updates, list rendering, and data requests become easier to reason about when this concept is understood without framework shortcuts. Practise the JavaScript behavior first, then identify the same rule in JSX or a component.",
+      "sourceIds": [
+        "mdn-js-objects"
+      ],
+      "exampleIds": [],
+      "objectiveIds": [
+        "model",
+        "access",
+        "methods",
+        "inspect"
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "id": "example-1",
+      "title": "Apply: Objects model named data",
+      "kind": "fragment",
+      "language": "js",
+      "depth": "core",
+      "code": "const course = { title: \"React\", lessons: 19 };\nconsole.log(course.title);",
+      "explanation": "This small example gives you a safe place to inspect values while practising this objective: Use objects to group named values.",
+      "tryThis": "Replace the sample with a real objects and property access case from the explanation. Predict every logged value before running it.",
+      "sourceIds": [
+        "mdn-js-objects"
+      ]
+    },
+    {
+      "id": "example-2",
+      "title": "Apply: Read and write properties",
+      "kind": "fragment",
+      "language": "js",
+      "depth": "deeper",
+      "code": "const field = \"lessons\";\nconsole.log(course[field]);",
+      "explanation": "This small example gives you a safe place to inspect values while practising this objective: Choose dot or bracket property access.",
+      "tryThis": "Replace the sample with a real objects and property access case from the explanation. Predict every logged value before running it.",
+      "sourceIds": [
+        "mdn-js-objects"
+      ]
+    },
+    {
+      "id": "example-3",
+      "title": "Apply: Methods are function properties",
+      "kind": "fragment",
+      "language": "js",
+      "depth": "deeper",
+      "code": "for (const [key, value] of Object.entries(course)) {\n  console.log(key, value);\n}",
+      "explanation": "This small example gives you a safe place to inspect values while practising this objective: Understand methods and this at call time.",
+      "tryThis": "Replace the sample with a real objects and property access case from the explanation. Predict every logged value before running it.",
+      "sourceIds": [
+        "mdn-js-objects"
+      ]
+    }
+  ],
+  "practice": [
+    {
+      "id": "p01",
+      "type": "predict",
+      "difficulty": "beginner",
+      "prompt": "Write one short code example for “Objects model named data”. Predict each result before running it.",
+      "hints": [
+        "Return to the “Objects model named data” explanation and identify the exact rule before writing code."
+      ],
+      "acceptanceCriteria": [
+        "The attempt uses valid JavaScript.",
+        "The written prediction or explanation matches the observed behavior.",
+        "The answer names the rule that makes the result happen."
+      ],
+      "objectiveIds": [
+        "model"
+      ],
+      "sourceIds": [
+        "mdn-js-objects"
+      ],
+      "solution": {
+        "explanation": "A valid answer must demonstrate this rule: Use objects to group named values. The exact names and sample values may differ. Compare behavior and reasoning, not surface syntax.",
+        "code": "// One possible checking structure\nconst prediction = \"Write the expected result first\";\nconsole.log(prediction);",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p02",
+      "type": "build",
+      "difficulty": "beginner",
+      "prompt": "Build a small function or data example that proves this objective: Choose dot or bracket property access.",
+      "hints": [
+        "Return to the “Read and write properties” explanation and identify the exact rule before writing code."
+      ],
+      "acceptanceCriteria": [
+        "The attempt uses valid JavaScript.",
+        "The written prediction or explanation matches the observed behavior.",
+        "The answer names the rule that makes the result happen."
+      ],
+      "objectiveIds": [
+        "access"
+      ],
+      "sourceIds": [
+        "mdn-js-objects"
+      ],
+      "solution": {
+        "explanation": "A valid answer must demonstrate this rule: Choose dot or bracket property access. The exact names and sample values may differ. Compare behavior and reasoning, not surface syntax.",
+        "code": "// One possible checking structure\nconst prediction = \"Write the expected result first\";\nconsole.log(prediction);",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p03",
+      "type": "debug",
+      "difficulty": "intermediate",
+      "prompt": "Create a deliberate objects and property access mistake, record the symptom, and repair the cause.",
+      "hints": [
+        "Return to the “Methods are function properties” explanation and identify the exact rule before writing code."
+      ],
+      "acceptanceCriteria": [
+        "The attempt uses valid JavaScript.",
+        "The written prediction or explanation matches the observed behavior.",
+        "The answer names the rule that makes the result happen."
+      ],
+      "objectiveIds": [
+        "methods"
+      ],
+      "sourceIds": [
+        "mdn-js-objects"
+      ],
+      "solution": {
+        "explanation": "A valid answer must demonstrate this rule: Understand methods and this at call time. The exact names and sample values may differ. Compare behavior and reasoning, not surface syntax.",
+        "code": "// One possible checking structure\nconst prediction = \"Write the expected result first\";\nconsole.log(prediction);",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p04",
+      "type": "transfer",
+      "difficulty": "intermediate",
+      "prompt": "Use keys, values, and entries in a different example from this lesson and explain why your choice is correct.",
+      "hints": [
+        "Return to the “Keys, values, and entries” explanation and identify the exact rule before writing code."
+      ],
+      "acceptanceCriteria": [
+        "The attempt uses valid JavaScript.",
+        "The written prediction or explanation matches the observed behavior.",
+        "The answer names the rule that makes the result happen."
+      ],
+      "objectiveIds": [
+        "inspect"
+      ],
+      "sourceIds": [
+        "mdn-js-objects"
+      ],
+      "solution": {
+        "explanation": "A valid answer must demonstrate this rule: Iterate own object data safely. The exact names and sample values may differ. Compare behavior and reasoning, not surface syntax.",
+        "code": "// One possible checking structure\nconst prediction = \"Write the expected result first\";\nconsole.log(prediction);",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p05",
+      "type": "explain-and-build",
+      "difficulty": "advanced",
+      "prompt": "Build one small example that combines two ideas from objects and property access, then explain every important value or control-flow step.",
+      "hints": [
+        "Choose two objectives from What you will learn and write the expected result before running the code."
+      ],
+      "acceptanceCriteria": [
+        "The example combines two lesson objectives.",
+        "The learner predicts the result before running it.",
+        "The explanation names both JavaScript rules and one edge case."
+      ],
+      "objectiveIds": [
+        "model",
+        "access"
+      ],
+      "sourceIds": [
+        "mdn-js-objects"
+      ],
+      "solution": {
+        "explanation": "A valid solution combines any two stated objectives in one coherent example, predicts its behavior, and explains both rules. Reusing the lesson sample without changing the problem does not meet the transfer goal.",
+        "code": "// Design your own example first.\n// Then record prediction, actual result, and explanation.",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    }
+  ],
+  "interviewQuestions": [
+    {
+      "id": "concept",
+      "question": "Explain objects and property access to a junior developer.",
+      "answer": "Use objects to group named values. Choose dot or bracket property access. Understand methods and this at call time. Iterate own object data safely.",
+      "followUp": "Show a small example and one common mistake.",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "mdn-js-objects"
+      ]
+    },
+    {
+      "id": "reasoning",
+      "question": "How would you prove that code using objects and property access behaves correctly?",
+      "answer": "State the expected value or control flow first, test normal and boundary cases, and inspect the actual runtime result. Explain the JavaScript rule behind the evidence.",
+      "followUp": "Which edge case would you test first?",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "mdn-js-objects"
+      ]
+    },
+    {
+      "id": "react-link",
+      "question": "Where can objects and property access affect React code?",
+      "answer": "It can affect values, callbacks, rendering decisions, updates, or data flow. The exact connection depends on the concept; the important step is to reason from JavaScript behavior before blaming React.",
+      "followUp": "Give one component-level example.",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "mdn-js-objects"
+      ]
+    }
+  ],
+  "miniAppIds": [
+    "study-session-report"
+  ],
+  "mastery": {
+    "status": "not-assessed",
+    "policy": "Reading or opening a solution is guided exposure, not mastery. Save an attempt, solve again without help, explain the rule, and transfer it to a new problem.",
+    "checks": [
+      {
+        "id": "explain",
+        "evidence": "Explain all four objects and property access objectives without the lesson.",
+        "pass": "Every objective is accurate and includes a small example."
+      },
+      {
+        "id": "solve",
+        "evidence": "Complete four exercises before opening solutions.",
+        "pass": "The code works and the explanation matches the observed result."
+      },
+      {
+        "id": "transfer",
+        "evidence": "Use the concept in a fresh React-related or plain JavaScript problem.",
+        "pass": "The learner can defend the chosen syntax and handle one edge case."
+      }
+    ],
+    "reviewSchedule": {
+      "note": "Answer before reopening the lesson.",
+      "sessions": [
+        {
+          "dayOffset": 2,
+          "problems": [
+            {
+              "id": "recall",
+              "prompt": "Write the four main rules of Objects and property access.",
+              "solution": "Use objects to group named values. Choose dot or bracket property access. Understand methods and this at call time. Iterate own object data safely."
+            },
+            {
+              "id": "repair",
+              "prompt": "Recreate and repair one common mistake from memory.",
+              "solution": "Name the symptom, the JavaScript rule that caused it, and the smallest correct repair."
+            }
+          ]
+        },
+        {
+          "dayOffset": 7,
+          "problems": [
+            {
+              "id": "teach",
+              "prompt": "Teach objects and property access with one new example.",
+              "solution": "Define it, demonstrate it, predict the result, and explain one boundary case."
+            },
+            {
+              "id": "apply",
+              "prompt": "Use the concept in a different data or UI problem.",
+              "solution": "The new solution should rely on the same rule and be explained without copying the lesson."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "sourceIds": [
+    "mdn-js-objects"
+  ],
+  "commonMistakes": [
+    {
+      "symptom": "Code using objects and property access produces a surprising value.",
+      "cause": "The result was run before the value, type, scope, identity, or control flow was predicted.",
+      "fix": "Reduce the case, write the expected result, and apply the exact rule from the matching section."
+    },
+    {
+      "symptom": "A learner copies syntax but cannot adapt it.",
+      "cause": "The example was memorized without explaining why it works.",
+      "fix": "Change the data and names, predict again, and explain which behavior must stay the same."
+    },
+    {
+      "symptom": "A React problem is blamed on React immediately.",
+      "cause": "The underlying JavaScript behavior was not isolated first.",
+      "fix": "Reproduce the value or function behavior in a small JavaScript example, then reconnect it to the component."
+    }
+  ],
+  "publicationChecklist": {
+    "authored": true,
+    "sourcesReviewed": true,
+    "codeSyntaxChecked": true,
+    "serverInitialRenderChecked": false,
+    "browserBehaviorChecked": false,
+    "independentContentReview": false,
+    "learnerTrial": false,
+    "note": "Concept-complete draft. Keep sample-draft until examples receive full browser checks, independent content review, and a learner trial."
+  }
+}

@@ -1,0 +1,456 @@
+{
+  "schemaVersion": 1,
+  "id": "javascript-basics-functions-declarations-and-arrows",
+  "subjectId": "react",
+  "chapterId": "javascript-basics",
+  "title": "Function declarations and arrow functions",
+  "language": "en",
+  "status": "sample-draft",
+  "reviewedAt": "2026-09-20",
+  "runtime": "Modern evergreen browser or Node.js with ES modules. Run fragments in browser DevTools or a small .js file unless the example says otherwise.",
+  "prerequisiteTopicIds": [
+    "javascript-basics-conditionals-and-loops"
+  ],
+  "estimatedMinutes": {
+    "firstPass": 45,
+    "practice": 55,
+    "project": 25
+  },
+  "objectives": [
+    {
+      "id": "purpose",
+      "text": "Explain what a function receives, does, and returns."
+    },
+    {
+      "id": "forms",
+      "text": "Write declarations, expressions, and arrow functions."
+    },
+    {
+      "id": "this",
+      "text": "Understand the important arrow-function difference."
+    },
+    {
+      "id": "callback",
+      "text": "Pass a function without calling it early."
+    }
+  ],
+  "learningFlow": [
+    "Recall the prerequisite",
+    "Predict before running code",
+    "Read each concept explanation",
+    "Change a small example",
+    "Attempt practice before hints",
+    "Explain the result in your own words",
+    "Apply the idea in a different problem",
+    "Review after two and seven days"
+  ],
+  "diagnostic": [
+    {
+      "question": "Can you explain the main purpose of function declarations and arrow functions before reading?",
+      "answer": "A complete answer should name the problem it solves, the values or control flow involved, and one mistake to avoid.",
+      "ifMissed": "javascript-basics-conditionals-and-loops"
+    }
+  ],
+  "sections": [
+    {
+      "id": "purpose",
+      "title": "Functions package behavior",
+      "depth": "core",
+      "body": "A function gives a reusable name to a calculation or action. Its inputs are parameters, the supplied values are arguments, and return sends a result to the caller. A small function with one clear job is easier to test and reuse than repeated inline logic.",
+      "sourceIds": [
+        "mdn-js-functions"
+      ],
+      "exampleIds": [
+        "example-1"
+      ],
+      "objectiveIds": [
+        "purpose"
+      ]
+    },
+    {
+      "id": "forms",
+      "title": "Three common function forms",
+      "depth": "core",
+      "body": "A declaration uses function name() and is available throughout its scope. A function expression stores a function value in a binding. An arrow function is shorter and is common for callbacks; a concise arrow returns its expression automatically, while a block body needs an explicit return.",
+      "sourceIds": [
+        "mdn-js-functions"
+      ],
+      "exampleIds": [
+        "example-2"
+      ],
+      "objectiveIds": [
+        "forms"
+      ]
+    },
+    {
+      "id": "this",
+      "title": "Arrow functions do not create this",
+      "depth": "core",
+      "body": "A normal function’s this depends on how it is called. An arrow function captures this from the surrounding scope and cannot be used as a constructor. This makes arrows useful for callbacks, but a method that needs the receiving object may need normal method syntax.",
+      "sourceIds": [
+        "mdn-js-functions"
+      ],
+      "exampleIds": [
+        "example-3"
+      ],
+      "objectiveIds": [
+        "this"
+      ]
+    },
+    {
+      "id": "callback",
+      "title": "Functions are values",
+      "depth": "core",
+      "body": "JavaScript functions can be stored, passed, and returned. addEventListener(\"click\", save) passes save for later; addEventListener(\"click\", save()) calls it now and passes its result. React event props use the same distinction.",
+      "sourceIds": [
+        "mdn-js-functions"
+      ],
+      "exampleIds": [],
+      "objectiveIds": [
+        "callback"
+      ]
+    },
+    {
+      "id": "react-connection",
+      "title": "Why this matters in React",
+      "depth": "deeper",
+      "body": "Function declarations and arrow functions is part of the JavaScript model React code already uses. Components, event handlers, state updates, list rendering, and data requests become easier to reason about when this concept is understood without framework shortcuts. Practise the JavaScript behavior first, then identify the same rule in JSX or a component.",
+      "sourceIds": [
+        "mdn-js-functions"
+      ],
+      "exampleIds": [],
+      "objectiveIds": [
+        "purpose",
+        "forms",
+        "this",
+        "callback"
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "id": "example-1",
+      "title": "Apply: Functions package behavior",
+      "kind": "fragment",
+      "language": "js",
+      "depth": "core",
+      "code": "function double(value) {\n  return value * 2;\n}\nconsole.log(double(4));",
+      "explanation": "This small example gives you a safe place to inspect values while practising this objective: Explain what a function receives, does, and returns.",
+      "tryThis": "Replace the sample with a real function declarations and arrow functions case from the explanation. Predict every logged value before running it.",
+      "sourceIds": [
+        "mdn-js-functions"
+      ]
+    },
+    {
+      "id": "example-2",
+      "title": "Apply: Three common function forms",
+      "kind": "fragment",
+      "language": "js",
+      "depth": "deeper",
+      "code": "const square = value => value * value;\nconsole.log(square(5));",
+      "explanation": "This small example gives you a safe place to inspect values while practising this objective: Write declarations, expressions, and arrow functions.",
+      "tryThis": "Replace the sample with a real function declarations and arrow functions case from the explanation. Predict every logged value before running it.",
+      "sourceIds": [
+        "mdn-js-functions"
+      ]
+    },
+    {
+      "id": "example-3",
+      "title": "Apply: Arrow functions do not create this",
+      "kind": "fragment",
+      "language": "js",
+      "depth": "deeper",
+      "code": "const runLater = callback => callback();\nrunLater(() => console.log(\"Now\"));",
+      "explanation": "This small example gives you a safe place to inspect values while practising this objective: Understand the important arrow-function difference.",
+      "tryThis": "Replace the sample with a real function declarations and arrow functions case from the explanation. Predict every logged value before running it.",
+      "sourceIds": [
+        "mdn-js-functions"
+      ]
+    }
+  ],
+  "practice": [
+    {
+      "id": "p01",
+      "type": "predict",
+      "difficulty": "beginner",
+      "prompt": "Write one short code example for “Functions package behavior”. Predict each result before running it.",
+      "hints": [
+        "Return to the “Functions package behavior” explanation and identify the exact rule before writing code."
+      ],
+      "acceptanceCriteria": [
+        "The attempt uses valid JavaScript.",
+        "The written prediction or explanation matches the observed behavior.",
+        "The answer names the rule that makes the result happen."
+      ],
+      "objectiveIds": [
+        "purpose"
+      ],
+      "sourceIds": [
+        "mdn-js-functions"
+      ],
+      "solution": {
+        "explanation": "A valid answer must demonstrate this rule: Explain what a function receives, does, and returns. The exact names and sample values may differ. Compare behavior and reasoning, not surface syntax.",
+        "code": "// One possible checking structure\nconst prediction = \"Write the expected result first\";\nconsole.log(prediction);",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p02",
+      "type": "build",
+      "difficulty": "beginner",
+      "prompt": "Build a small function or data example that proves this objective: Write declarations, expressions, and arrow functions.",
+      "hints": [
+        "Return to the “Three common function forms” explanation and identify the exact rule before writing code."
+      ],
+      "acceptanceCriteria": [
+        "The attempt uses valid JavaScript.",
+        "The written prediction or explanation matches the observed behavior.",
+        "The answer names the rule that makes the result happen."
+      ],
+      "objectiveIds": [
+        "forms"
+      ],
+      "sourceIds": [
+        "mdn-js-functions"
+      ],
+      "solution": {
+        "explanation": "A valid answer must demonstrate this rule: Write declarations, expressions, and arrow functions. The exact names and sample values may differ. Compare behavior and reasoning, not surface syntax.",
+        "code": "// One possible checking structure\nconst prediction = \"Write the expected result first\";\nconsole.log(prediction);",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p03",
+      "type": "debug",
+      "difficulty": "intermediate",
+      "prompt": "Create a deliberate function declarations and arrow functions mistake, record the symptom, and repair the cause.",
+      "hints": [
+        "Return to the “Arrow functions do not create this” explanation and identify the exact rule before writing code."
+      ],
+      "acceptanceCriteria": [
+        "The attempt uses valid JavaScript.",
+        "The written prediction or explanation matches the observed behavior.",
+        "The answer names the rule that makes the result happen."
+      ],
+      "objectiveIds": [
+        "this"
+      ],
+      "sourceIds": [
+        "mdn-js-functions"
+      ],
+      "solution": {
+        "explanation": "A valid answer must demonstrate this rule: Understand the important arrow-function difference. The exact names and sample values may differ. Compare behavior and reasoning, not surface syntax.",
+        "code": "// One possible checking structure\nconst prediction = \"Write the expected result first\";\nconsole.log(prediction);",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p04",
+      "type": "transfer",
+      "difficulty": "intermediate",
+      "prompt": "Use functions are values in a different example from this lesson and explain why your choice is correct.",
+      "hints": [
+        "Return to the “Functions are values” explanation and identify the exact rule before writing code."
+      ],
+      "acceptanceCriteria": [
+        "The attempt uses valid JavaScript.",
+        "The written prediction or explanation matches the observed behavior.",
+        "The answer names the rule that makes the result happen."
+      ],
+      "objectiveIds": [
+        "callback"
+      ],
+      "sourceIds": [
+        "mdn-js-functions"
+      ],
+      "solution": {
+        "explanation": "A valid answer must demonstrate this rule: Pass a function without calling it early. The exact names and sample values may differ. Compare behavior and reasoning, not surface syntax.",
+        "code": "// One possible checking structure\nconst prediction = \"Write the expected result first\";\nconsole.log(prediction);",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p05",
+      "type": "explain-and-build",
+      "difficulty": "advanced",
+      "prompt": "Build one small example that combines two ideas from function declarations and arrow functions, then explain every important value or control-flow step.",
+      "hints": [
+        "Choose two objectives from What you will learn and write the expected result before running the code."
+      ],
+      "acceptanceCriteria": [
+        "The example combines two lesson objectives.",
+        "The learner predicts the result before running it.",
+        "The explanation names both JavaScript rules and one edge case."
+      ],
+      "objectiveIds": [
+        "purpose",
+        "forms"
+      ],
+      "sourceIds": [
+        "mdn-js-functions"
+      ],
+      "solution": {
+        "explanation": "A valid solution combines any two stated objectives in one coherent example, predicts its behavior, and explains both rules. Reusing the lesson sample without changing the problem does not meet the transfer goal.",
+        "code": "// Design your own example first.\n// Then record prediction, actual result, and explanation.",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    }
+  ],
+  "interviewQuestions": [
+    {
+      "id": "concept",
+      "question": "Explain function declarations and arrow functions to a junior developer.",
+      "answer": "Explain what a function receives, does, and returns. Write declarations, expressions, and arrow functions. Understand the important arrow-function difference. Pass a function without calling it early.",
+      "followUp": "Show a small example and one common mistake.",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "mdn-js-functions"
+      ]
+    },
+    {
+      "id": "reasoning",
+      "question": "How would you prove that code using function declarations and arrow functions behaves correctly?",
+      "answer": "State the expected value or control flow first, test normal and boundary cases, and inspect the actual runtime result. Explain the JavaScript rule behind the evidence.",
+      "followUp": "Which edge case would you test first?",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "mdn-js-functions"
+      ]
+    },
+    {
+      "id": "react-link",
+      "question": "Where can function declarations and arrow functions affect React code?",
+      "answer": "It can affect values, callbacks, rendering decisions, updates, or data flow. The exact connection depends on the concept; the important step is to reason from JavaScript behavior before blaming React.",
+      "followUp": "Give one component-level example.",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "mdn-js-functions"
+      ]
+    }
+  ],
+  "miniAppIds": [
+    "study-session-report"
+  ],
+  "mastery": {
+    "status": "not-assessed",
+    "policy": "Reading or opening a solution is guided exposure, not mastery. Save an attempt, solve again without help, explain the rule, and transfer it to a new problem.",
+    "checks": [
+      {
+        "id": "explain",
+        "evidence": "Explain all four function declarations and arrow functions objectives without the lesson.",
+        "pass": "Every objective is accurate and includes a small example."
+      },
+      {
+        "id": "solve",
+        "evidence": "Complete four exercises before opening solutions.",
+        "pass": "The code works and the explanation matches the observed result."
+      },
+      {
+        "id": "transfer",
+        "evidence": "Use the concept in a fresh React-related or plain JavaScript problem.",
+        "pass": "The learner can defend the chosen syntax and handle one edge case."
+      }
+    ],
+    "reviewSchedule": {
+      "note": "Answer before reopening the lesson.",
+      "sessions": [
+        {
+          "dayOffset": 2,
+          "problems": [
+            {
+              "id": "recall",
+              "prompt": "Write the four main rules of Function declarations and arrow functions.",
+              "solution": "Explain what a function receives, does, and returns. Write declarations, expressions, and arrow functions. Understand the important arrow-function difference. Pass a function without calling it early."
+            },
+            {
+              "id": "repair",
+              "prompt": "Recreate and repair one common mistake from memory.",
+              "solution": "Name the symptom, the JavaScript rule that caused it, and the smallest correct repair."
+            }
+          ]
+        },
+        {
+          "dayOffset": 7,
+          "problems": [
+            {
+              "id": "teach",
+              "prompt": "Teach function declarations and arrow functions with one new example.",
+              "solution": "Define it, demonstrate it, predict the result, and explain one boundary case."
+            },
+            {
+              "id": "apply",
+              "prompt": "Use the concept in a different data or UI problem.",
+              "solution": "The new solution should rely on the same rule and be explained without copying the lesson."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "sourceIds": [
+    "mdn-js-functions"
+  ],
+  "commonMistakes": [
+    {
+      "symptom": "Code using function declarations and arrow functions produces a surprising value.",
+      "cause": "The result was run before the value, type, scope, identity, or control flow was predicted.",
+      "fix": "Reduce the case, write the expected result, and apply the exact rule from the matching section."
+    },
+    {
+      "symptom": "A learner copies syntax but cannot adapt it.",
+      "cause": "The example was memorized without explaining why it works.",
+      "fix": "Change the data and names, predict again, and explain which behavior must stay the same."
+    },
+    {
+      "symptom": "A React problem is blamed on React immediately.",
+      "cause": "The underlying JavaScript behavior was not isolated first.",
+      "fix": "Reproduce the value or function behavior in a small JavaScript example, then reconnect it to the component."
+    }
+  ],
+  "publicationChecklist": {
+    "authored": true,
+    "sourcesReviewed": true,
+    "codeSyntaxChecked": true,
+    "serverInitialRenderChecked": false,
+    "browserBehaviorChecked": false,
+    "independentContentReview": false,
+    "learnerTrial": false,
+    "note": "Concept-complete draft. Keep sample-draft until examples receive full browser checks, independent content review, and a learner trial."
+  }
+}

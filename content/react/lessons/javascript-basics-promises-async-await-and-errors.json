@@ -1,0 +1,473 @@
+{
+  "schemaVersion": 1,
+  "id": "javascript-basics-promises-async-await-and-errors",
+  "subjectId": "react",
+  "chapterId": "javascript-basics",
+  "title": "Promises, async/await, and errors",
+  "language": "en",
+  "status": "sample-draft",
+  "reviewedAt": "2026-09-20",
+  "runtime": "Modern evergreen browser or Node.js with ES modules. Run fragments in browser DevTools or a small .js file unless the example says otherwise.",
+  "prerequisiteTopicIds": [
+    "javascript-basics-optional-chaining-and-nullish-coalescing"
+  ],
+  "estimatedMinutes": {
+    "firstPass": 45,
+    "practice": 55,
+    "project": 25
+  },
+  "objectives": [
+    {
+      "id": "promise",
+      "text": "Explain pending, fulfilled, and rejected promises."
+    },
+    {
+      "id": "chain",
+      "text": "Return promises from chains."
+    },
+    {
+      "id": "await",
+      "text": "Use async and await as promise syntax."
+    },
+    {
+      "id": "errors",
+      "text": "Handle errors at a useful boundary."
+    }
+  ],
+  "learningFlow": [
+    "Recall the prerequisite",
+    "Predict before running code",
+    "Read each concept explanation",
+    "Change a small example",
+    "Attempt practice before hints",
+    "Explain the result in your own words",
+    "Apply the idea in a different problem",
+    "Review after two and seven days"
+  ],
+  "diagnostic": [
+    {
+      "question": "Can you explain the main purpose of promises, async/await, and errors before reading?",
+      "answer": "A complete answer should name the problem it solves, the values or control flow involved, and one mistake to avoid.",
+      "ifMissed": "javascript-basics-optional-chaining-and-nullish-coalescing"
+    }
+  ],
+  "sections": [
+    {
+      "id": "promise",
+      "title": "A promise represents a later result",
+      "depth": "core",
+      "body": "A promise begins pending and later becomes fulfilled with a value or rejected with a reason. then registers success work, catch registers rejection work, and finally runs cleanup that should not depend on the result. Calling then returns a new promise, which is why chains can transform values and propagate errors.",
+      "sourceIds": [
+        "mdn-js-promises",
+        "mdn-js-control"
+      ],
+      "exampleIds": [
+        "example-1"
+      ],
+      "objectiveIds": [
+        "promise"
+      ]
+    },
+    {
+      "id": "chain",
+      "title": "A chain follows returned values",
+      "depth": "core",
+      "body": "A then callback can return a normal value for the next step or return a promise that the chain waits for. Forgetting to return an inner promise starts detached work, so later errors and completion are no longer connected to the chain. Add one final catch where recovery or reporting belongs.",
+      "sourceIds": [
+        "mdn-js-promises",
+        "mdn-js-control"
+      ],
+      "exampleIds": [
+        "example-2"
+      ],
+      "objectiveIds": [
+        "chain"
+      ]
+    },
+    {
+      "id": "await",
+      "title": "await pauses one async function",
+      "depth": "core",
+      "body": "An async function always returns a promise. await pauses that async function until the awaited promise settles; it does not block the whole JavaScript runtime. Independent operations can begin together and be awaited with Promise.all, while dependent operations should remain ordered.",
+      "sourceIds": [
+        "mdn-js-promises",
+        "mdn-js-control"
+      ],
+      "exampleIds": [
+        "example-3"
+      ],
+      "objectiveIds": [
+        "await"
+      ]
+    },
+    {
+      "id": "errors",
+      "title": "try, catch, and finally",
+      "depth": "core",
+      "body": "try/catch around awaited work can handle a rejection. Catch an error only when you can recover, add useful context, or report it; otherwise rethrow it. finally is useful for cleanup such as clearing a loading flag, and it runs whether the operation succeeds or fails.",
+      "sourceIds": [
+        "mdn-js-promises",
+        "mdn-js-control"
+      ],
+      "exampleIds": [],
+      "objectiveIds": [
+        "errors"
+      ]
+    },
+    {
+      "id": "react-connection",
+      "title": "Why this matters in React",
+      "depth": "deeper",
+      "body": "Promises, async/await, and errors is part of the JavaScript model React code already uses. Components, event handlers, state updates, list rendering, and data requests become easier to reason about when this concept is understood without framework shortcuts. Practise the JavaScript behavior first, then identify the same rule in JSX or a component.",
+      "sourceIds": [
+        "mdn-js-promises",
+        "mdn-js-control"
+      ],
+      "exampleIds": [],
+      "objectiveIds": [
+        "promise",
+        "chain",
+        "await",
+        "errors"
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "id": "example-1",
+      "title": "Apply: A promise represents a later result",
+      "kind": "fragment",
+      "language": "js",
+      "depth": "core",
+      "code": "Promise.resolve(4)\n  .then(value => value * 2)\n  .then(console.log)\n  .catch(console.error);",
+      "explanation": "This small example gives you a safe place to inspect values while practising this objective: Explain pending, fulfilled, and rejected promises.",
+      "tryThis": "Replace the sample with a real promises, async/await, and errors case from the explanation. Predict every logged value before running it.",
+      "sourceIds": [
+        "mdn-js-promises",
+        "mdn-js-control"
+      ]
+    },
+    {
+      "id": "example-2",
+      "title": "Apply: A chain follows returned values",
+      "kind": "fragment",
+      "language": "js",
+      "depth": "deeper",
+      "code": "async function load() {\n  const value = await Promise.resolve(\"ready\");\n  return value;\n}",
+      "explanation": "This small example gives you a safe place to inspect values while practising this objective: Return promises from chains.",
+      "tryThis": "Replace the sample with a real promises, async/await, and errors case from the explanation. Predict every logged value before running it.",
+      "sourceIds": [
+        "mdn-js-promises",
+        "mdn-js-control"
+      ]
+    },
+    {
+      "id": "example-3",
+      "title": "Apply: await pauses one async function",
+      "kind": "fragment",
+      "language": "js",
+      "depth": "deeper",
+      "code": "async function run() {\n  try { return await load(); }\n  catch (error) { console.error(error); throw error; }\n}",
+      "explanation": "This small example gives you a safe place to inspect values while practising this objective: Use async and await as promise syntax.",
+      "tryThis": "Replace the sample with a real promises, async/await, and errors case from the explanation. Predict every logged value before running it.",
+      "sourceIds": [
+        "mdn-js-promises",
+        "mdn-js-control"
+      ]
+    }
+  ],
+  "practice": [
+    {
+      "id": "p01",
+      "type": "predict",
+      "difficulty": "beginner",
+      "prompt": "Write one short code example for “A promise represents a later result”. Predict each result before running it.",
+      "hints": [
+        "Return to the “A promise represents a later result” explanation and identify the exact rule before writing code."
+      ],
+      "acceptanceCriteria": [
+        "The attempt uses valid JavaScript.",
+        "The written prediction or explanation matches the observed behavior.",
+        "The answer names the rule that makes the result happen."
+      ],
+      "objectiveIds": [
+        "promise"
+      ],
+      "sourceIds": [
+        "mdn-js-promises",
+        "mdn-js-control"
+      ],
+      "solution": {
+        "explanation": "A valid answer must demonstrate this rule: Explain pending, fulfilled, and rejected promises. The exact names and sample values may differ. Compare behavior and reasoning, not surface syntax.",
+        "code": "// One possible checking structure\nconst prediction = \"Write the expected result first\";\nconsole.log(prediction);",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p02",
+      "type": "build",
+      "difficulty": "beginner",
+      "prompt": "Build a small function or data example that proves this objective: Return promises from chains.",
+      "hints": [
+        "Return to the “A chain follows returned values” explanation and identify the exact rule before writing code."
+      ],
+      "acceptanceCriteria": [
+        "The attempt uses valid JavaScript.",
+        "The written prediction or explanation matches the observed behavior.",
+        "The answer names the rule that makes the result happen."
+      ],
+      "objectiveIds": [
+        "chain"
+      ],
+      "sourceIds": [
+        "mdn-js-promises",
+        "mdn-js-control"
+      ],
+      "solution": {
+        "explanation": "A valid answer must demonstrate this rule: Return promises from chains. The exact names and sample values may differ. Compare behavior and reasoning, not surface syntax.",
+        "code": "// One possible checking structure\nconst prediction = \"Write the expected result first\";\nconsole.log(prediction);",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p03",
+      "type": "debug",
+      "difficulty": "intermediate",
+      "prompt": "Create a deliberate promises, async/await, and errors mistake, record the symptom, and repair the cause.",
+      "hints": [
+        "Return to the “await pauses one async function” explanation and identify the exact rule before writing code."
+      ],
+      "acceptanceCriteria": [
+        "The attempt uses valid JavaScript.",
+        "The written prediction or explanation matches the observed behavior.",
+        "The answer names the rule that makes the result happen."
+      ],
+      "objectiveIds": [
+        "await"
+      ],
+      "sourceIds": [
+        "mdn-js-promises",
+        "mdn-js-control"
+      ],
+      "solution": {
+        "explanation": "A valid answer must demonstrate this rule: Use async and await as promise syntax. The exact names and sample values may differ. Compare behavior and reasoning, not surface syntax.",
+        "code": "// One possible checking structure\nconst prediction = \"Write the expected result first\";\nconsole.log(prediction);",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p04",
+      "type": "transfer",
+      "difficulty": "intermediate",
+      "prompt": "Use try, catch, and finally in a different example from this lesson and explain why your choice is correct.",
+      "hints": [
+        "Return to the “try, catch, and finally” explanation and identify the exact rule before writing code."
+      ],
+      "acceptanceCriteria": [
+        "The attempt uses valid JavaScript.",
+        "The written prediction or explanation matches the observed behavior.",
+        "The answer names the rule that makes the result happen."
+      ],
+      "objectiveIds": [
+        "errors"
+      ],
+      "sourceIds": [
+        "mdn-js-promises",
+        "mdn-js-control"
+      ],
+      "solution": {
+        "explanation": "A valid answer must demonstrate this rule: Handle errors at a useful boundary. The exact names and sample values may differ. Compare behavior and reasoning, not surface syntax.",
+        "code": "// One possible checking structure\nconst prediction = \"Write the expected result first\";\nconsole.log(prediction);",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p05",
+      "type": "explain-and-build",
+      "difficulty": "advanced",
+      "prompt": "Build one small example that combines two ideas from promises, async/await, and errors, then explain every important value or control-flow step.",
+      "hints": [
+        "Choose two objectives from What you will learn and write the expected result before running the code."
+      ],
+      "acceptanceCriteria": [
+        "The example combines two lesson objectives.",
+        "The learner predicts the result before running it.",
+        "The explanation names both JavaScript rules and one edge case."
+      ],
+      "objectiveIds": [
+        "promise",
+        "chain"
+      ],
+      "sourceIds": [
+        "mdn-js-promises",
+        "mdn-js-control"
+      ],
+      "solution": {
+        "explanation": "A valid solution combines any two stated objectives in one coherent example, predicts its behavior, and explains both rules. Reusing the lesson sample without changing the problem does not meet the transfer goal.",
+        "code": "// Design your own example first.\n// Then record prediction, actual result, and explanation.",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    }
+  ],
+  "interviewQuestions": [
+    {
+      "id": "concept",
+      "question": "Explain promises, async/await, and errors to a junior developer.",
+      "answer": "Explain pending, fulfilled, and rejected promises. Return promises from chains. Use async and await as promise syntax. Handle errors at a useful boundary.",
+      "followUp": "Show a small example and one common mistake.",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "mdn-js-promises",
+        "mdn-js-control"
+      ]
+    },
+    {
+      "id": "reasoning",
+      "question": "How would you prove that code using promises, async/await, and errors behaves correctly?",
+      "answer": "State the expected value or control flow first, test normal and boundary cases, and inspect the actual runtime result. Explain the JavaScript rule behind the evidence.",
+      "followUp": "Which edge case would you test first?",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "mdn-js-promises",
+        "mdn-js-control"
+      ]
+    },
+    {
+      "id": "react-link",
+      "question": "Where can promises, async/await, and errors affect React code?",
+      "answer": "It can affect values, callbacks, rendering decisions, updates, or data flow. The exact connection depends on the concept; the important step is to reason from JavaScript behavior before blaming React.",
+      "followUp": "Give one component-level example.",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "mdn-js-promises",
+        "mdn-js-control"
+      ]
+    }
+  ],
+  "miniAppIds": [
+    "study-session-report"
+  ],
+  "mastery": {
+    "status": "not-assessed",
+    "policy": "Reading or opening a solution is guided exposure, not mastery. Save an attempt, solve again without help, explain the rule, and transfer it to a new problem.",
+    "checks": [
+      {
+        "id": "explain",
+        "evidence": "Explain all four promises, async/await, and errors objectives without the lesson.",
+        "pass": "Every objective is accurate and includes a small example."
+      },
+      {
+        "id": "solve",
+        "evidence": "Complete four exercises before opening solutions.",
+        "pass": "The code works and the explanation matches the observed result."
+      },
+      {
+        "id": "transfer",
+        "evidence": "Use the concept in a fresh React-related or plain JavaScript problem.",
+        "pass": "The learner can defend the chosen syntax and handle one edge case."
+      }
+    ],
+    "reviewSchedule": {
+      "note": "Answer before reopening the lesson.",
+      "sessions": [
+        {
+          "dayOffset": 2,
+          "problems": [
+            {
+              "id": "recall",
+              "prompt": "Write the four main rules of Promises, async/await, and errors.",
+              "solution": "Explain pending, fulfilled, and rejected promises. Return promises from chains. Use async and await as promise syntax. Handle errors at a useful boundary."
+            },
+            {
+              "id": "repair",
+              "prompt": "Recreate and repair one common mistake from memory.",
+              "solution": "Name the symptom, the JavaScript rule that caused it, and the smallest correct repair."
+            }
+          ]
+        },
+        {
+          "dayOffset": 7,
+          "problems": [
+            {
+              "id": "teach",
+              "prompt": "Teach promises, async/await, and errors with one new example.",
+              "solution": "Define it, demonstrate it, predict the result, and explain one boundary case."
+            },
+            {
+              "id": "apply",
+              "prompt": "Use the concept in a different data or UI problem.",
+              "solution": "The new solution should rely on the same rule and be explained without copying the lesson."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "sourceIds": [
+    "mdn-js-promises",
+    "mdn-js-control"
+  ],
+  "commonMistakes": [
+    {
+      "symptom": "Code using promises, async/await, and errors produces a surprising value.",
+      "cause": "The result was run before the value, type, scope, identity, or control flow was predicted.",
+      "fix": "Reduce the case, write the expected result, and apply the exact rule from the matching section."
+    },
+    {
+      "symptom": "A learner copies syntax but cannot adapt it.",
+      "cause": "The example was memorized without explaining why it works.",
+      "fix": "Change the data and names, predict again, and explain which behavior must stay the same."
+    },
+    {
+      "symptom": "A React problem is blamed on React immediately.",
+      "cause": "The underlying JavaScript behavior was not isolated first.",
+      "fix": "Reproduce the value or function behavior in a small JavaScript example, then reconnect it to the component."
+    }
+  ],
+  "publicationChecklist": {
+    "authored": true,
+    "sourcesReviewed": true,
+    "codeSyntaxChecked": true,
+    "serverInitialRenderChecked": false,
+    "browserBehaviorChecked": false,
+    "independentContentReview": false,
+    "learnerTrial": false,
+    "note": "Concept-complete draft. Keep sample-draft until examples receive full browser checks, independent content review, and a learner trial."
+  }
+}

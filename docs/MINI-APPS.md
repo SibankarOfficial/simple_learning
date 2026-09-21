@@ -1,8 +1,8 @@
 # Mini apps
 
-Generated from the JSON content. Edit JSON, then regenerate. Coverage review date: 2026-09-19.
+Generated from the JSON content. Edit JSON, then regenerate. Coverage review date: 2026-09-20.
 
-2 guided mini apps are registered. Opening complete code is guided help, not mastery.
+4 guided mini apps are registered. Opening complete code is guided help, not mastery.
 
 <a id="quantity-picker"></a>
 ## Notebook quantity picker
@@ -375,3 +375,383 @@ Check: Meet every acceptance scenario and explain each semantic and layout choic
 - **Support request form:** Build a support form with issue type, description, urgency, and contact details. Decide which values are required before coding.
 
 References: [How the web works](https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Web_standards/How_the_web_works), [How browsers load websites](https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Web_standards/How_browsers_load_websites), [HTML: A good basis for accessibility](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Accessibility/HTML), [Forms and buttons in HTML](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content/HTML_forms), [Client-side form validation](https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms/Form_validation), [Basic CSS selectors](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Basic_selectors), [Handling CSS conflicts](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Handling_conflicts), [The box model](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Box_model), [Responsive web design](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Responsive_Design), [Keyboard accessible](https://developer.mozilla.org/en-US/docs/Web/Accessibility/Guides/Understanding_WCAG/Keyboard), [What are browser developer tools?](https://developer.mozilla.org/en-US/docs/Learn_web_development/Howto/Tools_and_setup/What_are_browser_developer_tools).
+
+<a id="study-session-report"></a>
+## Study session report
+
+Status: sample-draft. Build a plain JavaScript module that validates study-session data, summarizes progress, formats a report, and loads optional remote sessions.
+
+### Concepts used
+
+- Values types and coercion
+- let const and scope
+- Expressions operators and equality
+- Conditionals and loops
+- Functions declarations and arrows
+- Parameters defaults and return values
+- Objects and property access
+- Arrays and iteration
+- Destructuring
+- Spread and rest
+- map filter find and reduce
+- Modules import and export
+- Closures and lexical scope
+- References mutation and shallow copy
+- Optional chaining and nullish coalescing
+- Promises async await and errors
+- Event loop and timers
+- Fetch JSON and HTTP
+- Exceptions and debugging
+
+### Requirements
+
+- Keep sessions as an array of objects
+- Validate required values
+- Use pure functions for filtering and totals
+- Avoid mutating input data
+- Return useful empty and error states
+- Export the report functions as a module
+
+### Step 1: Model one session
+
+Create an object with topic, minutes, score, and completed.
+
+
+```js
+const session = { topic: "Arrays", minutes: 25, score: 80, completed: true };
+```
+
+
+Why: Clear values and object shape make later logic predictable.
+
+Check: Every property has the intended type.
+
+### Step 2: Validate the boundary
+
+Reject missing topic and invalid minutes.
+
+
+```js
+function isValidSession({ topic, minutes }) { return typeof topic === "string" && topic.trim() && Number.isFinite(minutes) && minutes >= 0; }
+```
+
+
+Why: Boundary validation prevents bad data from spreading.
+
+Check: Invalid or negative minutes return false.
+
+### Step 3: Select completed work
+
+Use filter without changing the input array.
+
+
+```js
+const completed = sessions => sessions.filter(session => session.completed);
+```
+
+
+Why: filter expresses selection and returns a new array.
+
+Check: The result contains only completed sessions and the input is unchanged.
+
+### Step 4: Calculate totals
+
+Reduce sessions into total minutes.
+
+
+```js
+const totalMinutes = sessions => sessions.reduce((total, session) => total + session.minutes, 0);
+```
+
+
+Why: The explicit initial value makes the empty case safe.
+
+Check: An empty array returns 0.
+
+### Step 5: Build an immutable summary
+
+Return a new summary object.
+
+
+```js
+const summarize = sessions => ({ count: sessions.length, minutes: totalMinutes(sessions), topics: sessions.map(({ topic }) => topic) });
+```
+
+
+Why: A new result keeps data flow visible.
+
+Check: The function does not write to sessions.
+
+### Step 6: Format missing values
+
+Use optional chaining and a nullish fallback.
+
+
+```js
+const learnerName = profile => profile?.name ?? "Learner";
+```
+
+
+Why: Nullish fallback preserves valid falsy values.
+
+Check: An empty string remains an empty string; null becomes Learner.
+
+### Step 7: Load remote data safely
+
+Fetch JSON and reject non-success status.
+
+
+```js
+async function loadSessions(url) { const response = await fetch(url); if (!response.ok) throw new Error(`HTTP ${response.status}`); return response.json(); }
+```
+
+
+Why: fetch needs an explicit HTTP status check.
+
+Check: 404 becomes a handled error rather than false success.
+
+### Step 8: Test timing and errors
+
+Call the report from a timer and catch failures.
+
+
+```js
+setTimeout(() => loadSessions("/sessions.json").then(summarize).then(console.log).catch(console.error), 0);
+```
+
+
+Why: The final step connects promises, timers, and error flow.
+
+Check: Explain why the callback runs after current synchronous code.
+
+### Complete study-session-report.js
+
+
+```js
+export function isValidSession({ topic, minutes }) {
+  return typeof topic === "string" && Boolean(topic.trim()) && Number.isFinite(minutes) && minutes >= 0;
+}
+
+export const totalMinutes = sessions =>
+  sessions.reduce((total, session) => total + session.minutes, 0);
+
+export function summarize(sessions = []) {
+  const valid = sessions.filter(isValidSession);
+  const completed = valid.filter(session => session.completed);
+  return {
+    count: valid.length,
+    completed: completed.length,
+    minutes: totalMinutes(valid),
+    topics: [...new Set(valid.map(({ topic }) => topic))],
+  };
+}
+
+export async function loadSessions(url) {
+  const response = await fetch(url);
+  if (!response.ok) throw new Error(`Could not load sessions: HTTP ${response.status}`);
+  const data = await response.json();
+  if (!Array.isArray(data)) throw new TypeError("Expected an array of sessions");
+  return data;
+}
+```
+
+
+### Acceptance scenarios
+
+| Given | When | Then |
+| --- | --- | --- |
+| No sessions | summarize runs | All numeric totals are zero and topics is empty |
+| Mixed valid and invalid sessions | summarize runs | Only valid sessions contribute to the report |
+| Repeated topics | summarize runs | topics contains each topic once |
+| A 404 response | loadSessions runs | The returned promise rejects with the HTTP status |
+
+### Independent ideas
+
+- **Expense summary:** Build a module that validates expenses, groups them by category, and reports totals without mutating input.
+
+- **Habit streak report:** Calculate completed days and current streaks from dated habit entries, then load optional JSON data.
+
+References: [Grammar and types](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types), [JavaScript data types and data structures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Data_structures), [Expressions and operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_operators), [Control flow and error handling](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling), [Loops and iteration](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration), [Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions), [Working with objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_objects), [Indexed collections](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Indexed_collections), [Destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring), [Spread syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax), [JavaScript modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules), [Closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Closures), [Optional chaining](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining), [Nullish coalescing operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing), [Using promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises), [JavaScript execution model](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Execution_model), [Using the Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch), [HTTP response status codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status).
+
+<a id="first-react-workspace"></a>
+## First React learning workspace
+
+Status: sample-draft. Create, understand, verify, build, and inspect a small Vite React learning project without treating the starter as a complete production architecture.
+
+### Concepts used
+
+- What React solves and its boundaries
+- Declarative UI and component thinking
+- Editor Node package manager and terminal
+- Create a learning project with Vite
+- Framework versus build tool
+- Project files scripts and dependencies
+- Development versus production
+- React DevTools
+- Adding React to an existing page
+
+### Requirements
+
+- Confirm Node and npm versions
+- Create a Vite React project in the intended folder
+- Trace index.html to main.jsx to App.jsx
+- Replace starter content with a component hierarchy
+- Verify development updates and browser evidence
+- Inspect components with React DevTools when available
+- Create and preview a production build
+- Explain which production concerns remain outside this starter
+
+### Step 1: Check the environment
+
+In the intended parent folder, check the active Node and npm versions.
+
+
+```shell
+node -v
+npm -v
+```
+
+
+Why: The scaffold and build run in Node, so an unsupported or missing runtime must be fixed first.
+
+Check: The versions print in the same terminal, and Node satisfies the current Vite requirement.
+
+### Step 2: Create the React project
+
+Scaffold a named React template, enter it, and install its declared packages.
+
+
+```shell
+npm create vite@latest react-learning-lab -- --template react
+cd react-learning-lab
+npm install
+```
+
+
+Why: The template creates a known starting structure and the install resolves its dependency graph.
+
+Check: package.json, package-lock.json, index.html, and src exist in react-learning-lab.
+
+### Step 3: Trace the startup path
+
+Open index.html, src/main.jsx, and src/App.jsx. Write one sentence for the role of each.
+
+
+```html
+<div id="root"></div>
+<!-- main.jsx finds this node and renders App into it. -->
+```
+
+
+Why: Tracing the entry path makes blank-screen debugging much easier.
+
+Check: You can explain the path index.html → main.jsx → App.jsx without calling every file React.
+
+### Step 4: Create a component hierarchy
+
+Replace the starter App with a page, header, and setup checklist.
+
+
+```jsx
+function Header() { return <header><h1>React learning lab</h1><p>Setup before features.</p></header>; }
+function SetupList() { return <ul><li>Dev server</li><li>Component tree</li><li>Production build</li></ul>; }
+export default function App() { return <main><Header /><SetupList /></main>; }
+```
+
+
+Why: The small hierarchy connects component thinking to a real project without unrelated state logic.
+
+Check: The page has one h1 and Components shows App with its two child components.
+
+### Step 5: Verify development mode
+
+Start the dev server, open its printed URL, edit one list item, and inspect Console and Network.
+
+
+```shell
+npm run dev
+```
+
+
+Why: A visible update proves the editor, source, Vite server, plugin, browser, and React root are connected.
+
+Check: The edit appears, the document and source modules load, and Console has no unexplained error.
+
+### Step 6: Inspect React ownership
+
+Use React DevTools Components when available and compare it with browser Elements.
+
+Why: The two panels answer different questions: React hierarchy versus browser DOM.
+
+Check: Components shows App, Header, and SetupList; Elements shows their final DOM output.
+
+### Step 7: Build and preview
+
+Stop the dev server, create dist, and serve the built output locally.
+
+
+```shell
+npm run build
+npm run preview
+```
+
+
+Why: Development success does not prove that optimized assets and their paths work.
+
+Check: The build exits successfully and the preview URL displays the same useful content.
+
+### Step 8: Write the boundary note
+
+List what this project now provides and what a production product still needs.
+
+Why: A working starter is the beginning of architecture, not the whole application.
+
+Check: The note separates React UI, Vite tooling, and unresolved routing, data, backend, security, testing, and deployment decisions.
+
+### Complete App.jsx
+
+
+```jsx
+function Header() {
+  return (
+    <header>
+      <p>Setup verified</p>
+      <h1>React learning lab</h1>
+      <p>Understand each layer before adding features.</p>
+    </header>
+  );
+}
+
+function SetupList() {
+  const checks = ["Development server", "Component tree", "React DevTools", "Production build"];
+  return (
+    <section>
+      <h2>Workspace checks</h2>
+      <ul>{checks.map(check => <li key={check}>{check}</li>)}</ul>
+    </section>
+  );
+}
+
+export default function App() {
+  return <main><Header /><SetupList /></main>;
+}
+```
+
+
+### Acceptance scenarios
+
+| Given | When | Then |
+| --- | --- | --- |
+| Supported Node and npm | The scaffold and install commands run in the intended folder | The project and lockfile are created without changing another repository |
+| Development server running | App.jsx text changes | The browser shows the update and no unexplained Console error |
+| React DevTools available | Components is inspected | App, Header, and SetupList appear as a hierarchy |
+| Source is ready | npm run build completes | dist contains a production build |
+| Fresh production build | npm run preview is opened | The learning page renders from built assets |
+
+### Independent ideas
+
+- **Existing-page learning widget:** Add one small React checklist to an existing semantic HTML page while preserving the rest of the page.
+
+- **Tool responsibility map:** Create a small React page that teaches what the editor, browser, Node, npm, Vite, React, React DOM, framework, and host each own.
+
+References: [Installation](https://react.dev/learn/installation), [Build a React app from scratch](https://react.dev/learn/build-a-react-app-from-scratch), [Thinking in React](https://react.dev/learn/thinking-in-react), [Reacting to input with state](https://react.dev/learn/reacting-to-input-with-state), [Your first component](https://react.dev/learn/your-first-component), [Downloading and installing Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm/), [package.json](https://docs.npmjs.com/files/package.json/), [Getting Started](https://vite.dev/guide/), [Features](https://vite.dev/guide/features), [Specifying dependencies and devDependencies](https://docs.npmjs.com/specifying-dependencies-and-devdependencies-in-a-package-json-file/), [createRoot](https://react.dev/reference/react-dom/client/createRoot), [Building for Production](https://vite.dev/guide/build), [React Developer Tools](https://react.dev/learn/react-developer-tools), [Add React to an existing project](https://react.dev/learn/add-react-to-an-existing-project).

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "reviewedAt": "2026-09-19",
+  "reviewedAt": "2026-09-20",
   "method": "Manual inventory of reviewed Learn chapter indexes and reference categories. Mapped means a syllabus destination exists; it does not mean a finished lesson. A finite inventory can expose known gaps, not prove universal completeness.",
   "items": [
     {
@@ -1429,6 +1429,611 @@
       "sourceId": "mdn-browser-load",
       "topicIds": [
         "web-basics-browser-devtools-and-console"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "sample-draft"
+    },
+    {
+      "id": "javascript-foundations:javascript-basics-values-types-and-coercion:mdn-js-grammar",
+      "name": "Values, types, and coercion — Grammar and types",
+      "category": "javascript-foundations",
+      "sourceId": "mdn-js-grammar",
+      "topicIds": [
+        "javascript-basics-values-types-and-coercion"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "sample-draft"
+    },
+    {
+      "id": "javascript-foundations:javascript-basics-values-types-and-coercion:mdn-js-data",
+      "name": "Values, types, and coercion — JavaScript data types and data structures",
+      "category": "javascript-foundations",
+      "sourceId": "mdn-js-data",
+      "topicIds": [
+        "javascript-basics-values-types-and-coercion"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "sample-draft"
+    },
+    {
+      "id": "javascript-foundations:javascript-basics-let-const-and-scope:mdn-js-grammar",
+      "name": "let, const, and scope — Grammar and types",
+      "category": "javascript-foundations",
+      "sourceId": "mdn-js-grammar",
+      "topicIds": [
+        "javascript-basics-let-const-and-scope"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "sample-draft"
+    },
+    {
+      "id": "javascript-foundations:javascript-basics-expressions-operators-and-equality:mdn-js-expressions",
+      "name": "Expressions, operators, and equality — Expressions and operators",
+      "category": "javascript-foundations",
+      "sourceId": "mdn-js-expressions",
+      "topicIds": [
+        "javascript-basics-expressions-operators-and-equality"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "sample-draft"
+    },
+    {
+      "id": "javascript-foundations:javascript-basics-conditionals-and-loops:mdn-js-control",
+      "name": "Conditionals and loops — Control flow and error handling",
+      "category": "javascript-foundations",
+      "sourceId": "mdn-js-control",
+      "topicIds": [
+        "javascript-basics-conditionals-and-loops"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "sample-draft"
+    },
+    {
+      "id": "javascript-foundations:javascript-basics-conditionals-and-loops:mdn-js-loops",
+      "name": "Conditionals and loops — Loops and iteration",
+      "category": "javascript-foundations",
+      "sourceId": "mdn-js-loops",
+      "topicIds": [
+        "javascript-basics-conditionals-and-loops"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "sample-draft"
+    },
+    {
+      "id": "javascript-foundations:javascript-basics-functions-declarations-and-arrows:mdn-js-functions",
+      "name": "Function declarations and arrow functions — Functions",
+      "category": "javascript-foundations",
+      "sourceId": "mdn-js-functions",
+      "topicIds": [
+        "javascript-basics-functions-declarations-and-arrows"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "sample-draft"
+    },
+    {
+      "id": "javascript-foundations:javascript-basics-parameters-defaults-and-return-values:mdn-js-functions",
+      "name": "Parameters, defaults, and return values — Functions",
+      "category": "javascript-foundations",
+      "sourceId": "mdn-js-functions",
+      "topicIds": [
+        "javascript-basics-parameters-defaults-and-return-values"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "sample-draft"
+    },
+    {
+      "id": "javascript-foundations:javascript-basics-objects-and-property-access:mdn-js-objects",
+      "name": "Objects and property access — Working with objects",
+      "category": "javascript-foundations",
+      "sourceId": "mdn-js-objects",
+      "topicIds": [
+        "javascript-basics-objects-and-property-access"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "sample-draft"
+    },
+    {
+      "id": "javascript-foundations:javascript-basics-arrays-and-iteration:mdn-js-arrays",
+      "name": "Arrays and iteration — Indexed collections",
+      "category": "javascript-foundations",
+      "sourceId": "mdn-js-arrays",
+      "topicIds": [
+        "javascript-basics-arrays-and-iteration"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "sample-draft"
+    },
+    {
+      "id": "javascript-foundations:javascript-basics-destructuring:mdn-destructuring",
+      "name": "Destructuring — Destructuring assignment",
+      "category": "javascript-foundations",
+      "sourceId": "mdn-destructuring",
+      "topicIds": [
+        "javascript-basics-destructuring"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "sample-draft"
+    },
+    {
+      "id": "javascript-foundations:javascript-basics-spread-and-rest:mdn-spread",
+      "name": "Spread and rest — Spread syntax",
+      "category": "javascript-foundations",
+      "sourceId": "mdn-spread",
+      "topicIds": [
+        "javascript-basics-spread-and-rest"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "sample-draft"
+    },
+    {
+      "id": "javascript-foundations:javascript-basics-map-filter-find-and-reduce:mdn-js-arrays",
+      "name": "map, filter, find, and reduce — Indexed collections",
+      "category": "javascript-foundations",
+      "sourceId": "mdn-js-arrays",
+      "topicIds": [
+        "javascript-basics-map-filter-find-and-reduce"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "sample-draft"
+    },
+    {
+      "id": "javascript-foundations:javascript-basics-modules-import-and-export:mdn-js-modules",
+      "name": "Modules: import and export — JavaScript modules",
+      "category": "javascript-foundations",
+      "sourceId": "mdn-js-modules",
+      "topicIds": [
+        "javascript-basics-modules-import-and-export"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "sample-draft"
+    },
+    {
+      "id": "javascript-foundations:javascript-basics-closures-and-lexical-scope:mdn-js-closures",
+      "name": "Closures and lexical scope — Closures",
+      "category": "javascript-foundations",
+      "sourceId": "mdn-js-closures",
+      "topicIds": [
+        "javascript-basics-closures-and-lexical-scope"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "sample-draft"
+    },
+    {
+      "id": "javascript-foundations:javascript-basics-references-mutation-and-shallow-copy:mdn-js-data",
+      "name": "References, mutation, and shallow copy — JavaScript data types and data structures",
+      "category": "javascript-foundations",
+      "sourceId": "mdn-js-data",
+      "topicIds": [
+        "javascript-basics-references-mutation-and-shallow-copy"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "sample-draft"
+    },
+    {
+      "id": "javascript-foundations:javascript-basics-references-mutation-and-shallow-copy:mdn-spread",
+      "name": "References, mutation, and shallow copy — Spread syntax",
+      "category": "javascript-foundations",
+      "sourceId": "mdn-spread",
+      "topicIds": [
+        "javascript-basics-references-mutation-and-shallow-copy"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "sample-draft"
+    },
+    {
+      "id": "javascript-foundations:javascript-basics-optional-chaining-and-nullish-coalescing:mdn-optional-chaining",
+      "name": "Optional chaining and nullish coalescing — Optional chaining",
+      "category": "javascript-foundations",
+      "sourceId": "mdn-optional-chaining",
+      "topicIds": [
+        "javascript-basics-optional-chaining-and-nullish-coalescing"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "sample-draft"
+    },
+    {
+      "id": "javascript-foundations:javascript-basics-optional-chaining-and-nullish-coalescing:mdn-nullish",
+      "name": "Optional chaining and nullish coalescing — Nullish coalescing operator",
+      "category": "javascript-foundations",
+      "sourceId": "mdn-nullish",
+      "topicIds": [
+        "javascript-basics-optional-chaining-and-nullish-coalescing"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "sample-draft"
+    },
+    {
+      "id": "javascript-foundations:javascript-basics-promises-async-await-and-errors:mdn-js-promises",
+      "name": "Promises, async/await, and errors — Using promises",
+      "category": "javascript-foundations",
+      "sourceId": "mdn-js-promises",
+      "topicIds": [
+        "javascript-basics-promises-async-await-and-errors"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "sample-draft"
+    },
+    {
+      "id": "javascript-foundations:javascript-basics-promises-async-await-and-errors:mdn-js-control",
+      "name": "Promises, async/await, and errors — Control flow and error handling",
+      "category": "javascript-foundations",
+      "sourceId": "mdn-js-control",
+      "topicIds": [
+        "javascript-basics-promises-async-await-and-errors"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "sample-draft"
+    },
+    {
+      "id": "javascript-foundations:javascript-basics-event-loop-and-timers:mdn-js-execution",
+      "name": "Event loop and timers — JavaScript execution model",
+      "category": "javascript-foundations",
+      "sourceId": "mdn-js-execution",
+      "topicIds": [
+        "javascript-basics-event-loop-and-timers"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "sample-draft"
+    },
+    {
+      "id": "javascript-foundations:javascript-basics-fetch-json-and-http:mdn-fetch",
+      "name": "Fetch, JSON, and HTTP — Using the Fetch API",
+      "category": "javascript-foundations",
+      "sourceId": "mdn-fetch",
+      "topicIds": [
+        "javascript-basics-fetch-json-and-http"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "sample-draft"
+    },
+    {
+      "id": "javascript-foundations:javascript-basics-fetch-json-and-http:mdn-http-status",
+      "name": "Fetch, JSON, and HTTP — HTTP response status codes",
+      "category": "javascript-foundations",
+      "sourceId": "mdn-http-status",
+      "topicIds": [
+        "javascript-basics-fetch-json-and-http"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "sample-draft"
+    },
+    {
+      "id": "javascript-foundations:javascript-basics-exceptions-and-debugging:mdn-js-control",
+      "name": "Exceptions and debugging — Control flow and error handling",
+      "category": "javascript-foundations",
+      "sourceId": "mdn-js-control",
+      "topicIds": [
+        "javascript-basics-exceptions-and-debugging"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "sample-draft"
+    },
+    {
+      "id": "web-foundations:web-basics-how-browser-pages-work:mdn-http-overview",
+      "name": "How browser pages work — Overview of HTTP",
+      "category": "web-foundations",
+      "sourceId": "mdn-http-overview",
+      "topicIds": [
+        "web-basics-how-browser-pages-work"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "sample-draft"
+    },
+    {
+      "id": "web-foundations:web-basics-how-browser-pages-work:mdn-http-messages",
+      "name": "How browser pages work — HTTP messages",
+      "category": "web-foundations",
+      "sourceId": "mdn-http-messages",
+      "topicIds": [
+        "web-basics-how-browser-pages-work"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "sample-draft"
+    },
+    {
+      "id": "web-foundations:web-basics-how-browser-pages-work:mdn-http-status",
+      "name": "How browser pages work — HTTP response status codes",
+      "category": "web-foundations",
+      "sourceId": "mdn-http-status",
+      "topicIds": [
+        "web-basics-how-browser-pages-work"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "sample-draft"
+    },
+    {
+      "id": "web-foundations:web-basics-how-browser-pages-work:mdn-ssr",
+      "name": "How browser pages work — Server-side rendering (SSR)",
+      "category": "web-foundations",
+      "sourceId": "mdn-ssr",
+      "topicIds": [
+        "web-basics-how-browser-pages-work"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "sample-draft"
+    },
+    {
+      "id": "web-foundations:web-basics-how-browser-pages-work:react-hydrate-root",
+      "name": "How browser pages work — hydrateRoot",
+      "category": "web-foundations",
+      "sourceId": "react-hydrate-root",
+      "topicIds": [
+        "web-basics-how-browser-pages-work"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "sample-draft"
+    },
+    {
+      "id": "react-setup:setup-what-react-solves-and-its-boundaries:react-installation",
+      "name": "What React solves and its boundaries — Installation",
+      "category": "react-setup",
+      "sourceId": "react-installation",
+      "topicIds": [
+        "setup-what-react-solves-and-its-boundaries"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "sample-draft"
+    },
+    {
+      "id": "react-setup:setup-what-react-solves-and-its-boundaries:react-build-scratch",
+      "name": "What React solves and its boundaries — Build a React app from scratch",
+      "category": "react-setup",
+      "sourceId": "react-build-scratch",
+      "topicIds": [
+        "setup-what-react-solves-and-its-boundaries"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "sample-draft"
+    },
+    {
+      "id": "react-setup:setup-declarative-ui-and-component-thinking:react-thinking",
+      "name": "Declarative UI and component thinking — Thinking in React",
+      "category": "react-setup",
+      "sourceId": "react-thinking",
+      "topicIds": [
+        "setup-declarative-ui-and-component-thinking"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "sample-draft"
+    },
+    {
+      "id": "react-setup:setup-declarative-ui-and-component-thinking:react-declarative-ui",
+      "name": "Declarative UI and component thinking — Reacting to input with state",
+      "category": "react-setup",
+      "sourceId": "react-declarative-ui",
+      "topicIds": [
+        "setup-declarative-ui-and-component-thinking"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "sample-draft"
+    },
+    {
+      "id": "react-setup:setup-declarative-ui-and-component-thinking:react-first-component",
+      "name": "Declarative UI and component thinking — Your first component",
+      "category": "react-setup",
+      "sourceId": "react-first-component",
+      "topicIds": [
+        "setup-declarative-ui-and-component-thinking"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "sample-draft"
+    },
+    {
+      "id": "react-setup:setup-editor-node-package-manager-and-terminal:npm-node-install",
+      "name": "Editor, Node, package manager, and terminal — Downloading and installing Node.js and npm",
+      "category": "react-setup",
+      "sourceId": "npm-node-install",
+      "topicIds": [
+        "setup-editor-node-package-manager-and-terminal"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "sample-draft"
+    },
+    {
+      "id": "react-setup:setup-editor-node-package-manager-and-terminal:npm-package-json",
+      "name": "Editor, Node, package manager, and terminal — package.json",
+      "category": "react-setup",
+      "sourceId": "npm-package-json",
+      "topicIds": [
+        "setup-editor-node-package-manager-and-terminal"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "sample-draft"
+    },
+    {
+      "id": "react-setup:setup-create-a-learning-project-with-vite:react-build-scratch",
+      "name": "Create a learning project with Vite — Build a React app from scratch",
+      "category": "react-setup",
+      "sourceId": "react-build-scratch",
+      "topicIds": [
+        "setup-create-a-learning-project-with-vite"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "sample-draft"
+    },
+    {
+      "id": "react-setup:setup-create-a-learning-project-with-vite:vite-getting-started",
+      "name": "Create a learning project with Vite — Getting Started",
+      "category": "react-setup",
+      "sourceId": "vite-getting-started",
+      "topicIds": [
+        "setup-create-a-learning-project-with-vite"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "sample-draft"
+    },
+    {
+      "id": "react-setup:setup-create-a-learning-project-with-vite:vite-features",
+      "name": "Create a learning project with Vite — Features",
+      "category": "react-setup",
+      "sourceId": "vite-features",
+      "topicIds": [
+        "setup-create-a-learning-project-with-vite"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "sample-draft"
+    },
+    {
+      "id": "react-setup:setup-framework-versus-build-tool:react-installation",
+      "name": "Framework versus build tool — Installation",
+      "category": "react-setup",
+      "sourceId": "react-installation",
+      "topicIds": [
+        "setup-framework-versus-build-tool"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "sample-draft"
+    },
+    {
+      "id": "react-setup:setup-framework-versus-build-tool:react-build-scratch",
+      "name": "Framework versus build tool — Build a React app from scratch",
+      "category": "react-setup",
+      "sourceId": "react-build-scratch",
+      "topicIds": [
+        "setup-framework-versus-build-tool"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "sample-draft"
+    },
+    {
+      "id": "react-setup:setup-framework-versus-build-tool:vite-getting-started",
+      "name": "Framework versus build tool — Getting Started",
+      "category": "react-setup",
+      "sourceId": "vite-getting-started",
+      "topicIds": [
+        "setup-framework-versus-build-tool"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "sample-draft"
+    },
+    {
+      "id": "react-setup:setup-project-files-scripts-and-dependencies:vite-getting-started",
+      "name": "Project files, scripts, and dependencies — Getting Started",
+      "category": "react-setup",
+      "sourceId": "vite-getting-started",
+      "topicIds": [
+        "setup-project-files-scripts-and-dependencies"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "sample-draft"
+    },
+    {
+      "id": "react-setup:setup-project-files-scripts-and-dependencies:npm-package-json",
+      "name": "Project files, scripts, and dependencies — package.json",
+      "category": "react-setup",
+      "sourceId": "npm-package-json",
+      "topicIds": [
+        "setup-project-files-scripts-and-dependencies"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "sample-draft"
+    },
+    {
+      "id": "react-setup:setup-project-files-scripts-and-dependencies:npm-dependencies",
+      "name": "Project files, scripts, and dependencies — Specifying dependencies and devDependencies",
+      "category": "react-setup",
+      "sourceId": "npm-dependencies",
+      "topicIds": [
+        "setup-project-files-scripts-and-dependencies"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "sample-draft"
+    },
+    {
+      "id": "react-setup:setup-project-files-scripts-and-dependencies:react-create-root",
+      "name": "Project files, scripts, and dependencies — createRoot",
+      "category": "react-setup",
+      "sourceId": "react-create-root",
+      "topicIds": [
+        "setup-project-files-scripts-and-dependencies"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "sample-draft"
+    },
+    {
+      "id": "react-setup:setup-development-versus-production:vite-getting-started",
+      "name": "Development versus production — Getting Started",
+      "category": "react-setup",
+      "sourceId": "vite-getting-started",
+      "topicIds": [
+        "setup-development-versus-production"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "sample-draft"
+    },
+    {
+      "id": "react-setup:setup-development-versus-production:vite-features",
+      "name": "Development versus production — Features",
+      "category": "react-setup",
+      "sourceId": "vite-features",
+      "topicIds": [
+        "setup-development-versus-production"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "sample-draft"
+    },
+    {
+      "id": "react-setup:setup-development-versus-production:vite-production-build",
+      "name": "Development versus production — Building for Production",
+      "category": "react-setup",
+      "sourceId": "vite-production-build",
+      "topicIds": [
+        "setup-development-versus-production"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "sample-draft"
+    },
+    {
+      "id": "react-setup:setup-react-devtools:react-devtools",
+      "name": "React DevTools — React Developer Tools",
+      "category": "react-setup",
+      "sourceId": "react-devtools",
+      "topicIds": [
+        "setup-react-devtools"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "sample-draft"
+    },
+    {
+      "id": "react-setup:setup-react-devtools:react-thinking",
+      "name": "React DevTools — Thinking in React",
+      "category": "react-setup",
+      "sourceId": "react-thinking",
+      "topicIds": [
+        "setup-react-devtools"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "sample-draft"
+    },
+    {
+      "id": "react-setup:setup-adding-react-to-an-existing-page:react-existing-project",
+      "name": "Adding React to an existing page — Add React to an existing project",
+      "category": "react-setup",
+      "sourceId": "react-existing-project",
+      "topicIds": [
+        "setup-adding-react-to-an-existing-page"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "sample-draft"
+    },
+    {
+      "id": "react-setup:setup-adding-react-to-an-existing-page:react-create-root",
+      "name": "Adding React to an existing page — createRoot",
+      "category": "react-setup",
+      "sourceId": "react-create-root",
+      "topicIds": [
+        "setup-adding-react-to-an-existing-page"
+      ],
+      "coverage": "mapped",
+      "contentStatus": "sample-draft"
+    },
+    {
+      "id": "react-setup:setup-adding-react-to-an-existing-page:react-installation",
+      "name": "Adding React to an existing page — Installation",
+      "category": "react-setup",
+      "sourceId": "react-installation",
+      "topicIds": [
+        "setup-adding-react-to-an-existing-page"
       ],
       "coverage": "mapped",
       "contentStatus": "sample-draft"

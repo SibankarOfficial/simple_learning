@@ -448,5 +448,338 @@
     "accessedAt": "2026-09-19",
     "review": "read",
     "note": "Reviewed for the Web foundations lesson draft. Source coverage does not replace browser testing or learner review."
+  },
+  {
+    "id": "mdn-http-overview",
+    "title": "Overview of HTTP",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Overview",
+    "publisher": "MDN",
+    "accessedAt": "2026-09-20",
+    "review": "read",
+    "note": "Reviewed for the expanded browser foundations concept lesson."
+  },
+  {
+    "id": "mdn-http-messages",
+    "title": "HTTP messages",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Messages",
+    "publisher": "MDN",
+    "accessedAt": "2026-09-20",
+    "review": "read",
+    "note": "Reviewed for the expanded browser foundations concept lesson."
+  },
+  {
+    "id": "mdn-http-status",
+    "title": "HTTP response status codes",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status",
+    "publisher": "MDN",
+    "accessedAt": "2026-09-20",
+    "review": "read",
+    "note": "Reviewed for the JavaScript foundations lesson draft. The lesson remains sample-draft until browser checks, independent review, and a learner trial are complete."
+  },
+  {
+    "id": "mdn-ssr",
+    "title": "Server-side rendering (SSR)",
+    "url": "https://developer.mozilla.org/en-US/docs/Glossary/SSR",
+    "publisher": "MDN",
+    "accessedAt": "2026-09-20",
+    "review": "read",
+    "note": "Reviewed for the expanded browser foundations concept lesson."
+  },
+  {
+    "id": "react-hydrate-root",
+    "title": "hydrateRoot",
+    "url": "https://react.dev/reference/react-dom/client/hydrateRoot",
+    "publisher": "React",
+    "accessedAt": "2026-09-20",
+    "review": "read",
+    "note": "Reviewed for the expanded browser foundations concept lesson."
+  },
+  {
+    "id": "mdn-js-guide",
+    "title": "JavaScript Guide",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide",
+    "publisher": "MDN",
+    "accessedAt": "2026-09-20",
+    "review": "read",
+    "note": "Reviewed for the JavaScript foundations lesson draft. The lesson remains sample-draft until browser checks, independent review, and a learner trial are complete."
+  },
+  {
+    "id": "mdn-js-grammar",
+    "title": "Grammar and types",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types",
+    "publisher": "MDN",
+    "accessedAt": "2026-09-20",
+    "review": "read",
+    "note": "Reviewed for the JavaScript foundations lesson draft. The lesson remains sample-draft until browser checks, independent review, and a learner trial are complete."
+  },
+  {
+    "id": "mdn-js-data",
+    "title": "JavaScript data types and data structures",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Data_structures",
+    "publisher": "MDN",
+    "accessedAt": "2026-09-20",
+    "review": "read",
+    "note": "Reviewed for the JavaScript foundations lesson draft. The lesson remains sample-draft until browser checks, independent review, and a learner trial are complete."
+  },
+  {
+    "id": "mdn-js-expressions",
+    "title": "Expressions and operators",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_operators",
+    "publisher": "MDN",
+    "accessedAt": "2026-09-20",
+    "review": "read",
+    "note": "Reviewed for the JavaScript foundations lesson draft. The lesson remains sample-draft until browser checks, independent review, and a learner trial are complete."
+  },
+  {
+    "id": "mdn-js-control",
+    "title": "Control flow and error handling",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling",
+    "publisher": "MDN",
+    "accessedAt": "2026-09-20",
+    "review": "read",
+    "note": "Reviewed for the JavaScript foundations lesson draft. The lesson remains sample-draft until browser checks, independent review, and a learner trial are complete."
+  },
+  {
+    "id": "mdn-js-loops",
+    "title": "Loops and iteration",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration",
+    "publisher": "MDN",
+    "accessedAt": "2026-09-20",
+    "review": "read",
+    "note": "Reviewed for the JavaScript foundations lesson draft. The lesson remains sample-draft until browser checks, independent review, and a learner trial are complete."
+  },
+  {
+    "id": "mdn-js-functions",
+    "title": "Functions",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions",
+    "publisher": "MDN",
+    "accessedAt": "2026-09-20",
+    "review": "read",
+    "note": "Reviewed for the JavaScript foundations lesson draft. The lesson remains sample-draft until browser checks, independent review, and a learner trial are complete."
+  },
+  {
+    "id": "mdn-js-objects",
+    "title": "Working with objects",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_objects",
+    "publisher": "MDN",
+    "accessedAt": "2026-09-20",
+    "review": "read",
+    "note": "Reviewed for the JavaScript foundations lesson draft. The lesson remains sample-draft until browser checks, independent review, and a learner trial are complete."
+  },
+  {
+    "id": "mdn-js-arrays",
+    "title": "Indexed collections",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Indexed_collections",
+    "publisher": "MDN",
+    "accessedAt": "2026-09-20",
+    "review": "read",
+    "note": "Reviewed for the JavaScript foundations lesson draft. The lesson remains sample-draft until browser checks, independent review, and a learner trial are complete."
+  },
+  {
+    "id": "mdn-destructuring",
+    "title": "Destructuring assignment",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring",
+    "publisher": "MDN",
+    "accessedAt": "2026-09-20",
+    "review": "read",
+    "note": "Reviewed for the JavaScript foundations lesson draft. The lesson remains sample-draft until browser checks, independent review, and a learner trial are complete."
+  },
+  {
+    "id": "mdn-spread",
+    "title": "Spread syntax",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax",
+    "publisher": "MDN",
+    "accessedAt": "2026-09-20",
+    "review": "read",
+    "note": "Reviewed for the JavaScript foundations lesson draft. The lesson remains sample-draft until browser checks, independent review, and a learner trial are complete."
+  },
+  {
+    "id": "mdn-js-modules",
+    "title": "JavaScript modules",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules",
+    "publisher": "MDN",
+    "accessedAt": "2026-09-20",
+    "review": "read",
+    "note": "Reviewed for the JavaScript foundations lesson draft. The lesson remains sample-draft until browser checks, independent review, and a learner trial are complete."
+  },
+  {
+    "id": "mdn-js-closures",
+    "title": "Closures",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Closures",
+    "publisher": "MDN",
+    "accessedAt": "2026-09-20",
+    "review": "read",
+    "note": "Reviewed for the JavaScript foundations lesson draft. The lesson remains sample-draft until browser checks, independent review, and a learner trial are complete."
+  },
+  {
+    "id": "mdn-optional-chaining",
+    "title": "Optional chaining",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining",
+    "publisher": "MDN",
+    "accessedAt": "2026-09-20",
+    "review": "read",
+    "note": "Reviewed for the JavaScript foundations lesson draft. The lesson remains sample-draft until browser checks, independent review, and a learner trial are complete."
+  },
+  {
+    "id": "mdn-nullish",
+    "title": "Nullish coalescing operator",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing",
+    "publisher": "MDN",
+    "accessedAt": "2026-09-20",
+    "review": "read",
+    "note": "Reviewed for the JavaScript foundations lesson draft. The lesson remains sample-draft until browser checks, independent review, and a learner trial are complete."
+  },
+  {
+    "id": "mdn-js-promises",
+    "title": "Using promises",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises",
+    "publisher": "MDN",
+    "accessedAt": "2026-09-20",
+    "review": "read",
+    "note": "Reviewed for the JavaScript foundations lesson draft. The lesson remains sample-draft until browser checks, independent review, and a learner trial are complete."
+  },
+  {
+    "id": "mdn-js-execution",
+    "title": "JavaScript execution model",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Execution_model",
+    "publisher": "MDN",
+    "accessedAt": "2026-09-20",
+    "review": "read",
+    "note": "Reviewed for the JavaScript foundations lesson draft. The lesson remains sample-draft until browser checks, independent review, and a learner trial are complete."
+  },
+  {
+    "id": "mdn-fetch",
+    "title": "Using the Fetch API",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch",
+    "publisher": "MDN",
+    "accessedAt": "2026-09-20",
+    "review": "read",
+    "note": "Reviewed for the JavaScript foundations lesson draft. The lesson remains sample-draft until browser checks, independent review, and a learner trial are complete."
+  },
+  {
+    "id": "react-installation",
+    "title": "Installation",
+    "url": "https://react.dev/learn/installation",
+    "publisher": "React",
+    "accessedAt": "2026-09-20",
+    "review": "read",
+    "note": "Reviewed for the React setup and orientation lesson draft. Recheck version-specific commands when the toolchain changes."
+  },
+  {
+    "id": "react-build-scratch",
+    "title": "Build a React app from scratch",
+    "url": "https://react.dev/learn/build-a-react-app-from-scratch",
+    "publisher": "React",
+    "accessedAt": "2026-09-20",
+    "review": "read",
+    "note": "Reviewed for the React setup and orientation lesson draft. Recheck version-specific commands when the toolchain changes."
+  },
+  {
+    "id": "react-thinking",
+    "title": "Thinking in React",
+    "url": "https://react.dev/learn/thinking-in-react",
+    "publisher": "React",
+    "accessedAt": "2026-09-20",
+    "review": "read",
+    "note": "Reviewed for the React setup and orientation lesson draft. Recheck version-specific commands when the toolchain changes."
+  },
+  {
+    "id": "react-declarative-ui",
+    "title": "Reacting to input with state",
+    "url": "https://react.dev/learn/reacting-to-input-with-state",
+    "publisher": "React",
+    "accessedAt": "2026-09-20",
+    "review": "read",
+    "note": "Reviewed for the React setup and orientation lesson draft. Recheck version-specific commands when the toolchain changes."
+  },
+  {
+    "id": "react-first-component",
+    "title": "Your first component",
+    "url": "https://react.dev/learn/your-first-component",
+    "publisher": "React",
+    "accessedAt": "2026-09-20",
+    "review": "read",
+    "note": "Reviewed for the React setup and orientation lesson draft. Recheck version-specific commands when the toolchain changes."
+  },
+  {
+    "id": "react-devtools",
+    "title": "React Developer Tools",
+    "url": "https://react.dev/learn/react-developer-tools",
+    "publisher": "React",
+    "accessedAt": "2026-09-20",
+    "review": "read",
+    "note": "Reviewed for the React setup and orientation lesson draft. Recheck version-specific commands when the toolchain changes."
+  },
+  {
+    "id": "react-existing-project",
+    "title": "Add React to an existing project",
+    "url": "https://react.dev/learn/add-react-to-an-existing-project",
+    "publisher": "React",
+    "accessedAt": "2026-09-20",
+    "review": "read",
+    "note": "Reviewed for the React setup and orientation lesson draft. Recheck version-specific commands when the toolchain changes."
+  },
+  {
+    "id": "react-create-root",
+    "title": "createRoot",
+    "url": "https://react.dev/reference/react-dom/client/createRoot",
+    "publisher": "React",
+    "accessedAt": "2026-09-20",
+    "review": "read",
+    "note": "Reviewed for the React setup and orientation lesson draft. Recheck version-specific commands when the toolchain changes."
+  },
+  {
+    "id": "vite-getting-started",
+    "title": "Getting Started",
+    "url": "https://vite.dev/guide/",
+    "publisher": "Vite",
+    "accessedAt": "2026-09-20",
+    "review": "read",
+    "note": "Reviewed for the React setup and orientation lesson draft. Recheck version-specific commands when the toolchain changes."
+  },
+  {
+    "id": "vite-features",
+    "title": "Features",
+    "url": "https://vite.dev/guide/features",
+    "publisher": "Vite",
+    "accessedAt": "2026-09-20",
+    "review": "read",
+    "note": "Reviewed for the React setup and orientation lesson draft. Recheck version-specific commands when the toolchain changes."
+  },
+  {
+    "id": "vite-production-build",
+    "title": "Building for Production",
+    "url": "https://vite.dev/guide/build",
+    "publisher": "Vite",
+    "accessedAt": "2026-09-20",
+    "review": "read",
+    "note": "Reviewed for the React setup and orientation lesson draft. Recheck version-specific commands when the toolchain changes."
+  },
+  {
+    "id": "npm-node-install",
+    "title": "Downloading and installing Node.js and npm",
+    "url": "https://docs.npmjs.com/downloading-and-installing-node-js-and-npm/",
+    "publisher": "npm",
+    "accessedAt": "2026-09-20",
+    "review": "read",
+    "note": "Reviewed for the React setup and orientation lesson draft. Recheck version-specific commands when the toolchain changes."
+  },
+  {
+    "id": "npm-package-json",
+    "title": "package.json",
+    "url": "https://docs.npmjs.com/files/package.json/",
+    "publisher": "npm",
+    "accessedAt": "2026-09-20",
+    "review": "read",
+    "note": "Reviewed for the React setup and orientation lesson draft. Recheck version-specific commands when the toolchain changes."
+  },
+  {
+    "id": "npm-dependencies",
+    "title": "Specifying dependencies and devDependencies",
+    "url": "https://docs.npmjs.com/specifying-dependencies-and-devdependencies-in-a-package-json-file/",
+    "publisher": "npm",
+    "accessedAt": "2026-09-20",
+    "review": "read",
+    "note": "Reviewed for the React setup and orientation lesson draft. Recheck version-specific commands when the toolchain changes."
   }
 ]

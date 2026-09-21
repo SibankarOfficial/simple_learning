@@ -1,0 +1,456 @@
+{
+  "schemaVersion": 1,
+  "id": "javascript-basics-parameters-defaults-and-return-values",
+  "subjectId": "react",
+  "chapterId": "javascript-basics",
+  "title": "Parameters, defaults, and return values",
+  "language": "en",
+  "status": "sample-draft",
+  "reviewedAt": "2026-09-20",
+  "runtime": "Modern evergreen browser or Node.js with ES modules. Run fragments in browser DevTools or a small .js file unless the example says otherwise.",
+  "prerequisiteTopicIds": [
+    "javascript-basics-functions-declarations-and-arrows"
+  ],
+  "estimatedMinutes": {
+    "firstPass": 45,
+    "practice": 55,
+    "project": 25
+  },
+  "objectives": [
+    {
+      "id": "parameters",
+      "text": "Design clear parameters and arguments."
+    },
+    {
+      "id": "defaults",
+      "text": "Use default parameters for missing values."
+    },
+    {
+      "id": "return",
+      "text": "Return useful results on every intended path."
+    },
+    {
+      "id": "contract",
+      "text": "Treat the signature as a small contract."
+    }
+  ],
+  "learningFlow": [
+    "Recall the prerequisite",
+    "Predict before running code",
+    "Read each concept explanation",
+    "Change a small example",
+    "Attempt practice before hints",
+    "Explain the result in your own words",
+    "Apply the idea in a different problem",
+    "Review after two and seven days"
+  ],
+  "diagnostic": [
+    {
+      "question": "Can you explain the main purpose of parameters, defaults, and return values before reading?",
+      "answer": "A complete answer should name the problem it solves, the values or control flow involved, and one mistake to avoid.",
+      "ifMissed": "javascript-basics-functions-declarations-and-arrows"
+    }
+  ],
+  "sections": [
+    {
+      "id": "parameters",
+      "title": "Parameters describe inputs",
+      "depth": "core",
+      "body": "Parameters are local names listed by the function; arguments are the values supplied by the caller. JavaScript allows missing and extra arguments, so a function should define which inputs are required. For many related options, an object parameter is often clearer than a long positional list.",
+      "sourceIds": [
+        "mdn-js-functions"
+      ],
+      "exampleIds": [
+        "example-1"
+      ],
+      "objectiveIds": [
+        "parameters"
+      ]
+    },
+    {
+      "id": "defaults",
+      "title": "Defaults run for undefined",
+      "depth": "core",
+      "body": "A default parameter is used when the argument is omitted or explicitly undefined. It is not used for null, 0, false, or an empty string. A default expression is evaluated when the function is called, so it can use earlier parameters.",
+      "sourceIds": [
+        "mdn-js-functions"
+      ],
+      "exampleIds": [
+        "example-2"
+      ],
+      "objectiveIds": [
+        "defaults"
+      ]
+    },
+    {
+      "id": "return",
+      "title": "return ends the function",
+      "depth": "core",
+      "body": "return immediately stops the function and gives a value to the caller. A function without an executed return produces undefined. When a function claims to calculate a result, make each valid path return the promised shape; accidental undefined values otherwise travel into later code.",
+      "sourceIds": [
+        "mdn-js-functions"
+      ],
+      "exampleIds": [
+        "example-3"
+      ],
+      "objectiveIds": [
+        "return"
+      ]
+    },
+    {
+      "id": "contract",
+      "title": "Inputs and outputs form a contract",
+      "depth": "core",
+      "body": "A reliable function makes its expectations visible: accepted input, returned value, possible mutation, and possible error. Validate at system boundaries, keep internal functions focused, and use examples that include normal, empty, and invalid input.",
+      "sourceIds": [
+        "mdn-js-functions"
+      ],
+      "exampleIds": [],
+      "objectiveIds": [
+        "contract"
+      ]
+    },
+    {
+      "id": "react-connection",
+      "title": "Why this matters in React",
+      "depth": "deeper",
+      "body": "Parameters, defaults, and return values is part of the JavaScript model React code already uses. Components, event handlers, state updates, list rendering, and data requests become easier to reason about when this concept is understood without framework shortcuts. Practise the JavaScript behavior first, then identify the same rule in JSX or a component.",
+      "sourceIds": [
+        "mdn-js-functions"
+      ],
+      "exampleIds": [],
+      "objectiveIds": [
+        "parameters",
+        "defaults",
+        "return",
+        "contract"
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "id": "example-1",
+      "title": "Apply: Parameters describe inputs",
+      "kind": "fragment",
+      "language": "js",
+      "depth": "core",
+      "code": "function greet(name = \"Learner\") {\n  return `Hello, ${name}`;\n}\nconsole.log(greet());",
+      "explanation": "This small example gives you a safe place to inspect values while practising this objective: Design clear parameters and arguments.",
+      "tryThis": "Replace the sample with a real parameters, defaults, and return values case from the explanation. Predict every logged value before running it.",
+      "sourceIds": [
+        "mdn-js-functions"
+      ]
+    },
+    {
+      "id": "example-2",
+      "title": "Apply: Defaults run for undefined",
+      "kind": "fragment",
+      "language": "js",
+      "depth": "deeper",
+      "code": "function price({ amount, tax = 0 }) {\n  return amount * (1 + tax);\n}",
+      "explanation": "This small example gives you a safe place to inspect values while practising this objective: Use default parameters for missing values.",
+      "tryThis": "Replace the sample with a real parameters, defaults, and return values case from the explanation. Predict every logged value before running it.",
+      "sourceIds": [
+        "mdn-js-functions"
+      ]
+    },
+    {
+      "id": "example-3",
+      "title": "Apply: return ends the function",
+      "kind": "fragment",
+      "language": "js",
+      "depth": "deeper",
+      "code": "function first(items) {\n  if (items.length === 0) return null;\n  return items[0];\n}",
+      "explanation": "This small example gives you a safe place to inspect values while practising this objective: Return useful results on every intended path.",
+      "tryThis": "Replace the sample with a real parameters, defaults, and return values case from the explanation. Predict every logged value before running it.",
+      "sourceIds": [
+        "mdn-js-functions"
+      ]
+    }
+  ],
+  "practice": [
+    {
+      "id": "p01",
+      "type": "predict",
+      "difficulty": "beginner",
+      "prompt": "Write one short code example for “Parameters describe inputs”. Predict each result before running it.",
+      "hints": [
+        "Return to the “Parameters describe inputs” explanation and identify the exact rule before writing code."
+      ],
+      "acceptanceCriteria": [
+        "The attempt uses valid JavaScript.",
+        "The written prediction or explanation matches the observed behavior.",
+        "The answer names the rule that makes the result happen."
+      ],
+      "objectiveIds": [
+        "parameters"
+      ],
+      "sourceIds": [
+        "mdn-js-functions"
+      ],
+      "solution": {
+        "explanation": "A valid answer must demonstrate this rule: Design clear parameters and arguments. The exact names and sample values may differ. Compare behavior and reasoning, not surface syntax.",
+        "code": "// One possible checking structure\nconst prediction = \"Write the expected result first\";\nconsole.log(prediction);",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p02",
+      "type": "build",
+      "difficulty": "beginner",
+      "prompt": "Build a small function or data example that proves this objective: Use default parameters for missing values.",
+      "hints": [
+        "Return to the “Defaults run for undefined” explanation and identify the exact rule before writing code."
+      ],
+      "acceptanceCriteria": [
+        "The attempt uses valid JavaScript.",
+        "The written prediction or explanation matches the observed behavior.",
+        "The answer names the rule that makes the result happen."
+      ],
+      "objectiveIds": [
+        "defaults"
+      ],
+      "sourceIds": [
+        "mdn-js-functions"
+      ],
+      "solution": {
+        "explanation": "A valid answer must demonstrate this rule: Use default parameters for missing values. The exact names and sample values may differ. Compare behavior and reasoning, not surface syntax.",
+        "code": "// One possible checking structure\nconst prediction = \"Write the expected result first\";\nconsole.log(prediction);",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p03",
+      "type": "debug",
+      "difficulty": "intermediate",
+      "prompt": "Create a deliberate parameters, defaults, and return values mistake, record the symptom, and repair the cause.",
+      "hints": [
+        "Return to the “return ends the function” explanation and identify the exact rule before writing code."
+      ],
+      "acceptanceCriteria": [
+        "The attempt uses valid JavaScript.",
+        "The written prediction or explanation matches the observed behavior.",
+        "The answer names the rule that makes the result happen."
+      ],
+      "objectiveIds": [
+        "return"
+      ],
+      "sourceIds": [
+        "mdn-js-functions"
+      ],
+      "solution": {
+        "explanation": "A valid answer must demonstrate this rule: Return useful results on every intended path. The exact names and sample values may differ. Compare behavior and reasoning, not surface syntax.",
+        "code": "// One possible checking structure\nconst prediction = \"Write the expected result first\";\nconsole.log(prediction);",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p04",
+      "type": "transfer",
+      "difficulty": "intermediate",
+      "prompt": "Use inputs and outputs form a contract in a different example from this lesson and explain why your choice is correct.",
+      "hints": [
+        "Return to the “Inputs and outputs form a contract” explanation and identify the exact rule before writing code."
+      ],
+      "acceptanceCriteria": [
+        "The attempt uses valid JavaScript.",
+        "The written prediction or explanation matches the observed behavior.",
+        "The answer names the rule that makes the result happen."
+      ],
+      "objectiveIds": [
+        "contract"
+      ],
+      "sourceIds": [
+        "mdn-js-functions"
+      ],
+      "solution": {
+        "explanation": "A valid answer must demonstrate this rule: Treat the signature as a small contract. The exact names and sample values may differ. Compare behavior and reasoning, not surface syntax.",
+        "code": "// One possible checking structure\nconst prediction = \"Write the expected result first\";\nconsole.log(prediction);",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p05",
+      "type": "explain-and-build",
+      "difficulty": "advanced",
+      "prompt": "Build one small example that combines two ideas from parameters, defaults, and return values, then explain every important value or control-flow step.",
+      "hints": [
+        "Choose two objectives from What you will learn and write the expected result before running the code."
+      ],
+      "acceptanceCriteria": [
+        "The example combines two lesson objectives.",
+        "The learner predicts the result before running it.",
+        "The explanation names both JavaScript rules and one edge case."
+      ],
+      "objectiveIds": [
+        "parameters",
+        "defaults"
+      ],
+      "sourceIds": [
+        "mdn-js-functions"
+      ],
+      "solution": {
+        "explanation": "A valid solution combines any two stated objectives in one coherent example, predicts its behavior, and explains both rules. Reusing the lesson sample without changing the problem does not meet the transfer goal.",
+        "code": "// Design your own example first.\n// Then record prediction, actual result, and explanation.",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    }
+  ],
+  "interviewQuestions": [
+    {
+      "id": "concept",
+      "question": "Explain parameters, defaults, and return values to a junior developer.",
+      "answer": "Design clear parameters and arguments. Use default parameters for missing values. Return useful results on every intended path. Treat the signature as a small contract.",
+      "followUp": "Show a small example and one common mistake.",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "mdn-js-functions"
+      ]
+    },
+    {
+      "id": "reasoning",
+      "question": "How would you prove that code using parameters, defaults, and return values behaves correctly?",
+      "answer": "State the expected value or control flow first, test normal and boundary cases, and inspect the actual runtime result. Explain the JavaScript rule behind the evidence.",
+      "followUp": "Which edge case would you test first?",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "mdn-js-functions"
+      ]
+    },
+    {
+      "id": "react-link",
+      "question": "Where can parameters, defaults, and return values affect React code?",
+      "answer": "It can affect values, callbacks, rendering decisions, updates, or data flow. The exact connection depends on the concept; the important step is to reason from JavaScript behavior before blaming React.",
+      "followUp": "Give one component-level example.",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "mdn-js-functions"
+      ]
+    }
+  ],
+  "miniAppIds": [
+    "study-session-report"
+  ],
+  "mastery": {
+    "status": "not-assessed",
+    "policy": "Reading or opening a solution is guided exposure, not mastery. Save an attempt, solve again without help, explain the rule, and transfer it to a new problem.",
+    "checks": [
+      {
+        "id": "explain",
+        "evidence": "Explain all four parameters, defaults, and return values objectives without the lesson.",
+        "pass": "Every objective is accurate and includes a small example."
+      },
+      {
+        "id": "solve",
+        "evidence": "Complete four exercises before opening solutions.",
+        "pass": "The code works and the explanation matches the observed result."
+      },
+      {
+        "id": "transfer",
+        "evidence": "Use the concept in a fresh React-related or plain JavaScript problem.",
+        "pass": "The learner can defend the chosen syntax and handle one edge case."
+      }
+    ],
+    "reviewSchedule": {
+      "note": "Answer before reopening the lesson.",
+      "sessions": [
+        {
+          "dayOffset": 2,
+          "problems": [
+            {
+              "id": "recall",
+              "prompt": "Write the four main rules of Parameters, defaults, and return values.",
+              "solution": "Design clear parameters and arguments. Use default parameters for missing values. Return useful results on every intended path. Treat the signature as a small contract."
+            },
+            {
+              "id": "repair",
+              "prompt": "Recreate and repair one common mistake from memory.",
+              "solution": "Name the symptom, the JavaScript rule that caused it, and the smallest correct repair."
+            }
+          ]
+        },
+        {
+          "dayOffset": 7,
+          "problems": [
+            {
+              "id": "teach",
+              "prompt": "Teach parameters, defaults, and return values with one new example.",
+              "solution": "Define it, demonstrate it, predict the result, and explain one boundary case."
+            },
+            {
+              "id": "apply",
+              "prompt": "Use the concept in a different data or UI problem.",
+              "solution": "The new solution should rely on the same rule and be explained without copying the lesson."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "sourceIds": [
+    "mdn-js-functions"
+  ],
+  "commonMistakes": [
+    {
+      "symptom": "Code using parameters, defaults, and return values produces a surprising value.",
+      "cause": "The result was run before the value, type, scope, identity, or control flow was predicted.",
+      "fix": "Reduce the case, write the expected result, and apply the exact rule from the matching section."
+    },
+    {
+      "symptom": "A learner copies syntax but cannot adapt it.",
+      "cause": "The example was memorized without explaining why it works.",
+      "fix": "Change the data and names, predict again, and explain which behavior must stay the same."
+    },
+    {
+      "symptom": "A React problem is blamed on React immediately.",
+      "cause": "The underlying JavaScript behavior was not isolated first.",
+      "fix": "Reproduce the value or function behavior in a small JavaScript example, then reconnect it to the component."
+    }
+  ],
+  "publicationChecklist": {
+    "authored": true,
+    "sourcesReviewed": true,
+    "codeSyntaxChecked": true,
+    "serverInitialRenderChecked": false,
+    "browserBehaviorChecked": false,
+    "independentContentReview": false,
+    "learnerTrial": false,
+    "note": "Concept-complete draft. Keep sample-draft until examples receive full browser checks, independent content review, and a learner trial."
+  }
+}

@@ -59,6 +59,9 @@
       ],
       "exampleIds": [
         "box-sizing"
+      ],
+      "objectiveIds": [
+        "box"
       ]
     },
     {
@@ -72,6 +75,9 @@
       ],
       "exampleIds": [
         "responsive-grid"
+      ],
+      "objectiveIds": [
+        "layout"
       ]
     },
     {
@@ -83,7 +89,10 @@
         "mdn-box-model",
         "mdn-responsive"
       ],
-      "exampleIds": []
+      "exampleIds": [],
+      "objectiveIds": [
+        "responsive"
+      ]
     },
     {
       "id": "fluid",
@@ -94,7 +103,10 @@
         "mdn-box-model",
         "mdn-responsive"
       ],
-      "exampleIds": []
+      "exampleIds": [],
+      "objectiveIds": [
+        "box"
+      ]
     },
     {
       "id": "queries",
@@ -105,7 +117,10 @@
         "mdn-box-model",
         "mdn-responsive"
       ],
-      "exampleIds": []
+      "exampleIds": [],
+      "objectiveIds": [
+        "layout"
+      ]
     },
     {
       "id": "react-link",
@@ -116,7 +131,10 @@
         "mdn-box-model",
         "mdn-responsive"
       ],
-      "exampleIds": []
+      "exampleIds": [],
+      "objectiveIds": [
+        "responsive"
+      ]
     }
   ],
   "examples": [
@@ -151,7 +169,7 @@
   ],
   "practice": [
     {
-      "id": "practice-1",
+      "id": "p01",
       "type": "predict",
       "difficulty": "beginner",
       "prompt": "A content-box element has width 200px, 20px padding on each side, and 2px border on each side. What is its outer border-box width?",
@@ -177,7 +195,7 @@
       "attemptBeforeReveal": true
     },
     {
-      "id": "practice-2",
+      "id": "p02",
       "type": "build",
       "difficulty": "beginner",
       "prompt": "Write a centered content container with 1rem side space and a maximum width of 70rem.",
@@ -206,7 +224,7 @@
       "attemptBeforeReveal": true
     },
     {
-      "id": "practice-3",
+      "id": "p03",
       "type": "debug",
       "difficulty": "intermediate",
       "prompt": "An image causes horizontal scrolling on a narrow screen. Give a CSS fix and explain it.",
@@ -235,7 +253,7 @@
       "attemptBeforeReveal": true
     },
     {
-      "id": "practice-4",
+      "id": "p04",
       "type": "design",
       "difficulty": "intermediate",
       "prompt": "Choose Flexbox or Grid for a toolbar and for a gallery. Explain each choice.",
@@ -261,7 +279,7 @@
       "attemptBeforeReveal": true
     },
     {
-      "id": "practice-5",
+      "id": "p05",
       "type": "transfer",
       "difficulty": "advanced",
       "prompt": "Create a mobile-first two-column layout that becomes two columns only when each column can remain readable.",

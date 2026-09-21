@@ -83,7 +83,10 @@
       "sourceIds": [
         "memory"
       ],
-      "exampleIds": []
+      "exampleIds": [],
+      "objectiveIds": [
+        "memory"
+      ]
     },
     {
       "id": "why",
@@ -95,6 +98,9 @@
       ],
       "exampleIds": [
         "counter-function"
+      ],
+      "objectiveIds": [
+        "memory"
       ]
     },
     {
@@ -109,6 +115,9 @@
       "exampleIds": [
         "counter-function",
         "counter-arrow"
+      ],
+      "objectiveIds": [
+        "memory"
       ]
     },
     {
@@ -121,6 +130,10 @@
       ],
       "exampleIds": [
         "counter-function"
+      ],
+      "objectiveIds": [
+        "memory",
+        "updates"
       ]
     },
     {
@@ -134,6 +147,9 @@
       "exampleIds": [
         "counter-function",
         "counter-arrow"
+      ],
+      "objectiveIds": [
+        "memory"
       ]
     },
     {
@@ -146,6 +162,9 @@
       ],
       "exampleIds": [
         "snapshot-demo"
+      ],
+      "objectiveIds": [
+        "updates"
       ]
     },
     {
@@ -158,6 +177,9 @@
       ],
       "exampleIds": [
         "queue-demo"
+      ],
+      "objectiveIds": [
+        "updates"
       ]
     },
     {
@@ -170,6 +192,9 @@
       ],
       "exampleIds": [
         "profile-editor"
+      ],
+      "objectiveIds": [
+        "immutable"
       ]
     },
     {
@@ -182,6 +207,9 @@
       ],
       "exampleIds": [
         "task-list"
+      ],
+      "objectiveIds": [
+        "immutable"
       ]
     },
     {
@@ -195,6 +223,9 @@
       ],
       "exampleIds": [
         "quantity-picker"
+      ],
+      "objectiveIds": [
+        "design"
       ]
     },
     {
@@ -207,6 +238,10 @@
       ],
       "exampleIds": [
         "profile-editor"
+      ],
+      "objectiveIds": [
+        "transfer",
+        "design"
       ]
     },
     {
@@ -219,6 +254,9 @@
       ],
       "exampleIds": [
         "lazy-options"
+      ],
+      "objectiveIds": [
+        "identity"
       ]
     },
     {
@@ -231,6 +269,9 @@
       ],
       "exampleIds": [
         "key-reset"
+      ],
+      "objectiveIds": [
+        "identity"
       ]
     },
     {
@@ -241,7 +282,10 @@
       "sourceIds": [
         "strict"
       ],
-      "exampleIds": []
+      "exampleIds": [],
+      "objectiveIds": [
+        "updates"
+      ]
     },
     {
       "id": "rules",
@@ -251,7 +295,10 @@
       "sourceIds": [
         "rules"
       ],
-      "exampleIds": []
+      "exampleIds": [],
+      "objectiveIds": [
+        "memory"
+      ]
     },
     {
       "id": "edge-cases",
@@ -264,6 +311,9 @@
       "exampleIds": [
         "stored-function",
         "guarded-prop"
+      ],
+      "objectiveIds": [
+        "identity"
       ]
     },
     {
@@ -275,7 +325,10 @@
         "structure",
         "no-effect"
       ],
-      "exampleIds": []
+      "exampleIds": [],
+      "objectiveIds": [
+        "design"
+      ]
     }
   ],
   "examples": [
@@ -932,29 +985,61 @@
         {
           "dayOffset": 1,
           "problems": [
-            { "id": "snapshot", "prompt": "Start with count = 3. One click calls setCount(count + 2) twice, then logs count. Predict the log and the next screen value. Explain why.", "solution": "The log is 3. The next screen shows 5. Both setters use the same render's snapshot and queue the same replacement, 3 + 2." },
-            { "id": "queue", "prompt": "Start with n = 3. One click calls setN(n + 2); setN(x => x * 2); setN(x => x - 1). Trace the pending values and explain the final result.", "solution": "The queue produces 5, then 10, then 9. The replacement is followed by two updaters that each receive the pending value." }
+            {
+              "id": "snapshot",
+              "prompt": "Start with count = 3. One click calls setCount(count + 2) twice, then logs count. Predict the log and the next screen value. Explain why.",
+              "solution": "The log is 3. The next screen shows 5. Both setters use the same render's snapshot and queue the same replacement, 3 + 2."
+            },
+            {
+              "id": "queue",
+              "prompt": "Start with n = 3. One click calls setN(n + 2); setN(x => x * 2); setN(x => x - 1). Trace the pending values and explain the final result.",
+              "solution": "The queue produces 5, then 10, then 9. The replacement is followed by two updaters that each receive the pending value."
+            }
           ]
         },
         {
           "dayOffset": 3,
           "problems": [
-            { "id": "snapshot", "prompt": "Start with count = 5. One click calls setCount(count + 4) twice, then logs count. Predict the log and the next screen value. Explain why.", "solution": "The log is 5. The next screen shows 9. Both setters use the same render's snapshot and queue the same replacement, 5 + 4." },
-            { "id": "queue", "prompt": "Start with n = 5. One click calls setN(n + 4); setN(x => x * 2); setN(x => x - 1). Trace the pending values and explain the final result.", "solution": "The queue produces 9, then 18, then 17. The replacement is followed by two updaters that each receive the pending value." }
+            {
+              "id": "snapshot",
+              "prompt": "Start with count = 5. One click calls setCount(count + 4) twice, then logs count. Predict the log and the next screen value. Explain why.",
+              "solution": "The log is 5. The next screen shows 9. Both setters use the same render's snapshot and queue the same replacement, 5 + 4."
+            },
+            {
+              "id": "queue",
+              "prompt": "Start with n = 5. One click calls setN(n + 4); setN(x => x * 2); setN(x => x - 1). Trace the pending values and explain the final result.",
+              "solution": "The queue produces 9, then 18, then 17. The replacement is followed by two updaters that each receive the pending value."
+            }
           ]
         },
         {
           "dayOffset": 7,
           "problems": [
-            { "id": "snapshot", "prompt": "Start with count = 9. One click calls setCount(count + 8) twice, then logs count. Predict the log and the next screen value. Explain why.", "solution": "The log is 9. The next screen shows 17. Both setters use the same render's snapshot and queue the same replacement, 9 + 8." },
-            { "id": "queue", "prompt": "Start with n = 9. One click calls setN(n + 8); setN(x => x * 2); setN(x => x - 1). Trace the pending values and explain the final result.", "solution": "The queue produces 17, then 34, then 33. The replacement is followed by two updaters that each receive the pending value." }
+            {
+              "id": "snapshot",
+              "prompt": "Start with count = 9. One click calls setCount(count + 8) twice, then logs count. Predict the log and the next screen value. Explain why.",
+              "solution": "The log is 9. The next screen shows 17. Both setters use the same render's snapshot and queue the same replacement, 9 + 8."
+            },
+            {
+              "id": "queue",
+              "prompt": "Start with n = 9. One click calls setN(n + 8); setN(x => x * 2); setN(x => x - 1). Trace the pending values and explain the final result.",
+              "solution": "The queue produces 17, then 34, then 33. The replacement is followed by two updaters that each receive the pending value."
+            }
           ]
         },
         {
           "dayOffset": 14,
           "problems": [
-            { "id": "snapshot", "prompt": "Start with count = 16. One click calls setCount(count + 15) twice, then logs count. Predict the log and the next screen value. Explain why.", "solution": "The log is 16. The next screen shows 31. Both setters use the same render's snapshot and queue the same replacement, 16 + 15." },
-            { "id": "queue", "prompt": "Start with n = 16. One click calls setN(n + 15); setN(x => x * 2); setN(x => x - 1). Trace the pending values and explain the final result.", "solution": "The queue produces 31, then 62, then 61. The replacement is followed by two updaters that each receive the pending value." }
+            {
+              "id": "snapshot",
+              "prompt": "Start with count = 16. One click calls setCount(count + 15) twice, then logs count. Predict the log and the next screen value. Explain why.",
+              "solution": "The log is 16. The next screen shows 31. Both setters use the same render's snapshot and queue the same replacement, 16 + 15."
+            },
+            {
+              "id": "queue",
+              "prompt": "Start with n = 16. One click calls setN(n + 15); setN(x => x * 2); setN(x => x - 1). Trace the pending values and explain the final result.",
+              "solution": "The queue produces 31, then 62, then 61. The replacement is followed by two updaters that each receive the pending value."
+            }
           ]
         }
       ]

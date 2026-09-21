@@ -59,6 +59,9 @@
       ],
       "exampleIds": [
         "selector-set"
+      ],
+      "objectiveIds": [
+        "select"
       ]
     },
     {
@@ -72,6 +75,9 @@
       ],
       "exampleIds": [
         "cascade-predict"
+      ],
+      "objectiveIds": [
+        "cascade"
       ]
     },
     {
@@ -83,7 +89,10 @@
         "mdn-css-selectors",
         "mdn-css-conflicts"
       ],
-      "exampleIds": []
+      "exampleIds": [],
+      "objectiveIds": [
+        "maintain"
+      ]
     },
     {
       "id": "cascade",
@@ -94,7 +103,10 @@
         "mdn-css-selectors",
         "mdn-css-conflicts"
       ],
-      "exampleIds": []
+      "exampleIds": [],
+      "objectiveIds": [
+        "select"
+      ]
     },
     {
       "id": "specificity",
@@ -105,7 +117,10 @@
         "mdn-css-selectors",
         "mdn-css-conflicts"
       ],
-      "exampleIds": []
+      "exampleIds": [],
+      "objectiveIds": [
+        "cascade"
+      ]
     },
     {
       "id": "react-link",
@@ -116,7 +131,10 @@
         "mdn-css-selectors",
         "mdn-css-conflicts"
       ],
-      "exampleIds": []
+      "exampleIds": [],
+      "objectiveIds": [
+        "maintain"
+      ]
     }
   ],
   "examples": [
@@ -151,7 +169,7 @@
   ],
   "practice": [
     {
-      "id": "practice-1",
+      "id": "p01",
       "type": "predict",
       "difficulty": "beginner",
       "prompt": "For <button class=\"save primary\">, which selectors match: button, .save, #save, [class], and a?",
@@ -177,7 +195,7 @@
       "attemptBeforeReveal": true
     },
     {
-      "id": "practice-2",
+      "id": "p02",
       "type": "build",
       "difficulty": "beginner",
       "prompt": "Write CSS that styles every .notice and gives only .notice elements with data-kind=\"error\" a red border.",
@@ -206,7 +224,7 @@
       "attemptBeforeReveal": true
     },
     {
-      "id": "practice-3",
+      "id": "p03",
       "type": "predict",
       "difficulty": "intermediate",
       "prompt": "Predict the color for <p class=\"message\"> when p {color: green}, .message {color: blue}, and a later p {color: red}.",
@@ -232,7 +250,7 @@
       "attemptBeforeReveal": true
     },
     {
-      "id": "practice-4",
+      "id": "p04",
       "type": "debug",
       "difficulty": "intermediate",
       "prompt": "A component style only works after adding !important. Describe a better debugging process.",
@@ -258,7 +276,7 @@
       "attemptBeforeReveal": true
     },
     {
-      "id": "practice-5",
+      "id": "p05",
       "type": "transfer",
       "difficulty": "advanced",
       "prompt": "Design selectors for a reusable navigation where the current link and keyboard focus need distinct styles.",

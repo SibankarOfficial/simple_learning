@@ -1,0 +1,473 @@
+{
+  "schemaVersion": 1,
+  "id": "setup-react-devtools",
+  "subjectId": "react",
+  "chapterId": "setup",
+  "title": "React DevTools",
+  "language": "en",
+  "status": "sample-draft",
+  "reviewedAt": "2026-09-20",
+  "runtime": "React 19.3 learning project with a current Vite setup. Version-specific commands must be checked against the linked React, Vite, and npm pages before use.",
+  "prerequisiteTopicIds": [
+    "setup-development-versus-production"
+  ],
+  "estimatedMinutes": {
+    "firstPass": 40,
+    "practice": 50,
+    "project": 30
+  },
+  "objectives": [
+    {
+      "id": "panels",
+      "text": "Explain what Components and Profiler show."
+    },
+    {
+      "id": "inspect",
+      "text": "Inspect without treating edits as source changes."
+    },
+    {
+      "id": "profile",
+      "text": "Profile a specific interaction."
+    },
+    {
+      "id": "limits",
+      "text": "Know what React DevTools cannot prove."
+    }
+  ],
+  "learningFlow": [
+    "Recall the prerequisite",
+    "Predict the setup result",
+    "Read every concept explanation",
+    "Trace or change a practical example",
+    "Attempt five tasks before solutions",
+    "Explain the tool boundary",
+    "Apply it in a fresh project decision",
+    "Review after two and seven days"
+  ],
+  "diagnostic": [
+    {
+      "question": "What problem does react devtools help you solve?",
+      "answer": "Name the relevant layer, its input and output, and one problem it does not solve.",
+      "ifMissed": "setup-development-versus-production"
+    }
+  ],
+  "sections": [
+    {
+      "id": "panels",
+      "title": "React DevTools sees the component tree",
+      "depth": "core",
+      "body": "The browser extension adds Components and Profiler panels for pages using React. Components shows the React hierarchy, selected component props, state, and hooks. Profiler records React render work so you can investigate why and how often components render. These panels complement the browser Elements, Console, Network, and Performance tools.",
+      "sourceIds": [
+        "react-devtools",
+        "react-thinking"
+      ],
+      "exampleIds": [
+        "inspectable"
+      ],
+      "objectiveIds": [
+        "panels"
+      ]
+    },
+    {
+      "id": "inspect",
+      "title": "Runtime inspection is temporary",
+      "depth": "core",
+      "body": "Select a component and connect it to the visible page. Read its current props and state, expand parents and children, and use the highlight feature when available. Editing a runtime value is an experiment and normally disappears after reload. Apply a confirmed fix in project source and reproduce the result.",
+      "sourceIds": [
+        "react-devtools",
+        "react-thinking"
+      ],
+      "exampleIds": [
+        "render-log"
+      ],
+      "objectiveIds": [
+        "inspect"
+      ]
+    },
+    {
+      "id": "profile",
+      "title": "Measure before optimizing",
+      "depth": "core",
+      "body": "Start a Profiler recording, perform one named interaction, stop, and inspect the commits and components involved. Development timing can differ from production and React checks may add work, so use the profile to find a question rather than declare a final performance number. Production profiling needs an appropriate profiling build and realistic conditions.",
+      "sourceIds": [
+        "react-devtools",
+        "react-thinking"
+      ],
+      "exampleIds": [
+        "evidence"
+      ],
+      "objectiveIds": [
+        "profile"
+      ]
+    },
+    {
+      "id": "limits",
+      "title": "Use the right panel for the question",
+      "depth": "core",
+      "body": "React DevTools does not replace Network for failed requests, Elements for final DOM and CSS, Console for exceptions, or accessibility testing. A component render is not automatically a performance bug. First describe the user-visible problem, reproduce it, and gather evidence from the tool that observes that layer.",
+      "sourceIds": [
+        "react-devtools",
+        "react-thinking"
+      ],
+      "exampleIds": [],
+      "objectiveIds": [
+        "limits"
+      ]
+    },
+    {
+      "id": "working-check",
+      "title": "Use evidence instead of setup guesses",
+      "depth": "deeper",
+      "body": "When setup fails, identify the layer before changing code. Read the terminal command and first error, confirm the current directory and versions, check the browser Network and Console, and trace the entry file to the root component. Make one small correction, rerun the same check, and record what proved the fix.",
+      "sourceIds": [
+        "react-devtools",
+        "react-thinking"
+      ],
+      "exampleIds": [],
+      "objectiveIds": [
+        "panels",
+        "inspect",
+        "profile",
+        "limits"
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "id": "inspectable",
+      "title": "Create a clear component tree",
+      "kind": "fragment",
+      "language": "jsx",
+      "depth": "core",
+      "code": "function LessonCard({ title, status }) {\n  return <article><h2>{title}</h2><p>{status}</p></article>;\n}\nexport default function App() {\n  return <LessonCard title=\"React setup\" status=\"Ready\" />;\n}",
+      "explanation": "DevTools can show App → LessonCard and the current prop values.",
+      "tryThis": "Change one value or name in this react devtools example. Predict what evidence should change before running or tracing it.",
+      "sourceIds": [
+        "react-devtools",
+        "react-thinking"
+      ]
+    },
+    {
+      "id": "render-log",
+      "title": "Use a focused diagnostic",
+      "kind": "fragment",
+      "language": "jsx",
+      "depth": "deeper",
+      "code": "function ResultCount({ count }) {\n  console.log(\"ResultCount rendered\", { count });\n  return <p>{count} results</p>;\n}",
+      "explanation": "A focused development log can support a render investigation, but remove noisy logs after the question is answered.",
+      "tryThis": "Change one value or name in this react devtools example. Predict what evidence should change before running or tracing it.",
+      "sourceIds": [
+        "react-devtools",
+        "react-thinking"
+      ]
+    },
+    {
+      "id": "evidence",
+      "title": "Plan a profile",
+      "kind": "fragment",
+      "language": "js",
+      "depth": "deeper",
+      "code": "const profilePlan = { interaction: \"Open lesson\", expected: \"Only affected view updates\", evidence: [\"commits\", \"rendered components\", \"duration\"] };",
+      "explanation": "A named interaction and expected behavior make the recording interpretable.",
+      "tryThis": "Change one value or name in this react devtools example. Predict what evidence should change before running or tracing it.",
+      "sourceIds": [
+        "react-devtools",
+        "react-thinking"
+      ]
+    }
+  ],
+  "practice": [
+    {
+      "id": "p01",
+      "type": "predict",
+      "difficulty": "beginner",
+      "prompt": "Predict the visible or terminal result of the first react devtools example. Explain which tool or layer produces it.",
+      "hints": [
+        "Name the exact tool, file, command, DOM node, or product requirement involved before proposing a fix."
+      ],
+      "acceptanceCriteria": [
+        "The answer identifies the correct responsibility or layer.",
+        "It includes observable evidence or a concrete example.",
+        "It names one boundary, edge case, or reason for the decision."
+      ],
+      "objectiveIds": [
+        "panels"
+      ],
+      "sourceIds": [
+        "react-devtools",
+        "react-thinking"
+      ],
+      "solution": {
+        "explanation": "A strong answer applies this rule: Explain what Components and Profiler show. It identifies the responsible layer, gives observable evidence, and avoids claiming that React or Vite solves unrelated application concerns.",
+        "code": "// Write expected evidence before changing the setup.\nconst check = { expected: \"specific result\", actual: \"observed result\", nextStep: \"one focused test\" };",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p02",
+      "type": "explain-and-build",
+      "difficulty": "beginner",
+      "prompt": "Create a small diagram or ordered list that explains runtime inspection is temporary. Add one concrete file, command, or UI example.",
+      "hints": [
+        "Name the exact tool, file, command, DOM node, or product requirement involved before proposing a fix."
+      ],
+      "acceptanceCriteria": [
+        "The answer identifies the correct responsibility or layer.",
+        "It includes observable evidence or a concrete example.",
+        "It names one boundary, edge case, or reason for the decision."
+      ],
+      "objectiveIds": [
+        "inspect"
+      ],
+      "sourceIds": [
+        "react-devtools",
+        "react-thinking"
+      ],
+      "solution": {
+        "explanation": "A strong answer applies this rule: Inspect without treating edits as source changes. It identifies the responsible layer, gives observable evidence, and avoids claiming that React or Vite solves unrelated application concerns.",
+        "code": "// Write expected evidence before changing the setup.\nconst check = { expected: \"specific result\", actual: \"observed result\", nextStep: \"one focused test\" };",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p03",
+      "type": "debug",
+      "difficulty": "intermediate",
+      "prompt": "A learner reports “the React setup does not work.” Write the first five evidence checks for this topic and explain the order.",
+      "hints": [
+        "Name the exact tool, file, command, DOM node, or product requirement involved before proposing a fix."
+      ],
+      "acceptanceCriteria": [
+        "The answer identifies the correct responsibility or layer.",
+        "It includes observable evidence or a concrete example.",
+        "It names one boundary, edge case, or reason for the decision."
+      ],
+      "objectiveIds": [
+        "profile"
+      ],
+      "sourceIds": [
+        "react-devtools",
+        "react-thinking"
+      ],
+      "solution": {
+        "explanation": "A strong answer applies this rule: Profile a specific interaction. It identifies the responsible layer, gives observable evidence, and avoids claiming that React or Vite solves unrelated application concerns.",
+        "code": "// Write expected evidence before changing the setup.\nconst check = { expected: \"specific result\", actual: \"observed result\", nextStep: \"one focused test\" };",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p04",
+      "type": "design",
+      "difficulty": "intermediate",
+      "prompt": "Choose a setup for a small learning exercise and a production application. State the requirements and defend each choice using this lesson.",
+      "hints": [
+        "Name the exact tool, file, command, DOM node, or product requirement involved before proposing a fix."
+      ],
+      "acceptanceCriteria": [
+        "The answer identifies the correct responsibility or layer.",
+        "It includes observable evidence or a concrete example.",
+        "It names one boundary, edge case, or reason for the decision."
+      ],
+      "objectiveIds": [
+        "limits"
+      ],
+      "sourceIds": [
+        "react-devtools",
+        "react-thinking"
+      ],
+      "solution": {
+        "explanation": "A strong answer applies this rule: Know what React DevTools cannot prove. It identifies the responsible layer, gives observable evidence, and avoids claiming that React or Vite solves unrelated application concerns.",
+        "code": "// Write expected evidence before changing the setup.\nconst check = { expected: \"specific result\", actual: \"observed result\", nextStep: \"one focused test\" };",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p05",
+      "type": "transfer",
+      "difficulty": "advanced",
+      "prompt": "Apply two objectives from this lesson to a different existing project. Name what you would keep, change, verify, and deliberately leave outside React.",
+      "hints": [
+        "Name the exact tool, file, command, DOM node, or product requirement involved before proposing a fix."
+      ],
+      "acceptanceCriteria": [
+        "The answer identifies the correct responsibility or layer.",
+        "It includes observable evidence or a concrete example.",
+        "It names one boundary, edge case, or reason for the decision."
+      ],
+      "objectiveIds": [
+        "panels",
+        "inspect"
+      ],
+      "sourceIds": [
+        "react-devtools",
+        "react-thinking"
+      ],
+      "solution": {
+        "explanation": "A strong answer applies this rule: Explain what Components and Profiler show. It identifies the responsible layer, gives observable evidence, and avoids claiming that React or Vite solves unrelated application concerns.",
+        "code": "// Write expected evidence before changing the setup.\nconst check = { expected: \"specific result\", actual: \"observed result\", nextStep: \"one focused test\" };",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    }
+  ],
+  "interviewQuestions": [
+    {
+      "id": "responsibility",
+      "question": "What responsibility does react devtools have in a React project?",
+      "answer": "Explain what Components and Profiler show. Inspect without treating edits as source changes. Profile a specific interaction. Know what React DevTools cannot prove.",
+      "followUp": "What important responsibility belongs to another layer?",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "react-devtools",
+        "react-thinking"
+      ]
+    },
+    {
+      "id": "debug",
+      "question": "How would you debug a failure related to react devtools?",
+      "answer": "Reproduce the smallest failure, confirm the current directory and versions when relevant, read the first terminal or browser error, trace the entry and root, and test one hypothesis at a time.",
+      "followUp": "Which evidence would make you change layers?",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "react-devtools",
+        "react-thinking"
+      ]
+    },
+    {
+      "id": "decision",
+      "question": "Which tradeoff in react devtools should a team decide explicitly?",
+      "answer": "The team should match tools and boundaries to product needs, record version and deployment assumptions, and avoid treating a starter template as a complete production architecture.",
+      "followUp": "How could the answer change for an existing server-rendered site?",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "react-devtools",
+        "react-thinking"
+      ]
+    }
+  ],
+  "miniAppIds": [
+    "first-react-workspace"
+  ],
+  "mastery": {
+    "status": "not-assessed",
+    "policy": "Reading commands or following the guided project is not mastery. Recreate the setup without copying, explain every tool boundary, diagnose one failure, and verify a production build.",
+    "checks": [
+      {
+        "id": "explain",
+        "evidence": "Explain all objectives in react devtools without notes.",
+        "pass": "Each explanation names the responsible layer, one example, and one boundary."
+      },
+      {
+        "id": "solve",
+        "evidence": "Complete four exercises before opening solutions.",
+        "pass": "The saved work uses observable evidence and correct terminology."
+      },
+      {
+        "id": "transfer",
+        "evidence": "Apply the lesson to a fresh folder, existing page, or architecture decision.",
+        "pass": "The result works and the learner can explain what React, the build tool, and the host environment each own."
+      }
+    ],
+    "reviewSchedule": {
+      "note": "Answer before reopening the lesson or commands.",
+      "sessions": [
+        {
+          "dayOffset": 2,
+          "problems": [
+            {
+              "id": "recall",
+              "prompt": "List four rules from React DevTools.",
+              "solution": "Explain what Components and Profiler show. Inspect without treating edits as source changes. Profile a specific interaction. Know what React DevTools cannot prove."
+            },
+            {
+              "id": "failure",
+              "prompt": "Invent one setup failure and diagnose it by evidence.",
+              "solution": "State expected and actual behavior, identify the layer, inspect one relevant source of evidence, and make one focused correction."
+            }
+          ]
+        },
+        {
+          "dayOffset": 7,
+          "problems": [
+            {
+              "id": "teach",
+              "prompt": "Teach react devtools to a learner without using unexplained tool names.",
+              "solution": "Define each tool or concept, show the flow, and name a boundary."
+            },
+            {
+              "id": "fresh",
+              "prompt": "Make the same decision for a different project requirement.",
+              "solution": "The choice should follow stated requirements and include a verification plan."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "sourceIds": [
+    "react-devtools",
+    "react-thinking"
+  ],
+  "commonMistakes": [
+    {
+      "symptom": "Every setup problem is described as a React error.",
+      "cause": "Browser, Node, npm, Vite, project files, and React responsibilities were mixed together.",
+      "fix": "Identify the failing layer from the command, URL, stack, file, or tool panel before editing."
+    },
+    {
+      "symptom": "Commands work in one terminal but fail in another folder.",
+      "cause": "The current directory or active Node installation differs.",
+      "fix": "Check the path, package.json, lockfile, node -v, and npm -v in the same terminal."
+    },
+    {
+      "symptom": "The starter template is treated as a complete production plan.",
+      "cause": "Scaffolding and build features were confused with routing, data, server, security, and deployment architecture.",
+      "fix": "Write product requirements and assign each responsibility to React, a build tool, a framework, the platform, or backend code."
+    }
+  ],
+  "publicationChecklist": {
+    "authored": true,
+    "sourcesReviewed": true,
+    "codeSyntaxChecked": true,
+    "serverInitialRenderChecked": false,
+    "browserBehaviorChecked": false,
+    "independentContentReview": false,
+    "learnerTrial": false,
+    "note": "Concept-complete setup draft. Recheck version-specific commands, run broader browser behavior checks, obtain independent review, and complete a learner trial before publication."
+  }
+}

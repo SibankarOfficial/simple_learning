@@ -59,6 +59,9 @@
       ],
       "exampleIds": [
         "native-disclosure"
+      ],
+      "objectiveIds": [
+        "native"
       ]
     },
     {
@@ -72,6 +75,9 @@
       ],
       "exampleIds": [
         "focus-style"
+      ],
+      "objectiveIds": [
+        "keyboard"
       ]
     },
     {
@@ -83,7 +89,10 @@
         "mdn-html-accessibility",
         "mdn-keyboard"
       ],
-      "exampleIds": []
+      "exampleIds": [],
+      "objectiveIds": [
+        "content"
+      ]
     },
     {
       "id": "focus",
@@ -94,7 +103,10 @@
         "mdn-html-accessibility",
         "mdn-keyboard"
       ],
-      "exampleIds": []
+      "exampleIds": [],
+      "objectiveIds": [
+        "native"
+      ]
     },
     {
       "id": "content",
@@ -105,7 +117,10 @@
         "mdn-html-accessibility",
         "mdn-keyboard"
       ],
-      "exampleIds": []
+      "exampleIds": [],
+      "objectiveIds": [
+        "keyboard"
+      ]
     },
     {
       "id": "test",
@@ -116,7 +131,10 @@
         "mdn-html-accessibility",
         "mdn-keyboard"
       ],
-      "exampleIds": []
+      "exampleIds": [],
+      "objectiveIds": [
+        "content"
+      ]
     }
   ],
   "examples": [
@@ -151,7 +169,7 @@
   ],
   "practice": [
     {
-      "id": "practice-1",
+      "id": "p01",
       "type": "predict",
       "difficulty": "beginner",
       "prompt": "Which is keyboard-ready by default for an action: <div onclick=\"save()\"> or <button type=\"button\">?",
@@ -177,7 +195,7 @@
       "attemptBeforeReveal": true
     },
     {
-      "id": "practice-2",
+      "id": "p02",
       "type": "build",
       "difficulty": "beginner",
       "prompt": "Write an icon-only Close button with an accessible name.",
@@ -206,7 +224,7 @@
       "attemptBeforeReveal": true
     },
     {
-      "id": "practice-3",
+      "id": "p03",
       "type": "debug",
       "difficulty": "intermediate",
       "prompt": "A site removes every outline because the designer dislikes it. Explain the failure and propose a fix.",
@@ -232,7 +250,7 @@
       "attemptBeforeReveal": true
     },
     {
-      "id": "practice-4",
+      "id": "p04",
       "type": "design",
       "difficulty": "intermediate",
       "prompt": "Write a five-step keyboard test for a signup form.",
@@ -258,7 +276,7 @@
       "attemptBeforeReveal": true
     },
     {
-      "id": "practice-5",
+      "id": "p05",
       "type": "transfer",
       "difficulty": "advanced",
       "prompt": "A custom card is clickable and contains another link. Redesign it for clear semantics and keyboard use.",

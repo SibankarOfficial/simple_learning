@@ -73,7 +73,9 @@
       "prerequisiteChapterIds": [
         "web-basics"
       ],
-      "miniAppIds": []
+      "miniAppIds": [
+        "study-session-report"
+      ]
     },
     {
       "id": "setup",
@@ -96,7 +98,9 @@
       "prerequisiteChapterIds": [
         "javascript-basics"
       ],
-      "miniAppIds": []
+      "miniAppIds": [
+        "first-react-workspace"
+      ]
     },
     {
       "id": "components-jsx",
@@ -925,14 +929,19 @@
       "order": 7,
       "level": "foundation",
       "track": "prerequisite",
-      "prerequisiteTopicIds": [],
-      "sourceIds": [
-        "js"
+      "prerequisiteTopicIds": [
+        "web-basics-browser-devtools-and-console"
       ],
-      "sourceReview": "index-mapped",
-      "contentStatus": "planned",
-      "lessonPath": null,
-      "miniAppIds": [],
+      "sourceIds": [
+        "mdn-js-grammar",
+        "mdn-js-data"
+      ],
+      "sourceReview": "lesson-reviewed",
+      "contentStatus": "sample-draft",
+      "lessonPath": "lessons/javascript-basics-values-types-and-coercion.json",
+      "miniAppIds": [
+        "study-session-report"
+      ],
       "versionNote": null
     },
     {
@@ -943,14 +952,18 @@
       "order": 8,
       "level": "foundation",
       "track": "prerequisite",
-      "prerequisiteTopicIds": [],
-      "sourceIds": [
-        "js"
+      "prerequisiteTopicIds": [
+        "javascript-basics-values-types-and-coercion"
       ],
-      "sourceReview": "index-mapped",
-      "contentStatus": "planned",
-      "lessonPath": null,
-      "miniAppIds": [],
+      "sourceIds": [
+        "mdn-js-grammar"
+      ],
+      "sourceReview": "lesson-reviewed",
+      "contentStatus": "sample-draft",
+      "lessonPath": "lessons/javascript-basics-let-const-and-scope.json",
+      "miniAppIds": [
+        "study-session-report"
+      ],
       "versionNote": null
     },
     {
@@ -961,14 +974,18 @@
       "order": 9,
       "level": "foundation",
       "track": "prerequisite",
-      "prerequisiteTopicIds": [],
-      "sourceIds": [
-        "js"
+      "prerequisiteTopicIds": [
+        "javascript-basics-let-const-and-scope"
       ],
-      "sourceReview": "index-mapped",
-      "contentStatus": "planned",
-      "lessonPath": null,
-      "miniAppIds": [],
+      "sourceIds": [
+        "mdn-js-expressions"
+      ],
+      "sourceReview": "lesson-reviewed",
+      "contentStatus": "sample-draft",
+      "lessonPath": "lessons/javascript-basics-expressions-operators-and-equality.json",
+      "miniAppIds": [
+        "study-session-report"
+      ],
       "versionNote": null
     },
     {
@@ -979,14 +996,19 @@
       "order": 10,
       "level": "foundation",
       "track": "prerequisite",
-      "prerequisiteTopicIds": [],
-      "sourceIds": [
-        "js"
+      "prerequisiteTopicIds": [
+        "javascript-basics-expressions-operators-and-equality"
       ],
-      "sourceReview": "index-mapped",
-      "contentStatus": "planned",
-      "lessonPath": null,
-      "miniAppIds": [],
+      "sourceIds": [
+        "mdn-js-control",
+        "mdn-js-loops"
+      ],
+      "sourceReview": "lesson-reviewed",
+      "contentStatus": "sample-draft",
+      "lessonPath": "lessons/javascript-basics-conditionals-and-loops.json",
+      "miniAppIds": [
+        "study-session-report"
+      ],
       "versionNote": null
     },
     {
@@ -997,14 +1019,18 @@
       "order": 11,
       "level": "foundation",
       "track": "prerequisite",
-      "prerequisiteTopicIds": [],
-      "sourceIds": [
-        "js"
+      "prerequisiteTopicIds": [
+        "javascript-basics-conditionals-and-loops"
       ],
-      "sourceReview": "index-mapped",
-      "contentStatus": "planned",
-      "lessonPath": null,
-      "miniAppIds": [],
+      "sourceIds": [
+        "mdn-js-functions"
+      ],
+      "sourceReview": "lesson-reviewed",
+      "contentStatus": "sample-draft",
+      "lessonPath": "lessons/javascript-basics-functions-declarations-and-arrows.json",
+      "miniAppIds": [
+        "study-session-report"
+      ],
       "versionNote": null
     },
     {
@@ -1015,14 +1041,18 @@
       "order": 12,
       "level": "foundation",
       "track": "prerequisite",
-      "prerequisiteTopicIds": [],
-      "sourceIds": [
-        "js"
+      "prerequisiteTopicIds": [
+        "javascript-basics-functions-declarations-and-arrows"
       ],
-      "sourceReview": "index-mapped",
-      "contentStatus": "planned",
-      "lessonPath": null,
-      "miniAppIds": [],
+      "sourceIds": [
+        "mdn-js-functions"
+      ],
+      "sourceReview": "lesson-reviewed",
+      "contentStatus": "sample-draft",
+      "lessonPath": "lessons/javascript-basics-parameters-defaults-and-return-values.json",
+      "miniAppIds": [
+        "study-session-report"
+      ],
       "versionNote": null
     },
     {
@@ -1033,14 +1063,18 @@
       "order": 13,
       "level": "foundation",
       "track": "prerequisite",
-      "prerequisiteTopicIds": [],
-      "sourceIds": [
-        "js"
+      "prerequisiteTopicIds": [
+        "javascript-basics-parameters-defaults-and-return-values"
       ],
-      "sourceReview": "index-mapped",
-      "contentStatus": "planned",
-      "lessonPath": null,
-      "miniAppIds": [],
+      "sourceIds": [
+        "mdn-js-objects"
+      ],
+      "sourceReview": "lesson-reviewed",
+      "contentStatus": "sample-draft",
+      "lessonPath": "lessons/javascript-basics-objects-and-property-access.json",
+      "miniAppIds": [
+        "study-session-report"
+      ],
       "versionNote": null
     },
     {
@@ -1051,14 +1085,18 @@
       "order": 14,
       "level": "foundation",
       "track": "prerequisite",
-      "prerequisiteTopicIds": [],
-      "sourceIds": [
-        "js"
+      "prerequisiteTopicIds": [
+        "javascript-basics-objects-and-property-access"
       ],
-      "sourceReview": "index-mapped",
-      "contentStatus": "planned",
-      "lessonPath": null,
-      "miniAppIds": [],
+      "sourceIds": [
+        "mdn-js-arrays"
+      ],
+      "sourceReview": "lesson-reviewed",
+      "contentStatus": "sample-draft",
+      "lessonPath": "lessons/javascript-basics-arrays-and-iteration.json",
+      "miniAppIds": [
+        "study-session-report"
+      ],
       "versionNote": null
     },
     {
@@ -1069,14 +1107,18 @@
       "order": 15,
       "level": "foundation",
       "track": "prerequisite",
-      "prerequisiteTopicIds": [],
-      "sourceIds": [
-        "js"
+      "prerequisiteTopicIds": [
+        "javascript-basics-arrays-and-iteration"
       ],
-      "sourceReview": "index-mapped",
-      "contentStatus": "planned",
-      "lessonPath": null,
-      "miniAppIds": [],
+      "sourceIds": [
+        "mdn-destructuring"
+      ],
+      "sourceReview": "lesson-reviewed",
+      "contentStatus": "sample-draft",
+      "lessonPath": "lessons/javascript-basics-destructuring.json",
+      "miniAppIds": [
+        "study-session-report"
+      ],
       "versionNote": null
     },
     {
@@ -1087,14 +1129,18 @@
       "order": 16,
       "level": "foundation",
       "track": "prerequisite",
-      "prerequisiteTopicIds": [],
-      "sourceIds": [
-        "js"
+      "prerequisiteTopicIds": [
+        "javascript-basics-destructuring"
       ],
-      "sourceReview": "index-mapped",
-      "contentStatus": "planned",
-      "lessonPath": null,
-      "miniAppIds": [],
+      "sourceIds": [
+        "mdn-spread"
+      ],
+      "sourceReview": "lesson-reviewed",
+      "contentStatus": "sample-draft",
+      "lessonPath": "lessons/javascript-basics-spread-and-rest.json",
+      "miniAppIds": [
+        "study-session-report"
+      ],
       "versionNote": null
     },
     {
@@ -1105,14 +1151,18 @@
       "order": 17,
       "level": "foundation",
       "track": "prerequisite",
-      "prerequisiteTopicIds": [],
-      "sourceIds": [
-        "js"
+      "prerequisiteTopicIds": [
+        "javascript-basics-spread-and-rest"
       ],
-      "sourceReview": "index-mapped",
-      "contentStatus": "planned",
-      "lessonPath": null,
-      "miniAppIds": [],
+      "sourceIds": [
+        "mdn-js-arrays"
+      ],
+      "sourceReview": "lesson-reviewed",
+      "contentStatus": "sample-draft",
+      "lessonPath": "lessons/javascript-basics-map-filter-find-and-reduce.json",
+      "miniAppIds": [
+        "study-session-report"
+      ],
       "versionNote": null
     },
     {
@@ -1123,14 +1173,18 @@
       "order": 18,
       "level": "foundation",
       "track": "prerequisite",
-      "prerequisiteTopicIds": [],
-      "sourceIds": [
-        "js"
+      "prerequisiteTopicIds": [
+        "javascript-basics-map-filter-find-and-reduce"
       ],
-      "sourceReview": "index-mapped",
-      "contentStatus": "planned",
-      "lessonPath": null,
-      "miniAppIds": [],
+      "sourceIds": [
+        "mdn-js-modules"
+      ],
+      "sourceReview": "lesson-reviewed",
+      "contentStatus": "sample-draft",
+      "lessonPath": "lessons/javascript-basics-modules-import-and-export.json",
+      "miniAppIds": [
+        "study-session-report"
+      ],
       "versionNote": null
     },
     {
@@ -1141,14 +1195,18 @@
       "order": 19,
       "level": "foundation",
       "track": "prerequisite",
-      "prerequisiteTopicIds": [],
-      "sourceIds": [
-        "js"
+      "prerequisiteTopicIds": [
+        "javascript-basics-modules-import-and-export"
       ],
-      "sourceReview": "index-mapped",
-      "contentStatus": "planned",
-      "lessonPath": null,
-      "miniAppIds": [],
+      "sourceIds": [
+        "mdn-js-closures"
+      ],
+      "sourceReview": "lesson-reviewed",
+      "contentStatus": "sample-draft",
+      "lessonPath": "lessons/javascript-basics-closures-and-lexical-scope.json",
+      "miniAppIds": [
+        "study-session-report"
+      ],
       "versionNote": null
     },
     {
@@ -1159,14 +1217,19 @@
       "order": 20,
       "level": "foundation",
       "track": "prerequisite",
-      "prerequisiteTopicIds": [],
-      "sourceIds": [
-        "js"
+      "prerequisiteTopicIds": [
+        "javascript-basics-closures-and-lexical-scope"
       ],
-      "sourceReview": "index-mapped",
-      "contentStatus": "planned",
-      "lessonPath": null,
-      "miniAppIds": [],
+      "sourceIds": [
+        "mdn-js-data",
+        "mdn-spread"
+      ],
+      "sourceReview": "lesson-reviewed",
+      "contentStatus": "sample-draft",
+      "lessonPath": "lessons/javascript-basics-references-mutation-and-shallow-copy.json",
+      "miniAppIds": [
+        "study-session-report"
+      ],
       "versionNote": null
     },
     {
@@ -1177,14 +1240,19 @@
       "order": 21,
       "level": "foundation",
       "track": "prerequisite",
-      "prerequisiteTopicIds": [],
-      "sourceIds": [
-        "js"
+      "prerequisiteTopicIds": [
+        "javascript-basics-references-mutation-and-shallow-copy"
       ],
-      "sourceReview": "index-mapped",
-      "contentStatus": "planned",
-      "lessonPath": null,
-      "miniAppIds": [],
+      "sourceIds": [
+        "mdn-optional-chaining",
+        "mdn-nullish"
+      ],
+      "sourceReview": "lesson-reviewed",
+      "contentStatus": "sample-draft",
+      "lessonPath": "lessons/javascript-basics-optional-chaining-and-nullish-coalescing.json",
+      "miniAppIds": [
+        "study-session-report"
+      ],
       "versionNote": null
     },
     {
@@ -1195,14 +1263,19 @@
       "order": 22,
       "level": "foundation",
       "track": "prerequisite",
-      "prerequisiteTopicIds": [],
-      "sourceIds": [
-        "js"
+      "prerequisiteTopicIds": [
+        "javascript-basics-optional-chaining-and-nullish-coalescing"
       ],
-      "sourceReview": "index-mapped",
-      "contentStatus": "planned",
-      "lessonPath": null,
-      "miniAppIds": [],
+      "sourceIds": [
+        "mdn-js-promises",
+        "mdn-js-control"
+      ],
+      "sourceReview": "lesson-reviewed",
+      "contentStatus": "sample-draft",
+      "lessonPath": "lessons/javascript-basics-promises-async-await-and-errors.json",
+      "miniAppIds": [
+        "study-session-report"
+      ],
       "versionNote": null
     },
     {
@@ -1213,14 +1286,18 @@
       "order": 23,
       "level": "foundation",
       "track": "prerequisite",
-      "prerequisiteTopicIds": [],
-      "sourceIds": [
-        "js"
+      "prerequisiteTopicIds": [
+        "javascript-basics-promises-async-await-and-errors"
       ],
-      "sourceReview": "index-mapped",
-      "contentStatus": "planned",
-      "lessonPath": null,
-      "miniAppIds": [],
+      "sourceIds": [
+        "mdn-js-execution"
+      ],
+      "sourceReview": "lesson-reviewed",
+      "contentStatus": "sample-draft",
+      "lessonPath": "lessons/javascript-basics-event-loop-and-timers.json",
+      "miniAppIds": [
+        "study-session-report"
+      ],
       "versionNote": null
     },
     {
@@ -1231,14 +1308,19 @@
       "order": 24,
       "level": "foundation",
       "track": "prerequisite",
-      "prerequisiteTopicIds": [],
-      "sourceIds": [
-        "js"
+      "prerequisiteTopicIds": [
+        "javascript-basics-event-loop-and-timers"
       ],
-      "sourceReview": "index-mapped",
-      "contentStatus": "planned",
-      "lessonPath": null,
-      "miniAppIds": [],
+      "sourceIds": [
+        "mdn-fetch",
+        "mdn-http-status"
+      ],
+      "sourceReview": "lesson-reviewed",
+      "contentStatus": "sample-draft",
+      "lessonPath": "lessons/javascript-basics-fetch-json-and-http.json",
+      "miniAppIds": [
+        "study-session-report"
+      ],
       "versionNote": null
     },
     {
@@ -1249,14 +1331,18 @@
       "order": 25,
       "level": "foundation",
       "track": "prerequisite",
-      "prerequisiteTopicIds": [],
-      "sourceIds": [
-        "js"
+      "prerequisiteTopicIds": [
+        "javascript-basics-fetch-json-and-http"
       ],
-      "sourceReview": "index-mapped",
-      "contentStatus": "planned",
-      "lessonPath": null,
-      "miniAppIds": [],
+      "sourceIds": [
+        "mdn-js-control"
+      ],
+      "sourceReview": "lesson-reviewed",
+      "contentStatus": "sample-draft",
+      "lessonPath": "lessons/javascript-basics-exceptions-and-debugging.json",
+      "miniAppIds": [
+        "study-session-report"
+      ],
       "versionNote": null
     },
     {
@@ -1267,14 +1353,19 @@
       "order": 26,
       "level": "beginner",
       "track": "core",
-      "prerequisiteTopicIds": [],
-      "sourceIds": [
-        "install"
+      "prerequisiteTopicIds": [
+        "javascript-basics-modules-import-and-export"
       ],
-      "sourceReview": "index-mapped",
-      "contentStatus": "planned",
-      "lessonPath": null,
-      "miniAppIds": [],
+      "sourceIds": [
+        "react-installation",
+        "react-build-scratch"
+      ],
+      "sourceReview": "lesson-reviewed",
+      "contentStatus": "sample-draft",
+      "lessonPath": "lessons/setup-what-react-solves-and-its-boundaries.json",
+      "miniAppIds": [
+        "first-react-workspace"
+      ],
       "versionNote": null
     },
     {
@@ -1285,14 +1376,20 @@
       "order": 27,
       "level": "beginner",
       "track": "core",
-      "prerequisiteTopicIds": [],
-      "sourceIds": [
-        "install"
+      "prerequisiteTopicIds": [
+        "setup-what-react-solves-and-its-boundaries"
       ],
-      "sourceReview": "index-mapped",
-      "contentStatus": "planned",
-      "lessonPath": null,
-      "miniAppIds": [],
+      "sourceIds": [
+        "react-thinking",
+        "react-declarative-ui",
+        "react-first-component"
+      ],
+      "sourceReview": "lesson-reviewed",
+      "contentStatus": "sample-draft",
+      "lessonPath": "lessons/setup-declarative-ui-and-component-thinking.json",
+      "miniAppIds": [
+        "first-react-workspace"
+      ],
       "versionNote": null
     },
     {
@@ -1303,14 +1400,19 @@
       "order": 28,
       "level": "beginner",
       "track": "core",
-      "prerequisiteTopicIds": [],
-      "sourceIds": [
-        "install"
+      "prerequisiteTopicIds": [
+        "setup-declarative-ui-and-component-thinking"
       ],
-      "sourceReview": "index-mapped",
-      "contentStatus": "planned",
-      "lessonPath": null,
-      "miniAppIds": [],
+      "sourceIds": [
+        "npm-node-install",
+        "npm-package-json"
+      ],
+      "sourceReview": "lesson-reviewed",
+      "contentStatus": "sample-draft",
+      "lessonPath": "lessons/setup-editor-node-package-manager-and-terminal.json",
+      "miniAppIds": [
+        "first-react-workspace"
+      ],
       "versionNote": null
     },
     {
@@ -1321,14 +1423,20 @@
       "order": 29,
       "level": "beginner",
       "track": "core",
-      "prerequisiteTopicIds": [],
-      "sourceIds": [
-        "install"
+      "prerequisiteTopicIds": [
+        "setup-editor-node-package-manager-and-terminal"
       ],
-      "sourceReview": "index-mapped",
-      "contentStatus": "planned",
-      "lessonPath": null,
-      "miniAppIds": [],
+      "sourceIds": [
+        "react-build-scratch",
+        "vite-getting-started",
+        "vite-features"
+      ],
+      "sourceReview": "lesson-reviewed",
+      "contentStatus": "sample-draft",
+      "lessonPath": "lessons/setup-create-a-learning-project-with-vite.json",
+      "miniAppIds": [
+        "first-react-workspace"
+      ],
       "versionNote": null
     },
     {
@@ -1339,14 +1447,20 @@
       "order": 30,
       "level": "beginner",
       "track": "core",
-      "prerequisiteTopicIds": [],
-      "sourceIds": [
-        "install"
+      "prerequisiteTopicIds": [
+        "setup-create-a-learning-project-with-vite"
       ],
-      "sourceReview": "index-mapped",
-      "contentStatus": "planned",
-      "lessonPath": null,
-      "miniAppIds": [],
+      "sourceIds": [
+        "react-installation",
+        "react-build-scratch",
+        "vite-getting-started"
+      ],
+      "sourceReview": "lesson-reviewed",
+      "contentStatus": "sample-draft",
+      "lessonPath": "lessons/setup-framework-versus-build-tool.json",
+      "miniAppIds": [
+        "first-react-workspace"
+      ],
       "versionNote": null
     },
     {
@@ -1357,14 +1471,21 @@
       "order": 31,
       "level": "beginner",
       "track": "core",
-      "prerequisiteTopicIds": [],
-      "sourceIds": [
-        "install"
+      "prerequisiteTopicIds": [
+        "setup-framework-versus-build-tool"
       ],
-      "sourceReview": "index-mapped",
-      "contentStatus": "planned",
-      "lessonPath": null,
-      "miniAppIds": [],
+      "sourceIds": [
+        "vite-getting-started",
+        "npm-package-json",
+        "npm-dependencies",
+        "react-create-root"
+      ],
+      "sourceReview": "lesson-reviewed",
+      "contentStatus": "sample-draft",
+      "lessonPath": "lessons/setup-project-files-scripts-and-dependencies.json",
+      "miniAppIds": [
+        "first-react-workspace"
+      ],
       "versionNote": null
     },
     {
@@ -1375,14 +1496,20 @@
       "order": 32,
       "level": "beginner",
       "track": "core",
-      "prerequisiteTopicIds": [],
-      "sourceIds": [
-        "install"
+      "prerequisiteTopicIds": [
+        "setup-project-files-scripts-and-dependencies"
       ],
-      "sourceReview": "index-mapped",
-      "contentStatus": "planned",
-      "lessonPath": null,
-      "miniAppIds": [],
+      "sourceIds": [
+        "vite-getting-started",
+        "vite-features",
+        "vite-production-build"
+      ],
+      "sourceReview": "lesson-reviewed",
+      "contentStatus": "sample-draft",
+      "lessonPath": "lessons/setup-development-versus-production.json",
+      "miniAppIds": [
+        "first-react-workspace"
+      ],
       "versionNote": null
     },
     {
@@ -1393,14 +1520,19 @@
       "order": 33,
       "level": "beginner",
       "track": "core",
-      "prerequisiteTopicIds": [],
-      "sourceIds": [
-        "install"
+      "prerequisiteTopicIds": [
+        "setup-development-versus-production"
       ],
-      "sourceReview": "index-mapped",
-      "contentStatus": "planned",
-      "lessonPath": null,
-      "miniAppIds": [],
+      "sourceIds": [
+        "react-devtools",
+        "react-thinking"
+      ],
+      "sourceReview": "lesson-reviewed",
+      "contentStatus": "sample-draft",
+      "lessonPath": "lessons/setup-react-devtools.json",
+      "miniAppIds": [
+        "first-react-workspace"
+      ],
       "versionNote": null
     },
     {
@@ -1411,14 +1543,20 @@
       "order": 34,
       "level": "beginner",
       "track": "core",
-      "prerequisiteTopicIds": [],
-      "sourceIds": [
-        "install"
+      "prerequisiteTopicIds": [
+        "setup-react-devtools"
       ],
-      "sourceReview": "index-mapped",
-      "contentStatus": "planned",
-      "lessonPath": null,
-      "miniAppIds": [],
+      "sourceIds": [
+        "react-existing-project",
+        "react-create-root",
+        "react-installation"
+      ],
+      "sourceReview": "lesson-reviewed",
+      "contentStatus": "sample-draft",
+      "lessonPath": "lessons/setup-adding-react-to-an-existing-page.json",
+      "miniAppIds": [
+        "first-react-workspace"
+      ],
       "versionNote": null
     },
     {

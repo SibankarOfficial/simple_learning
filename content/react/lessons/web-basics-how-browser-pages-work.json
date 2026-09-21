@@ -6,26 +6,34 @@
   "title": "How browser pages work",
   "language": "en",
   "status": "sample-draft",
-  "reviewedAt": "2026-09-19",
+  "reviewedAt": "2026-09-20",
   "runtime": "Modern evergreen browser. HTML, CSS, and JavaScript fragments can be tried in a small local page or the browser DevTools described in the lesson.",
   "prerequisiteTopicIds": [],
   "estimatedMinutes": {
-    "firstPass": 30,
-    "practice": 45,
-    "project": 25
+    "firstPass": 65,
+    "practice": 70,
+    "project": 30
   },
   "objectives": [
     {
+      "id": "network",
+      "text": "Explain what the internet is and how data travels between devices."
+    },
+    {
       "id": "request",
-      "text": "Explain the browser, server, URL, request, and response in simple words."
+      "text": "Explain the browser, server, DNS, URL, HTTP request, and HTTP response in simple words."
     },
     {
       "id": "render",
-      "text": "Describe how HTML, CSS, and JavaScript become an interactive page."
+      "text": "Describe how HTML, CSS, and JavaScript become pixels and an interactive page."
+    },
+    {
+      "id": "modes",
+      "text": "Compare static generation, server-side rendering, client-side rendering, and hydration."
     },
     {
       "id": "debug",
-      "text": "Use status codes and the Network panel to locate a failed resource."
+      "text": "Use HTTP status codes and browser evidence to locate a failed resource or rendering problem."
     }
   ],
   "learningFlow": [
@@ -47,25 +55,159 @@
   ],
   "sections": [
     {
-      "id": "what",
-      "title": "The main parts",
+      "id": "internet",
+      "title": "What is the internet?",
       "depth": "core",
-      "body": "Your browser is a client. It asks a server for a resource by using a URL. The server returns an HTTP response. A response can contain HTML, CSS, JavaScript, JSON, an image, or another file. The internet carries the data; the web is one system that uses that connection.",
+      "objectiveIds": [
+        "network"
+      ],
+      "body": "The internet is a worldwide network of connected networks. Phones, laptops, routers, data centres, and many other devices exchange data by following shared networking rules called protocols. The web is one service that runs on the internet. Email, online games, voice calls, and the web can all use the internet without being the same thing. When you open a webpage, no single “internet computer” sends it; many networks cooperate to move data between your device and another device.",
+      "sourceIds": [
+        "mdn-web-works"
+      ],
+      "exampleIds": []
+    },
+    {
+      "id": "packets",
+      "title": "How data travels",
+      "depth": "core",
+      "objectiveIds": [
+        "network"
+      ],
+      "body": "Large data is divided into smaller units commonly called packets. Each packet carries addressing and ordering information so networking equipment can forward it toward the destination and the receiver can rebuild the data. IP handles addressing and routing between networks. Transport protocols handle delivery behavior: TCP provides an ordered reliable byte stream, while other transports make different tradeoffs. Your Wi-Fi or mobile connection reaches a router, then an internet provider, and often several intermediate networks before reaching the server. Packets for one response do not need to follow one physical cable or one identical route.",
       "sourceIds": [
         "mdn-web-works",
-        "mdn-browser-load"
+        "mdn-http-overview"
+      ],
+      "exampleIds": []
+    },
+    {
+      "id": "client",
+      "title": "What is a client?",
+      "depth": "core",
+      "objectiveIds": [
+        "request"
+      ],
+      "body": "A client is software that requests or consumes a service. A browser is an HTTP client, but a mobile app, command-line tool, or another server can also be a client. The client chooses a URL, creates a request, sends headers and sometimes a body, waits for a response, then decides what to do with the result. “Client side” means work that runs on the user’s device, usually inside the browser for a web application.",
+      "sourceIds": [
+        "mdn-web-works",
+        "mdn-http-overview"
       ],
       "exampleIds": [
         "url-anatomy"
       ]
     },
     {
-      "id": "url",
-      "title": "How a URL points to a resource",
+      "id": "server",
+      "title": "What is a server and how does it work?",
       "depth": "core",
-      "body": "In https://example.com/products?sort=price#details, https is the scheme, example.com is the host, /products is the path, sort=price is the query, and details is the fragment. The fragment stays in the browser and usually points to a place in the returned document.",
+      "objectiveIds": [
+        "request"
+      ],
+      "body": "A server is software that listens for requests and sends responses; the word also commonly describes the computer running that software. A request first reaches an address and port. A web server or reverse proxy may handle TLS, caching, compression, and routing. Application code can then read the method, path, headers, identity, and body; validate input; read a database or another service; apply business rules; and create a response. The response contains a status code, headers, and usually a body. Servers can return stored files, generate HTML, or return data such as JSON.",
       "sourceIds": [
         "mdn-web-works",
+        "mdn-http-overview",
+        "mdn-http-messages"
+      ],
+      "exampleIds": []
+    },
+    {
+      "id": "dns",
+      "title": "From a domain name to a server",
+      "depth": "core",
+      "objectiveIds": [
+        "request"
+      ],
+      "body": "People use names such as example.com, while network connections need an address. DNS is a distributed naming system that resolves a host name to an IP address or another useful record. The browser, operating system, router, or resolver may reuse a cached answer. DNS does not download the page. It helps the client discover where to connect. HTTPS then protects the HTTP exchange in transit and lets the client verify the server identity through certificates.",
+      "sourceIds": [
+        "mdn-web-works"
+      ],
+      "exampleIds": []
+    },
+    {
+      "id": "url",
+      "title": "How a URL identifies a resource",
+      "depth": "core",
+      "objectiveIds": [
+        "request"
+      ],
+      "body": "In https://shop.example:443/products/42?currency=INR#reviews, https is the scheme, shop.example is the host, 443 is an explicit port, /products/42 is the path, currency=INR is the query, and reviews is the fragment. The scheme affects how the client communicates. Host and port identify where to connect. Path and query help the server choose a resource or operation. The fragment is normally handled by the browser and is not sent in the HTTP request.",
+      "sourceIds": [
+        "mdn-web-works",
+        "mdn-http-overview"
+      ],
+      "exampleIds": [
+        "url-anatomy"
+      ]
+    },
+    {
+      "id": "request-message",
+      "title": "What an HTTP request contains",
+      "depth": "core",
+      "objectiveIds": [
+        "request"
+      ],
+      "body": "An HTTP request expresses an action. GET normally reads a representation, POST commonly submits or creates, PUT commonly replaces, PATCH changes part, and DELETE requests removal. The request includes a method, target path, headers, and sometimes a body. Headers describe facts such as accepted formats, authentication, caching, and content type. The method alone does not guarantee safe server behavior; the server implementation must follow the intended semantics and validate every untrusted value.",
+      "sourceIds": [
+        "mdn-http-overview",
+        "mdn-http-messages"
+      ],
+      "exampleIds": [
+        "http-exchange"
+      ]
+    },
+    {
+      "id": "response-message",
+      "title": "What an HTTP response contains",
+      "depth": "core",
+      "objectiveIds": [
+        "request",
+        "debug"
+      ],
+      "body": "A response contains a status code, response headers, and optionally a body. Headers can describe the body type, caching, cookies, location, compression, and security policy. The body may be HTML, JSON, CSS, JavaScript, an image, or an error document. A successful transport does not prove that the returned data is correct, and a 200 response does not prove that later JavaScript will run without errors.",
+      "sourceIds": [
+        "mdn-http-messages"
+      ],
+      "exampleIds": [
+        "http-exchange"
+      ]
+    },
+    {
+      "id": "status-groups",
+      "title": "HTTP status code groups",
+      "depth": "core",
+      "objectiveIds": [
+        "debug"
+      ],
+      "body": "Status codes have five groups. 100–199 are informational intermediate responses. 200–299 mean the request was handled successfully. 300–399 tell the client about redirection or another location. 400–499 mean the request cannot be fulfilled as sent or allowed; the server may still be healthy. 500–599 mean the server or an upstream service failed while handling a request. Always read the actual response because applications sometimes misuse codes.",
+      "sourceIds": [
+        "mdn-http-status"
+      ],
+      "exampleIds": []
+    },
+    {
+      "id": "common-status",
+      "title": "Common HTTP codes and what they mean",
+      "depth": "core",
+      "objectiveIds": [
+        "debug"
+      ],
+      "body": "200 OK means the request succeeded. 201 Created means a new resource was created. 204 No Content means success with no response body. 301 and 308 are permanent redirects; 302 and 307 are temporary redirects, with method-preservation details differing by code. 304 Not Modified tells a cache that its stored representation can be reused. 400 Bad Request means invalid request syntax or input. 401 means authentication is required or invalid; despite its name, it is about authentication. 403 Forbidden means the server understood the identity or request but refuses access. 404 Not Found means the target resource was not found or is intentionally hidden. 405 Method Not Allowed means the path exists but rejects that method. 409 Conflict means the request conflicts with current state. 422 Unprocessable Content commonly means well-formed input failed semantic validation. 429 Too Many Requests means a rate limit was reached. 500 is a generic internal failure. 502 Bad Gateway means a gateway received a bad upstream response. 503 Service Unavailable usually means temporary overload or maintenance. 504 Gateway Timeout means an upstream response took too long.",
+      "sourceIds": [
+        "mdn-http-status"
+      ],
+      "exampleIds": []
+    },
+    {
+      "id": "render-pipeline",
+      "title": "How files become a visible page",
+      "depth": "core",
+      "objectiveIds": [
+        "render"
+      ],
+      "body": "The browser parses HTML into the DOM, a tree representing document nodes. It parses CSS and works out which declarations apply. DOM and style information contribute to a render tree. The browser calculates layout: each visible box’s size and position. It then paints pixels and composites layers. JavaScript can read or change the DOM and styles, which may trigger more style calculation, layout, paint, or compositing work. Linked CSS, scripts, fonts, images, and module imports create more requests. Parsing, downloading, and rendering can overlap; this is a pipeline, not one single step.",
+      "sourceIds": [
         "mdn-browser-load"
       ],
       "exampleIds": [
@@ -73,35 +215,61 @@
       ]
     },
     {
-      "id": "journey",
-      "title": "From Enter to pixels",
+      "id": "csr",
+      "title": "Client-side rendering",
       "depth": "core",
-      "body": "The browser resolves the host, opens a connection, sends an HTTP request, and receives a response. It parses HTML into the DOM, fetches linked files, applies CSS, runs JavaScript, calculates layout, and paints pixels. Some steps overlap, so slow or blocking resources can delay what the learner sees.",
+      "objectiveIds": [
+        "modes"
+      ],
+      "body": "In client-side rendering, the first response can contain a small HTML shell and JavaScript. The browser downloads and runs the script, the application fetches data when needed, and JavaScript creates most page content in the DOM. CSR can support rich transitions after startup, but an empty shell, a large bundle, slow data requests, or a script failure can delay or prevent meaningful content. CSR describes where initial page HTML is produced; it does not mean the server is absent, because APIs and static files still come from servers.",
       "sourceIds": [
-        "mdn-web-works",
-        "mdn-browser-load"
+        "mdn-browser-load",
+        "mdn-ssr"
+      ],
+      "exampleIds": [
+        "rendering-modes"
+      ]
+    },
+    {
+      "id": "ssr",
+      "title": "Server-side rendering and hydration",
+      "depth": "core",
+      "objectiveIds": [
+        "modes"
+      ],
+      "body": "With server-side rendering, application code creates useful HTML on the server for a request and sends that HTML to the browser. The user can often see meaningful content before the full client JavaScript runs. A React application may then hydrate: React attaches behavior to HTML that already represents the initial component output. Server and client output must match for reliable hydration. SSR can improve the first content experience and crawler access, but it adds server work, caching decisions, and the risk of slow server responses or hydration problems.",
+      "sourceIds": [
+        "mdn-ssr",
+        "react-hydrate-root"
+      ],
+      "exampleIds": [
+        "rendering-modes"
+      ]
+    },
+    {
+      "id": "static",
+      "title": "Static generation and mixed rendering",
+      "depth": "deeper",
+      "objectiveIds": [
+        "modes"
+      ],
+      "body": "Static generation creates HTML before a user request, usually during a build. A CDN or simple server can then return the stored file quickly. It works well when many users can share the same content, but rebuilding or revalidation is needed when the source changes. Real applications often mix strategies: static marketing pages, server-rendered user pages, client-side interactions, and client fetches can exist together. Choose per route and data need instead of declaring one rendering method universally best.",
+      "sourceIds": [
+        "mdn-ssr"
       ],
       "exampleIds": []
     },
     {
-      "id": "status",
-      "title": "Read the response before guessing",
-      "depth": "deeper",
-      "body": "A 2xx status usually means success, 3xx means redirection, 4xx means the request has a client-side problem or missing resource, and 5xx means the server failed. Status alone is not the whole story: also check the requested URL, response headers, body, and timing.",
-      "sourceIds": [
-        "mdn-web-works",
-        "mdn-browser-load"
+      "id": "debug-flow",
+      "title": "Debug the journey in order",
+      "depth": "core",
+      "objectiveIds": [
+        "debug"
       ],
-      "exampleIds": []
-    },
-    {
-      "id": "react-link",
-      "title": "Why this matters for React",
-      "depth": "deeper",
-      "body": "A React app still begins as browser resources. The first HTML file loads scripts and styles. JavaScript then creates or updates DOM nodes. A blank React screen can therefore come from a failed HTML request, a missing script, a JavaScript error, or code that rendered nothing.",
+      "body": "Start with observable evidence. In Network, find the document and linked resources, then inspect URL, method, status, content type, timing, request data, and response body. In Elements, check whether the expected DOM exists. In Console, begin with the first relevant error because later errors may be consequences. A 404 script points to a path or deployment problem; a 500 API response points to server handling; a 200 document followed by an exception points to client execution. Rendering strategy changes what “good initial HTML” should look like, so compare the response body with the live DOM.",
       "sourceIds": [
-        "mdn-web-works",
-        "mdn-browser-load"
+        "mdn-browser-load",
+        "mdn-http-status"
       ],
       "exampleIds": []
     }
@@ -134,11 +302,39 @@
         "mdn-web-works",
         "mdn-browser-load"
       ]
+    },
+    {
+      "id": "http-exchange",
+      "title": "Read a request and response",
+      "kind": "fragment",
+      "language": "js",
+      "depth": "core",
+      "code": "const request = { method: \"GET\", path: \"/api/courses?level=beginner\", headers: { accept: \"application/json\" } };\nconst response = { status: 200, headers: { \"content-type\": \"application/json\" }, body: [{ id: 1, title: \"React\" }] };\nconsole.log(request.method, response.status);",
+      "explanation": "The request asks to read course data. The response reports success and identifies a JSON body. Real HTTP messages contain more details, but the same method, target, headers, status, and body model applies.",
+      "tryThis": "Change the response to 404 and write a useful error body. Explain which side chooses each value.",
+      "sourceIds": [
+        "mdn-http-messages",
+        "mdn-http-status"
+      ]
+    },
+    {
+      "id": "rendering-modes",
+      "title": "Compare initial HTML",
+      "kind": "fragment",
+      "language": "html",
+      "depth": "deeper",
+      "code": "<!-- A CSR shell may begin almost empty. -->\n<div id=\"root\"></div>\n<script type=\"module\" src=\"/src/main.js\"></script>\n\n<!-- SSR or static generation can send useful content first. -->\n<div id=\"root\"><h1>React course</h1><p>Start with web foundations.</p></div>\n<script type=\"module\" src=\"/assets/client.js\"></script>",
+      "explanation": "The second response already contains meaningful markup. With an interactive React SSR app, client code hydrates matching HTML. Static HTML may need no hydration if it has no client behavior.",
+      "tryThis": "Disable JavaScript and predict what remains useful in each example.",
+      "sourceIds": [
+        "mdn-ssr",
+        "react-hydrate-root"
+      ]
     }
   ],
   "practice": [
     {
-      "id": "practice-1",
+      "id": "p01",
       "type": "predict",
       "difficulty": "beginner",
       "prompt": "Split this URL into scheme, host, path, query, and fragment: https://learn.example/react/hooks?level=basic#practice.",
@@ -164,7 +360,7 @@
       "attemptBeforeReveal": true
     },
     {
-      "id": "practice-2",
+      "id": "p02",
       "type": "explain-and-build",
       "difficulty": "beginner",
       "prompt": "Draw or write a six-step journey from entering a URL to seeing a page.",
@@ -177,7 +373,7 @@
         "Complete the attempt before opening the solution."
       ],
       "objectiveIds": [
-        "render"
+        "network"
       ],
       "sourceIds": [
         "mdn-web-works",
@@ -190,7 +386,7 @@
       "attemptBeforeReveal": true
     },
     {
-      "id": "practice-3",
+      "id": "p03",
       "type": "debug",
       "difficulty": "intermediate",
       "prompt": "The HTML loads, but styles.css returns 404. Predict the visible result and name the first panel you would inspect.",
@@ -216,7 +412,7 @@
       "attemptBeforeReveal": true
     },
     {
-      "id": "practice-4",
+      "id": "p04",
       "type": "design",
       "difficulty": "intermediate",
       "prompt": "A page waits for a large script before showing useful content. Give two investigation steps without guessing a fix.",
@@ -229,7 +425,7 @@
         "Complete the attempt before opening the solution."
       ],
       "objectiveIds": [
-        "request"
+        "modes"
       ],
       "sourceIds": [
         "mdn-web-works",
@@ -242,7 +438,7 @@
       "attemptBeforeReveal": true
     },
     {
-      "id": "practice-5",
+      "id": "p05",
       "type": "transfer",
       "difficulty": "advanced",
       "prompt": "A deployed React app returns 200 for index.html, but its JavaScript bundle is 404. Explain why the page may stay blank and what evidence confirms it.",
@@ -383,7 +579,12 @@
   },
   "sourceIds": [
     "mdn-web-works",
-    "mdn-browser-load"
+    "mdn-browser-load",
+    "mdn-http-overview",
+    "mdn-http-messages",
+    "mdn-http-status",
+    "mdn-ssr",
+    "react-hydrate-root"
   ],
   "commonMistakes": [
     {
@@ -410,6 +611,6 @@
     "browserBehaviorChecked": false,
     "independentContentReview": false,
     "learnerTrial": false,
-    "note": "Complete draft. Keep sample-draft until snippets, rendering, browser behavior, independent content review, and a learner trial are complete."
+    "note": "Expanded concept draft. HTTP and rendering details are source-reviewed; complete browser checks, independent review, and learner trial remain pending."
   }
 }

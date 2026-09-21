@@ -1,0 +1,490 @@
+{
+  "schemaVersion": 1,
+  "id": "setup-declarative-ui-and-component-thinking",
+  "subjectId": "react",
+  "chapterId": "setup",
+  "title": "Declarative UI and component thinking",
+  "language": "en",
+  "status": "sample-draft",
+  "reviewedAt": "2026-09-20",
+  "runtime": "React 19.3 learning project with a current Vite setup. Version-specific commands must be checked against the linked React, Vite, and npm pages before use.",
+  "prerequisiteTopicIds": [
+    "setup-what-react-solves-and-its-boundaries"
+  ],
+  "estimatedMinutes": {
+    "firstPass": 40,
+    "practice": 50,
+    "project": 30
+  },
+  "objectives": [
+    {
+      "id": "declarative",
+      "text": "Compare declarative UI with step-by-step DOM commands."
+    },
+    {
+      "id": "component",
+      "text": "Identify useful component boundaries."
+    },
+    {
+      "id": "hierarchy",
+      "text": "Arrange components into a parent-child hierarchy."
+    },
+    {
+      "id": "state-model",
+      "text": "List visual states before adding interactions."
+    }
+  ],
+  "learningFlow": [
+    "Recall the prerequisite",
+    "Predict the setup result",
+    "Read every concept explanation",
+    "Trace or change a practical example",
+    "Attempt five tasks before solutions",
+    "Explain the tool boundary",
+    "Apply it in a fresh project decision",
+    "Review after two and seven days"
+  ],
+  "diagnostic": [
+    {
+      "question": "What problem does declarative ui and component thinking help you solve?",
+      "answer": "Name the relevant layer, its input and output, and one problem it does not solve.",
+      "ifMissed": "setup-what-react-solves-and-its-boundaries"
+    }
+  ],
+  "sections": [
+    {
+      "id": "declarative",
+      "title": "Describe the result, not every DOM command",
+      "depth": "core",
+      "body": "Imperative code tells the browser each change: find this node, disable it, replace that text, then show an error. Declarative React code describes the UI for states such as editing, submitting, success, or error. When state changes, React calculates the needed DOM update. You still write event logic, but the rendered result follows data instead of a hand-maintained sequence of DOM operations.",
+      "sourceIds": [
+        "react-thinking",
+        "react-declarative-ui",
+        "react-first-component"
+      ],
+      "exampleIds": [
+        "status-view"
+      ],
+      "objectiveIds": [
+        "declarative"
+      ]
+    },
+    {
+      "id": "component",
+      "title": "Components are UI building blocks",
+      "depth": "core",
+      "body": "A component is a JavaScript function that returns markup for one part of the interface. Good boundaries often follow a meaningful visual or data responsibility, such as SearchBar, ProductList, or ProductRow. Do not make every div a component. Split when a piece has a clear job, repeats, has its own logic, or makes a larger component easier to understand.",
+      "sourceIds": [
+        "react-thinking",
+        "react-declarative-ui",
+        "react-first-component"
+      ],
+      "exampleIds": [
+        "component-tree"
+      ],
+      "objectiveIds": [
+        "component"
+      ]
+    },
+    {
+      "id": "hierarchy",
+      "title": "A screen becomes a tree",
+      "depth": "core",
+      "body": "A parent renders child components, and the resulting UI forms a tree. Start from a mockup and name the meaningful regions, then show which regions contain others. Data usually moves from a parent to children through props; later lessons explain events and shared state. The hierarchy should reflect ownership, not only visual indentation.",
+      "sourceIds": [
+        "react-thinking",
+        "react-declarative-ui",
+        "react-first-component"
+      ],
+      "exampleIds": [
+        "state-table"
+      ],
+      "objectiveIds": [
+        "hierarchy"
+      ]
+    },
+    {
+      "id": "state-model",
+      "title": "Model the states first",
+      "depth": "core",
+      "body": "Before coding an interaction, list the states the user can see: empty, typing, submitting, success, and failure, for example. Decide which data distinguishes those states. Render each state from data, then connect events that change the data. This reduces contradictory UI such as a success message beside an active error.",
+      "sourceIds": [
+        "react-thinking",
+        "react-declarative-ui",
+        "react-first-component"
+      ],
+      "exampleIds": [],
+      "objectiveIds": [
+        "state-model"
+      ]
+    },
+    {
+      "id": "working-check",
+      "title": "Use evidence instead of setup guesses",
+      "depth": "deeper",
+      "body": "When setup fails, identify the layer before changing code. Read the terminal command and first error, confirm the current directory and versions, check the browser Network and Console, and trace the entry file to the root component. Make one small correction, rerun the same check, and record what proved the fix.",
+      "sourceIds": [
+        "react-thinking",
+        "react-declarative-ui",
+        "react-first-component"
+      ],
+      "exampleIds": [],
+      "objectiveIds": [
+        "declarative",
+        "component",
+        "hierarchy",
+        "state-model"
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "id": "status-view",
+      "title": "Render one of several states",
+      "kind": "fragment",
+      "language": "jsx",
+      "depth": "core",
+      "code": "function Status({ status }) {\n  if (status === \"loading\") return <p>Loading…</p>;\n  if (status === \"error\") return <p role=\"alert\">Could not load.</p>;\n  return <p>Ready.</p>;\n}",
+      "explanation": "Each status has one described result. React switches the rendered branch when the prop changes.",
+      "tryThis": "Change one value or name in this declarative ui and component thinking example. Predict what evidence should change before running or tracing it.",
+      "sourceIds": [
+        "react-thinking",
+        "react-declarative-ui",
+        "react-first-component"
+      ]
+    },
+    {
+      "id": "component-tree",
+      "title": "Build a small hierarchy",
+      "kind": "fragment",
+      "language": "jsx",
+      "depth": "deeper",
+      "code": "function CourseCard({ title }) {\n  return <article><h2>{title}</h2><StartButton /></article>;\n}\nfunction StartButton() { return <button>Start lesson</button>; }",
+      "explanation": "CourseCard owns the whole card and composes a smaller action component.",
+      "tryThis": "Change one value or name in this declarative ui and component thinking example. Predict what evidence should change before running or tracing it.",
+      "sourceIds": [
+        "react-thinking",
+        "react-declarative-ui",
+        "react-first-component"
+      ]
+    },
+    {
+      "id": "state-table",
+      "title": "Plan before coding",
+      "kind": "fragment",
+      "language": "js",
+      "depth": "deeper",
+      "code": "const states = {\n  empty: { disabled: true, message: \"Write an answer\" },\n  ready: { disabled: false, message: \"Ready to submit\" },\n  saving: { disabled: true, message: \"Saving…\" },\n};",
+      "explanation": "A state table makes allowed combinations visible before component logic is written.",
+      "tryThis": "Change one value or name in this declarative ui and component thinking example. Predict what evidence should change before running or tracing it.",
+      "sourceIds": [
+        "react-thinking",
+        "react-declarative-ui",
+        "react-first-component"
+      ]
+    }
+  ],
+  "practice": [
+    {
+      "id": "p01",
+      "type": "predict",
+      "difficulty": "beginner",
+      "prompt": "Predict the visible or terminal result of the first declarative ui and component thinking example. Explain which tool or layer produces it.",
+      "hints": [
+        "Name the exact tool, file, command, DOM node, or product requirement involved before proposing a fix."
+      ],
+      "acceptanceCriteria": [
+        "The answer identifies the correct responsibility or layer.",
+        "It includes observable evidence or a concrete example.",
+        "It names one boundary, edge case, or reason for the decision."
+      ],
+      "objectiveIds": [
+        "declarative"
+      ],
+      "sourceIds": [
+        "react-thinking",
+        "react-declarative-ui",
+        "react-first-component"
+      ],
+      "solution": {
+        "explanation": "A strong answer applies this rule: Compare declarative UI with step-by-step DOM commands. It identifies the responsible layer, gives observable evidence, and avoids claiming that React or Vite solves unrelated application concerns.",
+        "code": "// Write expected evidence before changing the setup.\nconst check = { expected: \"specific result\", actual: \"observed result\", nextStep: \"one focused test\" };",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p02",
+      "type": "explain-and-build",
+      "difficulty": "beginner",
+      "prompt": "Create a small diagram or ordered list that explains components are ui building blocks. Add one concrete file, command, or UI example.",
+      "hints": [
+        "Name the exact tool, file, command, DOM node, or product requirement involved before proposing a fix."
+      ],
+      "acceptanceCriteria": [
+        "The answer identifies the correct responsibility or layer.",
+        "It includes observable evidence or a concrete example.",
+        "It names one boundary, edge case, or reason for the decision."
+      ],
+      "objectiveIds": [
+        "component"
+      ],
+      "sourceIds": [
+        "react-thinking",
+        "react-declarative-ui",
+        "react-first-component"
+      ],
+      "solution": {
+        "explanation": "A strong answer applies this rule: Identify useful component boundaries. It identifies the responsible layer, gives observable evidence, and avoids claiming that React or Vite solves unrelated application concerns.",
+        "code": "// Write expected evidence before changing the setup.\nconst check = { expected: \"specific result\", actual: \"observed result\", nextStep: \"one focused test\" };",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p03",
+      "type": "debug",
+      "difficulty": "intermediate",
+      "prompt": "A learner reports “the React setup does not work.” Write the first five evidence checks for this topic and explain the order.",
+      "hints": [
+        "Name the exact tool, file, command, DOM node, or product requirement involved before proposing a fix."
+      ],
+      "acceptanceCriteria": [
+        "The answer identifies the correct responsibility or layer.",
+        "It includes observable evidence or a concrete example.",
+        "It names one boundary, edge case, or reason for the decision."
+      ],
+      "objectiveIds": [
+        "hierarchy"
+      ],
+      "sourceIds": [
+        "react-thinking",
+        "react-declarative-ui",
+        "react-first-component"
+      ],
+      "solution": {
+        "explanation": "A strong answer applies this rule: Arrange components into a parent-child hierarchy. It identifies the responsible layer, gives observable evidence, and avoids claiming that React or Vite solves unrelated application concerns.",
+        "code": "// Write expected evidence before changing the setup.\nconst check = { expected: \"specific result\", actual: \"observed result\", nextStep: \"one focused test\" };",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p04",
+      "type": "design",
+      "difficulty": "intermediate",
+      "prompt": "Choose a setup for a small learning exercise and a production application. State the requirements and defend each choice using this lesson.",
+      "hints": [
+        "Name the exact tool, file, command, DOM node, or product requirement involved before proposing a fix."
+      ],
+      "acceptanceCriteria": [
+        "The answer identifies the correct responsibility or layer.",
+        "It includes observable evidence or a concrete example.",
+        "It names one boundary, edge case, or reason for the decision."
+      ],
+      "objectiveIds": [
+        "state-model"
+      ],
+      "sourceIds": [
+        "react-thinking",
+        "react-declarative-ui",
+        "react-first-component"
+      ],
+      "solution": {
+        "explanation": "A strong answer applies this rule: List visual states before adding interactions. It identifies the responsible layer, gives observable evidence, and avoids claiming that React or Vite solves unrelated application concerns.",
+        "code": "// Write expected evidence before changing the setup.\nconst check = { expected: \"specific result\", actual: \"observed result\", nextStep: \"one focused test\" };",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p05",
+      "type": "transfer",
+      "difficulty": "advanced",
+      "prompt": "Apply two objectives from this lesson to a different existing project. Name what you would keep, change, verify, and deliberately leave outside React.",
+      "hints": [
+        "Name the exact tool, file, command, DOM node, or product requirement involved before proposing a fix."
+      ],
+      "acceptanceCriteria": [
+        "The answer identifies the correct responsibility or layer.",
+        "It includes observable evidence or a concrete example.",
+        "It names one boundary, edge case, or reason for the decision."
+      ],
+      "objectiveIds": [
+        "declarative",
+        "component"
+      ],
+      "sourceIds": [
+        "react-thinking",
+        "react-declarative-ui",
+        "react-first-component"
+      ],
+      "solution": {
+        "explanation": "A strong answer applies this rule: Compare declarative UI with step-by-step DOM commands. It identifies the responsible layer, gives observable evidence, and avoids claiming that React or Vite solves unrelated application concerns.",
+        "code": "// Write expected evidence before changing the setup.\nconst check = { expected: \"specific result\", actual: \"observed result\", nextStep: \"one focused test\" };",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    }
+  ],
+  "interviewQuestions": [
+    {
+      "id": "responsibility",
+      "question": "What responsibility does declarative ui and component thinking have in a React project?",
+      "answer": "Compare declarative UI with step-by-step DOM commands. Identify useful component boundaries. Arrange components into a parent-child hierarchy. List visual states before adding interactions.",
+      "followUp": "What important responsibility belongs to another layer?",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "react-thinking",
+        "react-declarative-ui",
+        "react-first-component"
+      ]
+    },
+    {
+      "id": "debug",
+      "question": "How would you debug a failure related to declarative ui and component thinking?",
+      "answer": "Reproduce the smallest failure, confirm the current directory and versions when relevant, read the first terminal or browser error, trace the entry and root, and test one hypothesis at a time.",
+      "followUp": "Which evidence would make you change layers?",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "react-thinking",
+        "react-declarative-ui",
+        "react-first-component"
+      ]
+    },
+    {
+      "id": "decision",
+      "question": "Which tradeoff in declarative ui and component thinking should a team decide explicitly?",
+      "answer": "The team should match tools and boundaries to product needs, record version and deployment assumptions, and avoid treating a starter template as a complete production architecture.",
+      "followUp": "How could the answer change for an existing server-rendered site?",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "react-thinking",
+        "react-declarative-ui",
+        "react-first-component"
+      ]
+    }
+  ],
+  "miniAppIds": [
+    "first-react-workspace"
+  ],
+  "mastery": {
+    "status": "not-assessed",
+    "policy": "Reading commands or following the guided project is not mastery. Recreate the setup without copying, explain every tool boundary, diagnose one failure, and verify a production build.",
+    "checks": [
+      {
+        "id": "explain",
+        "evidence": "Explain all objectives in declarative ui and component thinking without notes.",
+        "pass": "Each explanation names the responsible layer, one example, and one boundary."
+      },
+      {
+        "id": "solve",
+        "evidence": "Complete four exercises before opening solutions.",
+        "pass": "The saved work uses observable evidence and correct terminology."
+      },
+      {
+        "id": "transfer",
+        "evidence": "Apply the lesson to a fresh folder, existing page, or architecture decision.",
+        "pass": "The result works and the learner can explain what React, the build tool, and the host environment each own."
+      }
+    ],
+    "reviewSchedule": {
+      "note": "Answer before reopening the lesson or commands.",
+      "sessions": [
+        {
+          "dayOffset": 2,
+          "problems": [
+            {
+              "id": "recall",
+              "prompt": "List four rules from Declarative UI and component thinking.",
+              "solution": "Compare declarative UI with step-by-step DOM commands. Identify useful component boundaries. Arrange components into a parent-child hierarchy. List visual states before adding interactions."
+            },
+            {
+              "id": "failure",
+              "prompt": "Invent one setup failure and diagnose it by evidence.",
+              "solution": "State expected and actual behavior, identify the layer, inspect one relevant source of evidence, and make one focused correction."
+            }
+          ]
+        },
+        {
+          "dayOffset": 7,
+          "problems": [
+            {
+              "id": "teach",
+              "prompt": "Teach declarative ui and component thinking to a learner without using unexplained tool names.",
+              "solution": "Define each tool or concept, show the flow, and name a boundary."
+            },
+            {
+              "id": "fresh",
+              "prompt": "Make the same decision for a different project requirement.",
+              "solution": "The choice should follow stated requirements and include a verification plan."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "sourceIds": [
+    "react-thinking",
+    "react-declarative-ui",
+    "react-first-component"
+  ],
+  "commonMistakes": [
+    {
+      "symptom": "Every setup problem is described as a React error.",
+      "cause": "Browser, Node, npm, Vite, project files, and React responsibilities were mixed together.",
+      "fix": "Identify the failing layer from the command, URL, stack, file, or tool panel before editing."
+    },
+    {
+      "symptom": "Commands work in one terminal but fail in another folder.",
+      "cause": "The current directory or active Node installation differs.",
+      "fix": "Check the path, package.json, lockfile, node -v, and npm -v in the same terminal."
+    },
+    {
+      "symptom": "The starter template is treated as a complete production plan.",
+      "cause": "Scaffolding and build features were confused with routing, data, server, security, and deployment architecture.",
+      "fix": "Write product requirements and assign each responsibility to React, a build tool, a framework, the platform, or backend code."
+    }
+  ],
+  "publicationChecklist": {
+    "authored": true,
+    "sourcesReviewed": true,
+    "codeSyntaxChecked": true,
+    "serverInitialRenderChecked": false,
+    "browserBehaviorChecked": false,
+    "independentContentReview": false,
+    "learnerTrial": false,
+    "note": "Concept-complete setup draft. Recheck version-specific commands, run broader browser behavior checks, obtain independent review, and complete a learner trial before publication."
+  }
+}

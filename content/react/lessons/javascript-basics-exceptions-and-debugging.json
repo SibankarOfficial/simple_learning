@@ -1,0 +1,456 @@
+{
+  "schemaVersion": 1,
+  "id": "javascript-basics-exceptions-and-debugging",
+  "subjectId": "react",
+  "chapterId": "javascript-basics",
+  "title": "Exceptions and debugging",
+  "language": "en",
+  "status": "sample-draft",
+  "reviewedAt": "2026-09-20",
+  "runtime": "Modern evergreen browser or Node.js with ES modules. Run fragments in browser DevTools or a small .js file unless the example says otherwise.",
+  "prerequisiteTopicIds": [
+    "javascript-basics-fetch-json-and-http"
+  ],
+  "estimatedMinutes": {
+    "firstPass": 45,
+    "practice": 55,
+    "project": 25
+  },
+  "objectives": [
+    {
+      "id": "throw",
+      "text": "Explain what throwing changes."
+    },
+    {
+      "id": "catch",
+      "text": "Catch at the boundary that can act."
+    },
+    {
+      "id": "debug",
+      "text": "Use evidence before editing code."
+    },
+    {
+      "id": "prevent",
+      "text": "Make failures easier to find."
+    }
+  ],
+  "learningFlow": [
+    "Recall the prerequisite",
+    "Predict before running code",
+    "Read each concept explanation",
+    "Change a small example",
+    "Attempt practice before hints",
+    "Explain the result in your own words",
+    "Apply the idea in a different problem",
+    "Review after two and seven days"
+  ],
+  "diagnostic": [
+    {
+      "question": "Can you explain the main purpose of exceptions and debugging before reading?",
+      "answer": "A complete answer should name the problem it solves, the values or control flow involved, and one mistake to avoid.",
+      "ifMissed": "javascript-basics-fetch-json-and-http"
+    }
+  ],
+  "sections": [
+    {
+      "id": "throw",
+      "title": "An exception changes control flow",
+      "depth": "core",
+      "body": "throw immediately stops normal execution and searches outward for a matching catch. Throw Error objects rather than plain strings so the message and stack are useful. Use exceptions for failures a caller may handle, not as a replacement for every normal branch.",
+      "sourceIds": [
+        "mdn-js-control"
+      ],
+      "exampleIds": [
+        "example-1"
+      ],
+      "objectiveIds": [
+        "throw"
+      ]
+    },
+    {
+      "id": "catch",
+      "title": "Handle or rethrow",
+      "depth": "core",
+      "body": "A catch block receives the thrown value. It can recover with a fallback, add context and rethrow, or report the failure to the user or logs. An empty catch hides evidence and can leave the program in a false success state. finally runs for cleanup even when control returns or throws.",
+      "sourceIds": [
+        "mdn-js-control"
+      ],
+      "exampleIds": [
+        "example-2"
+      ],
+      "objectiveIds": [
+        "catch"
+      ]
+    },
+    {
+      "id": "debug",
+      "title": "A repeatable debugging loop",
+      "depth": "core",
+      "body": "First reproduce the smallest failing case and state expected versus actual behavior. Read the earliest relevant error and stack, inspect the inputs, then form one hypothesis. Use a breakpoint, watch value, or focused log to test it; make the smallest correction and rerun the original and nearby cases.",
+      "sourceIds": [
+        "mdn-js-control"
+      ],
+      "exampleIds": [
+        "example-3"
+      ],
+      "objectiveIds": [
+        "debug"
+      ]
+    },
+    {
+      "id": "prevent",
+      "title": "Design for debuggability",
+      "depth": "core",
+      "body": "Small functions, clear names, explicit boundaries, and stable data shapes reduce the search area. Validate external input early and include useful context in errors without exposing secrets. Tests preserve known behavior, while source maps and browser DevTools connect runtime evidence to the original code.",
+      "sourceIds": [
+        "mdn-js-control"
+      ],
+      "exampleIds": [],
+      "objectiveIds": [
+        "prevent"
+      ]
+    },
+    {
+      "id": "react-connection",
+      "title": "Why this matters in React",
+      "depth": "deeper",
+      "body": "Exceptions and debugging is part of the JavaScript model React code already uses. Components, event handlers, state updates, list rendering, and data requests become easier to reason about when this concept is understood without framework shortcuts. Practise the JavaScript behavior first, then identify the same rule in JSX or a component.",
+      "sourceIds": [
+        "mdn-js-control"
+      ],
+      "exampleIds": [],
+      "objectiveIds": [
+        "throw",
+        "catch",
+        "debug",
+        "prevent"
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "id": "example-1",
+      "title": "Apply: An exception changes control flow",
+      "kind": "fragment",
+      "language": "js",
+      "depth": "core",
+      "code": "function divide(a, b) {\n  if (b === 0) throw new RangeError(\"b cannot be zero\");\n  return a / b;\n}",
+      "explanation": "This small example gives you a safe place to inspect values while practising this objective: Explain what throwing changes.",
+      "tryThis": "Replace the sample with a real exceptions and debugging case from the explanation. Predict every logged value before running it.",
+      "sourceIds": [
+        "mdn-js-control"
+      ]
+    },
+    {
+      "id": "example-2",
+      "title": "Apply: Handle or rethrow",
+      "kind": "fragment",
+      "language": "js",
+      "depth": "deeper",
+      "code": "try {\n  console.log(divide(4, 0));\n} catch (error) {\n  console.error(error.message);\n}",
+      "explanation": "This small example gives you a safe place to inspect values while practising this objective: Catch at the boundary that can act.",
+      "tryThis": "Replace the sample with a real exceptions and debugging case from the explanation. Predict every logged value before running it.",
+      "sourceIds": [
+        "mdn-js-control"
+      ]
+    },
+    {
+      "id": "example-3",
+      "title": "Apply: A repeatable debugging loop",
+      "kind": "fragment",
+      "language": "js",
+      "depth": "deeper",
+      "code": "function total(items) {\n  debugger;\n  return items.reduce((sum, item) => sum + item, 0);\n}",
+      "explanation": "This small example gives you a safe place to inspect values while practising this objective: Use evidence before editing code.",
+      "tryThis": "Replace the sample with a real exceptions and debugging case from the explanation. Predict every logged value before running it.",
+      "sourceIds": [
+        "mdn-js-control"
+      ]
+    }
+  ],
+  "practice": [
+    {
+      "id": "p01",
+      "type": "predict",
+      "difficulty": "beginner",
+      "prompt": "Write one short code example for “An exception changes control flow”. Predict each result before running it.",
+      "hints": [
+        "Return to the “An exception changes control flow” explanation and identify the exact rule before writing code."
+      ],
+      "acceptanceCriteria": [
+        "The attempt uses valid JavaScript.",
+        "The written prediction or explanation matches the observed behavior.",
+        "The answer names the rule that makes the result happen."
+      ],
+      "objectiveIds": [
+        "throw"
+      ],
+      "sourceIds": [
+        "mdn-js-control"
+      ],
+      "solution": {
+        "explanation": "A valid answer must demonstrate this rule: Explain what throwing changes. The exact names and sample values may differ. Compare behavior and reasoning, not surface syntax.",
+        "code": "// One possible checking structure\nconst prediction = \"Write the expected result first\";\nconsole.log(prediction);",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p02",
+      "type": "build",
+      "difficulty": "beginner",
+      "prompt": "Build a small function or data example that proves this objective: Catch at the boundary that can act.",
+      "hints": [
+        "Return to the “Handle or rethrow” explanation and identify the exact rule before writing code."
+      ],
+      "acceptanceCriteria": [
+        "The attempt uses valid JavaScript.",
+        "The written prediction or explanation matches the observed behavior.",
+        "The answer names the rule that makes the result happen."
+      ],
+      "objectiveIds": [
+        "catch"
+      ],
+      "sourceIds": [
+        "mdn-js-control"
+      ],
+      "solution": {
+        "explanation": "A valid answer must demonstrate this rule: Catch at the boundary that can act. The exact names and sample values may differ. Compare behavior and reasoning, not surface syntax.",
+        "code": "// One possible checking structure\nconst prediction = \"Write the expected result first\";\nconsole.log(prediction);",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p03",
+      "type": "debug",
+      "difficulty": "intermediate",
+      "prompt": "Create a deliberate exceptions and debugging mistake, record the symptom, and repair the cause.",
+      "hints": [
+        "Return to the “A repeatable debugging loop” explanation and identify the exact rule before writing code."
+      ],
+      "acceptanceCriteria": [
+        "The attempt uses valid JavaScript.",
+        "The written prediction or explanation matches the observed behavior.",
+        "The answer names the rule that makes the result happen."
+      ],
+      "objectiveIds": [
+        "debug"
+      ],
+      "sourceIds": [
+        "mdn-js-control"
+      ],
+      "solution": {
+        "explanation": "A valid answer must demonstrate this rule: Use evidence before editing code. The exact names and sample values may differ. Compare behavior and reasoning, not surface syntax.",
+        "code": "// One possible checking structure\nconst prediction = \"Write the expected result first\";\nconsole.log(prediction);",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p04",
+      "type": "transfer",
+      "difficulty": "intermediate",
+      "prompt": "Use design for debuggability in a different example from this lesson and explain why your choice is correct.",
+      "hints": [
+        "Return to the “Design for debuggability” explanation and identify the exact rule before writing code."
+      ],
+      "acceptanceCriteria": [
+        "The attempt uses valid JavaScript.",
+        "The written prediction or explanation matches the observed behavior.",
+        "The answer names the rule that makes the result happen."
+      ],
+      "objectiveIds": [
+        "prevent"
+      ],
+      "sourceIds": [
+        "mdn-js-control"
+      ],
+      "solution": {
+        "explanation": "A valid answer must demonstrate this rule: Make failures easier to find. The exact names and sample values may differ. Compare behavior and reasoning, not surface syntax.",
+        "code": "// One possible checking structure\nconst prediction = \"Write the expected result first\";\nconsole.log(prediction);",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p05",
+      "type": "explain-and-build",
+      "difficulty": "advanced",
+      "prompt": "Build one small example that combines two ideas from exceptions and debugging, then explain every important value or control-flow step.",
+      "hints": [
+        "Choose two objectives from What you will learn and write the expected result before running the code."
+      ],
+      "acceptanceCriteria": [
+        "The example combines two lesson objectives.",
+        "The learner predicts the result before running it.",
+        "The explanation names both JavaScript rules and one edge case."
+      ],
+      "objectiveIds": [
+        "throw",
+        "catch"
+      ],
+      "sourceIds": [
+        "mdn-js-control"
+      ],
+      "solution": {
+        "explanation": "A valid solution combines any two stated objectives in one coherent example, predicts its behavior, and explains both rules. Reusing the lesson sample without changing the problem does not meet the transfer goal.",
+        "code": "// Design your own example first.\n// Then record prediction, actual result, and explanation.",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    }
+  ],
+  "interviewQuestions": [
+    {
+      "id": "concept",
+      "question": "Explain exceptions and debugging to a junior developer.",
+      "answer": "Explain what throwing changes. Catch at the boundary that can act. Use evidence before editing code. Make failures easier to find.",
+      "followUp": "Show a small example and one common mistake.",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "mdn-js-control"
+      ]
+    },
+    {
+      "id": "reasoning",
+      "question": "How would you prove that code using exceptions and debugging behaves correctly?",
+      "answer": "State the expected value or control flow first, test normal and boundary cases, and inspect the actual runtime result. Explain the JavaScript rule behind the evidence.",
+      "followUp": "Which edge case would you test first?",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "mdn-js-control"
+      ]
+    },
+    {
+      "id": "react-link",
+      "question": "Where can exceptions and debugging affect React code?",
+      "answer": "It can affect values, callbacks, rendering decisions, updates, or data flow. The exact connection depends on the concept; the important step is to reason from JavaScript behavior before blaming React.",
+      "followUp": "Give one component-level example.",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "mdn-js-control"
+      ]
+    }
+  ],
+  "miniAppIds": [
+    "study-session-report"
+  ],
+  "mastery": {
+    "status": "not-assessed",
+    "policy": "Reading or opening a solution is guided exposure, not mastery. Save an attempt, solve again without help, explain the rule, and transfer it to a new problem.",
+    "checks": [
+      {
+        "id": "explain",
+        "evidence": "Explain all four exceptions and debugging objectives without the lesson.",
+        "pass": "Every objective is accurate and includes a small example."
+      },
+      {
+        "id": "solve",
+        "evidence": "Complete four exercises before opening solutions.",
+        "pass": "The code works and the explanation matches the observed result."
+      },
+      {
+        "id": "transfer",
+        "evidence": "Use the concept in a fresh React-related or plain JavaScript problem.",
+        "pass": "The learner can defend the chosen syntax and handle one edge case."
+      }
+    ],
+    "reviewSchedule": {
+      "note": "Answer before reopening the lesson.",
+      "sessions": [
+        {
+          "dayOffset": 2,
+          "problems": [
+            {
+              "id": "recall",
+              "prompt": "Write the four main rules of Exceptions and debugging.",
+              "solution": "Explain what throwing changes. Catch at the boundary that can act. Use evidence before editing code. Make failures easier to find."
+            },
+            {
+              "id": "repair",
+              "prompt": "Recreate and repair one common mistake from memory.",
+              "solution": "Name the symptom, the JavaScript rule that caused it, and the smallest correct repair."
+            }
+          ]
+        },
+        {
+          "dayOffset": 7,
+          "problems": [
+            {
+              "id": "teach",
+              "prompt": "Teach exceptions and debugging with one new example.",
+              "solution": "Define it, demonstrate it, predict the result, and explain one boundary case."
+            },
+            {
+              "id": "apply",
+              "prompt": "Use the concept in a different data or UI problem.",
+              "solution": "The new solution should rely on the same rule and be explained without copying the lesson."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "sourceIds": [
+    "mdn-js-control"
+  ],
+  "commonMistakes": [
+    {
+      "symptom": "Code using exceptions and debugging produces a surprising value.",
+      "cause": "The result was run before the value, type, scope, identity, or control flow was predicted.",
+      "fix": "Reduce the case, write the expected result, and apply the exact rule from the matching section."
+    },
+    {
+      "symptom": "A learner copies syntax but cannot adapt it.",
+      "cause": "The example was memorized without explaining why it works.",
+      "fix": "Change the data and names, predict again, and explain which behavior must stay the same."
+    },
+    {
+      "symptom": "A React problem is blamed on React immediately.",
+      "cause": "The underlying JavaScript behavior was not isolated first.",
+      "fix": "Reproduce the value or function behavior in a small JavaScript example, then reconnect it to the component."
+    }
+  ],
+  "publicationChecklist": {
+    "authored": true,
+    "sourcesReviewed": true,
+    "codeSyntaxChecked": true,
+    "serverInitialRenderChecked": false,
+    "browserBehaviorChecked": false,
+    "independentContentReview": false,
+    "learnerTrial": false,
+    "note": "Concept-complete draft. Keep sample-draft until examples receive full browser checks, independent content review, and a learner trial."
+  }
+}

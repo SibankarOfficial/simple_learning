@@ -1,0 +1,473 @@
+{
+  "schemaVersion": 1,
+  "id": "javascript-basics-conditionals-and-loops",
+  "subjectId": "react",
+  "chapterId": "javascript-basics",
+  "title": "Conditionals and loops",
+  "language": "en",
+  "status": "sample-draft",
+  "reviewedAt": "2026-09-20",
+  "runtime": "Modern evergreen browser or Node.js with ES modules. Run fragments in browser DevTools or a small .js file unless the example says otherwise.",
+  "prerequisiteTopicIds": [
+    "javascript-basics-expressions-operators-and-equality"
+  ],
+  "estimatedMinutes": {
+    "firstPass": 45,
+    "practice": 55,
+    "project": 25
+  },
+  "objectives": [
+    {
+      "id": "branch",
+      "text": "Choose code with if, else, and switch."
+    },
+    {
+      "id": "loop",
+      "text": "Repeat work with the right loop."
+    },
+    {
+      "id": "control",
+      "text": "Use break, continue, and return deliberately."
+    },
+    {
+      "id": "safety",
+      "text": "Prevent infinite loops and off-by-one errors."
+    }
+  ],
+  "learningFlow": [
+    "Recall the prerequisite",
+    "Predict before running code",
+    "Read each concept explanation",
+    "Change a small example",
+    "Attempt practice before hints",
+    "Explain the result in your own words",
+    "Apply the idea in a different problem",
+    "Review after two and seven days"
+  ],
+  "diagnostic": [
+    {
+      "question": "Can you explain the main purpose of conditionals and loops before reading?",
+      "answer": "A complete answer should name the problem it solves, the values or control flow involved, and one mistake to avoid.",
+      "ifMissed": "javascript-basics-expressions-operators-and-equality"
+    }
+  ],
+  "sections": [
+    {
+      "id": "branch",
+      "title": "Conditionals choose a path",
+      "depth": "core",
+      "body": "if runs a block when its condition is truthy; else if tests another path and else handles what remains. switch is useful when one value is compared with several exact cases. Include breaks unless fall-through is intentional. Keep conditions about decisions and move complex work into well-named functions.",
+      "sourceIds": [
+        "mdn-js-control",
+        "mdn-js-loops"
+      ],
+      "exampleIds": [
+        "example-1"
+      ],
+      "objectiveIds": [
+        "branch"
+      ]
+    },
+    {
+      "id": "loop",
+      "title": "Loops repeat with control",
+      "depth": "core",
+      "body": "for is useful when initialization, condition, and update belong together. for...of reads iterable values such as array items; for...in reads enumerable property keys and is usually not the right array loop. while fits repetition whose end depends on a changing condition rather than a known collection.",
+      "sourceIds": [
+        "mdn-js-control",
+        "mdn-js-loops"
+      ],
+      "exampleIds": [
+        "example-2"
+      ],
+      "objectiveIds": [
+        "loop"
+      ]
+    },
+    {
+      "id": "control",
+      "title": "Stopping and skipping",
+      "depth": "core",
+      "body": "break ends the nearest loop or switch. continue skips the rest of the current loop iteration. return ends the whole function and can return a value. Choose the smallest control tool that matches the intent, because hidden exits make a long loop hard to reason about.",
+      "sourceIds": [
+        "mdn-js-control",
+        "mdn-js-loops"
+      ],
+      "exampleIds": [
+        "example-3"
+      ],
+      "objectiveIds": [
+        "control"
+      ]
+    },
+    {
+      "id": "safety",
+      "title": "Prove that a loop ends",
+      "depth": "core",
+      "body": "A loop needs a condition that eventually becomes false. For an array, valid indexes run from 0 through length - 1, so i < items.length is a common boundary. Trace the first, last, and empty cases by hand before trusting the loop.",
+      "sourceIds": [
+        "mdn-js-control",
+        "mdn-js-loops"
+      ],
+      "exampleIds": [],
+      "objectiveIds": [
+        "safety"
+      ]
+    },
+    {
+      "id": "react-connection",
+      "title": "Why this matters in React",
+      "depth": "deeper",
+      "body": "Conditionals and loops is part of the JavaScript model React code already uses. Components, event handlers, state updates, list rendering, and data requests become easier to reason about when this concept is understood without framework shortcuts. Practise the JavaScript behavior first, then identify the same rule in JSX or a component.",
+      "sourceIds": [
+        "mdn-js-control",
+        "mdn-js-loops"
+      ],
+      "exampleIds": [],
+      "objectiveIds": [
+        "branch",
+        "loop",
+        "control",
+        "safety"
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "id": "example-1",
+      "title": "Apply: Conditionals choose a path",
+      "kind": "fragment",
+      "language": "js",
+      "depth": "core",
+      "code": "const score = 72;\nif (score >= 80) console.log(\"Great\");\nelse if (score >= 60) console.log(\"Pass\");\nelse console.log(\"Retry\");",
+      "explanation": "This small example gives you a safe place to inspect values while practising this objective: Choose code with if, else, and switch.",
+      "tryThis": "Replace the sample with a real conditionals and loops case from the explanation. Predict every logged value before running it.",
+      "sourceIds": [
+        "mdn-js-control",
+        "mdn-js-loops"
+      ]
+    },
+    {
+      "id": "example-2",
+      "title": "Apply: Loops repeat with control",
+      "kind": "fragment",
+      "language": "js",
+      "depth": "deeper",
+      "code": "for (const topic of [\"values\", \"functions\"]) {\n  console.log(topic);\n}",
+      "explanation": "This small example gives you a safe place to inspect values while practising this objective: Repeat work with the right loop.",
+      "tryThis": "Replace the sample with a real conditionals and loops case from the explanation. Predict every logged value before running it.",
+      "sourceIds": [
+        "mdn-js-control",
+        "mdn-js-loops"
+      ]
+    },
+    {
+      "id": "example-3",
+      "title": "Apply: Stopping and skipping",
+      "kind": "fragment",
+      "language": "js",
+      "depth": "deeper",
+      "code": "let attempts = 0;\nwhile (attempts < 3) attempts += 1;\nconsole.log(attempts);",
+      "explanation": "This small example gives you a safe place to inspect values while practising this objective: Use break, continue, and return deliberately.",
+      "tryThis": "Replace the sample with a real conditionals and loops case from the explanation. Predict every logged value before running it.",
+      "sourceIds": [
+        "mdn-js-control",
+        "mdn-js-loops"
+      ]
+    }
+  ],
+  "practice": [
+    {
+      "id": "p01",
+      "type": "predict",
+      "difficulty": "beginner",
+      "prompt": "Write one short code example for “Conditionals choose a path”. Predict each result before running it.",
+      "hints": [
+        "Return to the “Conditionals choose a path” explanation and identify the exact rule before writing code."
+      ],
+      "acceptanceCriteria": [
+        "The attempt uses valid JavaScript.",
+        "The written prediction or explanation matches the observed behavior.",
+        "The answer names the rule that makes the result happen."
+      ],
+      "objectiveIds": [
+        "branch"
+      ],
+      "sourceIds": [
+        "mdn-js-control",
+        "mdn-js-loops"
+      ],
+      "solution": {
+        "explanation": "A valid answer must demonstrate this rule: Choose code with if, else, and switch. The exact names and sample values may differ. Compare behavior and reasoning, not surface syntax.",
+        "code": "// One possible checking structure\nconst prediction = \"Write the expected result first\";\nconsole.log(prediction);",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p02",
+      "type": "build",
+      "difficulty": "beginner",
+      "prompt": "Build a small function or data example that proves this objective: Repeat work with the right loop.",
+      "hints": [
+        "Return to the “Loops repeat with control” explanation and identify the exact rule before writing code."
+      ],
+      "acceptanceCriteria": [
+        "The attempt uses valid JavaScript.",
+        "The written prediction or explanation matches the observed behavior.",
+        "The answer names the rule that makes the result happen."
+      ],
+      "objectiveIds": [
+        "loop"
+      ],
+      "sourceIds": [
+        "mdn-js-control",
+        "mdn-js-loops"
+      ],
+      "solution": {
+        "explanation": "A valid answer must demonstrate this rule: Repeat work with the right loop. The exact names and sample values may differ. Compare behavior and reasoning, not surface syntax.",
+        "code": "// One possible checking structure\nconst prediction = \"Write the expected result first\";\nconsole.log(prediction);",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p03",
+      "type": "debug",
+      "difficulty": "intermediate",
+      "prompt": "Create a deliberate conditionals and loops mistake, record the symptom, and repair the cause.",
+      "hints": [
+        "Return to the “Stopping and skipping” explanation and identify the exact rule before writing code."
+      ],
+      "acceptanceCriteria": [
+        "The attempt uses valid JavaScript.",
+        "The written prediction or explanation matches the observed behavior.",
+        "The answer names the rule that makes the result happen."
+      ],
+      "objectiveIds": [
+        "control"
+      ],
+      "sourceIds": [
+        "mdn-js-control",
+        "mdn-js-loops"
+      ],
+      "solution": {
+        "explanation": "A valid answer must demonstrate this rule: Use break, continue, and return deliberately. The exact names and sample values may differ. Compare behavior and reasoning, not surface syntax.",
+        "code": "// One possible checking structure\nconst prediction = \"Write the expected result first\";\nconsole.log(prediction);",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p04",
+      "type": "transfer",
+      "difficulty": "intermediate",
+      "prompt": "Use prove that a loop ends in a different example from this lesson and explain why your choice is correct.",
+      "hints": [
+        "Return to the “Prove that a loop ends” explanation and identify the exact rule before writing code."
+      ],
+      "acceptanceCriteria": [
+        "The attempt uses valid JavaScript.",
+        "The written prediction or explanation matches the observed behavior.",
+        "The answer names the rule that makes the result happen."
+      ],
+      "objectiveIds": [
+        "safety"
+      ],
+      "sourceIds": [
+        "mdn-js-control",
+        "mdn-js-loops"
+      ],
+      "solution": {
+        "explanation": "A valid answer must demonstrate this rule: Prevent infinite loops and off-by-one errors. The exact names and sample values may differ. Compare behavior and reasoning, not surface syntax.",
+        "code": "// One possible checking structure\nconst prediction = \"Write the expected result first\";\nconsole.log(prediction);",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p05",
+      "type": "explain-and-build",
+      "difficulty": "advanced",
+      "prompt": "Build one small example that combines two ideas from conditionals and loops, then explain every important value or control-flow step.",
+      "hints": [
+        "Choose two objectives from What you will learn and write the expected result before running the code."
+      ],
+      "acceptanceCriteria": [
+        "The example combines two lesson objectives.",
+        "The learner predicts the result before running it.",
+        "The explanation names both JavaScript rules and one edge case."
+      ],
+      "objectiveIds": [
+        "branch",
+        "loop"
+      ],
+      "sourceIds": [
+        "mdn-js-control",
+        "mdn-js-loops"
+      ],
+      "solution": {
+        "explanation": "A valid solution combines any two stated objectives in one coherent example, predicts its behavior, and explains both rules. Reusing the lesson sample without changing the problem does not meet the transfer goal.",
+        "code": "// Design your own example first.\n// Then record prediction, actual result, and explanation.",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    }
+  ],
+  "interviewQuestions": [
+    {
+      "id": "concept",
+      "question": "Explain conditionals and loops to a junior developer.",
+      "answer": "Choose code with if, else, and switch. Repeat work with the right loop. Use break, continue, and return deliberately. Prevent infinite loops and off-by-one errors.",
+      "followUp": "Show a small example and one common mistake.",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "mdn-js-control",
+        "mdn-js-loops"
+      ]
+    },
+    {
+      "id": "reasoning",
+      "question": "How would you prove that code using conditionals and loops behaves correctly?",
+      "answer": "State the expected value or control flow first, test normal and boundary cases, and inspect the actual runtime result. Explain the JavaScript rule behind the evidence.",
+      "followUp": "Which edge case would you test first?",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "mdn-js-control",
+        "mdn-js-loops"
+      ]
+    },
+    {
+      "id": "react-link",
+      "question": "Where can conditionals and loops affect React code?",
+      "answer": "It can affect values, callbacks, rendering decisions, updates, or data flow. The exact connection depends on the concept; the important step is to reason from JavaScript behavior before blaming React.",
+      "followUp": "Give one component-level example.",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "mdn-js-control",
+        "mdn-js-loops"
+      ]
+    }
+  ],
+  "miniAppIds": [
+    "study-session-report"
+  ],
+  "mastery": {
+    "status": "not-assessed",
+    "policy": "Reading or opening a solution is guided exposure, not mastery. Save an attempt, solve again without help, explain the rule, and transfer it to a new problem.",
+    "checks": [
+      {
+        "id": "explain",
+        "evidence": "Explain all four conditionals and loops objectives without the lesson.",
+        "pass": "Every objective is accurate and includes a small example."
+      },
+      {
+        "id": "solve",
+        "evidence": "Complete four exercises before opening solutions.",
+        "pass": "The code works and the explanation matches the observed result."
+      },
+      {
+        "id": "transfer",
+        "evidence": "Use the concept in a fresh React-related or plain JavaScript problem.",
+        "pass": "The learner can defend the chosen syntax and handle one edge case."
+      }
+    ],
+    "reviewSchedule": {
+      "note": "Answer before reopening the lesson.",
+      "sessions": [
+        {
+          "dayOffset": 2,
+          "problems": [
+            {
+              "id": "recall",
+              "prompt": "Write the four main rules of Conditionals and loops.",
+              "solution": "Choose code with if, else, and switch. Repeat work with the right loop. Use break, continue, and return deliberately. Prevent infinite loops and off-by-one errors."
+            },
+            {
+              "id": "repair",
+              "prompt": "Recreate and repair one common mistake from memory.",
+              "solution": "Name the symptom, the JavaScript rule that caused it, and the smallest correct repair."
+            }
+          ]
+        },
+        {
+          "dayOffset": 7,
+          "problems": [
+            {
+              "id": "teach",
+              "prompt": "Teach conditionals and loops with one new example.",
+              "solution": "Define it, demonstrate it, predict the result, and explain one boundary case."
+            },
+            {
+              "id": "apply",
+              "prompt": "Use the concept in a different data or UI problem.",
+              "solution": "The new solution should rely on the same rule and be explained without copying the lesson."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "sourceIds": [
+    "mdn-js-control",
+    "mdn-js-loops"
+  ],
+  "commonMistakes": [
+    {
+      "symptom": "Code using conditionals and loops produces a surprising value.",
+      "cause": "The result was run before the value, type, scope, identity, or control flow was predicted.",
+      "fix": "Reduce the case, write the expected result, and apply the exact rule from the matching section."
+    },
+    {
+      "symptom": "A learner copies syntax but cannot adapt it.",
+      "cause": "The example was memorized without explaining why it works.",
+      "fix": "Change the data and names, predict again, and explain which behavior must stay the same."
+    },
+    {
+      "symptom": "A React problem is blamed on React immediately.",
+      "cause": "The underlying JavaScript behavior was not isolated first.",
+      "fix": "Reproduce the value or function behavior in a small JavaScript example, then reconnect it to the component."
+    }
+  ],
+  "publicationChecklist": {
+    "authored": true,
+    "sourcesReviewed": true,
+    "codeSyntaxChecked": true,
+    "serverInitialRenderChecked": false,
+    "browserBehaviorChecked": false,
+    "independentContentReview": false,
+    "learnerTrial": false,
+    "note": "Concept-complete draft. Keep sample-draft until examples receive full browser checks, independent content review, and a learner trial."
+  }
+}

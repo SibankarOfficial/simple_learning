@@ -1,6 +1,6 @@
 # Mini app: Notebook quantity picker
 
-Generated from the JSON content. Edit JSON, then regenerate. Coverage review date: 2026-09-19.
+Generated from the JSON content. Edit JSON, then regenerate. Coverage review date: 2026-09-20.
 
 Choose 1–5 notebooks, show the total, and reset the quantity. Explain your state choices instead of copying the tutorial code.
 
@@ -183,6 +183,42 @@ Build a support form with issue type, description, urgency, and contact details.
 - Specific labels and error instructions
 - Responsive layout based on content
 - Documented Elements, Console, and Network checks
+
+### Expense summary
+
+Build a module that validates expenses, groups them by category, and reports totals without mutating input.
+
+- Safe empty result
+- Invalid rows excluded with a stated reason
+- Grouped totals verified
+- No input mutation
+
+### Habit streak report
+
+Calculate completed days and current streaks from dated habit entries, then load optional JSON data.
+
+- Dates handled deliberately
+- Empty and missing data states
+- Pure summary function
+- HTTP errors reported
+
+### Existing-page learning widget
+
+Add one small React checklist to an existing semantic HTML page while preserving the rest of the page.
+
+- Existing content remains outside the React root
+- Missing container produces a useful error
+- React component hierarchy is inspectable
+- Build and host responsibilities are explained
+
+### Tool responsibility map
+
+Create a small React page that teaches what the editor, browser, Node, npm, Vite, React, React DOM, framework, and host each own.
+
+- Each tool has one clear responsibility
+- At least four boundaries are stated
+- Component tree follows the information structure
+- Development and production flows are separate
 
 ## Extend after the base works
 

@@ -1,0 +1,456 @@
+{
+  "schemaVersion": 1,
+  "id": "javascript-basics-map-filter-find-and-reduce",
+  "subjectId": "react",
+  "chapterId": "javascript-basics",
+  "title": "map, filter, find, and reduce",
+  "language": "en",
+  "status": "sample-draft",
+  "reviewedAt": "2026-09-20",
+  "runtime": "Modern evergreen browser or Node.js with ES modules. Run fragments in browser DevTools or a small .js file unless the example says otherwise.",
+  "prerequisiteTopicIds": [
+    "javascript-basics-spread-and-rest"
+  ],
+  "estimatedMinutes": {
+    "firstPass": 45,
+    "practice": 55,
+    "project": 25
+  },
+  "objectives": [
+    {
+      "id": "map",
+      "text": "Use map when every input becomes an output."
+    },
+    {
+      "id": "filter",
+      "text": "Use filter to keep matching items."
+    },
+    {
+      "id": "find",
+      "text": "Use find when only the first match is needed."
+    },
+    {
+      "id": "reduce",
+      "text": "Use reduce when many values become one result."
+    }
+  ],
+  "learningFlow": [
+    "Recall the prerequisite",
+    "Predict before running code",
+    "Read each concept explanation",
+    "Change a small example",
+    "Attempt practice before hints",
+    "Explain the result in your own words",
+    "Apply the idea in a different problem",
+    "Review after two and seven days"
+  ],
+  "diagnostic": [
+    {
+      "question": "Can you explain the main purpose of map, filter, find, and reduce before reading?",
+      "answer": "A complete answer should name the problem it solves, the values or control flow involved, and one mistake to avoid.",
+      "ifMissed": "javascript-basics-spread-and-rest"
+    }
+  ],
+  "sections": [
+    {
+      "id": "map",
+      "title": "map transforms",
+      "depth": "core",
+      "body": "map calls a function for each array item and returns a new array of the same length. The callback result becomes the corresponding output item. Use it for transforming data or creating JSX lists, and always return the intended value from a block-bodied callback.",
+      "sourceIds": [
+        "mdn-js-arrays"
+      ],
+      "exampleIds": [
+        "example-1"
+      ],
+      "objectiveIds": [
+        "map"
+      ]
+    },
+    {
+      "id": "filter",
+      "title": "filter selects",
+      "depth": "core",
+      "body": "filter keeps each original item whose callback returns truthy. It returns a new array and may return zero, some, or all items. It does not transform kept items; chain map separately when both selection and transformation are required.",
+      "sourceIds": [
+        "mdn-js-arrays"
+      ],
+      "exampleIds": [
+        "example-2"
+      ],
+      "objectiveIds": [
+        "filter"
+      ]
+    },
+    {
+      "id": "find",
+      "title": "find returns one item",
+      "depth": "core",
+      "body": "find stops at the first matching item and returns that item, or undefined if none matches. findIndex returns the index instead. Handle the missing case before reading properties from the result.",
+      "sourceIds": [
+        "mdn-js-arrays"
+      ],
+      "exampleIds": [
+        "example-3"
+      ],
+      "objectiveIds": [
+        "find"
+      ]
+    },
+    {
+      "id": "reduce",
+      "title": "reduce accumulates",
+      "depth": "core",
+      "body": "reduce carries an accumulator through the array. Give an explicit initial value so empty arrays and result types are predictable. It works for totals, grouped objects, and other summaries, but a loop can be clearer when the accumulator becomes complicated.",
+      "sourceIds": [
+        "mdn-js-arrays"
+      ],
+      "exampleIds": [],
+      "objectiveIds": [
+        "reduce"
+      ]
+    },
+    {
+      "id": "react-connection",
+      "title": "Why this matters in React",
+      "depth": "deeper",
+      "body": "map, filter, find, and reduce is part of the JavaScript model React code already uses. Components, event handlers, state updates, list rendering, and data requests become easier to reason about when this concept is understood without framework shortcuts. Practise the JavaScript behavior first, then identify the same rule in JSX or a component.",
+      "sourceIds": [
+        "mdn-js-arrays"
+      ],
+      "exampleIds": [],
+      "objectiveIds": [
+        "map",
+        "filter",
+        "find",
+        "reduce"
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "id": "example-1",
+      "title": "Apply: map transforms",
+      "kind": "fragment",
+      "language": "js",
+      "depth": "core",
+      "code": "const names = [{ name: \"A\" }, { name: \"B\" }].map(user => user.name);",
+      "explanation": "This small example gives you a safe place to inspect values while practising this objective: Use map when every input becomes an output.",
+      "tryThis": "Replace the sample with a real map, filter, find, and reduce case from the explanation. Predict every logged value before running it.",
+      "sourceIds": [
+        "mdn-js-arrays"
+      ]
+    },
+    {
+      "id": "example-2",
+      "title": "Apply: filter selects",
+      "kind": "fragment",
+      "language": "js",
+      "depth": "deeper",
+      "code": "const active = [{ active: true }, { active: false }].filter(user => user.active);",
+      "explanation": "This small example gives you a safe place to inspect values while practising this objective: Use filter to keep matching items.",
+      "tryThis": "Replace the sample with a real map, filter, find, and reduce case from the explanation. Predict every logged value before running it.",
+      "sourceIds": [
+        "mdn-js-arrays"
+      ]
+    },
+    {
+      "id": "example-3",
+      "title": "Apply: find returns one item",
+      "kind": "fragment",
+      "language": "js",
+      "depth": "deeper",
+      "code": "const total = [10, 20, 30].reduce((sum, value) => sum + value, 0);",
+      "explanation": "This small example gives you a safe place to inspect values while practising this objective: Use find when only the first match is needed.",
+      "tryThis": "Replace the sample with a real map, filter, find, and reduce case from the explanation. Predict every logged value before running it.",
+      "sourceIds": [
+        "mdn-js-arrays"
+      ]
+    }
+  ],
+  "practice": [
+    {
+      "id": "p01",
+      "type": "predict",
+      "difficulty": "beginner",
+      "prompt": "Write one short code example for “map transforms”. Predict each result before running it.",
+      "hints": [
+        "Return to the “map transforms” explanation and identify the exact rule before writing code."
+      ],
+      "acceptanceCriteria": [
+        "The attempt uses valid JavaScript.",
+        "The written prediction or explanation matches the observed behavior.",
+        "The answer names the rule that makes the result happen."
+      ],
+      "objectiveIds": [
+        "map"
+      ],
+      "sourceIds": [
+        "mdn-js-arrays"
+      ],
+      "solution": {
+        "explanation": "A valid answer must demonstrate this rule: Use map when every input becomes an output. The exact names and sample values may differ. Compare behavior and reasoning, not surface syntax.",
+        "code": "// One possible checking structure\nconst prediction = \"Write the expected result first\";\nconsole.log(prediction);",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p02",
+      "type": "build",
+      "difficulty": "beginner",
+      "prompt": "Build a small function or data example that proves this objective: Use filter to keep matching items.",
+      "hints": [
+        "Return to the “filter selects” explanation and identify the exact rule before writing code."
+      ],
+      "acceptanceCriteria": [
+        "The attempt uses valid JavaScript.",
+        "The written prediction or explanation matches the observed behavior.",
+        "The answer names the rule that makes the result happen."
+      ],
+      "objectiveIds": [
+        "filter"
+      ],
+      "sourceIds": [
+        "mdn-js-arrays"
+      ],
+      "solution": {
+        "explanation": "A valid answer must demonstrate this rule: Use filter to keep matching items. The exact names and sample values may differ. Compare behavior and reasoning, not surface syntax.",
+        "code": "// One possible checking structure\nconst prediction = \"Write the expected result first\";\nconsole.log(prediction);",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p03",
+      "type": "debug",
+      "difficulty": "intermediate",
+      "prompt": "Create a deliberate map, filter, find, and reduce mistake, record the symptom, and repair the cause.",
+      "hints": [
+        "Return to the “find returns one item” explanation and identify the exact rule before writing code."
+      ],
+      "acceptanceCriteria": [
+        "The attempt uses valid JavaScript.",
+        "The written prediction or explanation matches the observed behavior.",
+        "The answer names the rule that makes the result happen."
+      ],
+      "objectiveIds": [
+        "find"
+      ],
+      "sourceIds": [
+        "mdn-js-arrays"
+      ],
+      "solution": {
+        "explanation": "A valid answer must demonstrate this rule: Use find when only the first match is needed. The exact names and sample values may differ. Compare behavior and reasoning, not surface syntax.",
+        "code": "// One possible checking structure\nconst prediction = \"Write the expected result first\";\nconsole.log(prediction);",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p04",
+      "type": "transfer",
+      "difficulty": "intermediate",
+      "prompt": "Use reduce accumulates in a different example from this lesson and explain why your choice is correct.",
+      "hints": [
+        "Return to the “reduce accumulates” explanation and identify the exact rule before writing code."
+      ],
+      "acceptanceCriteria": [
+        "The attempt uses valid JavaScript.",
+        "The written prediction or explanation matches the observed behavior.",
+        "The answer names the rule that makes the result happen."
+      ],
+      "objectiveIds": [
+        "reduce"
+      ],
+      "sourceIds": [
+        "mdn-js-arrays"
+      ],
+      "solution": {
+        "explanation": "A valid answer must demonstrate this rule: Use reduce when many values become one result. The exact names and sample values may differ. Compare behavior and reasoning, not surface syntax.",
+        "code": "// One possible checking structure\nconst prediction = \"Write the expected result first\";\nconsole.log(prediction);",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p05",
+      "type": "explain-and-build",
+      "difficulty": "advanced",
+      "prompt": "Build one small example that combines two ideas from map, filter, find, and reduce, then explain every important value or control-flow step.",
+      "hints": [
+        "Choose two objectives from What you will learn and write the expected result before running the code."
+      ],
+      "acceptanceCriteria": [
+        "The example combines two lesson objectives.",
+        "The learner predicts the result before running it.",
+        "The explanation names both JavaScript rules and one edge case."
+      ],
+      "objectiveIds": [
+        "map",
+        "filter"
+      ],
+      "sourceIds": [
+        "mdn-js-arrays"
+      ],
+      "solution": {
+        "explanation": "A valid solution combines any two stated objectives in one coherent example, predicts its behavior, and explains both rules. Reusing the lesson sample without changing the problem does not meet the transfer goal.",
+        "code": "// Design your own example first.\n// Then record prediction, actual result, and explanation.",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    }
+  ],
+  "interviewQuestions": [
+    {
+      "id": "concept",
+      "question": "Explain map, filter, find, and reduce to a junior developer.",
+      "answer": "Use map when every input becomes an output. Use filter to keep matching items. Use find when only the first match is needed. Use reduce when many values become one result.",
+      "followUp": "Show a small example and one common mistake.",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "mdn-js-arrays"
+      ]
+    },
+    {
+      "id": "reasoning",
+      "question": "How would you prove that code using map, filter, find, and reduce behaves correctly?",
+      "answer": "State the expected value or control flow first, test normal and boundary cases, and inspect the actual runtime result. Explain the JavaScript rule behind the evidence.",
+      "followUp": "Which edge case would you test first?",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "mdn-js-arrays"
+      ]
+    },
+    {
+      "id": "react-link",
+      "question": "Where can map, filter, find, and reduce affect React code?",
+      "answer": "It can affect values, callbacks, rendering decisions, updates, or data flow. The exact connection depends on the concept; the important step is to reason from JavaScript behavior before blaming React.",
+      "followUp": "Give one component-level example.",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "mdn-js-arrays"
+      ]
+    }
+  ],
+  "miniAppIds": [
+    "study-session-report"
+  ],
+  "mastery": {
+    "status": "not-assessed",
+    "policy": "Reading or opening a solution is guided exposure, not mastery. Save an attempt, solve again without help, explain the rule, and transfer it to a new problem.",
+    "checks": [
+      {
+        "id": "explain",
+        "evidence": "Explain all four map, filter, find, and reduce objectives without the lesson.",
+        "pass": "Every objective is accurate and includes a small example."
+      },
+      {
+        "id": "solve",
+        "evidence": "Complete four exercises before opening solutions.",
+        "pass": "The code works and the explanation matches the observed result."
+      },
+      {
+        "id": "transfer",
+        "evidence": "Use the concept in a fresh React-related or plain JavaScript problem.",
+        "pass": "The learner can defend the chosen syntax and handle one edge case."
+      }
+    ],
+    "reviewSchedule": {
+      "note": "Answer before reopening the lesson.",
+      "sessions": [
+        {
+          "dayOffset": 2,
+          "problems": [
+            {
+              "id": "recall",
+              "prompt": "Write the four main rules of map, filter, find, and reduce.",
+              "solution": "Use map when every input becomes an output. Use filter to keep matching items. Use find when only the first match is needed. Use reduce when many values become one result."
+            },
+            {
+              "id": "repair",
+              "prompt": "Recreate and repair one common mistake from memory.",
+              "solution": "Name the symptom, the JavaScript rule that caused it, and the smallest correct repair."
+            }
+          ]
+        },
+        {
+          "dayOffset": 7,
+          "problems": [
+            {
+              "id": "teach",
+              "prompt": "Teach map, filter, find, and reduce with one new example.",
+              "solution": "Define it, demonstrate it, predict the result, and explain one boundary case."
+            },
+            {
+              "id": "apply",
+              "prompt": "Use the concept in a different data or UI problem.",
+              "solution": "The new solution should rely on the same rule and be explained without copying the lesson."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "sourceIds": [
+    "mdn-js-arrays"
+  ],
+  "commonMistakes": [
+    {
+      "symptom": "Code using map, filter, find, and reduce produces a surprising value.",
+      "cause": "The result was run before the value, type, scope, identity, or control flow was predicted.",
+      "fix": "Reduce the case, write the expected result, and apply the exact rule from the matching section."
+    },
+    {
+      "symptom": "A learner copies syntax but cannot adapt it.",
+      "cause": "The example was memorized without explaining why it works.",
+      "fix": "Change the data and names, predict again, and explain which behavior must stay the same."
+    },
+    {
+      "symptom": "A React problem is blamed on React immediately.",
+      "cause": "The underlying JavaScript behavior was not isolated first.",
+      "fix": "Reproduce the value or function behavior in a small JavaScript example, then reconnect it to the component."
+    }
+  ],
+  "publicationChecklist": {
+    "authored": true,
+    "sourcesReviewed": true,
+    "codeSyntaxChecked": true,
+    "serverInitialRenderChecked": false,
+    "browserBehaviorChecked": false,
+    "independentContentReview": false,
+    "learnerTrial": false,
+    "note": "Concept-complete draft. Keep sample-draft until examples receive full browser checks, independent content review, and a learner trial."
+  }
+}

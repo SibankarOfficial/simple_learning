@@ -24,16 +24,18 @@ React, React DOM, Vite, and the validator's dependencies are declared in this pr
 
 ## Available now
 
-- Subject → chapter → topic pages, with 30 chapters and 324 catalog topics. **317 topics are planned; seven lessons are available as sample drafts. No lesson is marked published.**
+- Subject → chapter → topic pages, with 30 chapters and 324 catalog topics. **289 topics are planned; 35 lessons are available as sample drafts. No lesson is marked published.**
 - Chapter 1, **Web foundations**, has complete lesson drafts for all six topics. Together they contain 30 exercises, 18 original interview-style questions, examples, mistakes, mastery checks, delayed reviews, and links to exact MDN sources.
-- The useState reader includes prerequisite checks, core/deeper/reference explanations, 11 examples, mistakes, 10 exercises with optional hints and solution modals, and 12 original interview-style questions.
+- Chapter 2, **JavaScript foundations**, has concept-first drafts for all 19 topics. Every learning objective maps to an explanation section, with real JavaScript examples, five exercises, three interview-style questions, mistakes, mastery evidence, delayed review, and exact MDN sources.
+- Chapter 3, **React setup and orientation**, has concept-first drafts for all nine topics. It separates React, React DOM, Node, npm, Vite, frameworks, development, production, React DevTools, and gradual adoption so learners can explain every setup layer.
+- The useState reader includes prerequisites, core/deeper/reference explanations, 11 examples, mistakes, 10 exercises with optional hints and solution modals, and 12 original interview-style questions.
 - A top-level interview library contains 253 entries. It preserves 223 questions from the two supplied PDF guides and adds 30 reviewed advanced/tricky questions covering React behavior, JavaScript output and internals, browser events, accessibility, security, and performance. Questions progress from foundation to advanced and tricky; reviewed entries link to authoritative technical references. Imported wording remains clearly marked as unverified.
 - A separate **DSA Practice** module provides a 10-minute practical intro and 20 common easy/medium interview problems in a 120-minute path. Every problem starts with the prompt and thinking steps, links its exact concepts to one shared 18-concept reference, keeps solutions collapsed, compares a basic and better method, shows time and space complexity, includes a dry run and mistakes, and links to its LeetCode problem. The method follows Chai Visual's useful brute-force-to-better comparison without copying its lesson content.
 - Every complete React module can open in an editable live preview. Each run creates a fresh sandbox with network and app-storage access blocked. Learners write a prediction, change App.jsx, run it, compare the result, and reset to the authored example.
 - Saved drafts, attempts, assistance records, self-review, and written mastery evidence. There is no automatic mastery award or code grading.
 - Topic-owned spaced review sessions open after their configured time gaps and provide fresh problems with explained feedback. The useState sample uses 1, 3, 7, and 14 days; Web foundations lessons use 2 and 7 days.
-- Two mini apps: the six-step React quantity picker and the eight-step accessible course signup page for Web foundations. Each has concept links, acceptance scenarios, and two independent build ideas.
-- Coverage pages for 130 official-source mappings, review dates, scope exclusions, and pending audits.
+- Four mini apps: the React quantity picker, accessible course signup page, JavaScript study-session report, and eight-step first React learning workspace. Each has concept links, acceptance scenarios, and two independent build ideas.
+- Coverage pages for 185 official-source mappings, review dates, scope exclusions, and pending audits.
 
 The application has loading, missing-content, invalid-data, and retry states. Browser storage failures show a warning; unreadable existing progress is preserved rather than overwritten.
 

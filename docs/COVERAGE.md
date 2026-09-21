@@ -1,10 +1,10 @@
 # React coverage audit
 
-Generated from the JSON content. Edit JSON, then regenerate. Coverage review date: 2026-09-19.
+Generated from the JSON content. Edit JSON, then regenerate. Coverage review date: 2026-09-20.
 
 Manual inventory of reviewed Learn chapter indexes and reference categories. Mapped means a syllabus destination exists; it does not mean a finished lesson. A finite inventory can expose known gaps, not prove universal completeness.
 
-130 source inventory items have syllabus destinations. 7 topics have authored samples; remaining lesson content is planned.
+185 source inventory items have syllabus destinations. 35 topics have authored samples; remaining lesson content is planned.
 
 ## Open audits
 
@@ -156,6 +156,61 @@ Manual inventory of reviewed Learn chapter indexes and reference categories. Map
 | web-foundations | [Accessibility and keyboard basics — Keyboard accessible](https://developer.mozilla.org/en-US/docs/Web/Accessibility/Guides/Understanding_WCAG/Keyboard) | Accessibility and keyboard basics | sample-draft |
 | web-foundations | [Browser DevTools and console — What are browser developer tools?](https://developer.mozilla.org/en-US/docs/Learn_web_development/Howto/Tools_and_setup/What_are_browser_developer_tools) | Browser DevTools and console | sample-draft |
 | web-foundations | [Browser DevTools and console — How browsers load websites](https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Web_standards/How_browsers_load_websites) | Browser DevTools and console | sample-draft |
+| javascript-foundations | [Values, types, and coercion — Grammar and types](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types) | Values types and coercion | sample-draft |
+| javascript-foundations | [Values, types, and coercion — JavaScript data types and data structures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Data_structures) | Values types and coercion | sample-draft |
+| javascript-foundations | [let, const, and scope — Grammar and types](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types) | let const and scope | sample-draft |
+| javascript-foundations | [Expressions, operators, and equality — Expressions and operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_operators) | Expressions operators and equality | sample-draft |
+| javascript-foundations | [Conditionals and loops — Control flow and error handling](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling) | Conditionals and loops | sample-draft |
+| javascript-foundations | [Conditionals and loops — Loops and iteration](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration) | Conditionals and loops | sample-draft |
+| javascript-foundations | [Function declarations and arrow functions — Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions) | Functions declarations and arrows | sample-draft |
+| javascript-foundations | [Parameters, defaults, and return values — Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions) | Parameters defaults and return values | sample-draft |
+| javascript-foundations | [Objects and property access — Working with objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_objects) | Objects and property access | sample-draft |
+| javascript-foundations | [Arrays and iteration — Indexed collections](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Indexed_collections) | Arrays and iteration | sample-draft |
+| javascript-foundations | [Destructuring — Destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring) | Destructuring | sample-draft |
+| javascript-foundations | [Spread and rest — Spread syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax) | Spread and rest | sample-draft |
+| javascript-foundations | [map, filter, find, and reduce — Indexed collections](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Indexed_collections) | map filter find and reduce | sample-draft |
+| javascript-foundations | [Modules: import and export — JavaScript modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules) | Modules import and export | sample-draft |
+| javascript-foundations | [Closures and lexical scope — Closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Closures) | Closures and lexical scope | sample-draft |
+| javascript-foundations | [References, mutation, and shallow copy — JavaScript data types and data structures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Data_structures) | References mutation and shallow copy | sample-draft |
+| javascript-foundations | [References, mutation, and shallow copy — Spread syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax) | References mutation and shallow copy | sample-draft |
+| javascript-foundations | [Optional chaining and nullish coalescing — Optional chaining](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining) | Optional chaining and nullish coalescing | sample-draft |
+| javascript-foundations | [Optional chaining and nullish coalescing — Nullish coalescing operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing) | Optional chaining and nullish coalescing | sample-draft |
+| javascript-foundations | [Promises, async/await, and errors — Using promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises) | Promises async await and errors | sample-draft |
+| javascript-foundations | [Promises, async/await, and errors — Control flow and error handling](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling) | Promises async await and errors | sample-draft |
+| javascript-foundations | [Event loop and timers — JavaScript execution model](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Execution_model) | Event loop and timers | sample-draft |
+| javascript-foundations | [Fetch, JSON, and HTTP — Using the Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) | Fetch JSON and HTTP | sample-draft |
+| javascript-foundations | [Fetch, JSON, and HTTP — HTTP response status codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status) | Fetch JSON and HTTP | sample-draft |
+| javascript-foundations | [Exceptions and debugging — Control flow and error handling](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling) | Exceptions and debugging | sample-draft |
+| web-foundations | [How browser pages work — Overview of HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Overview) | How browser pages work | sample-draft |
+| web-foundations | [How browser pages work — HTTP messages](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Messages) | How browser pages work | sample-draft |
+| web-foundations | [How browser pages work — HTTP response status codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status) | How browser pages work | sample-draft |
+| web-foundations | [How browser pages work — Server-side rendering (SSR)](https://developer.mozilla.org/en-US/docs/Glossary/SSR) | How browser pages work | sample-draft |
+| web-foundations | [How browser pages work — hydrateRoot](https://react.dev/reference/react-dom/client/hydrateRoot) | How browser pages work | sample-draft |
+| react-setup | [What React solves and its boundaries — Installation](https://react.dev/learn/installation) | What React solves and its boundaries | sample-draft |
+| react-setup | [What React solves and its boundaries — Build a React app from scratch](https://react.dev/learn/build-a-react-app-from-scratch) | What React solves and its boundaries | sample-draft |
+| react-setup | [Declarative UI and component thinking — Thinking in React](https://react.dev/learn/thinking-in-react) | Declarative UI and component thinking | sample-draft |
+| react-setup | [Declarative UI and component thinking — Reacting to input with state](https://react.dev/learn/reacting-to-input-with-state) | Declarative UI and component thinking | sample-draft |
+| react-setup | [Declarative UI and component thinking — Your first component](https://react.dev/learn/your-first-component) | Declarative UI and component thinking | sample-draft |
+| react-setup | [Editor, Node, package manager, and terminal — Downloading and installing Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm/) | Editor Node package manager and terminal | sample-draft |
+| react-setup | [Editor, Node, package manager, and terminal — package.json](https://docs.npmjs.com/files/package.json/) | Editor Node package manager and terminal | sample-draft |
+| react-setup | [Create a learning project with Vite — Build a React app from scratch](https://react.dev/learn/build-a-react-app-from-scratch) | Create a learning project with Vite | sample-draft |
+| react-setup | [Create a learning project with Vite — Getting Started](https://vite.dev/guide/) | Create a learning project with Vite | sample-draft |
+| react-setup | [Create a learning project with Vite — Features](https://vite.dev/guide/features) | Create a learning project with Vite | sample-draft |
+| react-setup | [Framework versus build tool — Installation](https://react.dev/learn/installation) | Framework versus build tool | sample-draft |
+| react-setup | [Framework versus build tool — Build a React app from scratch](https://react.dev/learn/build-a-react-app-from-scratch) | Framework versus build tool | sample-draft |
+| react-setup | [Framework versus build tool — Getting Started](https://vite.dev/guide/) | Framework versus build tool | sample-draft |
+| react-setup | [Project files, scripts, and dependencies — Getting Started](https://vite.dev/guide/) | Project files scripts and dependencies | sample-draft |
+| react-setup | [Project files, scripts, and dependencies — package.json](https://docs.npmjs.com/files/package.json/) | Project files scripts and dependencies | sample-draft |
+| react-setup | [Project files, scripts, and dependencies — Specifying dependencies and devDependencies](https://docs.npmjs.com/specifying-dependencies-and-devdependencies-in-a-package-json-file/) | Project files scripts and dependencies | sample-draft |
+| react-setup | [Project files, scripts, and dependencies — createRoot](https://react.dev/reference/react-dom/client/createRoot) | Project files scripts and dependencies | sample-draft |
+| react-setup | [Development versus production — Getting Started](https://vite.dev/guide/) | Development versus production | sample-draft |
+| react-setup | [Development versus production — Features](https://vite.dev/guide/features) | Development versus production | sample-draft |
+| react-setup | [Development versus production — Building for Production](https://vite.dev/guide/build) | Development versus production | sample-draft |
+| react-setup | [React DevTools — React Developer Tools](https://react.dev/learn/react-developer-tools) | React DevTools | sample-draft |
+| react-setup | [React DevTools — Thinking in React](https://react.dev/learn/thinking-in-react) | React DevTools | sample-draft |
+| react-setup | [Adding React to an existing page — Add React to an existing project](https://react.dev/learn/add-react-to-an-existing-project) | Adding React to an existing page | sample-draft |
+| react-setup | [Adding React to an existing page — createRoot](https://react.dev/reference/react-dom/client/createRoot) | Adding React to an existing page | sample-draft |
+| react-setup | [Adding React to an existing page — Installation](https://react.dev/learn/installation) | Adding React to an existing page | sample-draft |
 
 ## Explicit scope exclusions
 
@@ -220,3 +275,40 @@ Compare official indexes at each content release; add or explicitly scope new it
 - [Responsive web design](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Responsive_Design) — reviewed 2026-09-19
 - [Keyboard accessible](https://developer.mozilla.org/en-US/docs/Web/Accessibility/Guides/Understanding_WCAG/Keyboard) — reviewed 2026-09-19
 - [What are browser developer tools?](https://developer.mozilla.org/en-US/docs/Learn_web_development/Howto/Tools_and_setup/What_are_browser_developer_tools) — reviewed 2026-09-19
+- [Overview of HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Overview) — reviewed 2026-09-20
+- [HTTP messages](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Messages) — reviewed 2026-09-20
+- [HTTP response status codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status) — reviewed 2026-09-20
+- [Server-side rendering (SSR)](https://developer.mozilla.org/en-US/docs/Glossary/SSR) — reviewed 2026-09-20
+- [hydrateRoot](https://react.dev/reference/react-dom/client/hydrateRoot) — reviewed 2026-09-20
+- [JavaScript Guide](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide) — reviewed 2026-09-20
+- [Grammar and types](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types) — reviewed 2026-09-20
+- [JavaScript data types and data structures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Data_structures) — reviewed 2026-09-20
+- [Expressions and operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_operators) — reviewed 2026-09-20
+- [Control flow and error handling](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling) — reviewed 2026-09-20
+- [Loops and iteration](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration) — reviewed 2026-09-20
+- [Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions) — reviewed 2026-09-20
+- [Working with objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_objects) — reviewed 2026-09-20
+- [Indexed collections](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Indexed_collections) — reviewed 2026-09-20
+- [Destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring) — reviewed 2026-09-20
+- [Spread syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax) — reviewed 2026-09-20
+- [JavaScript modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules) — reviewed 2026-09-20
+- [Closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Closures) — reviewed 2026-09-20
+- [Optional chaining](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining) — reviewed 2026-09-20
+- [Nullish coalescing operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing) — reviewed 2026-09-20
+- [Using promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises) — reviewed 2026-09-20
+- [JavaScript execution model](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Execution_model) — reviewed 2026-09-20
+- [Using the Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) — reviewed 2026-09-20
+- [Installation](https://react.dev/learn/installation) — reviewed 2026-09-20
+- [Build a React app from scratch](https://react.dev/learn/build-a-react-app-from-scratch) — reviewed 2026-09-20
+- [Thinking in React](https://react.dev/learn/thinking-in-react) — reviewed 2026-09-20
+- [Reacting to input with state](https://react.dev/learn/reacting-to-input-with-state) — reviewed 2026-09-20
+- [Your first component](https://react.dev/learn/your-first-component) — reviewed 2026-09-20
+- [React Developer Tools](https://react.dev/learn/react-developer-tools) — reviewed 2026-09-20
+- [Add React to an existing project](https://react.dev/learn/add-react-to-an-existing-project) — reviewed 2026-09-20
+- [createRoot](https://react.dev/reference/react-dom/client/createRoot) — reviewed 2026-09-20
+- [Getting Started](https://vite.dev/guide/) — reviewed 2026-09-20
+- [Features](https://vite.dev/guide/features) — reviewed 2026-09-20
+- [Building for Production](https://vite.dev/guide/build) — reviewed 2026-09-20
+- [Downloading and installing Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm/) — reviewed 2026-09-20
+- [package.json](https://docs.npmjs.com/files/package.json/) — reviewed 2026-09-20
+- [Specifying dependencies and devDependencies](https://docs.npmjs.com/specifying-dependencies-and-devdependencies-in-a-package-json-file/) — reviewed 2026-09-20

@@ -84,5 +84,133 @@
       "accessible-course-signup"
     ],
     "solutionProvided": false
+  },
+  {
+    "id": "expense-summary",
+    "subjectId": "react",
+    "title": "Expense summary",
+    "conceptTopicIds": [
+      "javascript-basics-values-types-and-coercion",
+      "javascript-basics-let-const-and-scope",
+      "javascript-basics-expressions-operators-and-equality",
+      "javascript-basics-conditionals-and-loops",
+      "javascript-basics-functions-declarations-and-arrows",
+      "javascript-basics-parameters-defaults-and-return-values",
+      "javascript-basics-objects-and-property-access",
+      "javascript-basics-arrays-and-iteration",
+      "javascript-basics-destructuring",
+      "javascript-basics-spread-and-rest",
+      "javascript-basics-map-filter-find-and-reduce",
+      "javascript-basics-modules-import-and-export",
+      "javascript-basics-closures-and-lexical-scope",
+      "javascript-basics-references-mutation-and-shallow-copy",
+      "javascript-basics-optional-chaining-and-nullish-coalescing",
+      "javascript-basics-promises-async-await-and-errors",
+      "javascript-basics-event-loop-and-timers",
+      "javascript-basics-fetch-json-and-http",
+      "javascript-basics-exceptions-and-debugging"
+    ],
+    "brief": "Build a module that validates expenses, groups them by category, and reports totals without mutating input.",
+    "acceptanceCriteria": [
+      "Safe empty result",
+      "Invalid rows excluded with a stated reason",
+      "Grouped totals verified",
+      "No input mutation"
+    ],
+    "relatedMiniAppIds": [
+      "study-session-report"
+    ],
+    "solutionProvided": false
+  },
+  {
+    "id": "habit-streak-report",
+    "subjectId": "react",
+    "title": "Habit streak report",
+    "conceptTopicIds": [
+      "javascript-basics-values-types-and-coercion",
+      "javascript-basics-let-const-and-scope",
+      "javascript-basics-expressions-operators-and-equality",
+      "javascript-basics-conditionals-and-loops",
+      "javascript-basics-functions-declarations-and-arrows",
+      "javascript-basics-parameters-defaults-and-return-values",
+      "javascript-basics-objects-and-property-access",
+      "javascript-basics-arrays-and-iteration",
+      "javascript-basics-destructuring",
+      "javascript-basics-spread-and-rest",
+      "javascript-basics-map-filter-find-and-reduce",
+      "javascript-basics-modules-import-and-export",
+      "javascript-basics-closures-and-lexical-scope",
+      "javascript-basics-references-mutation-and-shallow-copy",
+      "javascript-basics-optional-chaining-and-nullish-coalescing",
+      "javascript-basics-promises-async-await-and-errors",
+      "javascript-basics-event-loop-and-timers",
+      "javascript-basics-fetch-json-and-http",
+      "javascript-basics-exceptions-and-debugging"
+    ],
+    "brief": "Calculate completed days and current streaks from dated habit entries, then load optional JSON data.",
+    "acceptanceCriteria": [
+      "Dates handled deliberately",
+      "Empty and missing data states",
+      "Pure summary function",
+      "HTTP errors reported"
+    ],
+    "relatedMiniAppIds": [
+      "study-session-report"
+    ],
+    "solutionProvided": false
+  },
+  {
+    "id": "existing-page-learning-widget",
+    "subjectId": "react",
+    "title": "Existing-page learning widget",
+    "conceptTopicIds": [
+      "setup-what-react-solves-and-its-boundaries",
+      "setup-declarative-ui-and-component-thinking",
+      "setup-editor-node-package-manager-and-terminal",
+      "setup-create-a-learning-project-with-vite",
+      "setup-framework-versus-build-tool",
+      "setup-project-files-scripts-and-dependencies",
+      "setup-development-versus-production",
+      "setup-react-devtools",
+      "setup-adding-react-to-an-existing-page"
+    ],
+    "brief": "Add one small React checklist to an existing semantic HTML page while preserving the rest of the page.",
+    "acceptanceCriteria": [
+      "Existing content remains outside the React root",
+      "Missing container produces a useful error",
+      "React component hierarchy is inspectable",
+      "Build and host responsibilities are explained"
+    ],
+    "relatedMiniAppIds": [
+      "first-react-workspace"
+    ],
+    "solutionProvided": false
+  },
+  {
+    "id": "tool-responsibility-map",
+    "subjectId": "react",
+    "title": "Tool responsibility map",
+    "conceptTopicIds": [
+      "setup-what-react-solves-and-its-boundaries",
+      "setup-declarative-ui-and-component-thinking",
+      "setup-editor-node-package-manager-and-terminal",
+      "setup-create-a-learning-project-with-vite",
+      "setup-framework-versus-build-tool",
+      "setup-project-files-scripts-and-dependencies",
+      "setup-development-versus-production",
+      "setup-react-devtools",
+      "setup-adding-react-to-an-existing-page"
+    ],
+    "brief": "Create a small React page that teaches what the editor, browser, Node, npm, Vite, React, React DOM, framework, and host each own.",
+    "acceptanceCriteria": [
+      "Each tool has one clear responsibility",
+      "At least four boundaries are stated",
+      "Component tree follows the information structure",
+      "Development and production flows are separate"
+    ],
+    "relatedMiniAppIds": [
+      "first-react-workspace"
+    ],
+    "solutionProvided": false
   }
 ]

@@ -1,0 +1,473 @@
+{
+  "schemaVersion": 1,
+  "id": "javascript-basics-optional-chaining-and-nullish-coalescing",
+  "subjectId": "react",
+  "chapterId": "javascript-basics",
+  "title": "Optional chaining and nullish coalescing",
+  "language": "en",
+  "status": "sample-draft",
+  "reviewedAt": "2026-09-20",
+  "runtime": "Modern evergreen browser or Node.js with ES modules. Run fragments in browser DevTools or a small .js file unless the example says otherwise.",
+  "prerequisiteTopicIds": [
+    "javascript-basics-references-mutation-and-shallow-copy"
+  ],
+  "estimatedMinutes": {
+    "firstPass": 45,
+    "practice": 55,
+    "project": 25
+  },
+  "objectives": [
+    {
+      "id": "optional",
+      "text": "Stop a property chain only for null or undefined."
+    },
+    {
+      "id": "forms",
+      "text": "Use optional access, calls, and indexes."
+    },
+    {
+      "id": "nullish",
+      "text": "Use ?? when only missing values need a fallback."
+    },
+    {
+      "id": "combine",
+      "text": "Combine access and fallback without hiding bad data."
+    }
+  ],
+  "learningFlow": [
+    "Recall the prerequisite",
+    "Predict before running code",
+    "Read each concept explanation",
+    "Change a small example",
+    "Attempt practice before hints",
+    "Explain the result in your own words",
+    "Apply the idea in a different problem",
+    "Review after two and seven days"
+  ],
+  "diagnostic": [
+    {
+      "question": "Can you explain the main purpose of optional chaining and nullish coalescing before reading?",
+      "answer": "A complete answer should name the problem it solves, the values or control flow involved, and one mistake to avoid.",
+      "ifMissed": "javascript-basics-references-mutation-and-shallow-copy"
+    }
+  ],
+  "sections": [
+    {
+      "id": "optional",
+      "title": "Optional chaining",
+      "depth": "core",
+      "body": "user.profile?.name returns undefined when profile is null or undefined instead of throwing. It does not hide an undeclared root variable, and it does not treat 0, false, or an empty string as missing. Place ?. at each uncertain step that needs protection.",
+      "sourceIds": [
+        "mdn-optional-chaining",
+        "mdn-nullish"
+      ],
+      "exampleIds": [
+        "example-1"
+      ],
+      "objectiveIds": [
+        "optional"
+      ]
+    },
+    {
+      "id": "forms",
+      "title": "Property, call, and index forms",
+      "depth": "core",
+      "body": "obj?.property checks the object, obj.method?.() checks whether the method value is nullish, and list?.[0] checks before indexing. The chain short-circuits only along one continuous optional chain. Grouping can end that protection before later property access.",
+      "sourceIds": [
+        "mdn-optional-chaining",
+        "mdn-nullish"
+      ],
+      "exampleIds": [
+        "example-2"
+      ],
+      "objectiveIds": [
+        "forms"
+      ]
+    },
+    {
+      "id": "nullish",
+      "title": "Nullish coalescing",
+      "depth": "core",
+      "body": "value ?? fallback uses the fallback only when value is null or undefined. value || fallback also replaces 0, false, and an empty string, which may be valid settings or user input. Choose the operator from the product meaning of missing data.",
+      "sourceIds": [
+        "mdn-optional-chaining",
+        "mdn-nullish"
+      ],
+      "exampleIds": [
+        "example-3"
+      ],
+      "objectiveIds": [
+        "nullish"
+      ]
+    },
+    {
+      "id": "combine",
+      "title": "Safe reads with meaningful defaults",
+      "depth": "core",
+      "body": "const city = user.address?.city ?? \"Unknown\" safely reads an optional path and provides a display fallback. This does not validate the shape or fix malformed data. Validate important API data at the boundary, and use optional syntax only where absence is expected.",
+      "sourceIds": [
+        "mdn-optional-chaining",
+        "mdn-nullish"
+      ],
+      "exampleIds": [],
+      "objectiveIds": [
+        "combine"
+      ]
+    },
+    {
+      "id": "react-connection",
+      "title": "Why this matters in React",
+      "depth": "deeper",
+      "body": "Optional chaining and nullish coalescing is part of the JavaScript model React code already uses. Components, event handlers, state updates, list rendering, and data requests become easier to reason about when this concept is understood without framework shortcuts. Practise the JavaScript behavior first, then identify the same rule in JSX or a component.",
+      "sourceIds": [
+        "mdn-optional-chaining",
+        "mdn-nullish"
+      ],
+      "exampleIds": [],
+      "objectiveIds": [
+        "optional",
+        "forms",
+        "nullish",
+        "combine"
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "id": "example-1",
+      "title": "Apply: Optional chaining",
+      "kind": "fragment",
+      "language": "js",
+      "depth": "core",
+      "code": "const user = {};\nconsole.log(user.profile?.name);",
+      "explanation": "This small example gives you a safe place to inspect values while practising this objective: Stop a property chain only for null or undefined.",
+      "tryThis": "Replace the sample with a real optional chaining and nullish coalescing case from the explanation. Predict every logged value before running it.",
+      "sourceIds": [
+        "mdn-optional-chaining",
+        "mdn-nullish"
+      ]
+    },
+    {
+      "id": "example-2",
+      "title": "Apply: Property, call, and index forms",
+      "kind": "fragment",
+      "language": "js",
+      "depth": "deeper",
+      "code": "const setting = 0;\nconsole.log(setting ?? 10); // 0\nconsole.log(setting || 10); // 10",
+      "explanation": "This small example gives you a safe place to inspect values while practising this objective: Use optional access, calls, and indexes.",
+      "tryThis": "Replace the sample with a real optional chaining and nullish coalescing case from the explanation. Predict every logged value before running it.",
+      "sourceIds": [
+        "mdn-optional-chaining",
+        "mdn-nullish"
+      ]
+    },
+    {
+      "id": "example-3",
+      "title": "Apply: Nullish coalescing",
+      "kind": "fragment",
+      "language": "js",
+      "depth": "deeper",
+      "code": "const city = user.address?.city ?? \"Unknown\";",
+      "explanation": "This small example gives you a safe place to inspect values while practising this objective: Use ?? when only missing values need a fallback.",
+      "tryThis": "Replace the sample with a real optional chaining and nullish coalescing case from the explanation. Predict every logged value before running it.",
+      "sourceIds": [
+        "mdn-optional-chaining",
+        "mdn-nullish"
+      ]
+    }
+  ],
+  "practice": [
+    {
+      "id": "p01",
+      "type": "predict",
+      "difficulty": "beginner",
+      "prompt": "Write one short code example for “Optional chaining”. Predict each result before running it.",
+      "hints": [
+        "Return to the “Optional chaining” explanation and identify the exact rule before writing code."
+      ],
+      "acceptanceCriteria": [
+        "The attempt uses valid JavaScript.",
+        "The written prediction or explanation matches the observed behavior.",
+        "The answer names the rule that makes the result happen."
+      ],
+      "objectiveIds": [
+        "optional"
+      ],
+      "sourceIds": [
+        "mdn-optional-chaining",
+        "mdn-nullish"
+      ],
+      "solution": {
+        "explanation": "A valid answer must demonstrate this rule: Stop a property chain only for null or undefined. The exact names and sample values may differ. Compare behavior and reasoning, not surface syntax.",
+        "code": "// One possible checking structure\nconst prediction = \"Write the expected result first\";\nconsole.log(prediction);",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p02",
+      "type": "build",
+      "difficulty": "beginner",
+      "prompt": "Build a small function or data example that proves this objective: Use optional access, calls, and indexes.",
+      "hints": [
+        "Return to the “Property, call, and index forms” explanation and identify the exact rule before writing code."
+      ],
+      "acceptanceCriteria": [
+        "The attempt uses valid JavaScript.",
+        "The written prediction or explanation matches the observed behavior.",
+        "The answer names the rule that makes the result happen."
+      ],
+      "objectiveIds": [
+        "forms"
+      ],
+      "sourceIds": [
+        "mdn-optional-chaining",
+        "mdn-nullish"
+      ],
+      "solution": {
+        "explanation": "A valid answer must demonstrate this rule: Use optional access, calls, and indexes. The exact names and sample values may differ. Compare behavior and reasoning, not surface syntax.",
+        "code": "// One possible checking structure\nconst prediction = \"Write the expected result first\";\nconsole.log(prediction);",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p03",
+      "type": "debug",
+      "difficulty": "intermediate",
+      "prompt": "Create a deliberate optional chaining and nullish coalescing mistake, record the symptom, and repair the cause.",
+      "hints": [
+        "Return to the “Nullish coalescing” explanation and identify the exact rule before writing code."
+      ],
+      "acceptanceCriteria": [
+        "The attempt uses valid JavaScript.",
+        "The written prediction or explanation matches the observed behavior.",
+        "The answer names the rule that makes the result happen."
+      ],
+      "objectiveIds": [
+        "nullish"
+      ],
+      "sourceIds": [
+        "mdn-optional-chaining",
+        "mdn-nullish"
+      ],
+      "solution": {
+        "explanation": "A valid answer must demonstrate this rule: Use ?? when only missing values need a fallback. The exact names and sample values may differ. Compare behavior and reasoning, not surface syntax.",
+        "code": "// One possible checking structure\nconst prediction = \"Write the expected result first\";\nconsole.log(prediction);",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p04",
+      "type": "transfer",
+      "difficulty": "intermediate",
+      "prompt": "Use safe reads with meaningful defaults in a different example from this lesson and explain why your choice is correct.",
+      "hints": [
+        "Return to the “Safe reads with meaningful defaults” explanation and identify the exact rule before writing code."
+      ],
+      "acceptanceCriteria": [
+        "The attempt uses valid JavaScript.",
+        "The written prediction or explanation matches the observed behavior.",
+        "The answer names the rule that makes the result happen."
+      ],
+      "objectiveIds": [
+        "combine"
+      ],
+      "sourceIds": [
+        "mdn-optional-chaining",
+        "mdn-nullish"
+      ],
+      "solution": {
+        "explanation": "A valid answer must demonstrate this rule: Combine access and fallback without hiding bad data. The exact names and sample values may differ. Compare behavior and reasoning, not surface syntax.",
+        "code": "// One possible checking structure\nconst prediction = \"Write the expected result first\";\nconsole.log(prediction);",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p05",
+      "type": "explain-and-build",
+      "difficulty": "advanced",
+      "prompt": "Build one small example that combines two ideas from optional chaining and nullish coalescing, then explain every important value or control-flow step.",
+      "hints": [
+        "Choose two objectives from What you will learn and write the expected result before running the code."
+      ],
+      "acceptanceCriteria": [
+        "The example combines two lesson objectives.",
+        "The learner predicts the result before running it.",
+        "The explanation names both JavaScript rules and one edge case."
+      ],
+      "objectiveIds": [
+        "optional",
+        "forms"
+      ],
+      "sourceIds": [
+        "mdn-optional-chaining",
+        "mdn-nullish"
+      ],
+      "solution": {
+        "explanation": "A valid solution combines any two stated objectives in one coherent example, predicts its behavior, and explains both rules. Reusing the lesson sample without changing the problem does not meet the transfer goal.",
+        "code": "// Design your own example first.\n// Then record prediction, actual result, and explanation.",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    }
+  ],
+  "interviewQuestions": [
+    {
+      "id": "concept",
+      "question": "Explain optional chaining and nullish coalescing to a junior developer.",
+      "answer": "Stop a property chain only for null or undefined. Use optional access, calls, and indexes. Use ?? when only missing values need a fallback. Combine access and fallback without hiding bad data.",
+      "followUp": "Show a small example and one common mistake.",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "mdn-optional-chaining",
+        "mdn-nullish"
+      ]
+    },
+    {
+      "id": "reasoning",
+      "question": "How would you prove that code using optional chaining and nullish coalescing behaves correctly?",
+      "answer": "State the expected value or control flow first, test normal and boundary cases, and inspect the actual runtime result. Explain the JavaScript rule behind the evidence.",
+      "followUp": "Which edge case would you test first?",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "mdn-optional-chaining",
+        "mdn-nullish"
+      ]
+    },
+    {
+      "id": "react-link",
+      "question": "Where can optional chaining and nullish coalescing affect React code?",
+      "answer": "It can affect values, callbacks, rendering decisions, updates, or data flow. The exact connection depends on the concept; the important step is to reason from JavaScript behavior before blaming React.",
+      "followUp": "Give one component-level example.",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "mdn-optional-chaining",
+        "mdn-nullish"
+      ]
+    }
+  ],
+  "miniAppIds": [
+    "study-session-report"
+  ],
+  "mastery": {
+    "status": "not-assessed",
+    "policy": "Reading or opening a solution is guided exposure, not mastery. Save an attempt, solve again without help, explain the rule, and transfer it to a new problem.",
+    "checks": [
+      {
+        "id": "explain",
+        "evidence": "Explain all four optional chaining and nullish coalescing objectives without the lesson.",
+        "pass": "Every objective is accurate and includes a small example."
+      },
+      {
+        "id": "solve",
+        "evidence": "Complete four exercises before opening solutions.",
+        "pass": "The code works and the explanation matches the observed result."
+      },
+      {
+        "id": "transfer",
+        "evidence": "Use the concept in a fresh React-related or plain JavaScript problem.",
+        "pass": "The learner can defend the chosen syntax and handle one edge case."
+      }
+    ],
+    "reviewSchedule": {
+      "note": "Answer before reopening the lesson.",
+      "sessions": [
+        {
+          "dayOffset": 2,
+          "problems": [
+            {
+              "id": "recall",
+              "prompt": "Write the four main rules of Optional chaining and nullish coalescing.",
+              "solution": "Stop a property chain only for null or undefined. Use optional access, calls, and indexes. Use ?? when only missing values need a fallback. Combine access and fallback without hiding bad data."
+            },
+            {
+              "id": "repair",
+              "prompt": "Recreate and repair one common mistake from memory.",
+              "solution": "Name the symptom, the JavaScript rule that caused it, and the smallest correct repair."
+            }
+          ]
+        },
+        {
+          "dayOffset": 7,
+          "problems": [
+            {
+              "id": "teach",
+              "prompt": "Teach optional chaining and nullish coalescing with one new example.",
+              "solution": "Define it, demonstrate it, predict the result, and explain one boundary case."
+            },
+            {
+              "id": "apply",
+              "prompt": "Use the concept in a different data or UI problem.",
+              "solution": "The new solution should rely on the same rule and be explained without copying the lesson."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "sourceIds": [
+    "mdn-optional-chaining",
+    "mdn-nullish"
+  ],
+  "commonMistakes": [
+    {
+      "symptom": "Code using optional chaining and nullish coalescing produces a surprising value.",
+      "cause": "The result was run before the value, type, scope, identity, or control flow was predicted.",
+      "fix": "Reduce the case, write the expected result, and apply the exact rule from the matching section."
+    },
+    {
+      "symptom": "A learner copies syntax but cannot adapt it.",
+      "cause": "The example was memorized without explaining why it works.",
+      "fix": "Change the data and names, predict again, and explain which behavior must stay the same."
+    },
+    {
+      "symptom": "A React problem is blamed on React immediately.",
+      "cause": "The underlying JavaScript behavior was not isolated first.",
+      "fix": "Reproduce the value or function behavior in a small JavaScript example, then reconnect it to the component."
+    }
+  ],
+  "publicationChecklist": {
+    "authored": true,
+    "sourcesReviewed": true,
+    "codeSyntaxChecked": true,
+    "serverInitialRenderChecked": false,
+    "browserBehaviorChecked": false,
+    "independentContentReview": false,
+    "learnerTrial": false,
+    "note": "Concept-complete draft. Keep sample-draft until examples receive full browser checks, independent content review, and a learner trial."
+  }
+}

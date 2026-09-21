@@ -60,6 +60,9 @@
       ],
       "exampleIds": [
         "console-tools"
+      ],
+      "objectiveIds": [
+        "inspect"
       ]
     },
     {
@@ -73,6 +76,9 @@
       ],
       "exampleIds": [
         "debug-example"
+      ],
+      "objectiveIds": [
+        "console"
       ]
     },
     {
@@ -84,7 +90,10 @@
         "mdn-devtools",
         "mdn-browser-load"
       ],
-      "exampleIds": []
+      "exampleIds": [],
+      "objectiveIds": [
+        "network"
+      ]
     },
     {
       "id": "network",
@@ -95,7 +104,10 @@
         "mdn-devtools",
         "mdn-browser-load"
       ],
-      "exampleIds": []
+      "exampleIds": [],
+      "objectiveIds": [
+        "inspect"
+      ]
     },
     {
       "id": "debugger",
@@ -106,7 +118,10 @@
         "mdn-devtools",
         "mdn-browser-load"
       ],
-      "exampleIds": []
+      "exampleIds": [],
+      "objectiveIds": [
+        "console"
+      ]
     },
     {
       "id": "process",
@@ -117,7 +132,10 @@
         "mdn-devtools",
         "mdn-browser-load"
       ],
-      "exampleIds": []
+      "exampleIds": [],
+      "objectiveIds": [
+        "network"
+      ]
     }
   ],
   "examples": [
@@ -152,7 +170,7 @@
   ],
   "practice": [
     {
-      "id": "practice-1",
+      "id": "p01",
       "type": "predict",
       "difficulty": "beginner",
       "prompt": "What happens to a color changed only in the Elements panel after a normal reload?",
@@ -178,7 +196,7 @@
       "attemptBeforeReveal": true
     },
     {
-      "id": "practice-2",
+      "id": "p02",
       "type": "build",
       "difficulty": "beginner",
       "prompt": "Create a short debugging checklist that uses Console, Elements, and Network for a blank page.",
@@ -204,7 +222,7 @@
       "attemptBeforeReveal": true
     },
     {
-      "id": "practice-3",
+      "id": "p03",
       "type": "debug",
       "difficulty": "intermediate",
       "prompt": "An API request is red in Network. List five fields to inspect before changing code.",
@@ -230,7 +248,7 @@
       "attemptBeforeReveal": true
     },
     {
-      "id": "practice-4",
+      "id": "p04",
       "type": "debug",
       "difficulty": "intermediate",
       "prompt": "The total([5, 10, 15]) example returns 15. Explain how a breakpoint proves the cause and provide the fix.",
@@ -256,7 +274,7 @@
       "attemptBeforeReveal": true
     },
     {
-      "id": "practice-5",
+      "id": "p05",
       "type": "transfer",
       "difficulty": "advanced",
       "prompt": "A button appears enabled but clicks do nothing. Give an evidence-first debugging sequence.",

@@ -48,34 +48,34 @@ Verified from the local JSON during recovery:
 | Item | Current state |
 | --- | --- |
 | Chapters | 30 |
-| Topics | 324 total: 317 planned, 7 sample drafts |
+| Topics | 324 total: 289 planned, 35 sample drafts |
 | Published lessons | 0 |
-| Authored lessons | All 6 Web foundations topics plus `use-state` |
+| Authored lessons | All 6 Web foundations topics, all 19 JavaScript foundations topics, all 9 React setup topics, plus `use-state` |
 | Web foundations content | 6 lessons, 30 exercises, 18 original interview-style questions, 12 examples, mastery checks, and 2/7-day reviews |
 | useState sections | 17, divided into core, deeper, and reference depth |
 | useState examples | 11 |
 | useState exercises | 10 |
-| Lesson interview questions | 30 total: 18 in Web foundations plus 12 in useState |
+| Lesson interview questions | 114 total: 18 in Web foundations, 57 in JavaScript foundations, 27 in React setup, plus 12 in useState |
 | Top-level interview library | 253 entries: 223 preserved PDF imports plus 30 reviewed advanced/tricky questions with authoritative references |
 | DSA interview sprint | Available as a separate module: 10-minute intro, 18 shared concept references, 20 easy/medium problems, 120 minutes total, and 40 tested JavaScript solutions |
-| Mini apps | Notebook quantity picker (6 steps) and accessible course signup page (8 steps), both sample drafts |
-| Independent ideas | 4: cinema seats, reading target, event registration, and support request form |
-| Coverage mappings | 130 total; Web foundations mappings point to reviewed MDN pages |
+| Mini apps | Notebook quantity picker, accessible course signup page, JavaScript study-session report, and first React learning workspace, all sample drafts |
+| Independent ideas | 8, including setup practice for gradual adoption and tool responsibility mapping |
+| Coverage mappings | 185 total; Web, JavaScript, and React setup mappings point to reviewed first-party sources |
 | Learning UI | Implemented: subject/chapter/topic navigation, lesson sections, mini apps, review, interview library, and coverage |
 | Solution modal | Implemented with a native dialog, close button, Escape handling, and focus restoration; complete interaction QA pending |
 | Code runner | Implemented for complete React examples with an isolated preview; the built-in quantity-picker demo is separate |
 | Learner progress persistence | Browser-local drafts, immutable attempts, assistance, self-review, review sessions, and written evidence |
 
-The 324 topics are the current catalog, not 324 available lessons. Seven lessons are currently available as sample drafts. The remaining 317 topics still show a planned-content page.
+The 324 topics are the current catalog, not 324 available lessons. Thirty-five lessons are currently available as sample drafts. The remaining 289 topics still show a planned-content page.
 
 The syllabus progresses through web and JavaScript foundations, setup, components, props, rendering/events, Hooks/state, forms, reducers/context, refs, effects, custom Hooks, data/routing, performance, Actions, DOM, advanced/server rendering, Server Components, Compiler/lint, TypeScript/testing/production, legacy migration, version watch, mini apps, and later larger projects. Core, prerequisite, ecosystem, tooling, legacy, and version-sensitive scope remain distinct.
 
 ## Source of truth and data contract
 
 - `content/react/curriculum.json`: subject metadata, ordered chapters and topics, prerequisite links, content status, lesson paths, mini-app links, source IDs, and version notes.
-- `content/react/lessons/*.json`: seven authored lessons with objectives, diagnostics, learning flow, sections, examples, mistakes, practice/solutions, mastery rubrics, interviews, and publication checks.
-- `content/react/mini-apps/*.json`: the React quantity picker and HTML/CSS course-signup projects with requirements, steps, concept links, final code, acceptance scenarios, related ideas, and verification flags.
-- `content/react/ideas.json`: four independent build briefs and acceptance criteria; no supplied solutions.
+- `content/react/lessons/*.json`: 35 authored lessons with objectives, stored diagnostics, learning flow, concept sections, examples, mistakes, practice/solutions, mastery rubrics, interviews, and publication checks. The prerequisite diagnostic UI is temporarily hidden.
+- `content/react/mini-apps/*.json`: four React, JavaScript, and HTML/CSS guided projects with requirements, steps, concept links, final code, acceptance scenarios, related ideas, and verification flags.
+- `content/react/ideas.json`: eight independent build briefs and acceptance criteria; no supplied solutions.
 - `content/react/sources.json`: source registry with URLs and recorded review dates.
 - `content/react/coverage.json`: source-to-topic mappings, open audits, exclusions, and update policy.
 - `content/react/interview-questions.json`: 223 PDF-imported entries plus 30 reviewed advanced/tricky entries with stable IDs, categories, answers, examples/tips, difficulty, PDF or web sources, official verification links, and explicit review status.
@@ -102,7 +102,7 @@ Suggested review offsets in JSON are 1, 3, 7, and 14 days. They are an adjustabl
 
 The quantity picker starts at 1, stays between 1 and 5, uses unit price 120, derives total from quantity, disables controls at limits, and resets to 1. Its acceptance scenarios include keyboard operation. Independent variations are seats from 1–8 at 250 each and a reading target from 5–60 in steps of 5, resetting to 10.
 
-Local content validation passes for 7 lesson files, 40 exercises, 30 lesson interview questions, 86 code snippets, 2 mini apps, and 130 coverage mappings. Fourteen complete React modules render on the server. Full browser behavior, independent content review, and learner trials remain pending, so no lesson is published.
+Local content validation passes for 35 lesson files, 180 exercises, 114 lesson interview questions, 328 checked code or command snippets, 4 mini apps, and 185 coverage mappings. Fourteen complete React modules render on the server. Full browser behavior, independent content review, and learner trials remain pending, so no lesson is published.
 
 ## Standalone setup audit
 
@@ -152,10 +152,10 @@ Use `npm.cmd` on Windows if needed. Development uses `http://127.0.0.1:5173/`; p
 - The global interview page was checked in Chrome: the top navigation route opened without the React sidebar, 253 total/30 reviewed/223 imported counts rendered, the reviewed-only filter returned 30, and an expanded answer showed code, interview focus, two official references, and public question-bank provenance. The latest ordering change puts foundation/unlabeled questions first and reserves tricky questions for the end.
 - The DSA module was checked in Chrome: overview counts and all 20 links rendered; the complete intro opened; Two Sum showed its Loops and Hash Map concept links; Hash Map navigated to and highlighted its exact section on the shared 18-concept page; and the concept linked back to all three problems that use it. All 40 basic/better JavaScript implementations returned expected results for representative inputs in a local execution check.
 - Complete modal interaction/focus testing, the remaining live examples, saved-practice and review behavior in a real browser, responsive/zoom checks, network-policy probing, and content-error/retry UI checks remain to be exercised. Pure progress behavior has automated coverage, which is not a substitute for those browser checks.
-- All seven authored lessons remain `sample-draft`; no publication flag was advanced based on schema, build, or limited UI checks alone.
+- All 35 authored lessons remain `sample-draft`; no publication flag was advanced based on schema, build, or limited UI checks alone.
 - A focused React example runner is implemented. It executes editable lesson modules in a fresh sandbox, but it does not grade submitted practice answers. Self-reported evidence is never a verified mastery score.
 - The built-in quantity demo is React/useState-specific. Delayed review material is topic-owned JSON. PDF answers still need official-source review and should be corrected in JSON without claiming that the supplied documents are authoritative.
-- The next content milestone is Chapter 2, **JavaScript foundations**, with 19 ordered topics. Continue chapter by chapter using the Web foundations pattern: exact official sources, complete lesson drafts, meaningful exercises, mastery/review data, a linked mini app, deep validation, generated docs, and browser checks.
+- Chapter 3, **React setup and orientation**, is now drafted across all nine ordered topics. The next content milestone is Chapter 4, **Components and JSX**. Continue chapter by chapter using the concept-first pattern: each stated learning objective must have a mapped explanation section, followed by practical examples, meaningful exercises, mastery/review data, a linked mini app where useful, exact official sources, validation, generated docs, and browser checks.
 - Immediate interview use: open `#/dsa/intro`, spend 10 minutes there, then follow problems 1–20 in order. The 120-minute schedule is a fast review target, not a promise that every learner can independently master all 20 problems in one session.
 
 Browser progress uses `simple-learning.progress.v1` and is local to browser and origin. Hints and solution reveals persist across attempts. Viewing the mini app's full solution records assistance for p07/p10. A previously saved answer is not altered by later help. Future attempts remain assisted. Corrupt existing storage is left untouched; the UI warns that new work is session-only. No test answers were inserted into the user's browser practice records during the limited UI check.

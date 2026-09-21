@@ -127,6 +127,7 @@ function walk(value, lessonExamples = examples) {
   if (typeof value.code === 'string') {
     const codeLanguage = value.language || value.kind;
     if (codeLanguage === 'css') transformSync(value.code, { loader: 'css' });
+    else if (codeLanguage === 'shell') assert(value.code.trim() && !value.code.includes('\u0000'), 'Shell example must contain readable commands');
     else if (codeLanguage === 'html') assert(value.code.includes('<') && value.code.includes('>'), 'HTML example must contain markup');
     else parse(value.code, { sourceType: 'module', plugins: ['jsx'] });
     snippetCount++;
@@ -138,6 +139,16 @@ walk(catalog);
 for (const candidate of authoredLessons) {
   const candidateExamples = unique(candidate.examples, `${candidate.id} example`);
   const candidateObjectives = unique(candidate.objectives, `${candidate.id} objective`);
+  const coveredObjectives = new Set();
+  for (const section of candidate.sections) {
+    section.objectiveIds.forEach(id => {
+      exists(candidateObjectives, id, `Unknown section objective in ${candidate.id}`);
+      coveredObjectives.add(id);
+    });
+  }
+  for (const objective of candidate.objectives) {
+    assert(coveredObjectives.has(objective.id), `${candidate.id} objective has no explaining section: ${objective.id}`);
+  }
   unique(candidate.practice, `${candidate.id} practice`);
   unique(candidate.interviewQuestions, `${candidate.id} interview`);
   for (const exercise of candidate.practice) {
@@ -202,6 +213,7 @@ for (const miniApp of miniApps) {
   miniApp.relatedIdeaIds.forEach(id => assert(ideas.some(idea => idea.id === id), `Missing related idea: ${id}`));
   ordered(miniApp.steps, `${miniApp.id} step`);
   if (miniApp.languageCode === 'jsx') parse(miniApp.finalCode, { sourceType: 'module', plugins: ['jsx'] });
+  else if (miniApp.languageCode === 'js') parse(miniApp.finalCode, { sourceType: 'module' });
   else {
     assert.equal(miniApp.languageCode, 'html', `Unsupported mini-app language: ${miniApp.id}`);
     assert(/<!doctype html>/i.test(miniApp.finalCode) && /<main[\s>]/i.test(miniApp.finalCode) && /<form[\s>]/i.test(miniApp.finalCode), `Incomplete HTML mini app: ${miniApp.id}`);
@@ -264,7 +276,7 @@ assert.equal(typeof lesson.publicationChecklist.browserBehaviorChecked, 'boolean
 console.log(`PASS: ${chapters.size} chapters, ${topics.size} topics, ${coverage.items.length} coverage mappings.`);
 const exerciseCount = authoredLessons.reduce((total, candidate) => total + candidate.practice.length, 0);
 const lessonInterviewCount = authoredLessons.reduce((total, candidate) => total + candidate.interviewQuestions.length, 0);
-console.log(`PASS: ${exerciseCount} lesson exercises, ${lessonInterviewCount} lesson interview questions, ${snippetCount} code snippets parsed.`);
+console.log(`PASS: ${exerciseCount} lesson exercises, ${lessonInterviewCount} lesson interview questions, ${snippetCount} code snippets checked.`);
 console.log(`PASS: ${lessonFiles.length} authored lesson JSON file(s) match the shared topic schema.`);
 console.log(`PASS: ${miniApps.length} mini app(s) have valid sources, concept backlinks, steps, ideas, and complete code.`);
 console.log(`PASS: ${interviewLibrary.questions.length} interview entries: 223 PDF imports and 30 reviewed advanced questions.`);

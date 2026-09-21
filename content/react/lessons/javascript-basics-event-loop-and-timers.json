@@ -1,0 +1,456 @@
+{
+  "schemaVersion": 1,
+  "id": "javascript-basics-event-loop-and-timers",
+  "subjectId": "react",
+  "chapterId": "javascript-basics",
+  "title": "Event loop and timers",
+  "language": "en",
+  "status": "sample-draft",
+  "reviewedAt": "2026-09-20",
+  "runtime": "Modern evergreen browser or Node.js with ES modules. Run fragments in browser DevTools or a small .js file unless the example says otherwise.",
+  "prerequisiteTopicIds": [
+    "javascript-basics-promises-async-await-and-errors"
+  ],
+  "estimatedMinutes": {
+    "firstPass": 45,
+    "practice": 55,
+    "project": 25
+  },
+  "objectives": [
+    {
+      "id": "stack",
+      "text": "Explain the call stack and run-to-completion."
+    },
+    {
+      "id": "queues",
+      "text": "Distinguish tasks and microtasks."
+    },
+    {
+      "id": "timers",
+      "text": "Treat a delay as a minimum, not an appointment."
+    },
+    {
+      "id": "react",
+      "text": "Connect scheduling to responsive interfaces."
+    }
+  ],
+  "learningFlow": [
+    "Recall the prerequisite",
+    "Predict before running code",
+    "Read each concept explanation",
+    "Change a small example",
+    "Attempt practice before hints",
+    "Explain the result in your own words",
+    "Apply the idea in a different problem",
+    "Review after two and seven days"
+  ],
+  "diagnostic": [
+    {
+      "question": "Can you explain the main purpose of event loop and timers before reading?",
+      "answer": "A complete answer should name the problem it solves, the values or control flow involved, and one mistake to avoid.",
+      "ifMissed": "javascript-basics-promises-async-await-and-errors"
+    }
+  ],
+  "sections": [
+    {
+      "id": "stack",
+      "title": "One job runs to completion",
+      "depth": "core",
+      "body": "JavaScript executes the current job on a call stack. A function call adds a frame and returning removes it. A job runs to completion before another queued job begins, so a long calculation blocks clicks, painting, and other queued work on that agent.",
+      "sourceIds": [
+        "mdn-js-execution"
+      ],
+      "exampleIds": [
+        "example-1"
+      ],
+      "objectiveIds": [
+        "stack"
+      ]
+    },
+    {
+      "id": "queues",
+      "title": "Queues decide what runs next",
+      "depth": "core",
+      "body": "Timer callbacks and many events become tasks. Promise reactions and queueMicrotask callbacks become microtasks. After the current stack finishes, the runtime drains microtasks before taking the next task, which is why resolved promise callbacks normally run before a zero-delay timer.",
+      "sourceIds": [
+        "mdn-js-execution"
+      ],
+      "exampleIds": [
+        "example-2"
+      ],
+      "objectiveIds": [
+        "queues"
+      ]
+    },
+    {
+      "id": "timers",
+      "title": "Timers schedule callbacks",
+      "depth": "core",
+      "body": "setTimeout(callback, 0) does not call the function immediately; it schedules a future task after the current job and earlier queued work. The delay is a minimum and may be longer because the thread is busy or the browser throttles timers. Store the timer ID when cancellation may be needed.",
+      "sourceIds": [
+        "mdn-js-execution"
+      ],
+      "exampleIds": [
+        "example-3"
+      ],
+      "objectiveIds": [
+        "timers"
+      ]
+    },
+    {
+      "id": "react",
+      "title": "Keep the main thread available",
+      "depth": "core",
+      "body": "Rendering and user input need opportunities to run. Split expensive work, avoid blocking loops, and clean up timers or subscriptions when UI ownership ends. React batching and effects add framework rules, but they still operate on JavaScript’s scheduling model.",
+      "sourceIds": [
+        "mdn-js-execution"
+      ],
+      "exampleIds": [],
+      "objectiveIds": [
+        "react"
+      ]
+    },
+    {
+      "id": "react-connection",
+      "title": "Why this matters in React",
+      "depth": "deeper",
+      "body": "Event loop and timers is part of the JavaScript model React code already uses. Components, event handlers, state updates, list rendering, and data requests become easier to reason about when this concept is understood without framework shortcuts. Practise the JavaScript behavior first, then identify the same rule in JSX or a component.",
+      "sourceIds": [
+        "mdn-js-execution"
+      ],
+      "exampleIds": [],
+      "objectiveIds": [
+        "stack",
+        "queues",
+        "timers",
+        "react"
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "id": "example-1",
+      "title": "Apply: One job runs to completion",
+      "kind": "fragment",
+      "language": "js",
+      "depth": "core",
+      "code": "console.log(\"A\");\nsetTimeout(() => console.log(\"timer\"), 0);\nconsole.log(\"B\");",
+      "explanation": "This small example gives you a safe place to inspect values while practising this objective: Explain the call stack and run-to-completion.",
+      "tryThis": "Replace the sample with a real event loop and timers case from the explanation. Predict every logged value before running it.",
+      "sourceIds": [
+        "mdn-js-execution"
+      ]
+    },
+    {
+      "id": "example-2",
+      "title": "Apply: Queues decide what runs next",
+      "kind": "fragment",
+      "language": "js",
+      "depth": "deeper",
+      "code": "console.log(\"start\");\nPromise.resolve().then(() => console.log(\"microtask\"));\nsetTimeout(() => console.log(\"task\"), 0);",
+      "explanation": "This small example gives you a safe place to inspect values while practising this objective: Distinguish tasks and microtasks.",
+      "tryThis": "Replace the sample with a real event loop and timers case from the explanation. Predict every logged value before running it.",
+      "sourceIds": [
+        "mdn-js-execution"
+      ]
+    },
+    {
+      "id": "example-3",
+      "title": "Apply: Timers schedule callbacks",
+      "kind": "fragment",
+      "language": "js",
+      "depth": "deeper",
+      "code": "const timerId = setTimeout(() => console.log(\"late\"), 1000);\nclearTimeout(timerId);",
+      "explanation": "This small example gives you a safe place to inspect values while practising this objective: Treat a delay as a minimum, not an appointment.",
+      "tryThis": "Replace the sample with a real event loop and timers case from the explanation. Predict every logged value before running it.",
+      "sourceIds": [
+        "mdn-js-execution"
+      ]
+    }
+  ],
+  "practice": [
+    {
+      "id": "p01",
+      "type": "predict",
+      "difficulty": "beginner",
+      "prompt": "Write one short code example for “One job runs to completion”. Predict each result before running it.",
+      "hints": [
+        "Return to the “One job runs to completion” explanation and identify the exact rule before writing code."
+      ],
+      "acceptanceCriteria": [
+        "The attempt uses valid JavaScript.",
+        "The written prediction or explanation matches the observed behavior.",
+        "The answer names the rule that makes the result happen."
+      ],
+      "objectiveIds": [
+        "stack"
+      ],
+      "sourceIds": [
+        "mdn-js-execution"
+      ],
+      "solution": {
+        "explanation": "A valid answer must demonstrate this rule: Explain the call stack and run-to-completion. The exact names and sample values may differ. Compare behavior and reasoning, not surface syntax.",
+        "code": "// One possible checking structure\nconst prediction = \"Write the expected result first\";\nconsole.log(prediction);",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p02",
+      "type": "build",
+      "difficulty": "beginner",
+      "prompt": "Build a small function or data example that proves this objective: Distinguish tasks and microtasks.",
+      "hints": [
+        "Return to the “Queues decide what runs next” explanation and identify the exact rule before writing code."
+      ],
+      "acceptanceCriteria": [
+        "The attempt uses valid JavaScript.",
+        "The written prediction or explanation matches the observed behavior.",
+        "The answer names the rule that makes the result happen."
+      ],
+      "objectiveIds": [
+        "queues"
+      ],
+      "sourceIds": [
+        "mdn-js-execution"
+      ],
+      "solution": {
+        "explanation": "A valid answer must demonstrate this rule: Distinguish tasks and microtasks. The exact names and sample values may differ. Compare behavior and reasoning, not surface syntax.",
+        "code": "// One possible checking structure\nconst prediction = \"Write the expected result first\";\nconsole.log(prediction);",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p03",
+      "type": "debug",
+      "difficulty": "intermediate",
+      "prompt": "Create a deliberate event loop and timers mistake, record the symptom, and repair the cause.",
+      "hints": [
+        "Return to the “Timers schedule callbacks” explanation and identify the exact rule before writing code."
+      ],
+      "acceptanceCriteria": [
+        "The attempt uses valid JavaScript.",
+        "The written prediction or explanation matches the observed behavior.",
+        "The answer names the rule that makes the result happen."
+      ],
+      "objectiveIds": [
+        "timers"
+      ],
+      "sourceIds": [
+        "mdn-js-execution"
+      ],
+      "solution": {
+        "explanation": "A valid answer must demonstrate this rule: Treat a delay as a minimum, not an appointment. The exact names and sample values may differ. Compare behavior and reasoning, not surface syntax.",
+        "code": "// One possible checking structure\nconst prediction = \"Write the expected result first\";\nconsole.log(prediction);",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p04",
+      "type": "transfer",
+      "difficulty": "intermediate",
+      "prompt": "Use keep the main thread available in a different example from this lesson and explain why your choice is correct.",
+      "hints": [
+        "Return to the “Keep the main thread available” explanation and identify the exact rule before writing code."
+      ],
+      "acceptanceCriteria": [
+        "The attempt uses valid JavaScript.",
+        "The written prediction or explanation matches the observed behavior.",
+        "The answer names the rule that makes the result happen."
+      ],
+      "objectiveIds": [
+        "react"
+      ],
+      "sourceIds": [
+        "mdn-js-execution"
+      ],
+      "solution": {
+        "explanation": "A valid answer must demonstrate this rule: Connect scheduling to responsive interfaces. The exact names and sample values may differ. Compare behavior and reasoning, not surface syntax.",
+        "code": "// One possible checking structure\nconst prediction = \"Write the expected result first\";\nconsole.log(prediction);",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p05",
+      "type": "explain-and-build",
+      "difficulty": "advanced",
+      "prompt": "Build one small example that combines two ideas from event loop and timers, then explain every important value or control-flow step.",
+      "hints": [
+        "Choose two objectives from What you will learn and write the expected result before running the code."
+      ],
+      "acceptanceCriteria": [
+        "The example combines two lesson objectives.",
+        "The learner predicts the result before running it.",
+        "The explanation names both JavaScript rules and one edge case."
+      ],
+      "objectiveIds": [
+        "stack",
+        "queues"
+      ],
+      "sourceIds": [
+        "mdn-js-execution"
+      ],
+      "solution": {
+        "explanation": "A valid solution combines any two stated objectives in one coherent example, predicts its behavior, and explains both rules. Reusing the lesson sample without changing the problem does not meet the transfer goal.",
+        "code": "// Design your own example first.\n// Then record prediction, actual result, and explanation.",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    }
+  ],
+  "interviewQuestions": [
+    {
+      "id": "concept",
+      "question": "Explain event loop and timers to a junior developer.",
+      "answer": "Explain the call stack and run-to-completion. Distinguish tasks and microtasks. Treat a delay as a minimum, not an appointment. Connect scheduling to responsive interfaces.",
+      "followUp": "Show a small example and one common mistake.",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "mdn-js-execution"
+      ]
+    },
+    {
+      "id": "reasoning",
+      "question": "How would you prove that code using event loop and timers behaves correctly?",
+      "answer": "State the expected value or control flow first, test normal and boundary cases, and inspect the actual runtime result. Explain the JavaScript rule behind the evidence.",
+      "followUp": "Which edge case would you test first?",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "mdn-js-execution"
+      ]
+    },
+    {
+      "id": "react-link",
+      "question": "Where can event loop and timers affect React code?",
+      "answer": "It can affect values, callbacks, rendering decisions, updates, or data flow. The exact connection depends on the concept; the important step is to reason from JavaScript behavior before blaming React.",
+      "followUp": "Give one component-level example.",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "mdn-js-execution"
+      ]
+    }
+  ],
+  "miniAppIds": [
+    "study-session-report"
+  ],
+  "mastery": {
+    "status": "not-assessed",
+    "policy": "Reading or opening a solution is guided exposure, not mastery. Save an attempt, solve again without help, explain the rule, and transfer it to a new problem.",
+    "checks": [
+      {
+        "id": "explain",
+        "evidence": "Explain all four event loop and timers objectives without the lesson.",
+        "pass": "Every objective is accurate and includes a small example."
+      },
+      {
+        "id": "solve",
+        "evidence": "Complete four exercises before opening solutions.",
+        "pass": "The code works and the explanation matches the observed result."
+      },
+      {
+        "id": "transfer",
+        "evidence": "Use the concept in a fresh React-related or plain JavaScript problem.",
+        "pass": "The learner can defend the chosen syntax and handle one edge case."
+      }
+    ],
+    "reviewSchedule": {
+      "note": "Answer before reopening the lesson.",
+      "sessions": [
+        {
+          "dayOffset": 2,
+          "problems": [
+            {
+              "id": "recall",
+              "prompt": "Write the four main rules of Event loop and timers.",
+              "solution": "Explain the call stack and run-to-completion. Distinguish tasks and microtasks. Treat a delay as a minimum, not an appointment. Connect scheduling to responsive interfaces."
+            },
+            {
+              "id": "repair",
+              "prompt": "Recreate and repair one common mistake from memory.",
+              "solution": "Name the symptom, the JavaScript rule that caused it, and the smallest correct repair."
+            }
+          ]
+        },
+        {
+          "dayOffset": 7,
+          "problems": [
+            {
+              "id": "teach",
+              "prompt": "Teach event loop and timers with one new example.",
+              "solution": "Define it, demonstrate it, predict the result, and explain one boundary case."
+            },
+            {
+              "id": "apply",
+              "prompt": "Use the concept in a different data or UI problem.",
+              "solution": "The new solution should rely on the same rule and be explained without copying the lesson."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "sourceIds": [
+    "mdn-js-execution"
+  ],
+  "commonMistakes": [
+    {
+      "symptom": "Code using event loop and timers produces a surprising value.",
+      "cause": "The result was run before the value, type, scope, identity, or control flow was predicted.",
+      "fix": "Reduce the case, write the expected result, and apply the exact rule from the matching section."
+    },
+    {
+      "symptom": "A learner copies syntax but cannot adapt it.",
+      "cause": "The example was memorized without explaining why it works.",
+      "fix": "Change the data and names, predict again, and explain which behavior must stay the same."
+    },
+    {
+      "symptom": "A React problem is blamed on React immediately.",
+      "cause": "The underlying JavaScript behavior was not isolated first.",
+      "fix": "Reproduce the value or function behavior in a small JavaScript example, then reconnect it to the component."
+    }
+  ],
+  "publicationChecklist": {
+    "authored": true,
+    "sourcesReviewed": true,
+    "codeSyntaxChecked": true,
+    "serverInitialRenderChecked": false,
+    "browserBehaviorChecked": false,
+    "independentContentReview": false,
+    "learnerTrial": false,
+    "note": "Concept-complete draft. Keep sample-draft until examples receive full browser checks, independent content review, and a learner trial."
+  }
+}

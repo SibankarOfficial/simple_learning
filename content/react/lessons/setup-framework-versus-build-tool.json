@@ -1,0 +1,490 @@
+{
+  "schemaVersion": 1,
+  "id": "setup-framework-versus-build-tool",
+  "subjectId": "react",
+  "chapterId": "setup",
+  "title": "Framework versus build tool",
+  "language": "en",
+  "status": "sample-draft",
+  "reviewedAt": "2026-09-20",
+  "runtime": "React 19.3 learning project with a current Vite setup. Version-specific commands must be checked against the linked React, Vite, and npm pages before use.",
+  "prerequisiteTopicIds": [
+    "setup-create-a-learning-project-with-vite"
+  ],
+  "estimatedMinutes": {
+    "firstPass": 40,
+    "practice": 50,
+    "project": 30
+  },
+  "objectives": [
+    {
+      "id": "build-tool",
+      "text": "Define the job of a build tool."
+    },
+    {
+      "id": "framework",
+      "text": "Define the broader job of a framework."
+    },
+    {
+      "id": "spa",
+      "text": "Know what a from-scratch Vite React app starts as."
+    },
+    {
+      "id": "decision",
+      "text": "Select tooling from requirements rather than popularity."
+    }
+  ],
+  "learningFlow": [
+    "Recall the prerequisite",
+    "Predict the setup result",
+    "Read every concept explanation",
+    "Trace or change a practical example",
+    "Attempt five tasks before solutions",
+    "Explain the tool boundary",
+    "Apply it in a fresh project decision",
+    "Review after two and seven days"
+  ],
+  "diagnostic": [
+    {
+      "question": "What problem does framework versus build tool help you solve?",
+      "answer": "Name the relevant layer, its input and output, and one problem it does not solve.",
+      "ifMissed": "setup-create-a-learning-project-with-vite"
+    }
+  ],
+  "sections": [
+    {
+      "id": "build-tool",
+      "title": "A build tool runs and packages source code",
+      "depth": "core",
+      "body": "Vite provides a development server, module and asset handling, plugin integration, and a production build. It lets the browser use your React source during development and produces deployable assets. It does not decide the full application architecture or provide every product feature.",
+      "sourceIds": [
+        "react-installation",
+        "react-build-scratch",
+        "vite-getting-started"
+      ],
+      "exampleIds": [
+        "matrix"
+      ],
+      "objectiveIds": [
+        "build-tool"
+      ]
+    },
+    {
+      "id": "framework",
+      "title": "A framework coordinates application concerns",
+      "depth": "core",
+      "body": "A React framework can define routing, data loading, rendering strategies, code splitting, server integration, and deployment conventions. Frameworks reduce the amount of architecture a team must design, but they add their own rules and runtime model. React recommends suitable frameworks for many new applications.",
+      "sourceIds": [
+        "react-installation",
+        "react-build-scratch",
+        "vite-getting-started"
+      ],
+      "exampleIds": [
+        "requirements"
+      ],
+      "objectiveIds": [
+        "framework"
+      ]
+    },
+    {
+      "id": "spa",
+      "title": "The starter is a client-side single-page app",
+      "depth": "core",
+      "body": "A basic Vite React template starts as a client-only SPA. The server first returns an HTML shell and JavaScript; React then renders the application in the browser. Routing, data fetching patterns, SSR, SSG, React Server Components, authentication, and backend APIs are not automatically supplied by the starter.",
+      "sourceIds": [
+        "react-installation",
+        "react-build-scratch",
+        "vite-getting-started"
+      ],
+      "exampleIds": [
+        "spa-flow"
+      ],
+      "objectiveIds": [
+        "spa"
+      ]
+    },
+    {
+      "id": "decision",
+      "title": "Requirements choose the layer",
+      "depth": "core",
+      "body": "For a learning exercise or a small client tool, Vite may be enough. If the product needs server rendering, route-level data coordination, server code, or framework-integrated React features, evaluate a framework early. An existing backend page may need only a small React root. Write requirements before choosing tools so the choice can be explained.",
+      "sourceIds": [
+        "react-installation",
+        "react-build-scratch",
+        "vite-getting-started"
+      ],
+      "exampleIds": [],
+      "objectiveIds": [
+        "decision"
+      ]
+    },
+    {
+      "id": "working-check",
+      "title": "Use evidence instead of setup guesses",
+      "depth": "deeper",
+      "body": "When setup fails, identify the layer before changing code. Read the terminal command and first error, confirm the current directory and versions, check the browser Network and Console, and trace the entry file to the root component. Make one small correction, rerun the same check, and record what proved the fix.",
+      "sourceIds": [
+        "react-installation",
+        "react-build-scratch",
+        "vite-getting-started"
+      ],
+      "exampleIds": [],
+      "objectiveIds": [
+        "build-tool",
+        "framework",
+        "spa",
+        "decision"
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "id": "matrix",
+      "title": "Compare responsibilities",
+      "kind": "fragment",
+      "language": "js",
+      "depth": "core",
+      "code": "const capabilities = {\n  React: [\"components\", \"state-driven UI\"],\n  Vite: [\"dev server\", \"source transforms\", \"production build\"],\n  framework: [\"routing\", \"data loading\", \"rendering strategy\"],\n};",
+      "explanation": "The lists overlap in real products, but they keep the main responsibilities clear.",
+      "tryThis": "Change one value or name in this framework versus build tool example. Predict what evidence should change before running or tracing it.",
+      "sourceIds": [
+        "react-installation",
+        "react-build-scratch",
+        "vite-getting-started"
+      ]
+    },
+    {
+      "id": "requirements",
+      "title": "Make a tool decision",
+      "kind": "fragment",
+      "language": "js",
+      "depth": "deeper",
+      "code": "const requirements = { clientOnly: false, serverRendering: true, routeData: true };\nconst investigateFramework = requirements.serverRendering || requirements.routeData;",
+      "explanation": "The decision begins with product requirements instead of a familiar command.",
+      "tryThis": "Change one value or name in this framework versus build tool example. Predict what evidence should change before running or tracing it.",
+      "sourceIds": [
+        "react-installation",
+        "react-build-scratch",
+        "vite-getting-started"
+      ]
+    },
+    {
+      "id": "spa-flow",
+      "title": "Describe a client SPA startup",
+      "kind": "fragment",
+      "language": "js",
+      "depth": "deeper",
+      "code": "const startup = [\"request index.html\", \"load JavaScript\", \"create React root\", \"render components\", \"request API data\"];",
+      "explanation": "This is a simplified Vite SPA startup and shows which work waits for client JavaScript.",
+      "tryThis": "Change one value or name in this framework versus build tool example. Predict what evidence should change before running or tracing it.",
+      "sourceIds": [
+        "react-installation",
+        "react-build-scratch",
+        "vite-getting-started"
+      ]
+    }
+  ],
+  "practice": [
+    {
+      "id": "p01",
+      "type": "predict",
+      "difficulty": "beginner",
+      "prompt": "Predict the visible or terminal result of the first framework versus build tool example. Explain which tool or layer produces it.",
+      "hints": [
+        "Name the exact tool, file, command, DOM node, or product requirement involved before proposing a fix."
+      ],
+      "acceptanceCriteria": [
+        "The answer identifies the correct responsibility or layer.",
+        "It includes observable evidence or a concrete example.",
+        "It names one boundary, edge case, or reason for the decision."
+      ],
+      "objectiveIds": [
+        "build-tool"
+      ],
+      "sourceIds": [
+        "react-installation",
+        "react-build-scratch",
+        "vite-getting-started"
+      ],
+      "solution": {
+        "explanation": "A strong answer applies this rule: Define the job of a build tool. It identifies the responsible layer, gives observable evidence, and avoids claiming that React or Vite solves unrelated application concerns.",
+        "code": "// Write expected evidence before changing the setup.\nconst check = { expected: \"specific result\", actual: \"observed result\", nextStep: \"one focused test\" };",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p02",
+      "type": "explain-and-build",
+      "difficulty": "beginner",
+      "prompt": "Create a small diagram or ordered list that explains a framework coordinates application concerns. Add one concrete file, command, or UI example.",
+      "hints": [
+        "Name the exact tool, file, command, DOM node, or product requirement involved before proposing a fix."
+      ],
+      "acceptanceCriteria": [
+        "The answer identifies the correct responsibility or layer.",
+        "It includes observable evidence or a concrete example.",
+        "It names one boundary, edge case, or reason for the decision."
+      ],
+      "objectiveIds": [
+        "framework"
+      ],
+      "sourceIds": [
+        "react-installation",
+        "react-build-scratch",
+        "vite-getting-started"
+      ],
+      "solution": {
+        "explanation": "A strong answer applies this rule: Define the broader job of a framework. It identifies the responsible layer, gives observable evidence, and avoids claiming that React or Vite solves unrelated application concerns.",
+        "code": "// Write expected evidence before changing the setup.\nconst check = { expected: \"specific result\", actual: \"observed result\", nextStep: \"one focused test\" };",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p03",
+      "type": "debug",
+      "difficulty": "intermediate",
+      "prompt": "A learner reports “the React setup does not work.” Write the first five evidence checks for this topic and explain the order.",
+      "hints": [
+        "Name the exact tool, file, command, DOM node, or product requirement involved before proposing a fix."
+      ],
+      "acceptanceCriteria": [
+        "The answer identifies the correct responsibility or layer.",
+        "It includes observable evidence or a concrete example.",
+        "It names one boundary, edge case, or reason for the decision."
+      ],
+      "objectiveIds": [
+        "spa"
+      ],
+      "sourceIds": [
+        "react-installation",
+        "react-build-scratch",
+        "vite-getting-started"
+      ],
+      "solution": {
+        "explanation": "A strong answer applies this rule: Know what a from-scratch Vite React app starts as. It identifies the responsible layer, gives observable evidence, and avoids claiming that React or Vite solves unrelated application concerns.",
+        "code": "// Write expected evidence before changing the setup.\nconst check = { expected: \"specific result\", actual: \"observed result\", nextStep: \"one focused test\" };",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p04",
+      "type": "design",
+      "difficulty": "intermediate",
+      "prompt": "Choose a setup for a small learning exercise and a production application. State the requirements and defend each choice using this lesson.",
+      "hints": [
+        "Name the exact tool, file, command, DOM node, or product requirement involved before proposing a fix."
+      ],
+      "acceptanceCriteria": [
+        "The answer identifies the correct responsibility or layer.",
+        "It includes observable evidence or a concrete example.",
+        "It names one boundary, edge case, or reason for the decision."
+      ],
+      "objectiveIds": [
+        "decision"
+      ],
+      "sourceIds": [
+        "react-installation",
+        "react-build-scratch",
+        "vite-getting-started"
+      ],
+      "solution": {
+        "explanation": "A strong answer applies this rule: Select tooling from requirements rather than popularity. It identifies the responsible layer, gives observable evidence, and avoids claiming that React or Vite solves unrelated application concerns.",
+        "code": "// Write expected evidence before changing the setup.\nconst check = { expected: \"specific result\", actual: \"observed result\", nextStep: \"one focused test\" };",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p05",
+      "type": "transfer",
+      "difficulty": "advanced",
+      "prompt": "Apply two objectives from this lesson to a different existing project. Name what you would keep, change, verify, and deliberately leave outside React.",
+      "hints": [
+        "Name the exact tool, file, command, DOM node, or product requirement involved before proposing a fix."
+      ],
+      "acceptanceCriteria": [
+        "The answer identifies the correct responsibility or layer.",
+        "It includes observable evidence or a concrete example.",
+        "It names one boundary, edge case, or reason for the decision."
+      ],
+      "objectiveIds": [
+        "build-tool",
+        "framework"
+      ],
+      "sourceIds": [
+        "react-installation",
+        "react-build-scratch",
+        "vite-getting-started"
+      ],
+      "solution": {
+        "explanation": "A strong answer applies this rule: Define the job of a build tool. It identifies the responsible layer, gives observable evidence, and avoids claiming that React or Vite solves unrelated application concerns.",
+        "code": "// Write expected evidence before changing the setup.\nconst check = { expected: \"specific result\", actual: \"observed result\", nextStep: \"one focused test\" };",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    }
+  ],
+  "interviewQuestions": [
+    {
+      "id": "responsibility",
+      "question": "What responsibility does framework versus build tool have in a React project?",
+      "answer": "Define the job of a build tool. Define the broader job of a framework. Know what a from-scratch Vite React app starts as. Select tooling from requirements rather than popularity.",
+      "followUp": "What important responsibility belongs to another layer?",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "react-installation",
+        "react-build-scratch",
+        "vite-getting-started"
+      ]
+    },
+    {
+      "id": "debug",
+      "question": "How would you debug a failure related to framework versus build tool?",
+      "answer": "Reproduce the smallest failure, confirm the current directory and versions when relevant, read the first terminal or browser error, trace the entry and root, and test one hypothesis at a time.",
+      "followUp": "Which evidence would make you change layers?",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "react-installation",
+        "react-build-scratch",
+        "vite-getting-started"
+      ]
+    },
+    {
+      "id": "decision",
+      "question": "Which tradeoff in framework versus build tool should a team decide explicitly?",
+      "answer": "The team should match tools and boundaries to product needs, record version and deployment assumptions, and avoid treating a starter template as a complete production architecture.",
+      "followUp": "How could the answer change for an existing server-rendered site?",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "react-installation",
+        "react-build-scratch",
+        "vite-getting-started"
+      ]
+    }
+  ],
+  "miniAppIds": [
+    "first-react-workspace"
+  ],
+  "mastery": {
+    "status": "not-assessed",
+    "policy": "Reading commands or following the guided project is not mastery. Recreate the setup without copying, explain every tool boundary, diagnose one failure, and verify a production build.",
+    "checks": [
+      {
+        "id": "explain",
+        "evidence": "Explain all objectives in framework versus build tool without notes.",
+        "pass": "Each explanation names the responsible layer, one example, and one boundary."
+      },
+      {
+        "id": "solve",
+        "evidence": "Complete four exercises before opening solutions.",
+        "pass": "The saved work uses observable evidence and correct terminology."
+      },
+      {
+        "id": "transfer",
+        "evidence": "Apply the lesson to a fresh folder, existing page, or architecture decision.",
+        "pass": "The result works and the learner can explain what React, the build tool, and the host environment each own."
+      }
+    ],
+    "reviewSchedule": {
+      "note": "Answer before reopening the lesson or commands.",
+      "sessions": [
+        {
+          "dayOffset": 2,
+          "problems": [
+            {
+              "id": "recall",
+              "prompt": "List four rules from Framework versus build tool.",
+              "solution": "Define the job of a build tool. Define the broader job of a framework. Know what a from-scratch Vite React app starts as. Select tooling from requirements rather than popularity."
+            },
+            {
+              "id": "failure",
+              "prompt": "Invent one setup failure and diagnose it by evidence.",
+              "solution": "State expected and actual behavior, identify the layer, inspect one relevant source of evidence, and make one focused correction."
+            }
+          ]
+        },
+        {
+          "dayOffset": 7,
+          "problems": [
+            {
+              "id": "teach",
+              "prompt": "Teach framework versus build tool to a learner without using unexplained tool names.",
+              "solution": "Define each tool or concept, show the flow, and name a boundary."
+            },
+            {
+              "id": "fresh",
+              "prompt": "Make the same decision for a different project requirement.",
+              "solution": "The choice should follow stated requirements and include a verification plan."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "sourceIds": [
+    "react-installation",
+    "react-build-scratch",
+    "vite-getting-started"
+  ],
+  "commonMistakes": [
+    {
+      "symptom": "Every setup problem is described as a React error.",
+      "cause": "Browser, Node, npm, Vite, project files, and React responsibilities were mixed together.",
+      "fix": "Identify the failing layer from the command, URL, stack, file, or tool panel before editing."
+    },
+    {
+      "symptom": "Commands work in one terminal but fail in another folder.",
+      "cause": "The current directory or active Node installation differs.",
+      "fix": "Check the path, package.json, lockfile, node -v, and npm -v in the same terminal."
+    },
+    {
+      "symptom": "The starter template is treated as a complete production plan.",
+      "cause": "Scaffolding and build features were confused with routing, data, server, security, and deployment architecture.",
+      "fix": "Write product requirements and assign each responsibility to React, a build tool, a framework, the platform, or backend code."
+    }
+  ],
+  "publicationChecklist": {
+    "authored": true,
+    "sourcesReviewed": true,
+    "codeSyntaxChecked": true,
+    "serverInitialRenderChecked": false,
+    "browserBehaviorChecked": false,
+    "independentContentReview": false,
+    "learnerTrial": false,
+    "note": "Concept-complete setup draft. Recheck version-specific commands, run broader browser behavior checks, obtain independent review, and complete a learner trial before publication."
+  }
+}

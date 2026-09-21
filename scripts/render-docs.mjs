@@ -105,7 +105,7 @@ for (const miniApp of miniApps) {
   const fence = miniApp.languageCode || 'text';
   miniAppsDoc.push(`<a id="${miniApp.id}"></a>\n## ${miniApp.title}`, `Status: ${miniApp.status}. ${miniApp.goal}`, '### Concepts used', bullets(miniApp.conceptTopicIds.map(id => topics.get(id).title)), '### Requirements', bullets(miniApp.requirements));
   for (const step of miniApp.steps) miniAppsDoc.push(`### Step ${step.order}: ${step.title}`, step.task, ...(step.code ? [`\n\`\`\`${step.kind === 'fragment' ? fence : step.kind}\n${step.code}\n\`\`\`\n`] : []), `Why: ${step.reason}\n\nCheck: ${step.check}`);
-  miniAppsDoc.push(`### Complete ${miniApp.languageCode === 'html' ? 'index.html' : 'App.jsx'}`, `\n\`\`\`${fence}\n${miniApp.finalCode}\n\`\`\`\n`, '### Acceptance scenarios', '| Given | When | Then |\n| --- | --- | --- |\n' + miniApp.acceptanceScenarios.map(x => `| ${x.given} | ${x.when} | ${x.then} |`).join('\n'), '### Independent ideas', ...ideas.filter(idea => miniApp.relatedIdeaIds.includes(idea.id)).map(idea => `- **${idea.title}:** ${idea.brief}`), `References: ${cite(miniApp.sourceIds)}.`);
+  miniAppsDoc.push(`### Complete ${miniApp.finalFile || (miniApp.languageCode === 'html' ? 'index.html' : miniApp.languageCode === 'js' ? 'index.js' : 'App.jsx')}`, `\n\`\`\`${fence}\n${miniApp.finalCode}\n\`\`\`\n`, '### Acceptance scenarios', '| Given | When | Then |\n| --- | --- | --- |\n' + miniApp.acceptanceScenarios.map(x => `| ${x.given} | ${x.when} | ${x.then} |`).join('\n'), '### Independent ideas', ...ideas.filter(idea => miniApp.relatedIdeaIds.includes(idea.id)).map(idea => `- **${idea.title}:** ${idea.brief}`), `References: ${cite(miniApp.sourceIds)}.`);
 }
 save('MINI-APPS.md', miniAppsDoc);
 

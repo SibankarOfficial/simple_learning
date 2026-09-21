@@ -1,0 +1,490 @@
+{
+  "schemaVersion": 1,
+  "id": "setup-adding-react-to-an-existing-page",
+  "subjectId": "react",
+  "chapterId": "setup",
+  "title": "Adding React to an existing page",
+  "language": "en",
+  "status": "sample-draft",
+  "reviewedAt": "2026-09-20",
+  "runtime": "React 19.3 learning project with a current Vite setup. Version-specific commands must be checked against the linked React, Vite, and npm pages before use.",
+  "prerequisiteTopicIds": [
+    "setup-react-devtools"
+  ],
+  "estimatedMinutes": {
+    "firstPass": 40,
+    "practice": 50,
+    "project": 30
+  },
+  "objectives": [
+    {
+      "id": "adoption",
+      "text": "Explain gradual React adoption."
+    },
+    {
+      "id": "environment",
+      "text": "Reuse or add a modular JavaScript environment."
+    },
+    {
+      "id": "root",
+      "text": "Connect a stable DOM node with createRoot."
+    },
+    {
+      "id": "multiple",
+      "text": "Use multiple roots deliberately and clean them up."
+    }
+  ],
+  "learningFlow": [
+    "Recall the prerequisite",
+    "Predict the setup result",
+    "Read every concept explanation",
+    "Trace or change a practical example",
+    "Attempt five tasks before solutions",
+    "Explain the tool boundary",
+    "Apply it in a fresh project decision",
+    "Review after two and seven days"
+  ],
+  "diagnostic": [
+    {
+      "question": "What problem does adding react to an existing page help you solve?",
+      "answer": "Name the relevant layer, its input and output, and one problem it does not solve.",
+      "ifMissed": "setup-react-devtools"
+    }
+  ],
+  "sections": [
+    {
+      "id": "adoption",
+      "title": "React can own one region",
+      "depth": "core",
+      "body": "An existing site does not need a full rewrite. Add a DOM container where an interactive feature belongs, create a React root for that container, and render a component into it. The rest of the page can remain server-rendered HTML or use another stack. This limits migration risk and lets the team learn from one real feature.",
+      "sourceIds": [
+        "react-existing-project",
+        "react-create-root",
+        "react-installation"
+      ],
+      "exampleIds": [
+        "container"
+      ],
+      "objectiveIds": [
+        "adoption"
+      ]
+    },
+    {
+      "id": "environment",
+      "title": "The existing build comes first",
+      "depth": "core",
+      "body": "If the project already supports modules, npm packages, and JSX transformation, integrate React into that setup instead of creating a second unrelated toolchain. Install react and react-dom, confirm JSX support, and follow the backend or framework’s asset pipeline. If no modular environment exists, React’s guide points to Vite and its backend integrations as one option.",
+      "sourceIds": [
+        "react-existing-project",
+        "react-create-root",
+        "react-installation"
+      ],
+      "exampleIds": [
+        "mount"
+      ],
+      "objectiveIds": [
+        "environment"
+      ]
+    },
+    {
+      "id": "root",
+      "title": "The container defines React ownership",
+      "depth": "core",
+      "body": "Add a stable unique element such as <div id=\"lesson-widget\"></div> to the existing HTML. Find it after it exists, call createRoot(container), then root.render(<LessonWidget />). React manages the DOM inside that container. Existing HTML outside it remains owned by the existing page. A missing or mistyped ID makes the container null and prevents rendering.",
+      "sourceIds": [
+        "react-existing-project",
+        "react-create-root",
+        "react-installation"
+      ],
+      "exampleIds": [
+        "roots"
+      ],
+      "objectiveIds": [
+        "root"
+      ]
+    },
+    {
+      "id": "multiple",
+      "title": "Several islands are possible",
+      "depth": "core",
+      "body": "A partly React page can have separate roots for unrelated regions. Each root has its own component tree, so shared state and coordinated updates need an explicit design. If the host page removes a React-owned region, call root.unmount first so React can clean up subscriptions and other resources. Server-rendered React markup needs hydrateRoot rather than createRoot.",
+      "sourceIds": [
+        "react-existing-project",
+        "react-create-root",
+        "react-installation"
+      ],
+      "exampleIds": [],
+      "objectiveIds": [
+        "multiple"
+      ]
+    },
+    {
+      "id": "working-check",
+      "title": "Use evidence instead of setup guesses",
+      "depth": "deeper",
+      "body": "When setup fails, identify the layer before changing code. Read the terminal command and first error, confirm the current directory and versions, check the browser Network and Console, and trace the entry file to the root component. Make one small correction, rerun the same check, and record what proved the fix.",
+      "sourceIds": [
+        "react-existing-project",
+        "react-create-root",
+        "react-installation"
+      ],
+      "exampleIds": [],
+      "objectiveIds": [
+        "adoption",
+        "environment",
+        "root",
+        "multiple"
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "id": "container",
+      "title": "Add a mount point",
+      "kind": "fragment",
+      "language": "html",
+      "depth": "core",
+      "code": "<main>\n  <h1>Existing course page</h1>\n  <div id=\"lesson-widget\"></div>\n  <footer>Existing footer</footer>\n</main>",
+      "explanation": "Only the lesson-widget region is reserved for React.",
+      "tryThis": "Change one value or name in this adding react to an existing page example. Predict what evidence should change before running or tracing it.",
+      "sourceIds": [
+        "react-existing-project",
+        "react-create-root",
+        "react-installation"
+      ]
+    },
+    {
+      "id": "mount",
+      "title": "Render into the existing page",
+      "kind": "fragment",
+      "language": "jsx",
+      "depth": "deeper",
+      "code": "import { createRoot } from \"react-dom/client\";\n\nfunction LessonWidget() {\n  return <button>Mark lesson for review</button>;\n}\n\nconst container = document.getElementById(\"lesson-widget\");\nif (!container) throw new Error(\"Missing #lesson-widget\");\ncreateRoot(container).render(<LessonWidget />);",
+      "explanation": "The explicit null check turns a silent blank region into a useful setup error.",
+      "tryThis": "Change one value or name in this adding react to an existing page example. Predict what evidence should change before running or tracing it.",
+      "sourceIds": [
+        "react-existing-project",
+        "react-create-root",
+        "react-installation"
+      ]
+    },
+    {
+      "id": "roots",
+      "title": "Track roots that must be removed",
+      "kind": "fragment",
+      "language": "js",
+      "depth": "deeper",
+      "code": "import { createRoot } from \"react-dom/client\";\nconst container = document.getElementById(\"comments\");\nconst commentsRoot = createRoot(container);\n// Later, before the host removes the container:\ncommentsRoot.unmount();",
+      "explanation": "Unmounting lets React clean up a tree before another system removes its container.",
+      "tryThis": "Change one value or name in this adding react to an existing page example. Predict what evidence should change before running or tracing it.",
+      "sourceIds": [
+        "react-existing-project",
+        "react-create-root",
+        "react-installation"
+      ]
+    }
+  ],
+  "practice": [
+    {
+      "id": "p01",
+      "type": "predict",
+      "difficulty": "beginner",
+      "prompt": "Predict the visible or terminal result of the first adding react to an existing page example. Explain which tool or layer produces it.",
+      "hints": [
+        "Name the exact tool, file, command, DOM node, or product requirement involved before proposing a fix."
+      ],
+      "acceptanceCriteria": [
+        "The answer identifies the correct responsibility or layer.",
+        "It includes observable evidence or a concrete example.",
+        "It names one boundary, edge case, or reason for the decision."
+      ],
+      "objectiveIds": [
+        "adoption"
+      ],
+      "sourceIds": [
+        "react-existing-project",
+        "react-create-root",
+        "react-installation"
+      ],
+      "solution": {
+        "explanation": "A strong answer applies this rule: Explain gradual React adoption. It identifies the responsible layer, gives observable evidence, and avoids claiming that React or Vite solves unrelated application concerns.",
+        "code": "// Write expected evidence before changing the setup.\nconst check = { expected: \"specific result\", actual: \"observed result\", nextStep: \"one focused test\" };",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p02",
+      "type": "explain-and-build",
+      "difficulty": "beginner",
+      "prompt": "Create a small diagram or ordered list that explains the existing build comes first. Add one concrete file, command, or UI example.",
+      "hints": [
+        "Name the exact tool, file, command, DOM node, or product requirement involved before proposing a fix."
+      ],
+      "acceptanceCriteria": [
+        "The answer identifies the correct responsibility or layer.",
+        "It includes observable evidence or a concrete example.",
+        "It names one boundary, edge case, or reason for the decision."
+      ],
+      "objectiveIds": [
+        "environment"
+      ],
+      "sourceIds": [
+        "react-existing-project",
+        "react-create-root",
+        "react-installation"
+      ],
+      "solution": {
+        "explanation": "A strong answer applies this rule: Reuse or add a modular JavaScript environment. It identifies the responsible layer, gives observable evidence, and avoids claiming that React or Vite solves unrelated application concerns.",
+        "code": "// Write expected evidence before changing the setup.\nconst check = { expected: \"specific result\", actual: \"observed result\", nextStep: \"one focused test\" };",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p03",
+      "type": "debug",
+      "difficulty": "intermediate",
+      "prompt": "A learner reports “the React setup does not work.” Write the first five evidence checks for this topic and explain the order.",
+      "hints": [
+        "Name the exact tool, file, command, DOM node, or product requirement involved before proposing a fix."
+      ],
+      "acceptanceCriteria": [
+        "The answer identifies the correct responsibility or layer.",
+        "It includes observable evidence or a concrete example.",
+        "It names one boundary, edge case, or reason for the decision."
+      ],
+      "objectiveIds": [
+        "root"
+      ],
+      "sourceIds": [
+        "react-existing-project",
+        "react-create-root",
+        "react-installation"
+      ],
+      "solution": {
+        "explanation": "A strong answer applies this rule: Connect a stable DOM node with createRoot. It identifies the responsible layer, gives observable evidence, and avoids claiming that React or Vite solves unrelated application concerns.",
+        "code": "// Write expected evidence before changing the setup.\nconst check = { expected: \"specific result\", actual: \"observed result\", nextStep: \"one focused test\" };",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p04",
+      "type": "design",
+      "difficulty": "intermediate",
+      "prompt": "Choose a setup for a small learning exercise and a production application. State the requirements and defend each choice using this lesson.",
+      "hints": [
+        "Name the exact tool, file, command, DOM node, or product requirement involved before proposing a fix."
+      ],
+      "acceptanceCriteria": [
+        "The answer identifies the correct responsibility or layer.",
+        "It includes observable evidence or a concrete example.",
+        "It names one boundary, edge case, or reason for the decision."
+      ],
+      "objectiveIds": [
+        "multiple"
+      ],
+      "sourceIds": [
+        "react-existing-project",
+        "react-create-root",
+        "react-installation"
+      ],
+      "solution": {
+        "explanation": "A strong answer applies this rule: Use multiple roots deliberately and clean them up. It identifies the responsible layer, gives observable evidence, and avoids claiming that React or Vite solves unrelated application concerns.",
+        "code": "// Write expected evidence before changing the setup.\nconst check = { expected: \"specific result\", actual: \"observed result\", nextStep: \"one focused test\" };",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p05",
+      "type": "transfer",
+      "difficulty": "advanced",
+      "prompt": "Apply two objectives from this lesson to a different existing project. Name what you would keep, change, verify, and deliberately leave outside React.",
+      "hints": [
+        "Name the exact tool, file, command, DOM node, or product requirement involved before proposing a fix."
+      ],
+      "acceptanceCriteria": [
+        "The answer identifies the correct responsibility or layer.",
+        "It includes observable evidence or a concrete example.",
+        "It names one boundary, edge case, or reason for the decision."
+      ],
+      "objectiveIds": [
+        "adoption",
+        "environment"
+      ],
+      "sourceIds": [
+        "react-existing-project",
+        "react-create-root",
+        "react-installation"
+      ],
+      "solution": {
+        "explanation": "A strong answer applies this rule: Explain gradual React adoption. It identifies the responsible layer, gives observable evidence, and avoids claiming that React or Vite solves unrelated application concerns.",
+        "code": "// Write expected evidence before changing the setup.\nconst check = { expected: \"specific result\", actual: \"observed result\", nextStep: \"one focused test\" };",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    }
+  ],
+  "interviewQuestions": [
+    {
+      "id": "responsibility",
+      "question": "What responsibility does adding react to an existing page have in a React project?",
+      "answer": "Explain gradual React adoption. Reuse or add a modular JavaScript environment. Connect a stable DOM node with createRoot. Use multiple roots deliberately and clean them up.",
+      "followUp": "What important responsibility belongs to another layer?",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "react-existing-project",
+        "react-create-root",
+        "react-installation"
+      ]
+    },
+    {
+      "id": "debug",
+      "question": "How would you debug a failure related to adding react to an existing page?",
+      "answer": "Reproduce the smallest failure, confirm the current directory and versions when relevant, read the first terminal or browser error, trace the entry and root, and test one hypothesis at a time.",
+      "followUp": "Which evidence would make you change layers?",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "react-existing-project",
+        "react-create-root",
+        "react-installation"
+      ]
+    },
+    {
+      "id": "decision",
+      "question": "Which tradeoff in adding react to an existing page should a team decide explicitly?",
+      "answer": "The team should match tools and boundaries to product needs, record version and deployment assumptions, and avoid treating a starter template as a complete production architecture.",
+      "followUp": "How could the answer change for an existing server-rendered site?",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "react-existing-project",
+        "react-create-root",
+        "react-installation"
+      ]
+    }
+  ],
+  "miniAppIds": [
+    "first-react-workspace"
+  ],
+  "mastery": {
+    "status": "not-assessed",
+    "policy": "Reading commands or following the guided project is not mastery. Recreate the setup without copying, explain every tool boundary, diagnose one failure, and verify a production build.",
+    "checks": [
+      {
+        "id": "explain",
+        "evidence": "Explain all objectives in adding react to an existing page without notes.",
+        "pass": "Each explanation names the responsible layer, one example, and one boundary."
+      },
+      {
+        "id": "solve",
+        "evidence": "Complete four exercises before opening solutions.",
+        "pass": "The saved work uses observable evidence and correct terminology."
+      },
+      {
+        "id": "transfer",
+        "evidence": "Apply the lesson to a fresh folder, existing page, or architecture decision.",
+        "pass": "The result works and the learner can explain what React, the build tool, and the host environment each own."
+      }
+    ],
+    "reviewSchedule": {
+      "note": "Answer before reopening the lesson or commands.",
+      "sessions": [
+        {
+          "dayOffset": 2,
+          "problems": [
+            {
+              "id": "recall",
+              "prompt": "List four rules from Adding React to an existing page.",
+              "solution": "Explain gradual React adoption. Reuse or add a modular JavaScript environment. Connect a stable DOM node with createRoot. Use multiple roots deliberately and clean them up."
+            },
+            {
+              "id": "failure",
+              "prompt": "Invent one setup failure and diagnose it by evidence.",
+              "solution": "State expected and actual behavior, identify the layer, inspect one relevant source of evidence, and make one focused correction."
+            }
+          ]
+        },
+        {
+          "dayOffset": 7,
+          "problems": [
+            {
+              "id": "teach",
+              "prompt": "Teach adding react to an existing page to a learner without using unexplained tool names.",
+              "solution": "Define each tool or concept, show the flow, and name a boundary."
+            },
+            {
+              "id": "fresh",
+              "prompt": "Make the same decision for a different project requirement.",
+              "solution": "The choice should follow stated requirements and include a verification plan."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "sourceIds": [
+    "react-existing-project",
+    "react-create-root",
+    "react-installation"
+  ],
+  "commonMistakes": [
+    {
+      "symptom": "Every setup problem is described as a React error.",
+      "cause": "Browser, Node, npm, Vite, project files, and React responsibilities were mixed together.",
+      "fix": "Identify the failing layer from the command, URL, stack, file, or tool panel before editing."
+    },
+    {
+      "symptom": "Commands work in one terminal but fail in another folder.",
+      "cause": "The current directory or active Node installation differs.",
+      "fix": "Check the path, package.json, lockfile, node -v, and npm -v in the same terminal."
+    },
+    {
+      "symptom": "The starter template is treated as a complete production plan.",
+      "cause": "Scaffolding and build features were confused with routing, data, server, security, and deployment architecture.",
+      "fix": "Write product requirements and assign each responsibility to React, a build tool, a framework, the platform, or backend code."
+    }
+  ],
+  "publicationChecklist": {
+    "authored": true,
+    "sourcesReviewed": true,
+    "codeSyntaxChecked": true,
+    "serverInitialRenderChecked": false,
+    "browserBehaviorChecked": false,
+    "independentContentReview": false,
+    "learnerTrial": false,
+    "note": "Concept-complete setup draft. Recheck version-specific commands, run broader browser behavior checks, obtain independent review, and complete a learner trial before publication."
+  }
+}

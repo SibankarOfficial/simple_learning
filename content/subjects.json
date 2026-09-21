@@ -7,7 +7,9 @@
     "interviewQuestionsPath": "interview-questions.json",
     "miniAppPaths": [
       "mini-apps/quantity-picker.json",
-      "mini-apps/accessible-course-signup.json"
+      "mini-apps/accessible-course-signup.json",
+      "mini-apps/study-session-report.json",
+      "mini-apps/first-react-workspace.json"
     ]
   }
 ]

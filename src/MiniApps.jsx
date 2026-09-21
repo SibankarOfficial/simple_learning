@@ -26,7 +26,7 @@ function MiniReader({ app, catalog, ideas, sources }) {
   const { change } = useProgress();
   const [showCode, setShowCode] = useState(false);
   const related = ideas.filter(idea => app.relatedIdeaIds.includes(idea.id));
-  const completeFile = app.languageCode === 'html' ? 'index.html' : 'App.jsx';
+  const completeFile = app.finalFile || (app.languageCode === 'html' ? 'index.html' : app.languageCode === 'js' ? 'index.js' : 'App.jsx');
   const reveal = () => {
     // The final module also solves these useState exercises. Record the same
     // assistance even when learners find the solution through the mini app.

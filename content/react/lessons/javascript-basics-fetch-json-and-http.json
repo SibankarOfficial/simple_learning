@@ -1,0 +1,473 @@
+{
+  "schemaVersion": 1,
+  "id": "javascript-basics-fetch-json-and-http",
+  "subjectId": "react",
+  "chapterId": "javascript-basics",
+  "title": "Fetch, JSON, and HTTP",
+  "language": "en",
+  "status": "sample-draft",
+  "reviewedAt": "2026-09-20",
+  "runtime": "Modern evergreen browser or Node.js with ES modules. Run fragments in browser DevTools or a small .js file unless the example says otherwise.",
+  "prerequisiteTopicIds": [
+    "javascript-basics-event-loop-and-timers"
+  ],
+  "estimatedMinutes": {
+    "firstPass": 45,
+    "practice": 55,
+    "project": 25
+  },
+  "objectives": [
+    {
+      "id": "request",
+      "text": "Create an HTTP request with fetch."
+    },
+    {
+      "id": "response",
+      "text": "Check HTTP status before reading data."
+    },
+    {
+      "id": "json",
+      "text": "Convert between JSON text and JavaScript values."
+    },
+    {
+      "id": "lifecycle",
+      "text": "Model loading, success, empty, and error states."
+    }
+  ],
+  "learningFlow": [
+    "Recall the prerequisite",
+    "Predict before running code",
+    "Read each concept explanation",
+    "Change a small example",
+    "Attempt practice before hints",
+    "Explain the result in your own words",
+    "Apply the idea in a different problem",
+    "Review after two and seven days"
+  ],
+  "diagnostic": [
+    {
+      "question": "Can you explain the main purpose of fetch, json, and http before reading?",
+      "answer": "A complete answer should name the problem it solves, the values or control flow involved, and one mistake to avoid.",
+      "ifMissed": "javascript-basics-event-loop-and-timers"
+    }
+  ],
+  "sections": [
+    {
+      "id": "request",
+      "title": "fetch starts a request",
+      "depth": "core",
+      "body": "fetch(url, options) returns a promise for a Response. The default method is GET. For JSON writes, set a method, a suitable Content-Type header, and JSON.stringify the body. The browser may also enforce origin and CORS rules before code can read a response.",
+      "sourceIds": [
+        "mdn-fetch",
+        "mdn-http-status"
+      ],
+      "exampleIds": [
+        "example-1"
+      ],
+      "objectiveIds": [
+        "request"
+      ]
+    },
+    {
+      "id": "response",
+      "title": "A response can be an HTTP failure",
+      "depth": "core",
+      "body": "fetch rejects for network-level failures, but a 404 or 500 normally fulfills with a Response. Check response.ok or response.status and throw a useful error when the application cannot continue. Then read the body once with json(), text(), or another matching method.",
+      "sourceIds": [
+        "mdn-fetch",
+        "mdn-http-status"
+      ],
+      "exampleIds": [
+        "example-2"
+      ],
+      "objectiveIds": [
+        "response"
+      ]
+    },
+    {
+      "id": "json",
+      "title": "JSON is a text format",
+      "depth": "core",
+      "body": "JSON.parse turns valid JSON text into JavaScript data, and JSON.stringify creates JSON text from supported data. JSON has objects, arrays, strings, numbers, booleans, and null, but no functions or undefined values. Parsing can throw, and successful parsing still does not prove the data has the shape your app expects.",
+      "sourceIds": [
+        "mdn-fetch",
+        "mdn-http-status"
+      ],
+      "exampleIds": [
+        "example-3"
+      ],
+      "objectiveIds": [
+        "json"
+      ]
+    },
+    {
+      "id": "lifecycle",
+      "title": "A request has UI states",
+      "depth": "core",
+      "body": "A useful interface represents the request lifecycle instead of assuming success. Start loading, clear or preserve earlier errors intentionally, handle non-OK responses, validate the received shape, show empty data separately from failure, and stop loading in finally. Abort obsolete requests when their result is no longer wanted.",
+      "sourceIds": [
+        "mdn-fetch",
+        "mdn-http-status"
+      ],
+      "exampleIds": [],
+      "objectiveIds": [
+        "lifecycle"
+      ]
+    },
+    {
+      "id": "react-connection",
+      "title": "Why this matters in React",
+      "depth": "deeper",
+      "body": "Fetch, JSON, and HTTP is part of the JavaScript model React code already uses. Components, event handlers, state updates, list rendering, and data requests become easier to reason about when this concept is understood without framework shortcuts. Practise the JavaScript behavior first, then identify the same rule in JSX or a component.",
+      "sourceIds": [
+        "mdn-fetch",
+        "mdn-http-status"
+      ],
+      "exampleIds": [],
+      "objectiveIds": [
+        "request",
+        "response",
+        "json",
+        "lifecycle"
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "id": "example-1",
+      "title": "Apply: fetch starts a request",
+      "kind": "fragment",
+      "language": "js",
+      "depth": "core",
+      "code": "async function getUser() {\n  const response = await fetch(\"/api/user\");\n  if (!response.ok) throw new Error(`HTTP ${response.status}`);\n  return response.json();\n}",
+      "explanation": "This small example gives you a safe place to inspect values while practising this objective: Create an HTTP request with fetch.",
+      "tryThis": "Replace the sample with a real fetch, json, and http case from the explanation. Predict every logged value before running it.",
+      "sourceIds": [
+        "mdn-fetch",
+        "mdn-http-status"
+      ]
+    },
+    {
+      "id": "example-2",
+      "title": "Apply: A response can be an HTTP failure",
+      "kind": "fragment",
+      "language": "js",
+      "depth": "deeper",
+      "code": "const text = JSON.stringify({ topic: \"React\", done: false });\nconst data = JSON.parse(text);",
+      "explanation": "This small example gives you a safe place to inspect values while practising this objective: Check HTTP status before reading data.",
+      "tryThis": "Replace the sample with a real fetch, json, and http case from the explanation. Predict every logged value before running it.",
+      "sourceIds": [
+        "mdn-fetch",
+        "mdn-http-status"
+      ]
+    },
+    {
+      "id": "example-3",
+      "title": "Apply: JSON is a text format",
+      "kind": "fragment",
+      "language": "js",
+      "depth": "deeper",
+      "code": "fetch(\"/api/sessions\", {\n  method: \"POST\",\n  headers: { \"Content-Type\": \"application/json\" },\n  body: JSON.stringify({ minutes: 25 }),\n});",
+      "explanation": "This small example gives you a safe place to inspect values while practising this objective: Convert between JSON text and JavaScript values.",
+      "tryThis": "Replace the sample with a real fetch, json, and http case from the explanation. Predict every logged value before running it.",
+      "sourceIds": [
+        "mdn-fetch",
+        "mdn-http-status"
+      ]
+    }
+  ],
+  "practice": [
+    {
+      "id": "p01",
+      "type": "predict",
+      "difficulty": "beginner",
+      "prompt": "Write one short code example for “fetch starts a request”. Predict each result before running it.",
+      "hints": [
+        "Return to the “fetch starts a request” explanation and identify the exact rule before writing code."
+      ],
+      "acceptanceCriteria": [
+        "The attempt uses valid JavaScript.",
+        "The written prediction or explanation matches the observed behavior.",
+        "The answer names the rule that makes the result happen."
+      ],
+      "objectiveIds": [
+        "request"
+      ],
+      "sourceIds": [
+        "mdn-fetch",
+        "mdn-http-status"
+      ],
+      "solution": {
+        "explanation": "A valid answer must demonstrate this rule: Create an HTTP request with fetch. The exact names and sample values may differ. Compare behavior and reasoning, not surface syntax.",
+        "code": "// One possible checking structure\nconst prediction = \"Write the expected result first\";\nconsole.log(prediction);",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p02",
+      "type": "build",
+      "difficulty": "beginner",
+      "prompt": "Build a small function or data example that proves this objective: Check HTTP status before reading data.",
+      "hints": [
+        "Return to the “A response can be an HTTP failure” explanation and identify the exact rule before writing code."
+      ],
+      "acceptanceCriteria": [
+        "The attempt uses valid JavaScript.",
+        "The written prediction or explanation matches the observed behavior.",
+        "The answer names the rule that makes the result happen."
+      ],
+      "objectiveIds": [
+        "response"
+      ],
+      "sourceIds": [
+        "mdn-fetch",
+        "mdn-http-status"
+      ],
+      "solution": {
+        "explanation": "A valid answer must demonstrate this rule: Check HTTP status before reading data. The exact names and sample values may differ. Compare behavior and reasoning, not surface syntax.",
+        "code": "// One possible checking structure\nconst prediction = \"Write the expected result first\";\nconsole.log(prediction);",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p03",
+      "type": "debug",
+      "difficulty": "intermediate",
+      "prompt": "Create a deliberate fetch, json, and http mistake, record the symptom, and repair the cause.",
+      "hints": [
+        "Return to the “JSON is a text format” explanation and identify the exact rule before writing code."
+      ],
+      "acceptanceCriteria": [
+        "The attempt uses valid JavaScript.",
+        "The written prediction or explanation matches the observed behavior.",
+        "The answer names the rule that makes the result happen."
+      ],
+      "objectiveIds": [
+        "json"
+      ],
+      "sourceIds": [
+        "mdn-fetch",
+        "mdn-http-status"
+      ],
+      "solution": {
+        "explanation": "A valid answer must demonstrate this rule: Convert between JSON text and JavaScript values. The exact names and sample values may differ. Compare behavior and reasoning, not surface syntax.",
+        "code": "// One possible checking structure\nconst prediction = \"Write the expected result first\";\nconsole.log(prediction);",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p04",
+      "type": "transfer",
+      "difficulty": "intermediate",
+      "prompt": "Use a request has ui states in a different example from this lesson and explain why your choice is correct.",
+      "hints": [
+        "Return to the “A request has UI states” explanation and identify the exact rule before writing code."
+      ],
+      "acceptanceCriteria": [
+        "The attempt uses valid JavaScript.",
+        "The written prediction or explanation matches the observed behavior.",
+        "The answer names the rule that makes the result happen."
+      ],
+      "objectiveIds": [
+        "lifecycle"
+      ],
+      "sourceIds": [
+        "mdn-fetch",
+        "mdn-http-status"
+      ],
+      "solution": {
+        "explanation": "A valid answer must demonstrate this rule: Model loading, success, empty, and error states. The exact names and sample values may differ. Compare behavior and reasoning, not surface syntax.",
+        "code": "// One possible checking structure\nconst prediction = \"Write the expected result first\";\nconsole.log(prediction);",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p05",
+      "type": "explain-and-build",
+      "difficulty": "advanced",
+      "prompt": "Build one small example that combines two ideas from fetch, json, and http, then explain every important value or control-flow step.",
+      "hints": [
+        "Choose two objectives from What you will learn and write the expected result before running the code."
+      ],
+      "acceptanceCriteria": [
+        "The example combines two lesson objectives.",
+        "The learner predicts the result before running it.",
+        "The explanation names both JavaScript rules and one edge case."
+      ],
+      "objectiveIds": [
+        "request",
+        "response"
+      ],
+      "sourceIds": [
+        "mdn-fetch",
+        "mdn-http-status"
+      ],
+      "solution": {
+        "explanation": "A valid solution combines any two stated objectives in one coherent example, predicts its behavior, and explains both rules. Reusing the lesson sample without changing the problem does not meet the transfer goal.",
+        "code": "// Design your own example first.\n// Then record prediction, actual result, and explanation.",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    }
+  ],
+  "interviewQuestions": [
+    {
+      "id": "concept",
+      "question": "Explain fetch, json, and http to a junior developer.",
+      "answer": "Create an HTTP request with fetch. Check HTTP status before reading data. Convert between JSON text and JavaScript values. Model loading, success, empty, and error states.",
+      "followUp": "Show a small example and one common mistake.",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "mdn-fetch",
+        "mdn-http-status"
+      ]
+    },
+    {
+      "id": "reasoning",
+      "question": "How would you prove that code using fetch, json, and http behaves correctly?",
+      "answer": "State the expected value or control flow first, test normal and boundary cases, and inspect the actual runtime result. Explain the JavaScript rule behind the evidence.",
+      "followUp": "Which edge case would you test first?",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "mdn-fetch",
+        "mdn-http-status"
+      ]
+    },
+    {
+      "id": "react-link",
+      "question": "Where can fetch, json, and http affect React code?",
+      "answer": "It can affect values, callbacks, rendering decisions, updates, or data flow. The exact connection depends on the concept; the important step is to reason from JavaScript behavior before blaming React.",
+      "followUp": "Give one component-level example.",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "mdn-fetch",
+        "mdn-http-status"
+      ]
+    }
+  ],
+  "miniAppIds": [
+    "study-session-report"
+  ],
+  "mastery": {
+    "status": "not-assessed",
+    "policy": "Reading or opening a solution is guided exposure, not mastery. Save an attempt, solve again without help, explain the rule, and transfer it to a new problem.",
+    "checks": [
+      {
+        "id": "explain",
+        "evidence": "Explain all four fetch, json, and http objectives without the lesson.",
+        "pass": "Every objective is accurate and includes a small example."
+      },
+      {
+        "id": "solve",
+        "evidence": "Complete four exercises before opening solutions.",
+        "pass": "The code works and the explanation matches the observed result."
+      },
+      {
+        "id": "transfer",
+        "evidence": "Use the concept in a fresh React-related or plain JavaScript problem.",
+        "pass": "The learner can defend the chosen syntax and handle one edge case."
+      }
+    ],
+    "reviewSchedule": {
+      "note": "Answer before reopening the lesson.",
+      "sessions": [
+        {
+          "dayOffset": 2,
+          "problems": [
+            {
+              "id": "recall",
+              "prompt": "Write the four main rules of Fetch, JSON, and HTTP.",
+              "solution": "Create an HTTP request with fetch. Check HTTP status before reading data. Convert between JSON text and JavaScript values. Model loading, success, empty, and error states."
+            },
+            {
+              "id": "repair",
+              "prompt": "Recreate and repair one common mistake from memory.",
+              "solution": "Name the symptom, the JavaScript rule that caused it, and the smallest correct repair."
+            }
+          ]
+        },
+        {
+          "dayOffset": 7,
+          "problems": [
+            {
+              "id": "teach",
+              "prompt": "Teach fetch, json, and http with one new example.",
+              "solution": "Define it, demonstrate it, predict the result, and explain one boundary case."
+            },
+            {
+              "id": "apply",
+              "prompt": "Use the concept in a different data or UI problem.",
+              "solution": "The new solution should rely on the same rule and be explained without copying the lesson."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "sourceIds": [
+    "mdn-fetch",
+    "mdn-http-status"
+  ],
+  "commonMistakes": [
+    {
+      "symptom": "Code using fetch, json, and http produces a surprising value.",
+      "cause": "The result was run before the value, type, scope, identity, or control flow was predicted.",
+      "fix": "Reduce the case, write the expected result, and apply the exact rule from the matching section."
+    },
+    {
+      "symptom": "A learner copies syntax but cannot adapt it.",
+      "cause": "The example was memorized without explaining why it works.",
+      "fix": "Change the data and names, predict again, and explain which behavior must stay the same."
+    },
+    {
+      "symptom": "A React problem is blamed on React immediately.",
+      "cause": "The underlying JavaScript behavior was not isolated first.",
+      "fix": "Reproduce the value or function behavior in a small JavaScript example, then reconnect it to the component."
+    }
+  ],
+  "publicationChecklist": {
+    "authored": true,
+    "sourcesReviewed": true,
+    "codeSyntaxChecked": true,
+    "serverInitialRenderChecked": false,
+    "browserBehaviorChecked": false,
+    "independentContentReview": false,
+    "learnerTrial": false,
+    "note": "Concept-complete draft. Keep sample-draft until examples receive full browser checks, independent content review, and a learner trial."
+  }
+}

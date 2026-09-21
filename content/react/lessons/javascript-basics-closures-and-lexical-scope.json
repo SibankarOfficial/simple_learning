@@ -1,0 +1,456 @@
+{
+  "schemaVersion": 1,
+  "id": "javascript-basics-closures-and-lexical-scope",
+  "subjectId": "react",
+  "chapterId": "javascript-basics",
+  "title": "Closures and lexical scope",
+  "language": "en",
+  "status": "sample-draft",
+  "reviewedAt": "2026-09-20",
+  "runtime": "Modern evergreen browser or Node.js with ES modules. Run fragments in browser DevTools or a small .js file unless the example says otherwise.",
+  "prerequisiteTopicIds": [
+    "javascript-basics-modules-import-and-export"
+  ],
+  "estimatedMinutes": {
+    "firstPass": 45,
+    "practice": 55,
+    "project": 25
+  },
+  "objectives": [
+    {
+      "id": "lexical",
+      "text": "Explain lexical scope from where code is written."
+    },
+    {
+      "id": "closure",
+      "text": "Describe a closure without mystery."
+    },
+    {
+      "id": "use",
+      "text": "Use closures for private state and configured behavior."
+    },
+    {
+      "id": "memory",
+      "text": "Release closures that are no longer needed."
+    }
+  ],
+  "learningFlow": [
+    "Recall the prerequisite",
+    "Predict before running code",
+    "Read each concept explanation",
+    "Change a small example",
+    "Attempt practice before hints",
+    "Explain the result in your own words",
+    "Apply the idea in a different problem",
+    "Review after two and seven days"
+  ],
+  "diagnostic": [
+    {
+      "question": "Can you explain the main purpose of closures and lexical scope before reading?",
+      "answer": "A complete answer should name the problem it solves, the values or control flow involved, and one mistake to avoid.",
+      "ifMissed": "javascript-basics-modules-import-and-export"
+    }
+  ],
+  "sections": [
+    {
+      "id": "lexical",
+      "title": "Scope follows source structure",
+      "depth": "core",
+      "body": "JavaScript resolves a name by looking in the current lexical environment and then outward through enclosing environments. The lookup depends on where a function is defined, not where it is later called. This is why a nested function can use its parent function’s variables.",
+      "sourceIds": [
+        "mdn-js-closures"
+      ],
+      "exampleIds": [
+        "example-1"
+      ],
+      "objectiveIds": [
+        "lexical"
+      ]
+    },
+    {
+      "id": "closure",
+      "title": "A function remembers outer bindings",
+      "depth": "core",
+      "body": "A closure is a function together with access to the lexical environment where it was created. If the inner function survives after the outer function returns, those needed bindings remain reachable. The binding is remembered, so later updates can be observed; it is not merely a frozen copy of the first value.",
+      "sourceIds": [
+        "mdn-js-closures"
+      ],
+      "exampleIds": [
+        "example-2"
+      ],
+      "objectiveIds": [
+        "closure"
+      ]
+    },
+    {
+      "id": "use",
+      "title": "Practical closures",
+      "depth": "core",
+      "body": "A factory can return a function configured with a value, or keep state that callers can change only through returned methods. Event handlers and React callbacks are closures too. This power is useful, but captured values can become stale when a framework reruns code and an old callback remains active.",
+      "sourceIds": [
+        "mdn-js-closures"
+      ],
+      "exampleIds": [
+        "example-3"
+      ],
+      "objectiveIds": [
+        "use"
+      ]
+    },
+    {
+      "id": "memory",
+      "title": "Closures affect lifetime",
+      "depth": "core",
+      "body": "A closure can keep referenced data alive. Long-lived timers, listeners, or caches may therefore retain more memory than expected. Remove listeners and timers when their work ends, and capture only the data the callback truly needs.",
+      "sourceIds": [
+        "mdn-js-closures"
+      ],
+      "exampleIds": [],
+      "objectiveIds": [
+        "memory"
+      ]
+    },
+    {
+      "id": "react-connection",
+      "title": "Why this matters in React",
+      "depth": "deeper",
+      "body": "Closures and lexical scope is part of the JavaScript model React code already uses. Components, event handlers, state updates, list rendering, and data requests become easier to reason about when this concept is understood without framework shortcuts. Practise the JavaScript behavior first, then identify the same rule in JSX or a component.",
+      "sourceIds": [
+        "mdn-js-closures"
+      ],
+      "exampleIds": [],
+      "objectiveIds": [
+        "lexical",
+        "closure",
+        "use",
+        "memory"
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "id": "example-1",
+      "title": "Apply: Scope follows source structure",
+      "kind": "fragment",
+      "language": "js",
+      "depth": "core",
+      "code": "function makeCounter() {\n  let count = 0;\n  return () => ++count;\n}\nconst next = makeCounter();",
+      "explanation": "This small example gives you a safe place to inspect values while practising this objective: Explain lexical scope from where code is written.",
+      "tryThis": "Replace the sample with a real closures and lexical scope case from the explanation. Predict every logged value before running it.",
+      "sourceIds": [
+        "mdn-js-closures"
+      ]
+    },
+    {
+      "id": "example-2",
+      "title": "Apply: A function remembers outer bindings",
+      "kind": "fragment",
+      "language": "js",
+      "depth": "deeper",
+      "code": "function multiplyBy(factor) {\n  return value => value * factor;\n}\nconst double = multiplyBy(2);",
+      "explanation": "This small example gives you a safe place to inspect values while practising this objective: Describe a closure without mystery.",
+      "tryThis": "Replace the sample with a real closures and lexical scope case from the explanation. Predict every logged value before running it.",
+      "sourceIds": [
+        "mdn-js-closures"
+      ]
+    },
+    {
+      "id": "example-3",
+      "title": "Apply: Practical closures",
+      "kind": "fragment",
+      "language": "js",
+      "depth": "deeper",
+      "code": "let message = \"first\";\nconst read = () => message;\nmessage = \"second\";\nconsole.log(read());",
+      "explanation": "This small example gives you a safe place to inspect values while practising this objective: Use closures for private state and configured behavior.",
+      "tryThis": "Replace the sample with a real closures and lexical scope case from the explanation. Predict every logged value before running it.",
+      "sourceIds": [
+        "mdn-js-closures"
+      ]
+    }
+  ],
+  "practice": [
+    {
+      "id": "p01",
+      "type": "predict",
+      "difficulty": "beginner",
+      "prompt": "Write one short code example for “Scope follows source structure”. Predict each result before running it.",
+      "hints": [
+        "Return to the “Scope follows source structure” explanation and identify the exact rule before writing code."
+      ],
+      "acceptanceCriteria": [
+        "The attempt uses valid JavaScript.",
+        "The written prediction or explanation matches the observed behavior.",
+        "The answer names the rule that makes the result happen."
+      ],
+      "objectiveIds": [
+        "lexical"
+      ],
+      "sourceIds": [
+        "mdn-js-closures"
+      ],
+      "solution": {
+        "explanation": "A valid answer must demonstrate this rule: Explain lexical scope from where code is written. The exact names and sample values may differ. Compare behavior and reasoning, not surface syntax.",
+        "code": "// One possible checking structure\nconst prediction = \"Write the expected result first\";\nconsole.log(prediction);",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p02",
+      "type": "build",
+      "difficulty": "beginner",
+      "prompt": "Build a small function or data example that proves this objective: Describe a closure without mystery.",
+      "hints": [
+        "Return to the “A function remembers outer bindings” explanation and identify the exact rule before writing code."
+      ],
+      "acceptanceCriteria": [
+        "The attempt uses valid JavaScript.",
+        "The written prediction or explanation matches the observed behavior.",
+        "The answer names the rule that makes the result happen."
+      ],
+      "objectiveIds": [
+        "closure"
+      ],
+      "sourceIds": [
+        "mdn-js-closures"
+      ],
+      "solution": {
+        "explanation": "A valid answer must demonstrate this rule: Describe a closure without mystery. The exact names and sample values may differ. Compare behavior and reasoning, not surface syntax.",
+        "code": "// One possible checking structure\nconst prediction = \"Write the expected result first\";\nconsole.log(prediction);",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p03",
+      "type": "debug",
+      "difficulty": "intermediate",
+      "prompt": "Create a deliberate closures and lexical scope mistake, record the symptom, and repair the cause.",
+      "hints": [
+        "Return to the “Practical closures” explanation and identify the exact rule before writing code."
+      ],
+      "acceptanceCriteria": [
+        "The attempt uses valid JavaScript.",
+        "The written prediction or explanation matches the observed behavior.",
+        "The answer names the rule that makes the result happen."
+      ],
+      "objectiveIds": [
+        "use"
+      ],
+      "sourceIds": [
+        "mdn-js-closures"
+      ],
+      "solution": {
+        "explanation": "A valid answer must demonstrate this rule: Use closures for private state and configured behavior. The exact names and sample values may differ. Compare behavior and reasoning, not surface syntax.",
+        "code": "// One possible checking structure\nconst prediction = \"Write the expected result first\";\nconsole.log(prediction);",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p04",
+      "type": "transfer",
+      "difficulty": "intermediate",
+      "prompt": "Use closures affect lifetime in a different example from this lesson and explain why your choice is correct.",
+      "hints": [
+        "Return to the “Closures affect lifetime” explanation and identify the exact rule before writing code."
+      ],
+      "acceptanceCriteria": [
+        "The attempt uses valid JavaScript.",
+        "The written prediction or explanation matches the observed behavior.",
+        "The answer names the rule that makes the result happen."
+      ],
+      "objectiveIds": [
+        "memory"
+      ],
+      "sourceIds": [
+        "mdn-js-closures"
+      ],
+      "solution": {
+        "explanation": "A valid answer must demonstrate this rule: Release closures that are no longer needed. The exact names and sample values may differ. Compare behavior and reasoning, not surface syntax.",
+        "code": "// One possible checking structure\nconst prediction = \"Write the expected result first\";\nconsole.log(prediction);",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    },
+    {
+      "id": "p05",
+      "type": "explain-and-build",
+      "difficulty": "advanced",
+      "prompt": "Build one small example that combines two ideas from closures and lexical scope, then explain every important value or control-flow step.",
+      "hints": [
+        "Choose two objectives from What you will learn and write the expected result before running the code."
+      ],
+      "acceptanceCriteria": [
+        "The example combines two lesson objectives.",
+        "The learner predicts the result before running it.",
+        "The explanation names both JavaScript rules and one edge case."
+      ],
+      "objectiveIds": [
+        "lexical",
+        "closure"
+      ],
+      "sourceIds": [
+        "mdn-js-closures"
+      ],
+      "solution": {
+        "explanation": "A valid solution combines any two stated objectives in one coherent example, predicts its behavior, and explains both rules. Reusing the lesson sample without changing the problem does not meet the transfer goal.",
+        "code": "// Design your own example first.\n// Then record prediction, actual result, and explanation.",
+        "language": "js",
+        "kind": "fragment"
+      },
+      "solutionPresentation": "modal",
+      "attemptBeforeReveal": true
+    }
+  ],
+  "interviewQuestions": [
+    {
+      "id": "concept",
+      "question": "Explain closures and lexical scope to a junior developer.",
+      "answer": "Explain lexical scope from where code is written. Describe a closure without mystery. Use closures for private state and configured behavior. Release closures that are no longer needed.",
+      "followUp": "Show a small example and one common mistake.",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "mdn-js-closures"
+      ]
+    },
+    {
+      "id": "reasoning",
+      "question": "How would you prove that code using closures and lexical scope behaves correctly?",
+      "answer": "State the expected value or control flow first, test normal and boundary cases, and inspect the actual runtime result. Explain the JavaScript rule behind the evidence.",
+      "followUp": "Which edge case would you test first?",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "mdn-js-closures"
+      ]
+    },
+    {
+      "id": "react-link",
+      "question": "Where can closures and lexical scope affect React code?",
+      "answer": "It can affect values, callbacks, rendering decisions, updates, or data flow. The exact connection depends on the concept; the important step is to reason from JavaScript behavior before blaming React.",
+      "followUp": "Give one component-level example.",
+      "type": "original-interview-style",
+      "provenance": {
+        "kind": "original",
+        "recordedInterview": false,
+        "company": null,
+        "interviewSourceUrl": null,
+        "interviewSourceDate": null
+      },
+      "sourceIds": [
+        "mdn-js-closures"
+      ]
+    }
+  ],
+  "miniAppIds": [
+    "study-session-report"
+  ],
+  "mastery": {
+    "status": "not-assessed",
+    "policy": "Reading or opening a solution is guided exposure, not mastery. Save an attempt, solve again without help, explain the rule, and transfer it to a new problem.",
+    "checks": [
+      {
+        "id": "explain",
+        "evidence": "Explain all four closures and lexical scope objectives without the lesson.",
+        "pass": "Every objective is accurate and includes a small example."
+      },
+      {
+        "id": "solve",
+        "evidence": "Complete four exercises before opening solutions.",
+        "pass": "The code works and the explanation matches the observed result."
+      },
+      {
+        "id": "transfer",
+        "evidence": "Use the concept in a fresh React-related or plain JavaScript problem.",
+        "pass": "The learner can defend the chosen syntax and handle one edge case."
+      }
+    ],
+    "reviewSchedule": {
+      "note": "Answer before reopening the lesson.",
+      "sessions": [
+        {
+          "dayOffset": 2,
+          "problems": [
+            {
+              "id": "recall",
+              "prompt": "Write the four main rules of Closures and lexical scope.",
+              "solution": "Explain lexical scope from where code is written. Describe a closure without mystery. Use closures for private state and configured behavior. Release closures that are no longer needed."
+            },
+            {
+              "id": "repair",
+              "prompt": "Recreate and repair one common mistake from memory.",
+              "solution": "Name the symptom, the JavaScript rule that caused it, and the smallest correct repair."
+            }
+          ]
+        },
+        {
+          "dayOffset": 7,
+          "problems": [
+            {
+              "id": "teach",
+              "prompt": "Teach closures and lexical scope with one new example.",
+              "solution": "Define it, demonstrate it, predict the result, and explain one boundary case."
+            },
+            {
+              "id": "apply",
+              "prompt": "Use the concept in a different data or UI problem.",
+              "solution": "The new solution should rely on the same rule and be explained without copying the lesson."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "sourceIds": [
+    "mdn-js-closures"
+  ],
+  "commonMistakes": [
+    {
+      "symptom": "Code using closures and lexical scope produces a surprising value.",
+      "cause": "The result was run before the value, type, scope, identity, or control flow was predicted.",
+      "fix": "Reduce the case, write the expected result, and apply the exact rule from the matching section."
+    },
+    {
+      "symptom": "A learner copies syntax but cannot adapt it.",
+      "cause": "The example was memorized without explaining why it works.",
+      "fix": "Change the data and names, predict again, and explain which behavior must stay the same."
+    },
+    {
+      "symptom": "A React problem is blamed on React immediately.",
+      "cause": "The underlying JavaScript behavior was not isolated first.",
+      "fix": "Reproduce the value or function behavior in a small JavaScript example, then reconnect it to the component."
+    }
+  ],
+  "publicationChecklist": {
+    "authored": true,
+    "sourcesReviewed": true,
+    "codeSyntaxChecked": true,
+    "serverInitialRenderChecked": false,
+    "browserBehaviorChecked": false,
+    "independentContentReview": false,
+    "learnerTrial": false,
+    "note": "Concept-complete draft. Keep sample-draft until examples receive full browser checks, independent content review, and a learner trial."
+  }
+}
