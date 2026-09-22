@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Code, LoadState, Missing } from './components.jsx';
 import { href } from './content.js';
 import useContent from './useContent.js';
+import DsaNotes from './DsaNotes.jsx';
 
 function validatePractice(data) {
   if (!data?.intro || !Array.isArray(data.concepts) || !Array.isArray(data.problems) || data.problems.length !== 20
@@ -13,11 +14,12 @@ function validatePractice(data) {
 
 function DsaSidebar({ view }) {
   return <aside className="sidebar dsa-sidebar">
-    <a className="subject-name" href={href('dsa')}>DSA Practice<span>120-minute interview sprint</span></a>
-    <nav aria-label="DSA practice">
+    <a className="subject-name" href={href('dsa')}>DSA</a>
+    <nav aria-label="DSA navigation">
       <a aria-current={view === 'overview' ? 'page' : undefined} href={href('dsa')}>All problems</a>
       <a aria-current={view === 'intro' ? 'page' : undefined} href={href('dsa', 'intro')}>Intro</a>
       <a aria-current={view === 'concepts' ? 'page' : undefined} href={href('dsa', 'concepts')}>Concept reference</a>
+      <a aria-current={view === 'chapter' ? 'page' : undefined} href={href('dsa', 'chapter', 'dsa-chapter-1')}>DSA Chapter 1</a>
     </nav>
     <div className="sidebar-note"><strong>Try before you reveal.</strong><p>Reading a solution does not mean you can solve the problem.</p></div>
   </aside>;
@@ -26,14 +28,12 @@ function DsaSidebar({ view }) {
 function Overview({ data }) {
   const easy = data.problems.filter(problem => problem.difficulty === 'Easy').length;
   return <>
-    <header className="page-heading"><p className="eyebrow">MONDAY INTERVIEW SPRINT</p><h1>{data.title}</h1><p>{data.description}</p></header>
-    <div className="stats"><span><strong>{data.sprintMinutes}</strong> minutes</span><span><strong>{data.problems.length}</strong> problems</span><span><strong>{easy}</strong> easy · <strong>{data.problems.length - easy}</strong> medium</span></div>
+    <header className="page-heading"><h1>{data.title}</h1></header>
+    <div className="stats"><span><strong>{data.problems.length}</strong> problems</span><span><strong>{easy}</strong> easy · <strong>{data.problems.length - easy}</strong> medium</span></div>
+    <section className="featured"><div><p className="eyebrow">NOTES · CHAPTER 1</p><h2>Introduction to DSA and How Programs Work</h2><p>Read the supplied foundation notes on DSA, programs, complexity, memory, and data structures.</p></div><a className="button primary" href={href('dsa', 'chapter', 'dsa-chapter-1')}>Open DSA Chapter 1</a></section>
     <section className="featured"><div><p className="eyebrow">START HERE · 10 MINUTES</p><h2>{data.intro.title}</h2><p>Learn the few terms, patterns, and interview steps used in this practice set.</p></div><a className="button primary" href={href('dsa', 'intro')}>Open intro</a></section>
-    <div className="notice sprint-note"><h2>Use the sprint honestly</h2><p>Read the prompt, explain a simple approach, and try code before opening either solution. Stop after the suggested time and return later to problems you could not solve.</p></div>
-    <div className="notice sprint-note"><h2>Need a concept?</h2><p>Every problem links to one shared explanation for its Maps, Sets, loops, pointers, windows, stacks, queues, and tree traversals.</p><a href={href('dsa', 'concepts')}>Open the concept reference</a></div>
     <div className="section-heading"><h2>20 practice problems</h2><span className="muted">Follow the order for a quick pattern review</span></div>
     <ol className="dsa-problem-list">{data.problems.map(problem => <li key={problem.id}><a href={href('dsa', 'problem', problem.id)}><span className="question-number">{String(problem.order).padStart(2, '0')}</span><span><strong>{problem.title}</strong><small>{problem.category} · {problem.pattern}</small></span><span className={`difficulty ${problem.difficulty.toLowerCase()}`}>{problem.difficulty}</span><span className="problem-time">{problem.estimatedMinutes} min</span></a></li>)}</ol>
-    <p className="sources">Method reference: <a href={data.methodReference.url} target="_blank" rel="noreferrer">{data.methodReference.title}</a>. {data.methodReference.usedFor}</p>
   </>;
 }
 
@@ -98,5 +98,5 @@ export default function DsaPractice({ route }) {
   const resource = useContent('content/dsa/practice.json', validatePractice);
   if (!resource.data) return <LoadState resource={resource} />;
   const view = route[1] || 'overview';
-  return <div className="workspace"><DsaSidebar view={view} /><main id="main" tabIndex="-1" className="main-content">{view === 'overview' ? <Overview data={resource.data} /> : view === 'intro' ? <Intro data={resource.data} /> : view === 'concepts' ? <ConceptLibrary data={resource.data} selectedId={route[2]} /> : view === 'problem' ? <Problem data={resource.data} id={route[2]} /> : <Missing />}</main></div>;
+  return <div className="workspace"><DsaSidebar view={view} /><main id="main" tabIndex="-1" className="main-content">{view === 'overview' ? <Overview data={resource.data} /> : view === 'intro' ? <Intro data={resource.data} /> : view === 'concepts' ? <ConceptLibrary data={resource.data} selectedId={route[2]} /> : view === 'problem' ? <Problem data={resource.data} id={route[2]} /> : view === 'chapter' ? <DsaNotes id={route[2]} /> : <Missing />}</main></div>;
 }

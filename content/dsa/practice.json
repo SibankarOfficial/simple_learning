@@ -1,17 +1,11 @@
 {
   "id": "dsa-practice",
-  "title": "DSA Practice",
+  "title": "DSA",
   "status": "interview-sprint",
   "language": "JavaScript",
   "sprintMinutes": 120,
-  "updatedAt": "2026-09-19",
-  "description": "A short interview sprint through common array, string, stack, linked-list, search, and tree patterns.",
+  "updatedAt": "2026-09-22",
   "sourcePolicy": "Problem identities link to LeetCode. Explanations and solutions are original learning content. Difficulty labels can change on the source site.",
-  "methodReference": {
-    "title": "Chai Visual DSA",
-    "url": "https://dsa.chaicode.com/",
-    "usedFor": "Compare the obvious approach with a better approach and explain why the complexity changes."
-  },
   "concepts": [
     {
       "id": "loops",

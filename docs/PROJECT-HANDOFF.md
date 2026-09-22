@@ -1,6 +1,6 @@
 # Simple Learning project handoff
 
-Updated: 2026-09-20. This document records product decisions and the current work state. It is maintained by hand; the other four review documents are generated from JSON.
+Updated: 2026-09-22. This document records product decisions and the current work state. It is maintained by hand; the other four review documents are generated from JSON.
 
 ## Start here next time
 
@@ -57,7 +57,8 @@ Verified from the local JSON during recovery:
 | useState exercises | 10 |
 | Lesson interview questions | 114 total: 18 in Web foundations, 57 in JavaScript foundations, 27 in React setup, plus 12 in useState |
 | Top-level interview library | 253 entries: 223 preserved PDF imports plus 30 reviewed advanced/tricky questions with authoritative references |
-| DSA interview sprint | Available as a separate module: 10-minute intro, 18 shared concept references, 20 easy/medium problems, 120 minutes total, and 40 tested JavaScript solutions |
+| DSA module | Available as a separate module: intro, 18 shared concept references, 20 easy/medium problems, and 40 tested JavaScript solutions |
+| DSA notes | DSA Chapter 1 is available as a notes-only page containing the full learner-supplied introduction and data-structure notes, with six small factual or C++ corrections |
 | Mini apps | Notebook quantity picker, accessible course signup page, JavaScript study-session report, and first React learning workspace, all sample drafts |
 | Independent ideas | 8, including setup practice for gradual adoption and tool responsibility mapping |
 | Coverage mappings | 185 total; Web, JavaScript, and React setup mappings point to reviewed first-party sources |
@@ -120,7 +121,8 @@ Both existing scripts resolve files relative to their own module location. Their
 - `src/Coverage.jsx`: source mappings, recorded dates, missing content, and pending audits.
 - `src/Review.jsx`: evidence notes and delayed practice sessions read from each lesson JSON.
 - `src/InterviewQuestions.jsx`: top-level searchable interview library with category, review-status, and source filters; questions progress from foundation/unlabeled through intermediate and advanced to tricky, while reviewed questions expose technical verification links.
-- `src/DsaPractice.jsx`: DSA overview, intro, centralized concept page with exact-section routes, 20 linked inner problem pages, collapsed solutions, complexity comparison, and previous/next navigation.
+- `src/DsaPractice.jsx`: DSA overview, intro, centralized concept page with exact-section routes, 20 linked inner problem pages, collapsed solutions, complexity comparison, previous/next navigation, and the DSA Chapter 1 entry point.
+- `src/DsaNotes.jsx`: safe notes-only Markdown renderer for DSA chapters. It supports headings, paragraphs, inline emphasis/code, lists, tables, rules, and fenced code without adding a package or reusing the React lesson flow.
 - `src/progress.js` and `src/ProgressContext.jsx`: immutable attempts, assistance history, learner confirmation, self-review, storage recovery, and review dates.
 - `src/components.jsx`: native solution dialog, code display/copy, source links, statuses, and error/loading states.
 - `src/CodePlayground.jsx` and `src/preview/runner.jsx`: editable examples with prediction, Run, Reset, isolated output, and simple compile/render errors. Every run creates a fresh sandbox. Its content policy blocks network requests and access to the parent app or its storage. The runner supports the lesson's React imports and no extra packages.
@@ -143,7 +145,7 @@ Use `npm.cmd` on Windows if needed. Development uses `http://127.0.0.1:5173/`; p
 
 ## Verification and remaining work
 
-- Fourteen focused automated checks pass for manifests, planned content, routes, the DSA sprint contract, independence/assistance, saved answer immutability, storage recovery, retry drafts, and JSON-driven delayed review problems/dates.
+- Fifteen focused automated checks pass for manifests, planned content, routes, the DSA sprint and notes contracts, independence/assistance, saved answer immutability, storage recovery, retry drafts, and JSON-driven delayed review problems/dates.
 - A standalone production build passes and contains the authored JSON; content validation passes without the ERP project.
 - Interview-library validation checks 253 unique entries, PDF hashes/counts/page sequences, web source counts, categories, review status, difficulty, and authoritative URLs for all 30 reviewed advanced questions.
 - The local development URL returned HTTP 200. A Codex preview opening was requested (tool reported queued); the user's existing Chrome Simple Learning tab was then available and used for limited checks.
@@ -151,12 +153,13 @@ Use `npm.cmd` on Windows if needed. Development uses `http://127.0.0.1:5173/`; p
 - The first live example was checked in Chrome: it rendered at Count 0, updated to Count 1, accepted an edited initial value and increment, showed a useful invalid-JSX error, and Reset restored the authored code and Count 0. The preview runtime needed an explicit production environment replacement; that issue is fixed in `vite.preview.config.js`.
 - The global interview page was checked in Chrome: the top navigation route opened without the React sidebar, 253 total/30 reviewed/223 imported counts rendered, the reviewed-only filter returned 30, and an expanded answer showed code, interview focus, two official references, and public question-bank provenance. The latest ordering change puts foundation/unlabeled questions first and reserves tricky questions for the end.
 - The DSA module was checked in Chrome: overview counts and all 20 links rendered; the complete intro opened; Two Sum showed its Loops and Hash Map concept links; Hash Map navigated to and highlighted its exact section on the shared 18-concept page; and the concept linked back to all three problems that use it. All 40 basic/better JavaScript implementations returned expected results for representative inputs in a local execution check.
+- DSA Chapter 1 lives at `#/dsa/chapter/dsa-chapter-1`. Its source is `content/dsa/chapters/dsa-chapter-1.json`; it deliberately contains only the supplied notes and does not create exercises, solutions, mastery records, or interview items. The full notes were preserved. Corrections clarify the compile/link/load/execute flow, automatic versus static storage duration, average-case assumptions, standard C++ dynamic storage with `vector`, the `float` literal suffix, and primitive data types versus data structures.
 - Complete modal interaction/focus testing, the remaining live examples, saved-practice and review behavior in a real browser, responsive/zoom checks, network-policy probing, and content-error/retry UI checks remain to be exercised. Pure progress behavior has automated coverage, which is not a substitute for those browser checks.
 - All 35 authored lessons remain `sample-draft`; no publication flag was advanced based on schema, build, or limited UI checks alone.
 - A focused React example runner is implemented. It executes editable lesson modules in a fresh sandbox, but it does not grade submitted practice answers. Self-reported evidence is never a verified mastery score.
 - The built-in quantity demo is React/useState-specific. Delayed review material is topic-owned JSON. PDF answers still need official-source review and should be corrected in JSON without claiming that the supplied documents are authoritative.
 - Chapter 3, **React setup and orientation**, is now drafted across all nine ordered topics. The next content milestone is Chapter 4, **Components and JSX**. Continue chapter by chapter using the concept-first pattern: each stated learning objective must have a mapped explanation section, followed by practical examples, meaningful exercises, mastery/review data, a linked mini app where useful, exact official sources, validation, generated docs, and browser checks.
-- Immediate interview use: open `#/dsa/intro`, spend 10 minutes there, then follow problems 1–20 in order. The 120-minute schedule is a fast review target, not a promise that every learner can independently master all 20 problems in one session.
+- For focused DSA practice, open `#/dsa/intro`, then follow problems 1–20 in order.
 
 Browser progress uses `simple-learning.progress.v1` and is local to browser and origin. Hints and solution reveals persist across attempts. Viewing the mini app's full solution records assistance for p07/p10. A previously saved answer is not altered by later help. Future attempts remain assisted. Corrupt existing storage is left untouched; the UI warns that new work is session-only. No test answers were inserted into the user's browser practice records during the limited UI check.
 

@@ -365,7 +365,7 @@ export default function App() {
           <a className="brand" href="#/">
             <span className="brand-mark">sl</span>Simple Learning
           </a>
-          <nav aria-label="Main"><a href="#/subjects">Learning</a><a href="#/interview">Interview questions</a><a href="#/dsa">DSA practice</a></nav>
+          <nav aria-label="Main"><a href="#/subjects">Learning</a><a href="#/interview">Interview questions</a><a href="#/dsa">DSA</a></nav>
         </header>
         {!subjects.data ? (
           <LoadState resource={subjects} />

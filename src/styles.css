@@ -166,6 +166,15 @@ button[aria-pressed="true"] { background: #e5edfb; border-color: #4973b9; color:
 .complexity-note { border-left: 2px solid #7899c6; padding: .5rem 1rem; margin: 1rem 0; background: #f7f9fc; }
 .complexity-note p { margin-bottom: 0; }
 .concept-problems { font-size: .9rem; }
+.featured + .featured { margin-top: 1rem; }
+.dsa-notes-body h2 { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+.dsa-notes-body h2:first-child { margin-top: 2rem; }
+.dsa-notes-body h3 { margin-top: 2rem; font-size: 1.18rem; }
+.dsa-notes-body h4 { margin: 1.5rem 0 .5rem; color: var(--ink); font-size: 1rem; }
+.dsa-notes-body h5 { margin: 1.25rem 0 .5rem; color: var(--ink); font-size: .95rem; }
+.dsa-notes-body hr { border: 0; border-top: 1px solid var(--line); margin: 2rem 0; }
+.dsa-notes-body p code, .dsa-notes-body li code { padding: .08rem .3rem; background: #f1f4f8; border-radius: 3px; color: #183e66; }
+.notes-lines { line-height: 1.9; }
 .evidence-form { margin: 2rem 0; }
 .topic-review { margin: 2rem 0; }
 .review-session { border: 1px solid var(--line); border-radius: 6px; padding: 1rem 1.2rem; margin: .8rem 0; }

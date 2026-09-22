@@ -51,4 +51,15 @@ test('the DSA sprint has an intro and twenty complete problem pages', () => {
   assert.ok(practice.problems.every(problem => problem.conceptIds.length >= 2 && problem.conceptIds.every(id => practice.concepts.some(concept => concept.id === id))));
   assert.deepEqual(readRoute(href('dsa', 'problem', 'two-sum')), ['dsa', 'problem', 'two-sum']);
   assert.deepEqual(readRoute(href('dsa', 'concepts', 'hash-map')), ['dsa', 'concepts', 'hash-map']);
+  assert.deepEqual(readRoute(href('dsa', 'chapter', 'dsa-chapter-1')), ['dsa', 'chapter', 'dsa-chapter-1']);
+});
+test('DSA Chapter 1 preserves the supplied notes with factual corrections', () => {
+  const chapter = read('content/dsa/chapters/dsa-chapter-1.json');
+  assert.equal(chapter.title, 'DSA Chapter 1');
+  assert.equal(chapter.noteTitle, 'Introduction to DSA and How Programs Work');
+  assert.ok(chapter.content.length > 12000);
+  assert.match(chapter.content, /Compiler and Linker/);
+  assert.match(chapter.content, /automatic storage duration/);
+  assert.match(chapter.content, /vector<int> copy\(n\)/);
+  assert.doesNotMatch(chapter.content, /int arr\[n\]/);
 });

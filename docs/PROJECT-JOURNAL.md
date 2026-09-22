@@ -709,3 +709,43 @@ No package was added. The implementation uses the existing JSON content system, 
 - All 14 automated tests pass, generated documents were refreshed, and the production build passes. Chrome confirms all nine Chapter 3 cards are available sample drafts; the concept explanations, five-practice count, Vite setup, React DevTools, gradual-adoption content, guided project, eight steps, final `App.jsx`, behavior checks, and two independent ideas render without Console warnings or errors.
 - All 35 authored topics remain `sample-draft`. Full browser behavior, independent content review, version rechecks after tool updates, and learner trials are still required before publication.
 - Start next with Chapter 4 **Components and JSX**.
+
+## 2026-09-22 — DSA Chapter 1 learner notes
+
+The DSA area now has a first chapter named **DSA Chapter 1**. It is a notes-only reading page for the complete learner-supplied *Introduction to DSA and How Programs Work* notes. The chapter does not use the React lesson structure, exercises, mastery checks, spaced review, or solution flow.
+
+### Content and corrections
+
+The original headings, explanations, examples, C++ snippets, text diagrams, lists, and tables were preserved. Editing was limited to six correctness points: the compile/link/load/execute pipeline; automatic versus static storage duration for a local fixed-size array; the assumptions behind average-case analysis; a standard C++ `vector` example instead of a variable-length array; the `f` suffix on a `float` literal; and the distinction between primitive data types and data structures.
+
+### Architecture and flow
+
+1. `content/dsa/chapters/dsa-chapter-1.json` is the source of truth and stores chapter metadata plus the full notes as Markdown text.
+2. The DSA sidebar and overview link to `#/dsa/chapter/dsa-chapter-1`.
+3. `src/DsaNotes.jsx` fetches and validates the selected chapter, then renders its limited Markdown forms as React elements. It does not inject HTML.
+4. The existing DSA workspace and sidebar remain around the page, so learners can return to the problem sprint, intro, or concept reference.
+
+No package was added. The small renderer supports only the formats used by these notes: headings, paragraphs, line breaks, bold text, inline code, ordered and unordered lists, tables, horizontal rules, and fenced code.
+
+### Main files
+
+| File | Change |
+| --- | --- |
+| `content/dsa/chapters/dsa-chapter-1.json` | Added the full corrected learner notes and review metadata. |
+| `src/DsaNotes.jsx` | Added the notes-only reader and safe Markdown rendering. |
+| `src/DsaPractice.jsx` | Added the chapter route, sidebar link, and overview card. |
+| `src/styles.css` | Added readable chapter heading, inline-code, rule, and spacing styles. |
+| `scripts/validate-content.mjs` | Checks the chapter identity, complete size, both major sections, and removal of the non-standard C++ array example. |
+| `tests/content.test.mjs` | Checks the route, preserved note size, and key corrections. |
+
+### Verification and next start
+
+- All 15 automated tests pass.
+- Content validation passes with the existing 30 React chapters, 324 topics, 35 lesson drafts, 4 mini apps, 253 interview entries, and 20 DSA problems; the DSA notes checks also pass.
+- The production build passes and emits `dist/content/dsa/chapters/dsa-chapter-1.json`.
+- Browser review confirmed the full chapter, both major sections, lists, tables, code blocks, corrected text, and heading hierarchy render on the notes-only route. A fourth-level heading issue found during the review was fixed. Narrow-screen review remains pending.
+- Continue React with Chapter 4 **Components and JSX** when returning to the chapter-by-chapter content plan.
+
+## 2026-09-22 — DSA overview simplified
+
+The learner-facing module name is now **DSA** in the main navigation, sidebar, overview heading, and chapter back link. The overview no longer shows the Monday interview label, introductory sprint description, 120-minute statistic, **Use the sprint honestly**, **Need a concept?**, or the Chai Visual method-reference footer. The intro, concept reference, Chapter 1 notes, difficulty counts, and all 20 problem links remain available. No package or route changed.

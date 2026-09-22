@@ -39,6 +39,7 @@ const app = read('mini-apps/quantity-picker.json');
 const ideas = read('ideas.json');
 const interviewLibrary = read('interview-questions.json');
 const dsaPractice = JSON.parse(fs.readFileSync(fileURLToPath(new URL('../content/dsa/practice.json', import.meta.url)), 'utf8'));
+const dsaChapterOne = JSON.parse(fs.readFileSync(fileURLToPath(new URL('../content/dsa/chapters/dsa-chapter-1.json', import.meta.url)), 'utf8'));
 const unique = (items, label) => {
   assert.equal(new Set(items.map(x => x.id)).size, items.length, `Duplicate ${label} IDs`);
   return new Map(items.map(x => [x.id, x]));
@@ -252,6 +253,12 @@ for (const source of interviewLibrary.sources) {
   }
 }
 assert.equal(dsaPractice.problems.length, 20, 'Expected 20 DSA sprint problems');
+assert.equal(dsaChapterOne.id, 'dsa-chapter-1');
+assert.equal(dsaChapterOne.title, 'DSA Chapter 1');
+assert(dsaChapterOne.content.length > 12000, 'DSA Chapter 1 notes are incomplete');
+assert(dsaChapterOne.content.includes('# Introduction to DSA and How Programs Work'));
+assert(dsaChapterOne.content.includes('# Data Structures'));
+assert(!dsaChapterOne.content.includes('int arr[n]'), 'DSA notes contain a non-standard C++ variable-length array');
 assert.equal(dsaPractice.intro.estimatedMinutes + dsaPractice.problems.reduce((total, problem) => total + problem.estimatedMinutes, 0), 120, 'DSA sprint must total 120 minutes');
 unique(dsaPractice.problems, 'DSA problem');
 ordered(dsaPractice.problems, 'DSA problem');
